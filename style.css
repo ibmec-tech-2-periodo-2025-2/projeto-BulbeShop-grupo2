@@ -181,7 +181,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/tomada.jpeg");
+    background-image: url("./assets/img/body.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -204,7 +204,7 @@ header {
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    border:solid 3px black
+    border: solid 3px black
 }
 
 .prod2:hover {
@@ -219,7 +219,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/pilha.webp");
+    background-image: url("./assets/img/regata.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -257,7 +257,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/bolsa_em_couro_legitimo_drabolsa\ de\ couro.png");
+    background-image: url("./assets/img/jaqueta.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -280,7 +280,7 @@ header {
     background-color: #ffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    border:solid 3px black
+    border: solid 3px black
 }
 
 .prod4:hover {
@@ -295,7 +295,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/blusinha2.png");
+    background-image: url("./assets/img/vestido.jpeg");
     background-size: cover;
     border: #111 solid 1px;
 }
@@ -333,6 +333,11 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
+    background-image: url("./assets/img/Apple.jpg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
 }
 
 .texto5 {
@@ -343,6 +348,7 @@ header {
     border-radius: 5px;
     margin-top: 5px;
 }
+
 /*Produto 6*/
 .prod6 {
     width: 300px;
@@ -366,6 +372,11 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
+    background-image: url("./assets/img/iphone17jpg.jpg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
 }
 
 .texto6 {
@@ -400,6 +411,11 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
+    background-image: url("./assets/img/air-pods.png");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
 }
 
 .texto7 {
@@ -434,6 +450,11 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
+    background-image: url("./assets/img/imac2.webp");
+    
+   
+    background-size: cover;
+    border: #111 solid 1px;
 }
 
 .texto8 {
