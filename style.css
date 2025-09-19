@@ -191,7 +191,7 @@ header {
 .texto1 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -229,7 +229,7 @@ header {
 .texto2 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -267,7 +267,7 @@ header {
 .texto3 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -303,7 +303,7 @@ header {
 .texto4 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -343,7 +343,7 @@ header {
 .texto5 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -382,7 +382,7 @@ header {
 .texto6 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -421,7 +421,7 @@ header {
 .texto7 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
@@ -451,8 +451,6 @@ header {
     margin-left: 25px;
     border-radius: 5px;
     background-image: url("./assets/img/imac2.webp");
-    
-   
     background-size: cover;
     border: #111 solid 1px;
 }
@@ -460,11 +458,62 @@ header {
 .texto8 {
     width: 250px;
     height: 120px;
-    background-color: rgb(94, 94, 146);
+    background-color: #ffff;
     margin-left: 25px;
     border-radius: 5px;
     margin-top: 5px;
 }
+
+/*textos*/
+.produtos [class^="texto"] {
+  
+  padding: 10px 12px;
+  color: #000000;               
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;          
+}
+
+
+.produtos .nome {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.produtos .preco {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: #0c3a97;             
+}
+
+.produtos .avaliacao {
+  font-size: 14px;
+  opacity: .95;
+  margin: 0;
+}
+
+.avaliacao {
+  font-size: 14px;
+  color: #111;   
+  font-family: Arial, sans-serif;
+}
+
+.produtos .descricao {
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: .9;
+  margin: 2px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 
 /*Footer*/
 footer {
