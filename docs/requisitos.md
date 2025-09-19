@@ -53,8 +53,6 @@ Organização de Pastas e Arquivos
 /src
   /assets
     /img              # imagens do projeto
-    /css
-      style.css       # estilos principais
     /js
       scripts.js      # scripts básicos
   index.html          # homepage
