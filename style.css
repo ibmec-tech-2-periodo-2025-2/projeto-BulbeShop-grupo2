@@ -4,26 +4,28 @@
     box-sizing: border-box;
 }
 
+/* ---------- BASE / HEADER ---------- */
 body {
     margin: 0;
     padding-top: 120px;
-    background-color: rgb(246, 246, 250)
+    background-color: rgb(246, 246, 250);
 }
 
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     width: 100%;
-    height: 15%;
-    background: white url("./assets/img/Captura\ de\ tela_17-9-2025_18535_bulbeenergia.com.br.jpeg") no-repeat center;
-    background-size: 190px;
+    height: 120px;
+    background-color: #fff;
+    background-image: url("assets/img/logo-bulbe.jpeg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 190px auto;
     z-index: 1000;
     box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-/*barra de busca*/
+/* ---------- BARRA DE BUSCA ---------- */
 :root {
     --radius: 999px;
     --border: 2px;
@@ -43,6 +45,15 @@ header {
     font-weight: 700;
 }
 
+.search-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top: 6px;
+  padding: 0 12px;
+}
+
 .search {
     display: flex;
     align-items: center;
@@ -54,6 +65,7 @@ header {
     max-width: 820px;
     margin-inline: auto;
     background: #fff;
+    flex: 1 1 auto;
 }
 
 .search__icon {
@@ -83,68 +95,46 @@ header {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+    transition: filter .2s ease;
 }
 
-.search__btn:hover {
-    filter: brightness(1.1);
-}
+.search__btn:hover { filter: brightness(1.1); }
 
 .search:focus-within {
     box-shadow: 0 0 0 4px rgba(17, 17, 17, .06);
 }
 
-@media (max-width: 520px) {
-    :root {
-        --h: 56px;
-    }
-
-    .search__btn {
-        display: none;
-    }
-}
-
-/*Carrinho*/
-.search-row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;                 
-  margin-top: 6px;
-}
-
-
-.search{ flex: 1 1 auto; max-width: 820px; }
-
-
+/* Carrinho */
 .cart-btn{
   width: 46px;
   height: 46px;
   border: 2px solid #111;
   border-radius: 50%;
   background:#fff;
-  display:inline-flex;      
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:0;                
+  padding:0;
   line-height:0;
   cursor:pointer;
   color:#111;
-  transition:transform .2s ease, .2s ease, color .2s ease;
-  -webkit-appearance:none; appearance:none; 
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  transition: transform .2s ease, color .2s ease, background .2s ease;
 }
-
-.cart-btn svg{ width:22px; height:22px; }
-
+.cart-btn svg{
+  width: 22px;
+  height: 22px;
+  display: block;
+  flex: 0 0 auto;
+}
 .cart-btn:hover{
   background:#111;
   color:#fff;
   transform:scale(1.06);
 }
 
-@media (max-width:520px){
-  .cart-btn{ width:42px; height:42px; }
-}
-/*Categorias*/
+/* ---------- CATEGORIAS ---------- */
 .categories {
     display: flex;
     justify-content: center;
@@ -155,7 +145,7 @@ header {
 
 .category {
     text-align: center;
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     font-size: 16px;
     color: #111;
 }
@@ -171,6 +161,7 @@ header {
     margin: 0 auto 8px;
     transition: all 0.3s ease;
     cursor: pointer;
+    background: #fff;
 }
 
 .circle img {
@@ -188,335 +179,65 @@ header {
     filter: brightness(0) invert(1);
 }
 
-
-/*Produtos*/
+/* ---------- PRODUTOS ---------- */
 .produtos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 300px);
+    justify-content: center;
+    gap: 16px;
+    padding: 0 16px;
     margin-top: 30px;
-    align-items: center;
+    align-items: stretch;
 }
 
-/*Produto 1*/
-.prod1 {
-    width: 300px;
-    height: 400px;
+.produtos > [class^="prod"]{
+    width: 100%;
+    height: auto;
+    margin: 0;
     background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-left: 7px;
-    border: solid 3px #111;
-
-}
-
-.prod1:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img1 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/body.jpeg");
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto1 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 2*/
-.prod2 {
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
+    border: 3px solid #111;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: solid 3px black
+    transition: transform .25s ease, filter .25s ease;
+}
+.produtos > [class^="prod"]:hover{
+    transform: scale(1.03);
+    filter: brightness(.95);
 }
 
-.prod2:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img2 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/regata.jpeg");
-    justify-content: center;
-    align-items: center;
+.produtos [class^="img"]{
+    width: calc(100% - 32px);
+    margin: 16px auto 8px;
+    border-radius: 6px;
+    border: 1px solid #111;
     background-size: cover;
-    border: #111 solid 1px;
+    background-position: center;
+    aspect-ratio: 1 / 1;
 }
 
-.texto2 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
+.img1 { background-image: url("./assets/img/body.jpeg"); }
+.img2 { background-image: url("./assets/img/regata.jpeg"); }
+.img3 { background-image: url("./assets/img/jaqueta.jpeg"); }
+.img4 { background-image: url("./assets/img/vestido.jpeg"); }
+.img5 { background-image: url("./assets/img/Apple.jpg"); }
+.img6 { background-image: url("./assets/img/iphone17jpg.jpg"); }
+.img7 { background-image: url("./assets/img/air-pods.png"); }
+.img8 { background-image: url("./assets/img/imac2.webp"); }
 
-/*Produto 3*/
-.prod3 {
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 3px solid black
-}
-
-.prod3:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img3 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/jaqueta.jpeg");
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto3 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 4*/
-.prod4 {
-    width: 300px;
-    height: 400px;
-    background-color: #ffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: solid 3px black
-}
-
-.prod4:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img4 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/vestido.jpeg");
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto4 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 5*/
-.prod5 {
-    width: 300px;
-    height: 400px;
-    background-color: #ffff;
-    margin-top: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-left: 7px;
-    border: 3px solid black
-}
-
-.prod5:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img5 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/Apple.jpg");
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto5 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 6*/
-.prod6 {
-    width: 300px;
-    height: 400px;
-    background-color: #ffff;
-    margin-top: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 3px solid black
-}
-
-.prod6:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img6 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/iphone17jpg.jpg");
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto6 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 7*/
-.prod7 {
-    width: 300px;
-    height: 400px;
-    background-color: #ffff;
-    margin-top: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 3px solid black;
-}
-
-.prod7:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img7 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/air-pods.png");
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto7 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*Produto 8*/
-.prod8 {
-    width: 300px;
-    height: 400px;
-    background-color: #ffff;
-    margin-top: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 3px solid black
-}
-
-.prod8:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
-}
-
-.img8 {
-    width: 250px;
-    height: 250px;
-    background-color: antiquewhite;
-    margin-top: 15px;
-    margin-left: 25px;
-    border-radius: 5px;
-    background-image: url("./assets/img/imac2.webp");
-    background-size: cover;
-    border: #111 solid 1px;
-}
-
-.texto8 {
-    width: 250px;
-    height: 120px;
-    background-color: #ffff;
-    margin-left: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-/*textos*/
 .produtos [class^="texto"] {
-  
-  padding: 10px 12px;
-  color: #000000;               
+  width: auto;
+  height: auto;
+  margin: 8px 16px 16px;
+  padding: 8px 0;
+  background: #fff;
+  border-radius: 6px;
+  color: #000000;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  overflow: hidden;          
+  gap: 6px;
+  overflow: hidden;
 }
-
 
 .produtos .nome {
   font-size: 16px;
@@ -529,7 +250,7 @@ header {
   font-size: 18px;
   font-weight: 500;
   margin: 0;
-  color: #0c3a97;             
+  color: #0c3a97;
 }
 
 .produtos .avaliacao {
@@ -540,7 +261,7 @@ header {
 
 .avaliacao {
   font-size: 14px;
-  color: #111;   
+  color: #111;
   font-family: Arial, sans-serif;
 }
 
@@ -550,15 +271,14 @@ header {
   opacity: .9;
   margin: 2px 0 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;      
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-
-/*Footer*/
+/* ---------- FOOTER ---------- */
 footer {
-    color: black;
+    color: #000;
     text-align: center;
     padding: 40px 20px;
     margin-top: 40px;
@@ -572,7 +292,6 @@ footer {
     margin: 12px 0;
 }
 
-
 .icone1 {
     background-image: url("./assets/img/instagram-logo.png");
     width: 60px;
@@ -583,4 +302,17 @@ footer {
     background-size: 60%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 1200px){
+  .produtos { grid-template-columns: repeat(3, 300px); }
+}
+@media (max-width: 900px){
+  .produtos { grid-template-columns: repeat(2, 300px); }
+}
+@media (max-width: 600px){
+  .produtos { grid-template-columns: repeat(1, 300px); }
+  .cart-btn{ width: 40px; height: 40px; }
+  .cart-btn svg{ width: 20px; height: 20px; }
 }
