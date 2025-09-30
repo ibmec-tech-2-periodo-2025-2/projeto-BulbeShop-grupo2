@@ -142,8 +142,13 @@ header {
 }
 
 @media (max-width:520px){
+      .produtos {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px; }
+    
   .cart-btn{ width:42px; height:42px; }
 }
+
 /*Categorias*/
 .categories {
     display: flex;
@@ -583,4 +588,27 @@ footer {
     background-size: 60%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+}
+/* —— MOBILE: categorias (bolinhas) em 4 colunas —— */
+@media (max-width: 520px) {
+  .categories {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* 4 bolinhas lado a lado */
+    gap: 12px;
+    margin-top: 20px;
+    justify-items: center;  /* centraliza cada bolinha */
+  }
+
+  .circle {
+    width: 70px;   /* reduz o tamanho das bolinhas no mobile */
+    height: 70px;
+  }
+
+  .circle img {
+    width: 50%;
+  }
+
+  .category {
+    font-size: 14px; /* texto menor embaixo */
+  }
 }
