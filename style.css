@@ -641,3 +641,22 @@ footer {
     margin: 8px auto 12px;
   }
 }
+
+ 
+  /* MOBILE: placeholder rolando automaticamente */
+@media (max-width: 520px) {
+  .search__input {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* anima enquanto o campo estiver vazio (placeholder visível) */
+  .search__input:placeholder-shown {
+    animation: ph-scroll 10s linear infinite;
+  }
+
+  @keyframes ph-scroll {
+    0%   { text-indent: 0; }
+    100% { text-indent: -380px; } /* ajuste este valor ao tamanho do seu placeholder */
+  }
+}
