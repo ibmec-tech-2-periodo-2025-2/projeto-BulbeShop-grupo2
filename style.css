@@ -612,3 +612,32 @@ footer {
     font-size: 14px; /* texto menor embaixo */
   }
 }
+/* —— MOBILE: 2 produtos por linha —— */
+@media (max-width: 520px) {
+  .produtos {
+    grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    gap: 12px;
+    justify-content: center;
+    padding: 0 8px;
+  }
+
+  /* Cards: ignorar largura fixa e remover margens que desalinhavam */
+  .produtos > [class^="prod"] {
+    width: auto;
+    margin: 0;
+  }
+
+  /* Imagens internas: centralizadas e fluidas dentro do card */
+  .produtos [class^="img"] {
+    width: calc(100% - 24px);
+    margin: 12px auto 0;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Texto: usa a mesma largura da imagem */
+  .produtos [class^="texto"] {
+    width: calc(100% - 24px);
+    margin: 8px auto 12px;
+  }
+}
