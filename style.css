@@ -93,6 +93,7 @@ header {
     box-shadow: 0 0 0 4px rgba(17, 17, 17, .06);
 }
 
+/*Para o botao de buscar sumir na responsividade*/
 @media (max-width: 520px) {
     :root {
         --h: 56px;
@@ -140,6 +141,7 @@ header {
   color:#fff;
   transform:scale(1.06);
 }
+
 
 @media (max-width:520px){
       .produtos {
