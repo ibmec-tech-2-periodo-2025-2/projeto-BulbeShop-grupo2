@@ -3,10 +3,10 @@ Documentação do Projeto
 
 Integrantes
 
-Beatriz Samaha - Função/Responsabilidade
-Bruna Bento - Função/Responsabilidade
-Júlia Leal - Função/Responsabilidade
-Pedro Paulucci - Função/Responsabilidade
+Beatriz Samaha - Scrum Master (sprint1)
+Bruna Bento - Desenvolvedor
+Júlia Leal - Desenvolvedor
+Pedro Paulucci - Desenvolvedor
 
 
 Gestão de Código
