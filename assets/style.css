@@ -744,3 +744,9 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
     z-index: 2;
 }
+/* Desktop: normaliza o espaçamento dos cards */
+@media (min-width: 521px){
+  .produtos > [class^="prod"]{
+    margin: 0 !important;   /* remove margin-left/top ad-hoc */
+  }
+}
