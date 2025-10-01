@@ -17,7 +17,7 @@ header {
     right: 0;
     width: 100%;
     height: 15%;
-    background: white url("./assets/img/logo-bulbe.jpeg") no-repeat center;
+    background: white url("./img/logo-bulbe.jpeg") no-repeat center;
     background-size: 190px;
     z-index: 1000;
     box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
@@ -241,7 +241,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/body.jpeg");
+    background-image: url("./img/body.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -279,7 +279,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/regata.jpeg");
+    background-image: url("./img/regata.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -317,7 +317,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/jaqueta.jpeg");
+    background-image: url("./img/jaqueta.jpeg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -355,7 +355,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/vestido.jpeg");
+    background-image: url("./img/vestido.jpeg");
     background-size: cover;
     border: #111 solid 1px;
 }
@@ -393,7 +393,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/Apple.jpg");
+    background-image: url("./img/Apple.jpg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -432,7 +432,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/iphone17jpg.jpg");
+    background-image: url("./img/iphone17jpg.jpg");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -471,7 +471,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/air-pods.png");
+    background-image: url("./img/air-pods.png");
     justify-content: center;
     align-items: center;
     background-size: cover;
@@ -510,7 +510,7 @@ header {
     margin-top: 15px;
     margin-left: 25px;
     border-radius: 5px;
-    background-image: url("./assets/img/imac2.webp");
+    background-image: url("./img/imac2.webp");
     background-size: cover;
     border: #111 solid 1px;
 }
@@ -592,7 +592,7 @@ footer {
 
 
 .icone1 {
-    background-image: url("./assets/img/instagram-logo.png");
+    background-image: url("./img/instagram-logo.png");
     width: 60px;
     height: 60px;
     display: inline-block;
