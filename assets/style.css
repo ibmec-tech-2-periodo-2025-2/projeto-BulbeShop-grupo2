@@ -750,3 +750,24 @@ footer {
     margin: 0 !important;   /* remove margin-left/top ad-hoc */
   }
 }
+:root {
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body {
+  font-family: var(--font-base);
+}
+
+/* faz controles herdarem a mesma fonte */
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* sobrescreve pontos que tinham fonte própria */
+.produtos [class^="texto"],
+.category,
+.avaliacao,
+.badge,
+.btn-add {
+  font-family: inherit;
+}
