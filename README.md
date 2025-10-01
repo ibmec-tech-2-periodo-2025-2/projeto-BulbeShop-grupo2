@@ -1,6 +1,8 @@
-Grupo 2
+Grupo 2 - BulbeShop
+
 Componentes do grupo: Beatriz Samaha, Bruna Bento , Julia Leal e Pedro Paulucci
 
+A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, permitindo que usuários encontrem, filtrem e comprem ofertas de forma rápida e segura. O sistema contará com páginas de produtos, carrinho de compras, checkout e área de promoções em destaque, sempre em um layout responsivo e intuitivo. O projeto deve garantir boa performance, segurança e acessibilidade, com carregamento rápido, navegação fluida em diferentes dispositivos e conformidade com a LGPD.
 
 -BackLog: (docs-backlog.md)
     https://docs.google.com/document/d/1gBdBywDEZH4fhEQNLQfPCEOV57eWLzE7sTjv-_GoM_Y/edit?usp=sharing
@@ -18,6 +20,14 @@ Componentes do grupo: Beatriz Samaha, Bruna Bento , Julia Leal e Pedro Paulucci
 
 
 -Modelo HTMl e CSS:
+/docs
+   backlog.md        # backlog do produto
+   requisitos.md     # documentação do projeto
+   cerimonias.md     # atas de planning, dailies, reviews
+/src
+   /assets
+      /img
+      /css/style.css
     index.html
-    style.css
-    assests-imgs
+/tests
+    README.md
