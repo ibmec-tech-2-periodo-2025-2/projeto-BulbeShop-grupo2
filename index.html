@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
-    <header></header>
+<body id="topo">
+    <header>
+        <a href="#topo">
+            <img src="./assets/img/logo-bulbe.jpeg" alt="Logo Bulbe Shop" class="logo">
+        </a>
+    </header>
     <!-- Pesquisar (pesquisado para fazer sentido com a tela de baixa fidelidade)-->
 
     <section class="hero">
@@ -22,13 +26,13 @@
                         <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
                     </svg>
                 </span>
-                <input class="search__input" type="search" name="q" placeholder="Busque por marcas, categorias ou produtos"
-                    autocomplete="off" />
+                <input class="search__input" type="search" name="q"
+                    placeholder="Busque por marcas, categorias ou produtos" autocomplete="off" />
                 <button class="search__btn" type="submit">Buscar</button>
-                
+
             </form>
 
-    <!-- Carrinho (pesquisado para fazer sentido com a tela de baixa fidelidade)-->
+            <!-- Carrinho (pesquisado para fazer sentido com a tela de baixa fidelidade)-->
             <button class="cart-btn" type="button" aria-label="Abrir carrinho">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -71,6 +75,7 @@
     <!--Produtos-->
     <div class="produtos">
         <div class="prod1">
+            <span class="badge">-33%</span>
             <div class="img1"></div>
             <div class="texto1">
                 <h3 class="nome">Nome do Produto</h3>
@@ -81,6 +86,7 @@
         </div>
 
         <div class="prod2">
+            <span class="badge">-20%</span>
             <div class="img2"></div>
             <div class="texto2">
                 <h3 class="nome">Nome do Produto</h3>
@@ -91,6 +97,7 @@
         </div>
 
         <div class="prod3">
+            <span class="badge">Novo</span>
             <div class="img3"></div>
             <div class="texto3">
                 <h3 class="nome">Nome do Produto</h3>
@@ -101,6 +108,7 @@
         </div>
 
         <div class="prod4">
+            <span class="badge">-40%</span>
             <div class="img4"></div>
             <div class="texto4">
                 <h3 class="nome">Nome do Produto</h3>
@@ -111,6 +119,7 @@
         </div>
 
         <div class="prod5">
+            <span class="badge">-10%</span>
             <div class="img5"></div>
             <div class="texto5">
                 <h3 class="nome">Nome do Produto</h3>
@@ -121,6 +130,7 @@
         </div>
 
         <div class="prod6">
+            <span class="badge">Últimas</span>
             <div class="img6"></div>
             <div class="texto6">
                 <h3 class="nome">Nome do Produto</h3>
@@ -131,6 +141,7 @@
         </div>
 
         <div class="prod7">
+            <span class="badge">-15%</span>
             <div class="img7"></div>
             <div class="texto7">
                 <h3 class="nome">Nome do Produto</h3>
@@ -141,6 +152,7 @@
         </div>
 
         <div class="prod8">
+            <span class="badge">-18%</span>
             <div class="img8"></div>
             <div class="texto8">
                 <h3 class="nome">Nome do Produto</h3>
