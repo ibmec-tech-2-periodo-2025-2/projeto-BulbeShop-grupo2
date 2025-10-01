@@ -28,12 +28,43 @@ header {
 }
 
 header .logo {
-    height: 80px; /* ajusta o tamanho da logo */
-    cursor: pointer; /* mãozinha no hover */
+    height: 80px; 
+    cursor: pointer; 
     margin-top: 25px;
 }
+.header-actions{
+  position: absolute;       
+  top: 50%;
+  right: 45px;              
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-/*barra de busca*/
+
+.user-btn{
+  background: #fff;
+  cursor: pointer;
+  
+}
+
+
+.user-btn img{
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+
+
+
+@media (max-width: 520px){
+  .user-btn{ width: 42px; height: 42px; }
+  .header-actions{ right: 12px; }
+}
+
+
 :root {
     --radius: 999px;
     --border: 2px;
@@ -172,7 +203,7 @@ header .logo {
     }
 }
 
-/*Categorias*/
+
 .categories {
     display: flex;
     justify-content: center;
@@ -217,7 +248,7 @@ header .logo {
 }
 
 
-/*Produtos*/
+
 .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
@@ -227,7 +258,7 @@ header .logo {
     padding: 0 12px;
 }
 
-/*Produto 1*/
+
 .prod1 {
     width: 300px;
     height: 400px;
@@ -267,7 +298,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 2*/
+
 .prod2 {
     width: 300px;
     height: 400px;
@@ -305,7 +336,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 3*/
+
 .prod3 {
     width: 300px;
     height: 400px;
@@ -343,7 +374,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 4*/
+
 .prod4 {
     width: 300px;
     height: 400px;
@@ -379,7 +410,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 5*/
+
 .prod5 {
     width: 300px;
     height: 400px;
@@ -419,7 +450,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 6*/
+
 .prod6 {
     width: 300px;
     height: 400px;
@@ -458,7 +489,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 7*/
+
 .prod7 {
     width: 300px;
     height: 400px;
@@ -497,7 +528,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*Produto 8*/
+
 .prod8 {
     width: 300px;
     height: 400px;
@@ -534,7 +565,7 @@ header .logo {
     margin-top: 5px;
 }
 
-/*textos*/
+
 .produtos [class^="texto"] {
 
     padding: 10px 12px;
@@ -584,7 +615,7 @@ header .logo {
 }
 
 
-/*Footer*/
+
 footer {
     color: black;
     text-align: center;
@@ -613,16 +644,15 @@ footer {
     border-radius: 50%;
 }
 
-/* —— MOBILE: categorias (bolinhas) em 4 colunas —— */
+
 @media (max-width: 520px) {
     .categories {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /* 4 bolinhas lado a lado */
         gap: 12px;
         margin-top: 20px;
         justify-items: center;
-        /* centraliza cada bolinha */
+        
     }
 
     .circle {
@@ -645,19 +675,18 @@ footer {
 @media (max-width: 520px) {
     .produtos {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 por linha */
         gap: 12px;
         justify-content: center;
         padding: 0 8px;
     }
 
-    /* Cards: ignorar largura fixa e remover margens que desalinhavam */
+    
     .produtos>[class^="prod"] {
         width: auto;
         margin: 0;
     }
 
-    /* Imagens internas: centralizadas e fluidas dentro do card */
+   
     .produtos [class^="img"] {
         width: calc(100% - 24px);
         margin: 12px auto 0;
@@ -665,7 +694,7 @@ footer {
         background-size: cover;
     }
 
-    /* Texto: usa a mesma largura da imagem */
+   
     .produtos [class^="texto"] {
         width: calc(100% - 24px);
         margin: 8px auto 12px;
@@ -673,14 +702,14 @@ footer {
 }
 
 
-/* MOBILE: placeholder rolando automaticamente */
+
 @media (max-width: 520px) {
     .search__input {
         white-space: nowrap;
         overflow: hidden;
     }
 
-    /* anima enquanto o campo estiver vazio (placeholder visível) */
+    
     .search__input:placeholder-shown {
         animation: ph-scroll 10s linear infinite;
     }
@@ -694,7 +723,6 @@ footer {
             text-indent: -380px;
         }
 
-        /* ajuste este valor ao tamanho do seu placeholder */
     }
 }
 
@@ -708,7 +736,6 @@ footer {
     left: 10px;
     padding: 4px 10px;
     background: #0c3a97;
-    /* azul da marca já usado nos preços */
     color: #fff;
     font-weight: 700;
     font-size: 12px;
