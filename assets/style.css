@@ -28,10 +28,9 @@ header {
 }
 
 header .logo {
-    height: 80px;
-    /* ajusta o tamanho da logo */
-    cursor: pointer;
-    /* mãozinha no hover */
+    height: 80px; /* ajusta o tamanho da logo */
+    cursor: pointer; /* mãozinha no hover */
+    margin-top: 25px;
 }
 
 /*barra de busca*/
