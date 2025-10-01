@@ -119,4 +119,4 @@ Impedimentos:
 Beatriz Samaha: Falta de acesso direto à comunicação com a empresa, o que dificultou esclarecer dúvidas importantes e sobrecarga de tarefas dos integrantes ( tamanho de equipe pequeno ) para a finalização da Sprint 1.
 Bruna Bento: e falta de acesso às especificações necessárias para o design, como definição de fontes e cores para a construção e estilização do site.
 Julia Leal: Falta de detalhamento sobre o projeto e não tivemos acesso às especificações necessárias para o design, como definição de fontes e cores. Esses pontos limitaram a tomada de decisões e a revisão da tela inicial.
- Pedro Paulucci: Não houve impedimentos.
+Pedro Paulucci: Não houve impedimentos.
