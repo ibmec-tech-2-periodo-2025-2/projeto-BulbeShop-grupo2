@@ -62,7 +62,7 @@ Pedro Paulucci: Limite do domínio de conhecimento, tivemos que pesquisar estrut
 
 
 Daily 3.1 ( sprint 1)
-19/09/2025
+23/09/2025
      Participantes: Beatriz Samaha, Bruna Bento, Julia Leal, Paulo Paulucci.
 Avançamos na codificação da tela dos produtos (definimos os produtos a serem vendidos e as imagens).
 Definir a escolha de ícones/ símbolos utilizados no site.
@@ -90,7 +90,7 @@ Pedro Paulucci: Dificuldade em definir os produtos que serão vendidos na tela i
 
  
 Daily 4.1 ( sprint 1)
-23/09/2025
+30/09/2025
      Participantes: Beatriz Samaha, Bruna Bento, Julia Leal, Paulo Paulucci.
 Definir e ajustar a responsividade do site para que sejam adaptáveis a diferentes tipos de tela.
 Revisão da tela básica inicial para que cumpra com os componentes básicos de acessibilidade, usabilidade e técnicas de UX/UI.
