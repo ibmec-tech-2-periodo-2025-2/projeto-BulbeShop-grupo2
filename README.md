@@ -22,13 +22,13 @@ A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, pe
 -Modelo HTMl e CSS:
 
 /docs
-   backlog.md        # backlog do produto
-   requisitos.md     # documentação do projeto
-   cerimonias.md     # atas de planning, dailies, reviews
+   -backlog.md        # backlog do produto
+   -requisitos.md     # documentação do projeto
+   -cerimonias.md     # atas de planning, dailies, reviews
 /src
    /assets
-      /img
-      /css/style.css
-    index.html
+      -/img
+      -/css/style.css
+    -index.html
 /tests
     README.md
