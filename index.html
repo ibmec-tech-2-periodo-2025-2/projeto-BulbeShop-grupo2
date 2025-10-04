@@ -9,26 +9,25 @@
 </head>
 
 <body id="topo">
+    <!-- a11y: permite ao usuário de teclado pular direto ao conteúdo -->
+    <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
+
     <header>  
         <div class="header-container">
-            <!-- Pesquisar (pesquisado para fazer sentido com a tela de baixa fidelidade)-->
             <a href="#topo" class="logo-wrap" aria-label="Voltar ao topo">
-            <img src="./assets/img/logo-bulbe.jpeg" alt="Logo Bulbe Shop" class="logo">
+                <img src="./assets/img/logo-bulbe.jpeg" alt="Logo Bulbe Shop" class="logo">
             </a>
             <div class="header-actions">
-            <button class="user-btn" type="button" aria-label="Login">
-                <img src="./assets/img/perfilusuario.png" alt="Usuário">
-            </button>
+                <button class="user-btn" type="button" aria-label="Login">
+                    <img src="./assets/img/perfilusuario.png" alt="Usuário">
+                </button>
             </div>
         </div>
-
     </header>
-    
 
     <section class="hero">
         <div class="search-row">
             <form class="search" role="search" action="/buscar" method="get">
-
                 <span class="search__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="7"></circle>
@@ -38,10 +37,8 @@
                 <input class="search__input" type="search" name="q"
                     placeholder="Busque por marcas, categorias ou produtos" autocomplete="off" />
                 <button class="search__btn" type="submit">Buscar</button>
-
             </form>
 
-            <!-- Carrinho (pesquisado para fazer sentido com a tela de baixa fidelidade)-->
             <button class="cart-btn" type="button" aria-label="Abrir carrinho">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -51,137 +48,141 @@
             </button>
         </div>
     </section>
-    <!--Categorias-->
-    <div class="categories">
-        <div class="category">
-            <div class="circle">
-                <img src="./assets/img/blusa.png" alt="Moda">
-            </div>
-            <span>Moda</span>
-        </div>
 
-        <div class="category">
-            <div class="circle">
-                <img src="./assets/img/computador.png" alt="Eletrônicos">
+    <!-- main semantic: engloba conteúdo principal da página -->
+    <main id="conteudo">
+        <!--Categorias-->
+        <div class="categories">
+            <div class="category">
+                <div class="circle">
+                    <img src="./assets/img/blusa.png" alt="Moda">
+                </div>
+                <span>Moda</span>
             </div>
-            <span>Eletrônicos</span>
-        </div>
 
-        <div class="category">
-            <div class="circle">
-                <img src="./assets/img/bolsa.png" alt="Beleza">
+            <div class="category">
+                <div class="circle">
+                    <img src="./assets/img/computador.png" alt="Eletrônicos">
+                </div>
+                <span>Eletrônicos</span>
             </div>
-            <span>Beleza</span>
-        </div>
 
-        <div class="category">
-            <div class="circle">
-                <img src="./assets/img/mais_opcoes.png" alt="Mais">
+            <div class="category">
+                <div class="circle">
+                    <img src="./assets/img/bolsa.png" alt="Beleza">
+                </div>
+                <span>Beleza</span>
             </div>
-            <span>Mais</span>
-        </div>
-    </div>
-    <!--Produtos-->
-    <div class="produtos">
-        <div class="prod1">
-            <span class="badge">-33%</span>
-            <div class="img1"></div>
-            <div class="texto1">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
+
+            <div class="category">
+                <div class="circle">
+                    <img src="./assets/img/mais_opcoes.png" alt="Mais">
+                </div>
+                <span>Mais</span>
             </div>
         </div>
 
-        <div class="prod2">
-            <span class="badge">-20%</span>
-            <div class="img2"></div>
-            <div class="texto2">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
+        <!--Produtos-->
+        <div class="produtos">
+            <div class="prod1">
+                <span class="badge">-33%</span>
+                <div class="img1"></div>
+                <div class="texto1">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod2">
+                <span class="badge">-20%</span>
+                <div class="img2"></div>
+                <div class="texto2">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod3">
+                <span class="badge">Novo</span>
+                <div class="img3"></div>
+                <div class="texto3">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod4">
+                <span class="badge">-40%</span>
+                <div class="img4"></div>
+                <div class="texto4">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod5">
+                <span class="badge">-10%</span>
+                <div class="img5"></div>
+                <div class="texto5">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod6">
+                <span class="badge">Últimas</span>
+                <div class="img6"></div>
+                <div class="texto6">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod7">
+                <span class="badge">-15%</span>
+                <div class="img7"></div>
+                <div class="texto7">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <div class="prod8">
+                <span class="badge">-18%</span>
+                <div class="img8"></div>
+                <div class="texto8">
+                    <h3 class="nome">Nome do Produto</h3>
+                    <p class="preco">R$ 00.00</p>
+                    <p class="avaliacao">★★★★☆ (000)</p>
+                    <p class="descricao">Lorem ipsum dolor sit amet.</p>
+                </div>
             </div>
         </div>
+    </main>
 
-        <div class="prod3">
-            <span class="badge">Novo</span>
-            <div class="img3"></div>
-            <div class="texto3">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-        <div class="prod4">
-            <span class="badge">-40%</span>
-            <div class="img4"></div>
-            <div class="texto4">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-        <div class="prod5">
-            <span class="badge">-10%</span>
-            <div class="img5"></div>
-            <div class="texto5">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-        <div class="prod6">
-            <span class="badge">Últimas</span>
-            <div class="img6"></div>
-            <div class="texto6">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-        <div class="prod7">
-            <span class="badge">-15%</span>
-            <div class="img7"></div>
-            <div class="texto7">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-        <div class="prod8">
-            <span class="badge">-18%</span>
-            <div class="img8"></div>
-            <div class="texto8">
-                <h3 class="nome">Nome do Produto</h3>
-                <p class="preco">R$ 00.00</p>
-                <p class="avaliacao">★★★★☆ (000)</p>
-                <p class="descricao">Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-
-    </div>
     <footer>
         <p>Redes Sociais</p>
         <div class="contatos">
             <a href="https://www.instagram.com/bulbe.energia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank">
+               target="_blank">
                 <div class="icone1"></div>
             </a>
         </div>
         <p>© 2025 Bulbe Shop - Todos os direitos reservados.</p>
     </footer>
 </body>
-
 </html>
