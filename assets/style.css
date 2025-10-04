@@ -1086,3 +1086,190 @@ button, input, select, textarea { font: inherit; }
     margin-right: 0;
   }
 }
+/* =========================================================
+   OFERTAS DA SEMANA — HOVERS CRIATIVOS (DESKTOP)
+   - Efeitos somente em dispositivos com hover/pointer fino
+   - Mantém mobile intacto (sem hover)
+   ========================================================= */
+@media (hover:hover) and (pointer:fine) {
+
+  /* 1) Título com sublinhado que se revela ao passar o mouse */
+  .special-prices .section-head h2 {
+    position: relative;
+    display: inline-block;
+  }
+  .special-prices .section-head h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;            /* começa “oculto” */
+    bottom: -4px;
+    height: 3px;
+    background: linear-gradient(90deg, #0c3a97, rgba(12,58,151,.2));
+    transition: right .35s ease;
+    border-radius: 4px;
+  }
+  .special-prices .section-head:hover h2::after {
+    right: 0;               /* revela o traço */
+  }
+
+  /* 2) "Ver tudo" com seta que desliza */
+  .special-prices .see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  .special-prices .see-all::after {
+    content: "→";
+    transition: transform .25s ease;
+  }
+  .special-prices .see-all:hover::after,
+  .special-prices .see-all:focus-visible::after {
+    transform: translateX(4px);
+  }
+
+  /* 3) Cards com lift + sombra + brilho diagonal (shine) */
+  .special-grid .deal-card {
+    position: relative;
+    isolation: isolate;            /* garante camadas seguras para pseudo-elements */
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    will-change: transform;
+    z-index: 0;
+  }
+
+  /* Borda/sombra ao hover */
+  .special-grid .deal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(12, 58, 151, .18);
+    border-color: #0c3a97;
+    z-index: 1;                    /* eleva acima dos vizinhos */
+  }
+
+  /* Brilho diagonal que “varre” o card */
+  .special-grid .deal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255,255,255,.28) 48%,
+      transparent 62%
+    );
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .special-grid .deal-card:hover::before {
+    animation: deal-shine .8s ease forwards;
+    opacity: 1;
+  }
+
+  /* Opcional: contorno sutil animado (halo) usando box-shadow interno */
+  .special-grid .deal-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;                    /* ligeiramente maior que o card */
+    border-radius: inherit;
+    box-shadow:
+      0 0 0 0 rgba(12,58,151, .0),
+      inset 0 0 0 0 rgba(12,58,151, .0);
+    transition: box-shadow .28s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .special-grid .deal-card:hover::after {
+    box-shadow:
+      0 0 0 2px rgba(12,58,151, .08),
+      inset 0 0 0 2px rgba(12,58,151, .06);
+  }
+
+  @keyframes deal-shine {
+    to { transform: translateX(120%); }
+  }
+}
+/* =========================================================
+   OFERTAS DA SEMANA — FEEDBACK DE TOQUE (MOBILE, sem JS)
+   - Aplica apenas em telas com pointer "coarse" e sem hover
+   - Efeito de "press": leve compressão, sombra e destaque da borda
+   - Brilho sutil por cima durante o toque
+   - Título e link "Ver tudo" também ganham feedback ao toque
+   ========================================================= */
+@media (max-width: 520px) and (hover: none) and (pointer: coarse) {
+
+  /* Cards: tornam o toque mais "vivo" sem alterar layout */
+  .special-grid .deal-card {
+    position: relative;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    -webkit-tap-highlight-color: transparent; /* remove flash azul no iOS */
+  }
+
+  /* Feedback no toque (press): levemente menor e elevado */
+  .special-grid .deal-card:active {
+    transform: scale(.98) translateY(-1px);
+    box-shadow: 0 8px 18px rgba(12, 58, 151, .18);
+    border-color: #0c3a97; /* cor institucional */
+  }
+
+  /* Overlay de brilho rápido enquanto pressiona (sem JS) */
+  .special-grid .deal-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(closest-side, rgba(255,255,255,.22), rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity .12s ease;
+    pointer-events: none;
+  }
+  .special-grid .deal-card:active::after {
+    opacity: 1;
+  }
+
+  /* Título da seção: sublinhado aparece ao toque */
+  .special-prices .section-head h2 {
+    position: relative;
+    display: inline-block;
+  }
+  .special-prices .section-head h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -4px;
+    height: 3px;
+    background: linear-gradient(90deg, #0c3a97, rgba(12,58,151,.2));
+    border-radius: 4px;
+    transition: right .25s ease;
+  }
+  .special-prices .section-head:active h2::after {
+    right: 0;
+  }
+
+  /* "Ver tudo": seta desliza um pouquinho ao toque */
+  .special-prices .see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .special-prices .see-all::after {
+    content: "→";
+    transition: transform .15s ease;
+  }
+  .special-prices .see-all:active::after {
+    transform: translateX(3px);
+  }
+}
+
+/* Acessibilidade: reduz animações se o usuário pedir menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .special-grid .deal-card,
+  .special-grid .deal-card::after,
+  .special-prices .section-head h2::after,
+  .special-prices .see-all::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
