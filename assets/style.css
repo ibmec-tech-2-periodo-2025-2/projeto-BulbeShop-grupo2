@@ -849,3 +849,170 @@ button, input, select, textarea { font: inherit; }
   /* 3) Evita clipping por ancestrais */
   .hero { overflow: visible; }
 }
+/* ============================
+   MOBILE (<=520px)
+   - Alinha BUSCA + CARRINHO ao mesmo gutter das CATEGORIAS
+   - Chips (quick-chips) em carrossel, com espaçamento horizontal
+     IGUAL ao espaçamento vertical entre chips e categorias
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;     /* guia lateral única (esq/dir) para tudo */
+    --chip-gap: 12px;   /* distância entre chips (horizontal) */
+  }
+
+  /* 1) BUSCA + CARRINHO: ocupam 100% e respeitam o mesmo gutter */
+  .hero { overflow: visible; } /* evita qualquer clipping */
+
+  .search-row{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    gap: 10px; /* espaço entre busca e carrinho */
+    margin-top: 10px; /* leve respiro abaixo do header */
+  }
+
+  .search{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none; /* alinha pelo gutter, não por max-width */
+  }
+
+  .cart-btn{
+    flex: 0 0 auto; /* mantém o botão compacto, à direita da barra */
+  }
+
+  /* 2) CHIPS (filtros): carrossel horizontal alinhado ao mesmo gutter */
+  .quick-chips{
+    display: block;           /* fallback mais estável que flex */
+    white-space: nowrap;      /* todos em uma linha */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* regra de ouro do espaçamento: 
+       - gap horizontal entre chips = --chip-gap
+       - distância VERTICAL dos chips até as categorias = --chip-gap
+    */
+    margin: 14px 0 var(--chip-gap); /* bottom = --chip-gap */
+
+    scrollbar-width: none; /* oculta barra no Firefox */
+  }
+  .quick-chips::-webkit-scrollbar{ height: 0; } /* oculta barra no WebKit */
+
+  .quick-chips a{
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: var(--chip-gap);   /* gap horizontal entre chips */
+    white-space: nowrap;
+  }
+
+  /* remove qualquer spacer antigo que empurre demais */
+  .quick-chips::before,
+  .quick-chips::after{ content: none !important; }
+
+  /* 3) CATEGORIAS: mesmo gutter e início alinhado à esquerda */
+  .categories{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+
+    /* a distância entre CHIPS e CATEGORIAS = --chip-gap (definida acima) */
+    margin-top: var(--chip-gap);
+
+    justify-items: start; /* inicia no mesmo X dos chips */
+  }
+
+  /* tamanhos mobile já consolidados */
+  .circle{ width: 70px; height: 70px; }
+  .circle img{ width: 50%; }
+  .category{ font-size: 14px; }
+}
+/* ============================
+   MOBILE (<=520px)
+   - Sobe a barra de busca
+   - Alinha busca + carrinho ao mesmo gutter das categorias
+   - Padroniza a distância vertical (ritmo) entre topo → busca → chips → categorias
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;   /* guia lateral única */
+    --stack: 12px;    /* espaçamento vertical padrão entre blocos */
+  }
+
+  /* 1) Compensa o header fixo e já deixa um respiro padronizado */
+  body{
+    padding-top: calc(90px + var(--stack)); /* header (90) + espaçamento */
+  }
+
+  /* Remove aquele "empurrão" da logo no mobile */
+  header .logo{ margin-top: 0; }
+
+  /* 2) BUSCA + CARRINHO: largura cheia alinhada ao mesmo gutter das categorias */
+  .hero{ overflow: visible; }
+
+  .search-row{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    gap: 10px;
+    margin-top: 0; /* já contamos o respiro no padding-top do body */
+  }
+
+  .search{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .cart-btn{ flex: 0 0 auto; }
+
+  /* 3) CHIPS (filtros): carrossel horizontal alinhado e com ritmo vertical padronizado */
+  .quick-chips{
+    display: block;           /* fallback mais estável que flex para rolagem */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    margin: var(--stack) 0 var(--stack);  /* cima e baixo = espaçamento padrão */
+    scrollbar-width: none;
+  }
+  .quick-chips::-webkit-scrollbar{ height: 0; }
+  .quick-chips a{
+    display: inline-flex;
+    vertical-align: top;
+    white-space: nowrap;
+    margin-right: 12px; /* espaçamento horizontal entre chips */
+  }
+
+  /* 4) CATEGORIAS: mesmo gutter e início alinhado à esquerda */
+  .categories{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: var(--stack);   /* mesma distância dos chips */
+    justify-items: start;       /* começa no mesmo X da busca/chips */
+  }
+
+  /* tamanhos mobile */
+  .circle{ width: 70px; height: 70px; }
+  .circle img{ width: 50%; }
+  .category{ font-size: 14px; }
+}
