@@ -1016,3 +1016,7 @@ button, input, select, textarea { font: inherit; }
   .circle img{ width: 50%; }
   .category{ font-size: 14px; }
 }
+/* Chips (filtros): borda ligeiramente mais espessa */
+.quick-chips a {
+  border-width: 2px; /* antes era 1.5px */
+}
