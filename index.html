@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Bulbe-Shop-Grupo2</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 
 <body id="topo">
-    <!-- a11y: permite ao usuário de teclado pular direto ao conteúdo -->
+    <!-- Skip link para acessibilidade -->
     <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
 
-    <header>  
+    <header>
         <div class="header-container">
             <a href="#topo" class="logo-wrap" aria-label="Voltar ao topo">
                 <img src="./assets/img/logo-bulbe.jpeg" alt="Logo Bulbe Shop" class="logo">
@@ -25,7 +25,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" aria-label="Busca">
         <div class="search-row">
             <form class="search" role="search" action="/buscar" method="get">
                 <span class="search__icon" aria-hidden="true">
@@ -34,56 +34,111 @@
                         <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
                     </svg>
                 </span>
-                <input class="search__input" type="search" name="q"
-                    placeholder="Busque por marcas, categorias ou produtos" autocomplete="off" />
+                <input class="search__input" type="search" name="q" placeholder="Busque por marcas, categorias ou produtos" autocomplete="off"/>
                 <button class="search__btn" type="submit">Buscar</button>
             </form>
 
             <button class="cart-btn" type="button" aria-label="Abrir carrinho">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 1.99-1.75L23 6H6" />
                 </svg>
             </button>
         </div>
+
+        <!-- Chips de atalho -->
+        <nav class="quick-chips" aria-label="Atalhos rápidos">
+            <a href="/ofertas">Ofertas do Dia</a>
+            <a href="/mais-vendidos">Mais vendidos</a>
+            <a href="/ate-100">Até R$ 100</a>
+            <a href="/parceiros">Parceiros</a>
+        </nav>
     </section>
 
-    <!-- main semantic: engloba conteúdo principal da página -->
     <main id="conteudo">
-        <!--Categorias-->
-        <div class="categories">
+        <!-- Categorias -->
+        <section class="categories" aria-label="Categorias">
             <div class="category">
-                <div class="circle">
-                    <img src="./assets/img/blusa.png" alt="Moda">
-                </div>
+                <div class="circle"><img src="./assets/img/blusa.png" alt="Moda"></div>
                 <span>Moda</span>
             </div>
-
             <div class="category">
-                <div class="circle">
-                    <img src="./assets/img/computador.png" alt="Eletrônicos">
-                </div>
+                <div class="circle"><img src="./assets/img/computador.png" alt="Eletrônicos"></div>
                 <span>Eletrônicos</span>
             </div>
-
             <div class="category">
-                <div class="circle">
-                    <img src="./assets/img/bolsa.png" alt="Beleza">
-                </div>
+                <div class="circle"><img src="./assets/img/bolsa.png" alt="Beleza"></div>
                 <span>Beleza</span>
             </div>
-
             <div class="category">
-                <div class="circle">
-                    <img src="./assets/img/mais_opcoes.png" alt="Mais">
-                </div>
+                <div class="circle"><img src="./assets/img/mais_opcoes.png" alt="Mais"></div>
                 <span>Mais</span>
             </div>
-        </div>
+        </section>
 
-        <!--Produtos-->
-        <div class="produtos">
+        <!-- Seção: Preços Especiais -->
+        <section class="special-prices" aria-label="Preços Especiais da Semana">
+            <div class="section-head">
+                <h2>Preços Especiais da Semana</h2>
+                <a class="see-all" href="/precos-especiais">Ver tudo</a>
+            </div>
+            <div class="special-grid">
+                <article class="deal-card">
+                    <span class="badge">Selecionados Bulbe</span>
+                    <h3>Oferta 1</h3>
+                    <p class="deal-price"><s>R$ 199,90</s> R$ 149,90</p>
+                </article>
+                <article class="deal-card">
+                    <span class="badge">Selecionados Bulbe</span>
+                    <h3>Oferta 2</h3>
+                    <p class="deal-price"><s>R$ 129,90</s> R$ 99,90</p>
+                </article>
+                <article class="deal-card">
+                    <span class="badge">Selecionados Bulbe</span>
+                    <h3>Oferta 3</h3>
+                    <p class="deal-price"><s>R$ 249,90</s> R$ 199,90</p>
+                </article>
+                <article class="deal-card">
+                    <span class="badge">Selecionados Bulbe</span>
+                    <h3>Oferta 4</h3>
+                    <p class="deal-price"><s>R$ 89,90</s> R$ 69,90</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Faixa: Cashback -->
+        <section class="cashback-banner" aria-label="Cashback na conta de luz">
+            <div class="cbk-wrap">
+                <div class="cbk-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"></path>
+                    </svg>
+                </div>
+                <div class="cbk-text">
+                    <strong>Ganhe 2% de cashback direto na sua conta Bulbe.</strong>
+                    <span>Economize toda compra. <a href="/cashback">Como funciona</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloco: Parcelamento na Fatura -->
+        <section class="billing-installments" aria-label="Parcele na sua fatura">
+            <div class="bi-wrap">
+                <div class="bi-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M2 7a2 2 0 012-2h16a2 2 0 012 2v3H2V7zm0 5h20v5a2 2 0 01-2 2H4a2 2 0 01-2-2v-5z"></path>
+                    </svg>
+                </div>
+                <div class="bi-text">
+                    <strong>Parcele na fatura Bulbe em até 6x.</strong>
+                    <span>Parcela mínima de R$ 100. <a href="/parcelamento">Ver condições</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos -->
+        <section class="produtos" aria-label="Vitrine de produtos">
             <div class="prod1">
                 <span class="badge">-33%</span>
                 <div class="img1"></div>
@@ -171,14 +226,13 @@
                     <p class="descricao">Lorem ipsum dolor sit amet.</p>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
         <p>Redes Sociais</p>
         <div class="contatos">
-            <a href="https://www.instagram.com/bulbe.energia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-               target="_blank">
+            <a href="https://www.instagram.com/bulbe.energia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">
                 <div class="icone1"></div>
             </a>
         </div>
