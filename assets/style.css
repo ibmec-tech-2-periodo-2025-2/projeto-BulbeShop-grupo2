@@ -1020,3 +1020,69 @@ button, input, select, textarea { font: inherit; }
 .quick-chips a {
   border-width: 2px; /* antes era 1.5px */
 }
+/* ============================
+   MOBILE (<=520px)
+   Ofertas do Dia em carrossel horizontal (sem JS)
+   - Alinha com o mesmo gutter usado no restante da página
+   - Evita corte do 1º/último card com espaçadores internos
+   - Mantém snap suave ao arrastar
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;   /* mesmo usado para busca/chips/categorias */
+    --deal-gap: 12px; /* espaçamento entre cards de oferta */
+  }
+
+  /* Cabeçalho da seção alinhado ao gutter */
+  .special-prices {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .special-prices .section-head{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin-bottom: var(--deal-gap);
+  }
+
+  /* Faixa rolável horizontal para os cards */
+  .special-grid{
+    /* Em vez de grid, usamos linha única rolável */
+    display: block;
+    white-space: nowrap;            /* impede quebra para a linha de baixo */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    /* Snap suave e ocultar scrollbar */
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin: 0; /* distância vertical já controlada pela section-head e próxima seção */
+  }
+  .special-grid::-webkit-scrollbar{ height: 0; }
+
+  /* Evita que o 1º/último card “colem” na borda (sem corte visual) */
+  .special-grid::before,
+  .special-grid::after{
+    content: "";
+    display: inline-block;
+    width: var(--gutter);
+  }
+
+  /* Cada deal-card vira um “card” inline com largura mínima */
+  .special-grid .deal-card{
+    display: inline-flex;      /* preserva padding interno e altura automática */
+    flex-direction: column;
+    vertical-align: top;
+    white-space: normal;       /* o texto interno pode quebrar normalmente */
+    min-width: 220px;          /* ajuste fino conforme seu design */
+    margin-right: var(--deal-gap);
+    scroll-snap-align: start;  /* encosta bem ao gutter ao parar a rolagem */
+  }
+
+  /* remove a última margem à direita para um acabamento melhor (opcional) */
+  .special-grid .deal-card:last-child{
+    margin-right: 0;
+  }
+}
