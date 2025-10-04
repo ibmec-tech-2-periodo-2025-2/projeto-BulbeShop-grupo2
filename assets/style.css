@@ -789,27 +789,63 @@ button, input, select, textarea { font: inherit; }
 .bi-text strong{ display: block; font-size: 16px; line-height: 1.25; margin-bottom: 2px; }
 .bi-text a{ color: #0c3a97; font-weight: 700; text-decoration: underline; }
 
-/* Mobile: chips em carrossel horizontal, sem quebra de linha */
+/* ===== FIX MOBILE: alinhar início dos chips com o início das categorias ===== */
 @media (max-width: 520px) {
+  :root { --gutter: 16px; }                 /* guia única para ambas as seções */
+
+  /* 1) Chips: faixa rolável ocupando 100% com o mesmo gutter lateral */
   .quick-chips {
-    display: flex;
-    flex-wrap: nowrap;          /* impede pular para a próxima linha */
-    overflow-x: auto;           /* ativa rolagem horizontal */
+    /* zera possíveis centramentos herdados */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0 0 !important;
+
+    /* carrossel horizontal simples e estável */
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
-    gap: 8px;
-    padding: 0 12px;
-    margin: 10px 0 0;
-    scroll-snap-type: x proximity;     /* snap suave (opcional) */
-    touch-action: pan-x;                /* melhora gesto de arrastar */
+    -webkit-overflow-scrolling: touch;
+
+    /* usa o mesmo recuo das categorias */
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* se houver um bloco anterior que criou max-width/auto, isto garante o fill */
+    max-width: none !important;
+    scrollbar-width: none;
   }
+  .quick-chips::-webkit-scrollbar { height: 0; }
 
   .quick-chips a {
-    flex: 0 0 auto;             /* cada “card” mantém sua largura */
-    scroll-snap-align: start;   /* alinhamento ao parar (opcional) */
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: 8px;
+    white-space: nowrap;
   }
 
-  /* Opcional: ocultar a barra de rolagem */
-  .quick-chips::-webkit-scrollbar { height: 0; }
-  .quick-chips { scrollbar-width: none; } /* Firefox */
+  /* Remove espaçadores de antes, caso existam, para não “empurrar” demais */
+  .quick-chips::before,
+  .quick-chips::after { content: none !important; }
+
+  /* 2) Categorias: mesmo gutter e alinhadas à ESQUERDA (não centralizadas) */
+  .categories {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* garante grid à esquerda, não herda justify-content:center do desktop */
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    justify-items: start;     /* começa no mesmo X dos chips */
+  }
+
+  /* tamanhos já usados no mobile */
+  .circle { width: 70px; height: 70px; }
+  .circle img { width: 50%; }
+  .category { font-size: 14px; }
+
+  /* 3) Evita clipping por ancestrais */
+  .hero { overflow: visible; }
 }
