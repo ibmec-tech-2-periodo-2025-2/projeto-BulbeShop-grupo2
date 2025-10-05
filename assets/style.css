@@ -1336,6 +1336,67 @@ button, input, select, textarea { font: inherit; }
 }
 /* ============================
    MOBILE (<=520px)
+   Vitrine menos "apertada"
+   - Mais respiro lateral (gutter)
+   - Gap maior entre cards
+   - Espaço interno maior nos cards
+   - Altura da imagem ajustada para caber melhor
+   ============================ */
+@media (max-width: 520px){
+  :root{
+    --gutter: 16px;           /* recuo lateral único */
+    --grid-gap: 16px;         /* espaço entre os cards da grade */
+    --card-pad: 12px;         /* “respiro” dentro do card */
+    --section-stack: 16px;    /* espaçamento vertical entre seções */
+  }
+
+  /* seção de produtos: recuo lateral + gap maior */
+  .produtos{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin-top: calc(var(--section-stack) + 4px); /* leve respiro acima */
+  }
+
+  /* cada card: sem margens externas ad-hoc e borda mais suave */
+  .produtos > [class^="prod"]{
+    width: auto;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.06); /* sombra mais macia para dar leveza */
+  }
+
+  /* bloco de imagem: largura cheia do card e altura ajustada */
+  .produtos [class^="img"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    height: 220px;                      /* antes mais alta; ajusta para caber melhor */
+    margin: var(--card-pad) auto 0;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+  }
+
+  /* bloco de textos: mais respiro e leitura confortável */
+  .produtos [class^="texto"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    margin: 10px auto var(--card-pad);
+    padding: 0;                         /* usa o “respiro” pelas larguras calculadas */
+    gap: 6px;                           /* espaço entre linhas do conteúdo */
+  }
+
+  /* leve ajuste tipográfico para melhorar a leitura no mobile */
+  .produtos .nome{ font-size: 15px; line-height: 1.3; }
+  .produtos .preco{ font-size: 17px; }
+  .produtos .descricao{ font-size: 13px; line-height: 1.4; }
+
+  /* respiro extra antes do rodapé para não “grudar” */
+  .produtos + footer{
+    margin-top: calc(var(--section-stack) * 1.5);
+  }
+}
+/* ============================
+   MOBILE (<=520px)
    Cards mais baixos sem perder conteúdo essencial
    ============================ */
 @media (max-width: 520px){
@@ -1398,9 +1459,22 @@ button, input, select, textarea { font: inherit; }
   .produtos .preco{ font-size: 16px; line-height: 1.2; }
   .produtos .avaliacao{ font-size: 13px; line-height: 1.2; }
 
-  /* Descrição: limita a 2 linhas para manter alturas iguais */
+ /* Descrição: limita a 2 linhas para não esticar o card */
   .produtos .descricao{
     font-size: 13px;
     line-height: 1.35;
     display: -webkit-box;
-    -webkit-bo
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;        /* 2 linhas no mobile */
+    overflow: hidden;
+    min-height: calc(1.35em * 2); /* mantém altura uniforme entre cards */
+  }
+
+  /* Badge: compacta para não aumentar a altura útil do card */
+  .produtos [class^="prod"] .badge{
+    top: 8px;
+    left: 8px;
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+}
