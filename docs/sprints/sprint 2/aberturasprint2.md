@@ -21,9 +21,9 @@
 ## Distribuição de Tarefas
 | Integrante       | Tarefa                                                                 | Prazo |
 |------------------|------------------------------------------------------------------------|--------|
-| Beatriz Samaha   |  [ ] Estrutura e Backlog<br>- [ ] Organização da documentação<br>- [ ] Criação de protótipos navegáveis de alta fidelidade | 20/10  |
+| Beatriz Samaha   |  [ ] Estrutura e Backlog<br> [ ] Organização da documentação<br> [ ] Criação de protótipos navegáveis de alta fidelidade | 20/10  |
 | Bruna Bento      |  [ ] Criação de protótipos navegáveis de alta fidelidade             | 20/10  |
-| Julia Leal       |  [ ] Criação de protótipos navegáveis de alta fidelidade<br>- [ ] Estrutura e Backlog | 20/10  |
+| Julia Leal       |  [ ] Criação de protótipos navegáveis de alta fidelidade<br> [ ] Estrutura e Backlog | 20/10  |
 | Pedro Paulucci   |  [ ] Criação de protótipos navegáveis de alta fidelidade             | 20/10  |
 
 
