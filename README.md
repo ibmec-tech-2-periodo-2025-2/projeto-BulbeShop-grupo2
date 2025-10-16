@@ -11,7 +11,7 @@ A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, pe
 -DaiLy:(docs-cerimonias.md)
     https://docs.google.com/document/d/1dDHVSHPm_lfCd0d45PUmE7YUnJx-qvRPsL0X2ZtdpUc/edit?usp=sharing
 
--Relatório de Enserramento:(docs-encerramento.md)
+-Relatório de Encerramento:(docs-encerramento.md)
     https://docs.google.com/document/d/1c_VbIk7nM_Dt2YijveQEsblcZhUeie4qgxcQ6Kshdng/edit?usp=sharing
 
     
