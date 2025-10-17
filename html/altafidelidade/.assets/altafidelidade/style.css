@@ -198,7 +198,7 @@ body{
 .ratings-head{ display:grid; grid-template-columns:1fr 160px; gap:16px; align-items:start; margin-bottom:14px; }
 .ratings-score{ display:flex; align-items:center; gap:8px; line-height:1; }
 .score-big{ font-size:44px; font-weight:900; color:var(--brand-deep); }
-.score-star{ width:20px; height:20px; fill:var(--alert-500); }
+.score-star{ width:50px; height:50px; fill:var(--alert-500); }
 .ratings-sub{ margin-top:6px; color:var(--gray-400); font-size:12px; }
 .rating-distribution{ display:flex; flex-direction:column; gap:8px; min-width:0; }
 .dist-row{ display:grid; grid-template-columns:32px 1fr; gap:8px; align-items:center; }
