@@ -15,29 +15,30 @@
 
   <!-- ================= HEADER ================= -->
   <header class="site-header" id="siteHeader">
+    <!-- Faixa superior -->
     <div class="header-top">
       <button class="icon-btn" aria-label="Menu">
-        <img src="./.assets/altafidelidade/img/Type@36.png" alt="" class="icon-28 icon-white">
+        <img src="./.assets/altafidelidade/img/Type@36.png" alt="" class="icon-white">
       </button>
 
-      <!-- logo absolutamente centralizada -->
+      <!-- Logo absolutamente centralizada -->
       <a class="logo" href="./paginicial.html" aria-label="Bulbe">
         <img src="./.assets/altafidelidade/img/logo-base.png" alt="Bulbe" class="logo-img">
       </a>
 
       <nav class="header-icons">
         <button class="icon-btn" aria-label="Notificações">
-          <img src="./.assets/altafidelidade/img/Notificação.png" alt="" class="icon-28 icon-white">
+          <img src="./.assets/altafidelidade/img/Notificação.png" alt="" class="icon-white">
         </button>
 
-        <a class="avatar avatar--same" href="#" aria-label="Perfil">
+        <a class="avatar" href="#" aria-label="Perfil">
           <img src="./.assets/altafidelidade/img/User-avatar.png" alt="Foto do perfil">
         </a>
       </nav>
     </div>
 
+    <!-- Faixa da busca (modo normal) -->
     <div class="header-bottom">
-      <!-- Busca padrão -->
       <form class="search" role="search" aria-label="Buscar produtos">
         <span class="search-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -52,7 +53,7 @@
       <!-- Barra condensada (aparece no scroll) -->
       <div class="condensed-bar" aria-hidden="true">
         <button class="icon-btn" aria-label="Menu (condensado)">
-          <img src="./.assets/altafidelidade/img/Type@36.png" alt="" class="icon-28 icon-white">
+          <img src="./.assets/altafidelidade/img/Type@36.png" alt="" class="icon-white">
         </button>
 
         <form class="search search--condensed" role="search" aria-label="Buscar produtos (condensado)">
@@ -67,10 +68,10 @@
         </form>
 
         <button class="icon-btn" aria-label="Notificações (condensado)">
-          <img src="./.assets/altafidelidade/img/Notificação.png" alt="" class="icon-28 icon-white">
+          <img src="./.assets/altafidelidade/img/Notificação.png" alt="" class="icon-white">
         </button>
 
-        <a class="avatar avatar--same" href="#" aria-label="Perfil (condensado)">
+        <a class="avatar" href="#" aria-label="Perfil (condensado)">
           <img src="./.assets/altafidelidade/img/User-avatar.png" alt="Foto do perfil">
         </a>
       </div>
@@ -85,7 +86,6 @@
 
   <!-- ================= CONTEÚDO ================= -->
   <main class="container">
-
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
       Você está em: <a href="#">produtos</a> › <a href="#">eletrodomésticos</a> › ventilador
@@ -93,15 +93,18 @@
 
     <div class="hr"></div>
 
-    <!-- Loja/avaliação -->
-    <div class="shop-line">
-      <a href="#" class="shop-link">Visite a loja: Bulbe shop</a>
-      <span class="stars">
-        <span class="score-num">4.7</span>
-        <img src="./.assets/altafidelidade/img/star-01.png" alt="" class="star-ico">
-        <small class="score-count">(347)</small>
-      </span>
-    </div>
+    <!-- Loja/avaliação (substituir o bloco atual por este) -->
+<div class="shop-line">
+  <a href="#" class="shop-link">Visite a loja: Bulbe shop</a>
+
+  <!-- rating à direita -->
+  <div class="rating-inline" data-rating="4.7" data-count="347" aria-label="Avaliação 4,7 de 5">
+    <span class="rating-number">4.7</span>
+    <span class="rating-stars" aria-hidden="true"></span>
+    <a href="#" class="rating-count">(347)</a>
+  </div>
+</div>
+
 
     <!-- Título -->
     <h1 class="product-title">
@@ -124,7 +127,7 @@
       <button type="button" class="dot" data-src="./.assets/altafidelidade/img/image 1.png" aria-label="Imagem 4"></button>
     </div>
 
-    <!-- Ações -->
+    <!-- Ações principais -->
     <div class="product-actions">
       <img src="./.assets/altafidelidade/img/heart-outline.png" alt="Curtir" id="btn-fav">
       <img src="./.assets/altafidelidade/img/share-01.png" alt="Compartilhar" id="btn-share">
@@ -146,7 +149,7 @@
       <div class="price-help">Ver outras formas de pagamento</div>
     </div>
 
-    <!-- Painel de variações -->
+    <!-- Variações -->
     <div class="card variations">
       <div class="var-group">
         <div class="var-title">Cor</div>
@@ -201,69 +204,71 @@
 
     <!-- Avaliações -->
     <h2 class="section-title">Avaliações do produto:</h2>
-    <div class="card">
-      <div class="score">
-        <div class="big">
-          4.7
-          <img src="./.assets/altafidelidade/img/star-01.png" alt="" class="star-ico">
-        </div>
-        <div class="mini">
-          <div><strong>347</strong> avaliações</div>
-          <div><strong>300</strong> comentários</div>
-        </div>
-      </div>
-
-      <div class="bars">
-        <div class="bar"><span>5★</span><div class="track"><div class="fill" style="width:78%"></div></div></div>
-        <div class="bar"><span>4★</span><div class="track"><div class="fill" style="width:15%"></div></div></div>
-        <div class="bar"><span>3★</span><div class="track"><div class="fill" style="width:5%"></div></div></div>
-        <div class="bar"><span>2★</span><div class="track"><div class="fill" style="width:2%"></div></div></div>
-      </div>
-
-      <div class="review">
-        <span class="avatar"><img src="./.assets/altafidelidade/img/User-avatar.png" alt="Jeferson"></span>
-        <div>
-          <div class="meta">
-            <span>Jeferson</span>
-            <span class="stars" style="color:#FFA425">★★★★★</span>
+    <section class="ratings-card">
+      <div class="ratings-head">
+        <div class="ratings-left">
+          <div class="ratings-score">
+            <span class="score-big">4.7</span>
+            <svg class="score-star" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 17.3l-6.18 3.25 1.18-6.9L2 8.98l6.91-1 3.09-6.28 3.09 6.28 6.91 1-5 4.67 1.18 6.9z" />
+            </svg>
           </div>
-          <div class="sub">Ventilador preto | 220V</div>
-          <p class="rev-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-      </div>
-
-      <div class="review">
-        <span class="avatar"><img src="./.assets/altafidelidade/img/User-avatar.png" alt="Jeferson"></span>
-        <div>
-          <div class="meta">
-            <span>Jeferson</span>
-            <span class="stars" style="color:#FFA425">★★★★★</span>
-          </div>
-          <div class="sub">Ventilador preto | 220V</div>
-          <p class="rev-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-
-          <div class="rev-grid">
-            <div class="rev-ph">img</div>
-            <div class="rev-ph">img</div>
-            <div class="rev-ph">img</div>
+          <div class="ratings-sub">
+            <div><strong>347</strong> avaliações</div>
+            <div><strong>300</strong> comentários</div>
           </div>
         </div>
+
+        <div class="rating-distribution">
+          <div class="dist-row"><span class="dist-label">5 ★</span><div class="dist-track"><div class="dist-fill" style="width:78%"></div></div></div>
+          <div class="dist-row"><span class="dist-label">4 ★</span><div class="dist-track"><div class="dist-fill" style="width:15%"></div></div></div>
+          <div class="dist-row"><span class="dist-label">3 ★</span><div class="dist-track"><div class="dist-fill" style="width:05%"></div></div></div>
+          <div class="dist-row"><span class="dist-label">2 ★</span><div class="dist-track"><div class="dist-fill" style="width:02%"></div></div></div>
+        </div>
       </div>
-    </div>
+
+      <article class="review-block">
+        <header class="review-header">
+          <img class="review-avatar" src="./.assets/altafidelidade/img/User-avatar.png" alt="Jeferson">
+          <div class="review-meta">
+            <div class="review-name">Jeferson <span class="review-stars">★★★★★</span></div>
+            <div class="review-sub">Ventilador preto | 220V</div>
+          </div>
+        </header>
+        <p class="review-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+        <div class="review-photos">
+          <div class="ph"></div>
+          <div class="ph"></div>
+        </div>
+      </article>
+
+      <article class="review-block">
+        <header class="review-header">
+          <img class="review-avatar" src="./.assets/altafidelidade/img/User-avatar.png" alt="Jeferson">
+          <div class="review-meta">
+            <div class="review-name">Jeferson <span class="review-stars">★★★★★</span></div>
+            <div class="review-sub">Ventilador preto | 220V</div>
+          </div>
+        </header>
+        <p class="review-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+        <div class="review-photos">
+          <div class="ph"></div>
+          <div class="ph"></div>
+        </div>
+      </article>
+    </section>
 
     <!-- Prateleira -->
     <section class="shelf">
       <h3>Quem viu este produto, também viu:</h3>
-
       <div class="shelf-grid">
         <a class="tile" href="#">
           <span class="label">Oferta relampago</span>
           <img src="./.assets/altafidelidade/img/image 3.png" alt="Produto A">
           <div class="title">Caixa de Ferramentas Philco...</div>
-          <div class="tile-prices">
-            <div class="price">R$59,90</div>
-            <div class="price-old">R$119,90</div>
-          </div>
+          <div class="tile-prices"><div class="price">R$59,90</div><div class="price-old">R$119,90</div></div>
           <div class="tile-actions">
             <img src="./.assets/altafidelidade/img/heart-outline.png" alt="Curtir" class="btn-fav">
             <svg class="icon-cart" viewBox="0 0 24 24"><path fill="currentColor" d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.4-.41 1.73-1.03l3.24-6.16A1 1 0 0 0 20.7 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44C5.52 16.37 6.48 18 8 18h12v-2H8l1.16-2z"/></svg>
@@ -274,10 +279,7 @@
           <span class="label">Oferta relampago</span>
           <img src="./.assets/altafidelidade/img/image-01.png" alt="Produto B">
           <div class="title">Caixa de Ferramentas Philco...</div>
-          <div class="tile-prices">
-            <div class="price">R$59,90</div>
-            <div class="price-old">R$119,90</div>
-          </div>
+          <div class="tile-prices"><div class="price">R$59,90</div><div class="price-old">R$119,90</div></div>
           <div class="tile-actions">
             <img src="./.assets/altafidelidade/img/heart-outline.png" alt="Curtir" class="btn-fav">
             <svg class="icon-cart" viewBox="0 0 24 24"><path fill="currentColor" d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.4-.41 1.73-1.03l3.24-6.16A1 1 0 0 0 20.7 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44C5.52 16.37 6.48 18 8 18h12v-2H8l1.16-2z"/></svg>
@@ -288,10 +290,7 @@
           <span class="label">Oferta relampago</span>
           <img src="./.assets/altafidelidade/img/image 1.png" alt="Produto C">
           <div class="title">Caixa de Ferramentas Philco...</div>
-          <div class="tile-prices">
-            <div class="price">R$59,90</div>
-            <div class="price-old">R$119,90</div>
-          </div>
+          <div class="tile-prices"><div class="price">R$59,90</div><div class="price-old">R$119,90</div></div>
           <div class="tile-actions">
             <img src="./.assets/altafidelidade/img/heart-outline.png" alt="Curtir" class="btn-fav">
             <svg class="icon-cart" viewBox="0 0 24 24"><path fill="currentColor" d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.4-.41 1.73-1.03l3.24-6.16A1 1 0 0 0 20.7 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44C5.52 16.37 6.48 18 8 18h12v-2H8l1.16-2z"/></svg>
@@ -302,10 +301,7 @@
           <span class="label">Oferta relampago</span>
           <img src="./.assets/altafidelidade/img/image 3.png" alt="Produto D">
           <div class="title">Caixa de Ferramentas Philco...</div>
-          <div class="tile-prices">
-            <div class="price">R$59,90</div>
-            <div class="price-old">R$119,90</div>
-          </div>
+          <div class="tile-prices"><div class="price">R$59,90</div><div class="price-old">R$119,90</div></div>
           <div class="tile-actions">
             <img src="./.assets/altafidelidade/img/heart-outline.png" alt="Curtir" class="btn-fav">
             <svg class="icon-cart" viewBox="0 0 24 24"><path fill="currentColor" d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.4-.41 1.73-1.03l3.24-6.16A1 1 0 0 0 20.7 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44C5.52 16.37 6.48 18 8 18h12v-2H8l1.16-2z"/></svg>
@@ -321,3 +317,4 @@
   <script src="./.assets/altafidelidade/script.js"></script>
 </body>
 </html>
+
