@@ -137,7 +137,7 @@ body{
 .rating-stars::before{ content:"★★★★★"; color:var(--gray-200); }
 .rating-stars::after{
   content:"★★★★★"; color:#F79009; position:absolute; top:0; left:0;
-  width:calc(var(--percent) * 1%); overflow:hidden; white-space:nowrap; pointer-events:none;
+  width:calc(var(--percent) * 0.97%); overflow:hidden; white-space:nowrap; pointer-events:none;
 }
 
 /* Título e vendedor */
