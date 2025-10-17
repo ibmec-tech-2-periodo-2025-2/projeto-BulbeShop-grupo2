@@ -79,8 +79,10 @@
 
     <!-- Enviar para -->
     <div class="deliver">
-      <img src="./.assets/altafidelidade/img/marker-pin-01.png" alt="" class="pin icon-white">
-      <span>Enviar para: <u>Digite o CEP</u></span>
+      <img src="./.assets/altafidelidade/img/marker-pin-01.png" alt="" class="pin">
+      <span class="deliver-text">
+        Enviar para: <a href="#" class="deliver-link">Digite o CEP</a>
+      </span>
     </div>
   </header>
 
@@ -93,18 +95,16 @@
 
     <div class="hr"></div>
 
-    <!-- Loja/avaliação (substituir o bloco atual por este) -->
-<div class="shop-line">
-  <a href="#" class="shop-link">Visite a loja: Bulbe shop</a>
+    <!-- Loja/avaliação (rating à direita) -->
+    <div class="shop-line">
+      <a href="#" class="shop-link">Visite a loja: Bulbe shop</a>
 
-  <!-- rating à direita -->
-  <div class="rating-inline" data-rating="4.7" data-count="347" aria-label="Avaliação 4,7 de 5">
-    <span class="rating-number">4.7</span>
-    <span class="rating-stars" aria-hidden="true"></span>
-    <a href="#" class="rating-count">(347)</a>
-  </div>
-</div>
-
+      <div class="rating-inline" data-rating="4.7" data-count="347" aria-label="Avaliação 4,7 de 5">
+        <span class="rating-number">4,7</span>
+        <span class="rating-stars" aria-hidden="true"></span>
+        <a href="#" class="rating-count">(347)</a>
+      </div>
+    </div>
 
     <!-- Título -->
     <h1 class="product-title">
@@ -202,7 +202,7 @@
       </p>
     </div>
 
-    <!-- Avaliações -->
+    <!-- Avaliações (cart) -->
     <h2 class="section-title">Avaliações do produto:</h2>
     <section class="ratings-card">
       <div class="ratings-head">
@@ -236,11 +236,7 @@
           </div>
         </header>
         <p class="review-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-
-        <div class="review-photos">
-          <div class="ph"></div>
-          <div class="ph"></div>
-        </div>
+        <div class="review-photos"><div class="ph"></div><div class="ph"></div></div>
       </article>
 
       <article class="review-block">
@@ -252,11 +248,7 @@
           </div>
         </header>
         <p class="review-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-
-        <div class="review-photos">
-          <div class="ph"></div>
-          <div class="ph"></div>
-        </div>
+        <div class="review-photos"><div class="ph"></div><div class="ph"></div></div>
       </article>
     </section>
 
@@ -317,4 +309,5 @@
   <script src="./.assets/altafidelidade/script.js"></script>
 </body>
 </html>
+
 

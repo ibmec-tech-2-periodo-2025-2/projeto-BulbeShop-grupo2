@@ -118,21 +118,22 @@ document.querySelectorAll(".tile .btn-fav").forEach(btn=>{
     btn.src = on ? IMG_HEART_OUTLINE : IMG_HEART_FILLED;
   });
 });
-/* ===== Rating à direita (estrelas preenchidas pela nota) ===== */
+
+/* ===== Rating à direita (estrelas parcialmente preenchidas) ===== */
 (function applyInlineRating(){
-  const blocks = document.querySelectorAll('.rating-inline');
-  blocks.forEach(b => {
+  document.querySelectorAll('.rating-inline').forEach(b=>{
     const rating = Math.max(0, Math.min(5, parseFloat(b.dataset.rating || '0')));
     const count  = parseInt(b.dataset.count || '0', 10);
     const stars  = b.querySelector('.rating-stars');
     const num    = b.querySelector('.rating-number');
-    const cntEl  = b.querySelector('.rating-count');
+    const cnt    = b.querySelector('.rating-count');
 
-    // define largura da camada laranja
-    if (stars) stars.style.setProperty('--percent', ((rating / 5) * 100).toFixed(2));
-
-    // garante textos coerentes
-    if (num)   num.textContent = rating.toFixed(1).replace('.', ','); // 4,7
-    if (cntEl) cntEl.textContent = `(${count})`;
+    if (stars) {
+      // 4.7 => ~94%; limitamos < 100% para evidenciar o “parcial”
+      const pct = Math.min(99.4, (rating / 5) * 100);
+      stars.style.setProperty('--percent', pct.toFixed(2));
+    }
+    if (num) num.textContent = rating.toFixed(1).replace('.', ',');
+    if (cnt) cnt.textContent = `(${count})`;
   });
 })();
