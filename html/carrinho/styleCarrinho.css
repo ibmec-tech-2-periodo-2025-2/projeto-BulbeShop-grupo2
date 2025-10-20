@@ -61,3 +61,31 @@ body {
 .logo {
     height: 50px
 }
+
+
+
+
+/* FOOTER */
+.footer {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.footer-content {
+    text-align: center
+}
+
+.footer-logo {
+    height: 60px
+}
+
+.footer-text {
+    color: var(--ink);
+    font-size: .9rem;
+    font-weight: 500;
+    margin: 0
+}
