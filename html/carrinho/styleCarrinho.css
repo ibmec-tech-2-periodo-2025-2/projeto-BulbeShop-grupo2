@@ -55,11 +55,11 @@ body {
 }
 
 .back-btn:hover {
-    color: var(--primary)
+    color: var(--primary);
 }
 
 .logo {
-    height: 50px
+    height: 50px;
 }
 
 
@@ -72,20 +72,20 @@ body {
     padding: 1.5rem 1rem 2rem;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
 .footer-content {
-    text-align: center
+    text-align: center;
 }
 
 .footer-logo {
-    height: 60px
+    height: 60px;
 }
 
 .footer-text {
     color: var(--ink);
     font-size: .9rem;
     font-weight: 500;
-    margin: 0
+    margin: 0;
 }
