@@ -17,7 +17,26 @@
 - Aprendizado 2
 
 ## Avaliação individual (cada aluno preenche)
-- Nome:
+- Beatriz Samaha :
+- Contribuições principais:
+- Dificuldade enfrentada:
+- Nota para meu desempenho (0 a 10):
+
+- Bruna Bento:
+- Contribuições principais:
+- Dificuldade enfrentada:
+- Nota para meu desempenho (0 a 10):
+
+
+
+- Julia Leal:
+- Contribuições principais:
+- Dificuldade enfrentada:
+- Nota para meu desempenho (0 a 10):
+
+
+
+- Pedro Paulucci:
 - Contribuições principais:
 - Dificuldade enfrentada:
 - Nota para meu desempenho (0 a 10):
