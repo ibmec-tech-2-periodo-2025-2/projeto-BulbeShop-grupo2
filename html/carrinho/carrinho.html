@@ -15,11 +15,13 @@
 </head>
 
 
-<body>
+<body id="topo">
     <!-- HEADER -->
     <header class="header">
         <button class="back-btn" aria-label="Voltar"><span class="arrow">←</span></button>
-        <img src="./img/logobulbe.png" alt="Bulbe" class="logo">
+        <a href="#topo" class="logo-link">
+            <img src="./img/logobulbe.png" alt="Bulbe" class="logo">
+        </a>
     </header>
 
     <!--CARRINHO-->
@@ -35,12 +37,14 @@
     </div>
     <!--PRODUTO1-->
     <div class="produto-conteudo">
-        <img src="./img/lampada.png" alt="Lâmpada" class="produto-img">
-
+        <div class="containerimg">
+            <img src="./img/lampada.png" alt="Lâmpada" class="produto-img">
+        </div>
+        
         <div class="produto-info">
             <p class="produto-nome">
-                Lâmpada de LED E27 Bulbo 9W 803lm<br>
-                Luz Branca Bivolt Black + Decker
+                Lâmpada de LED E27 Bulbo <br>
+                9W 803lm Luz Branca Bivolt Black + Decker
             </p>
 
             <div class="produto-preco">
@@ -60,12 +64,13 @@
     </div>
     <!--PRODUTO 2-->
     <div class="produto-conteudo">
-        <img src="./img/parafuzadeira.png" alt="Parafusadeira" class="produto-img">
-
+        <div class="containerimg">
+            <img src="./img/parafuzadeira.png" alt="Parafusadeira" class="produto-img">
+        </div>
         <div class="produto-info">
             <p class="produto-nome">
-                Parafusadeira Philco Force PPF120 3<br>
-                em 1 1500RPM
+                Parafusadeira Philco Force PPF120 3 em 1 1500RPM
+                
             </p>
 
             <p class="produto-antigo">
