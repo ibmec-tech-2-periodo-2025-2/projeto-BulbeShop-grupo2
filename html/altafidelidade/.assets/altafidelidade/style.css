@@ -141,7 +141,7 @@ body{
 }
 
 /* Título e vendedor */
-.product-title{ font-size:18px; font-weight:800; margin:8px 0 4px; color:var(--brand-deep); }
+.product-title{ font-size:18px; font-weight:600; margin:8px 0 4px; color:var(--brand-deep); }
 .soldby{ color:var(--gray-400); font-size:12px; margin-bottom:6px; }
 .shop-badge{ background:#E6F1FE; color:var(--brand-strong); padding:6px 10px; border-radius:999px; font-weight:800; display:inline-flex; align-items:center; gap:6px; }
 
@@ -159,12 +159,12 @@ body{
 /* Preços e badges */
 .price-wrap{ margin:10px 0; }
 .price-old{ color:var(--gray-300); text-decoration:line-through; font-weight:600; font-size:16px; }
-.badges{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:8px 0 8px; }
+.badges{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:8px 0 8px; margin-bottom: 6px; }
 .badge{ display:inline-flex; align-items:center; gap:6px; font-weight:600; color:#fff; background:var(--brand-strong); padding:6px 10px; border-radius:999px; font-size:12px; }
 .badge .ico{ width:14px; height:14px; }
 .badge--pix{ background:var(--brand-deep); }
 .badge--cash{ background:var(--cash); }
-.price-current{ font-size:36px; font-weight:600; color:var(--brand-deep); }
+.price-current{ font-size:38px; letter-spacing: -2px;font-weight:600; color:var(--brand-deep); }
 .price-help{ color:var(--gray-300); font-size:12px; font-weight:600; line-height:24px; text-decoration:underline; }
 
 /* Variações */
