@@ -280,3 +280,7 @@ body{
     scroll-behavior: auto !important;
   }
 }
+@supports(padding: max(0px)){
+  .site-header{ padding-top: max(0px, env(safe-area-inset-top)); }
+  .container{ padding-left: 16px; padding-right: 16px; }
+}
