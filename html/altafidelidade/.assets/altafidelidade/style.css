@@ -31,22 +31,37 @@ body{
   font-size:12px; /* nunca menor que 12px */
 }
 
-/* ==========================================================================
-   ÍCONES / AVATAR
-   ========================================================================== */
-.icon-white{ filter:brightness(0) invert(1); }
+/* ÍCONES / AVATAR */
 .icon-btn{
   display:inline-flex; align-items:center; justify-content:center;
-  background:transparent; border:0; padding:6px; cursor:pointer;
+  background:transparent; border:0; padding:2px; cursor:pointer;  /* ↑ de 6px para 2px */
+  border-radius:10px;                                             /* para foco visível */
+  transition: background-color .15s ease, transform .12s ease;
 }
-.icon-btn img{ width:28px; height:28px; }
-.logo-img{ height:29px; width:auto; display:block; }
-.header-icons{ display:inline-flex; align-items:center; gap:16px; }
-.avatar{
-  width:34px; height:34px; border-radius:999px; overflow:hidden;
-  outline:2px solid rgba(255,255,255,.6); flex:0 0 auto;
+.icon-btn:hover{ background: rgba(255,255,255,.06); }
+.icon-btn:active{ transform: translateY(1px); }
+
+/* Botões e chips: foco acessível */
+.icon-btn:focus-visible,
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.chip:focus-visible{
+  outline: 2px solid rgba(7,98,199,.45);
+  outline-offset: 2px;
 }
-.avatar img{ width:100%; height:100%; object-fit:cover; }
+
+/* Chip com hover suave */
+.chip:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(5,72,148,.08);
+}
+
+/* Botão primário com “press” */
+.primary-btn:active{ transform: translateY(1px); }
+
+/* Favorito “ligado” com leve destaque */
+.btn-fav[data-on="1"]{ transform: scale(1.06); transition: transform .12s ease; }
+
 
 /* ==========================================================================
    HEADER
