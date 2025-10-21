@@ -31,8 +31,9 @@
 - VSCode
 - Simulador de Telefone Móvel 
 - API 
--Json 
--FallBack
+- Json
+- FallBack
+
 
 ## Critérios de Entrega
 - Tarefa de configuração de dependências depende da finalização da estrutura.
