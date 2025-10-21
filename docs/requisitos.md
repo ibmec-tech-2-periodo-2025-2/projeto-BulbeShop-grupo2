@@ -3,7 +3,7 @@ Documentação do Projeto
 
 Integrantes
 
-Beatriz Samaha - Scrum Master (sprint1)
+Beatriz Samaha - Scrum Master (Sprint 1 e 2)
 Bruna Bento - Desenvolvedor
 Júlia Leal - Desenvolvedor
 Pedro Paulucci - Desenvolvedor
@@ -12,7 +12,7 @@ Pedro Paulucci - Desenvolvedor
 Gestão de Código
 
 Plataforma utilizada: GitHub, repositório compartilhado com todos da equipe e professor.
-- Fluxo de trabalho:
+-Fluxo de trabalho:
 Cada integrante desenvolve em branch própria.
 Pull requests são revisados por pelo menos 1 colega antes de serem mesclados na ‘main’.
 
@@ -20,7 +20,7 @@ Pull requests são revisados por pelo menos 1 colega antes de serem mesclados na
 Padrões definidos
 
 Commits: descritivos e curtos, seguindo o padrão ‘tipo(local):descrição’.
-    - Tipos:
+    -Tipos:
 “feat:” para adição de nova funcionalidade;
 “fix:” para correção de bug;
 “docs:” para documentação;
@@ -29,7 +29,7 @@ Commits: descritivos e curtos, seguindo o padrão ‘tipo(local):descrição’.
 “test:” para testes adicionados ou modificados;
 “chore:” para tarefas menores (ex: atualizações de dependência).
 Branches: nomeadas de acordo com a tarefa, seguindo o padrão ‘feature/nome-funcionalidade’ ou ‘fix/nome-do-bug’.
-    - Tipos:
+    -Tipos:
 “feature/” para adição de nova funcionalidade;
 “fix/” para correção de bug;
 “docs/” para alterar documentação;
@@ -68,10 +68,10 @@ README.md             # visão geral do projeto
 
 Organização de tarefas
 
-- Divisão de tarefas:
+-Divisão de tarefas:
 Técnica de classificação do nível de complexidade das tarefas por story points. Exemplo: Tarefa X (nível de complexidade).
     
-- Divisão de prioridade:
+-Divisão de prioridade:
 Será usada uma classificação que sinalizará a prioridade da realização das tarefas no backlog. Serão elas: essenciais, desejáveis, opcionais e desnecessário. Exemplo: Item X do backlog – classificação de prioridade.
 
 
