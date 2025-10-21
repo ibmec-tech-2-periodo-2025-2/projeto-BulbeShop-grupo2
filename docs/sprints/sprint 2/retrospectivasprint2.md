@@ -17,6 +17,7 @@
 - Aprendizado 2
 
 ## Avaliação individual (cada aluno preenche)
+
 - Beatriz Samaha :
 - Contribuições principais:
 - Dificuldade enfrentada:

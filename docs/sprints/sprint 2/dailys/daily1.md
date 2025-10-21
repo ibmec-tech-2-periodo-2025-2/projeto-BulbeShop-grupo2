@@ -5,7 +5,7 @@
 
 ---
 
-### **Relatório de Acompanhamento: Beatriz Samaha - Semana X/Y**
+### **Relatório de Acompanhamento: Beatriz Samaha - Semana 1**
 
 ---
 
@@ -13,7 +13,7 @@
 
 - Selecionei os itens do BackLog que serão usados na Sprint 2  
 - Iniciei o relatório de abertura  
-- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
+
 
 ---
 
@@ -46,7 +46,7 @@
 
 
 
-### **Relatório de Acompanhamento: Bruna Bento - Semana X/Y**
+### **Relatório de Acompanhamento: Bruna Bento - Semana 1**
 
 ---
 
@@ -80,7 +80,7 @@
 #### **Próximo passo //** _
 
 - Finalizar as telas de altas fidelidades 
-- 
+
 
 ---
 
@@ -88,7 +88,7 @@
 
 
 
-### **Relatório de Acompanhamento: Julia Leal - Semana X/Y**
+### **Relatório de Acompanhamento: Julia Leal - Semana 1**
 
 ---
 
@@ -101,27 +101,27 @@
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentação da Sprint 2
+- Organizar a sprint Backlog no jira 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Dificuldade 1  
-- Dificuldade 2  
+- Terminar a tela de baixa fidelidade
+- Definir e passar topico por topico no backlog demanda tempo e é complicadob 
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** 
 
-- Aprendizado 1  
-- Aprendizado 2  
+- Aprendizado em relação ao design de aplicativos e sites 
+
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** 
 
-- Tarefa próxima
+- Finalizar as telas de altas fidelidades 
 
 ---
 
@@ -133,7 +133,7 @@
 
 
 
-### **Relatório de Acompanhamento: Pedro Paulucci - Semana X/Y**
+### **Relatório de Acompanhamento: Pedro Paulucci - Semana 1**
 
 ---
 
