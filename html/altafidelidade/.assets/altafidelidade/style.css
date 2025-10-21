@@ -221,11 +221,19 @@ body{
 .score-big{ font-size:44px; font-weight:900; color:var(--brand-deep); }
 .score-star{ width:50px; height:50px; fill:var(--alert-500); }
 .ratings-sub{ margin-top:6px; color:var(--gray-400); font-size:12px; }
+/* Distribuição das notas */
 .rating-distribution{ display:flex; flex-direction:column; gap:8px; min-width:0; }
 .dist-row{ display:grid; grid-template-columns:32px 1fr; gap:8px; align-items:center; }
-.dist-label{ font-size:12px; color:var(--brand-deep); font-weight:700; text-align:right; }
-.dist-track{ height:12px; border-radius:999px; background:var(--gray-200); overflow:hidden; }
-.dist-fill{ height:100%; background:var(--brand-strong); border-radius:999px; }
+.dist-label{ font-size:12px; color:var(--brand-deep); font-weight:700; text-align:right; width:32px; }
+.dist-track{ height:10px; border-radius:999px; background:var(--gray-200); overflow:hidden; }
+.dist-fill{ height:10px; background:var(--brand-strong); border-radius:999px; }
+
+/* Fotos quadradas sem pulos */
+.review-photos .ph{
+  aspect-ratio: 1 / 1;       /* evita “pulo” ao carregar */
+  height: auto;
+  border-radius:12px; background:#fff; border:2px solid var(--gray-300);
+}
 .review-block{ padding:8px 0 14px; border-top:1px solid #E6EEF7; }
 .review-block:first-of-type{ border-top:0; }
 .review-header{ display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:center; margin-top:4px; }
