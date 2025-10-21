@@ -5,7 +5,7 @@
 **Scrum Master**: Bruna Bento 
 
 ## Objetivos da Sprint
-- [ ] Objetivos da Sprint  
+
 - [ ] Organizar a estrutura de pastas e arquivos.
 - [ ] Criar as telas de alta fidelidade 
 - [ ] Organizar o backlog.

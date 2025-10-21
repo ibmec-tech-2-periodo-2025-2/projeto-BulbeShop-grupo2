@@ -13,32 +13,32 @@
 
 - Selecionei os itens do BackLog que serão usados na Sprint 2  
 - Iniciei o relatório de abertura  
+- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentação da Sprint 2
+- Organizando a documentação e as pastas da Sprint 2
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Dificuldade 1  
-- Dificuldade 2  
+- Nenhuma encontrada 
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora?** _
 
-- Aprendizado 1  
-- Aprendizado 2  
+- Aprendi a definir e refinar o Backlog 
+- Organização de sprints 
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //**
 
-- Tarefa próxima
+- Iniciar a daily 2 
 
 ---
 
@@ -52,39 +52,39 @@
 
 #### **O que eu fiz desde o último relatório?**
 
-- Selecionei os itens do BackLog que serão usados na Sprint 2  
-- Iniciei o relatório de abertura  
+- Pesquisar inspirações de telas de alta fidelidade
+- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
+
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentação da Sprint 2
+- Organizando as pastas no figma 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Dificuldade 1  
-- Dificuldade 2  
+-  Dificuldade de utilizar as ferramentas do aplicativo Figma 
+-  Dificuldade em selecionar melhores icones e layouts que fariam sentido com a propsta 
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** _
 
-- Aprendizado 1  
-- Aprendizado 2  
-
----
-
-#### **Próximo passo //** _**não é necessário**_
-
-- Tarefa próxima
+- Aprendizado em relação ao design de aplicativos e sites 
 
 ---
 
+#### **Próximo passo //** _
 
------------------------------------------------------------------------------------
+- Finalizar as telas de altas fidelidades 
+- 
+
+---
+
+
 
 
 
@@ -94,8 +94,8 @@
 
 #### **O que eu fiz desde o último relatório?**
 
-- Selecionei os itens do BackLog que serão usados na Sprint 2  
-- Iniciei o relatório de abertura  
+- Finalizar as telas de baixa fidelidade, principalmente a tela de finalização de compras 
+- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
 
 ---
 
