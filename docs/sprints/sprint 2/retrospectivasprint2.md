@@ -9,6 +9,7 @@
 - Dificuldade de integração entre design e desenvolvimento: ocorreram pequenos atrasos devido à necessidade de ajustes entre o protótipo e a estrutura real de código.
 - Despadronização inicial das dailies: alguns registros foram inconsistentes, dificultando o rastreamento das entregas no início da sprint.
 - Atraso na consolidação do backlog: a redefinição de prioridades para o Sprint Backlog consumiu mais tempo do que o planejado.
+- Não conseguimos concluir o CSS e as interações com JAVA de todas as páginas.
   
 ## O que podemos melhorar para a próxima sprint?
 - Aprimorar a comunicação entre design e front-end, validando cada etapa antes de avançar para o código.
