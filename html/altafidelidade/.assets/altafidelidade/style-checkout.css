@@ -91,8 +91,8 @@ body{
 .payment-card{
   margin-top:10px;
   padding:12px;
-  background:#F6FBFF;                 /* leve azul de fundo */
-  border:1px solid #E6EEF7;            /* borda azulada */
+  background: var(--white);               
+  border:1px solid var(--gray-100);            /* borda azulada */
   border-radius:12px;
 }
 .payment-card__title{
@@ -212,3 +212,14 @@ body{
   margin-top: 12px;      /* base */
   margin-bottom: 24px;   /* já existia no seu arquivo */
 }
+/* Ícone do Bulbe Shop usando mask para colorir com currentColor */
+.tabbar__icon{
+  width:26px; height:26px; display:inline-block;
+  background-color: currentColor;
+  mask: url("../altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg") center / contain no-repeat;
+  -webkit-mask: url("../altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg") center / contain no-repeat;
+}
+
+/* Estado inativo segue o cinza; ativo fica no azul já herdado da .is-active */
+.tabbar__item{ color:#B7C0CA; }
+.tabbar__item.is-active{ color: var(--blue); }
