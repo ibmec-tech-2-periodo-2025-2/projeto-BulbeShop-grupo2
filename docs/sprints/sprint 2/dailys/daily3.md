@@ -5,40 +5,45 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-### **Relatório de Acompanhamento: Beatriz Samaha - Semana X/Y**
+### **Relatório de Acompanhamento: Beatriz Samaha - Semana 3**
 
 ---
 
 #### **O que eu fiz desde o último relatório?**
 
-- Selecionei os itens do BackLog que serão usados na Sprint 2  
-- Iniciei o relatório de abertura  
-- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
+- Documentar e refinar a abertura de Sprint 2
+- Finalizar e validar o protótipo de alta fidelidade completo, garantindo responsividade e coerência com a hierarquia de informações.
+- Iniciar a documentação da Daily 3
+
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentação e as pastas da Sprint 2
+- Iniciar e formatar a retrospectiva da sprint 2 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Nenhuma encontrada 
+- A documentação e o refinamento da abertura da Sprint 2 apresentaram dificuldade em consolidar informações de forma padronizada, exigindo revisões para garantir clareza e coesão entre as seções.
+- A finalização e validação do protótipo de alta fidelidade demandaram alinhamento contínuo entre design e equipe técnica, principalmente na adequação da responsividade e hierarquia visual.
+- Ajustes visuais de espaçamento, tipografia e contraste geraram revisões sucessivas até a aprovação final.
+- O início da documentação da Daily 3 apresentou desafios na regularidade dos registros e no detalhamento das atualizações individuais, impactando a rastreabilidade das tarefas.
 
 ---
 
 #### **O que aprendi até agora?** _
 
-- Aprendi a definir e refinar o Backlog 
-- Organização de sprints 
-
+- O processo de documentação reforçou a importância de padronizar relatórios e registros de sprint, garantindo consistência
+- A validação do protótipo de alta fidelidade proporcionou aprendizado sobre design responsivo e coerência visual entre telas, destacando a necessidade de testes práticos antes da implementação.
+- A documentação da Daily 3 reforçou o valor da comunicação contínua e objetiva, promovendo maior alinhamento entre os integrantes.
 ---
 
 #### **Próximo passo //**
 
-- Iniciar a daily 2 
+- Consolidar o protótipo de alta fidelidade aprovado como base oficial para o desenvolvimento front-end.
+- Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
 
 ---
 
@@ -46,28 +51,29 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
-### **Relatório de Acompanhamento: Bruna Bento - Semana X/Y**
+### **Relatório de Acompanhamento: Bruna Bento - Semana 3**
 
 ---
 
 #### **O que eu fiz desde o último relatório?**
 
-- Pesquisar inspirações de telas de alta fidelidade
-- Criação das telas de alta fidelidade no figma : Home, favoritos, lojas parceiras e carrinho 
+- MoodBoard para inspiração das telas
+- Completar o Html e Css baseado nas telas de alta fidelidade
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Organizando as pastas no figma 
+- Iniciar as interações básicas de JavaScripts
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  Dificuldade de utilizar as ferramentas do aplicativo Figma 
--  Dificuldade em selecionar melhores icones e layouts que fariam sentido com a propsta 
+-  A criação do MoodBoard apresentou dificuldade em alinhar referências visuais com a identidade definida do projeto
+-  A conclusão do HTML e CSS com base nas telas de alta fidelidade enfrentou desafios de fidelidade visual e responsividade, principalmente em ajustes finos de espaçamento e alinhamento.
+- Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
 
 ---
 
@@ -79,7 +85,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo //** _
 
-- Finalizar as telas de altas fidelidades 
+- Finalizar os codigos das telas 
 - 
 
 ---
@@ -88,7 +94,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
-### **Relatório de Acompanhamento: Julia Leal - Semana X/Y**
+### **Relatório de Acompanhamento: Julia Leal - Semana 3**
 
 ---
 
@@ -127,13 +133,8 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
--------------------------------------------------------------------------------------------
 
-
-
-
-
-### **Relatório de Acompanhamento: Pedro Paulucci - Semana X/Y**
+### **Relatório de Acompanhamento: Pedro Paulucci - Semana 3**
 
 ---
 
@@ -146,7 +147,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentação da Sprint 2
+- Iniciar as interações básicas de JavaScripts
 
 ---
 
@@ -166,5 +167,5 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo //** _**não é necessário**_
 
-- Tarefa próxima
+- Finalizar os codigos das telas 
 

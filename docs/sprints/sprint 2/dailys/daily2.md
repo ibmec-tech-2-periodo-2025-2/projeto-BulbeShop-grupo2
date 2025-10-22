@@ -34,6 +34,8 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - A organização da documentação e das pastas mostrou a importância de padronizar nomes, estruturas e versões, facilitando o acesso e a rastreabilidade dos arquivos pela equipe.
 - O registro da daily 2 reforçou o valor da comunicação contínua e transparente, permitindo identificar bloqueios mais cedo e alinhar prioridades.
+- O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
+- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout
 
 ---
 

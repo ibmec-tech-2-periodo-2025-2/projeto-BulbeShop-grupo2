@@ -63,14 +63,14 @@
 
 #### **O que estou fazendo agora?**
 
-- Organizando as pastas no figma 
+- Organizando as pastas no Figma 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
 -  Dificuldade de utilizar as ferramentas do aplicativo Figma 
--  Dificuldade em selecionar melhores icones e layouts que fariam sentido com a propsta 
+-  Dificuldade em selecionar melhores icones e layouts que fariam sentido com a proposta 
 
 ---
 
