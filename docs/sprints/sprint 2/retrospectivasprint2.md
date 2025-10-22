@@ -39,8 +39,8 @@
 
 - Julia Leal:
 - Contribuições principais: Organização do Backlog e do Sprint Backlog, além da criação de slides.
-- Dificuldade enfrentada: A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas ,a revisão e consolidação do backlog demandaram tempo adicional e a finalização da documentação em slides da Sprint 2 demandou atenção à clareza textual, legibilidade e consistência entre as seções, o que prolongou o tempo de edição.
-- Nota para meu desempenho (0 a 10): 9 
+- Dificuldade enfrentada: A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas, a revisão e consolidação do backlog demandaram tempo adicional e a finalização da documentação em slides da Sprint 2 demandou atenção à clareza textual, legibilidade e consistência entre as seções, o que prolongou o tempo de edição.
+- Nota para meu desempenho (0 a 10): 10
 
 
 
