@@ -11,15 +11,15 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizando a documentação e as pastas da Sprint 2
-- Iniciar e documentar a daily 2
-- Refinar o Wireframe, protótipo de alta fidelidade
+- Organizando a documentação e as pastas da Sprint 2.
+- Iniciar e documentar a daily 2.
+- Refinar o Wireframe, protótipo de alta fidelidade.
 
 ---
 
 #### **O que estou fazendo agora?**
 
--  Documentar e refinar a abertura de Sprint 2
+-  Documentar e refinar a abertura de Sprint 2.
 
 ---
 
@@ -35,7 +35,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - A organização da documentação e das pastas mostrou a importância de padronizar nomes, estruturas e versões, facilitando o acesso e a rastreabilidade dos arquivos pela equipe.
 - O registro da daily 2 reforçou o valor da comunicação contínua e transparente, permitindo identificar bloqueios mais cedo e alinhar prioridades.
 - O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
-- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout
+- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout.
 
 ---
 
@@ -56,22 +56,22 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizando as pastas no figma 
-- Finalizar as telas de altas fidelidades 
+- Organizando as pastas no figma. 
+- Finalizar as telas de altas fidelidades. 
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- MoodBoard para inspiração das telas
+- MoodBoard para inspiração das telas.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  Organização das pastas no Figma apresentou desafios de padronização
--  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento
+-  Organização das pastas no Figma apresentou desafios de padronização.
+-  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento.
 
 ---
 
@@ -85,7 +85,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo** 
 
-- Completar o Html e Css baseado nas telas de alta fidelidade
+- Completar o Html e Css baseado nas telas de alta fidelidade.
 - 
 
 ---
@@ -99,21 +99,21 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizar a sprint Backlog no jira 
-- Finalizar as telas de altas fidelidades 
+- Organizar a sprint Backlog no jira. 
+- Finalizar as telas de altas fidelidades.
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar a documentação em slides da Sprint 2
+- Iniciar a documentação em slides da Sprint 2.
 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento
+-  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento.
 -  A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas.
 -  A finalização das telas de alta fidelidade enfrentou ajustes contínuos de layout, cores e espaçamento, prolongando o tempo de validação e aprovação.
 ---
@@ -121,7 +121,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **O que aprendi até agora?** 
 
 - A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
-- A utilização do Jira consolidou o entendimento sobre gestão ágil de tarefas
+- A utilização do Jira consolidou o entendimento sobre gestão ágil de tarefas.
 
 ---
 
@@ -141,14 +141,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Arquitetura inicial de navegação: definir o fluxo
-- Refinar o Wireframe, protótipo de alta fidelidade
+- Arquitetura inicial de navegação: definir o fluxo.
+- Refinar o Wireframe, protótipo de alta fidelidade.
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Protótipo de alta fidelidade da página de produto ,com responsividade
+- Protótipo de alta fidelidade da página de produto ,com responsividade.
 
 ---
 
@@ -163,11 +163,11 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - O processo de definição do fluxo de navegação fortaleceu o entendimento sobre arquitetura da informação e usabilidade orientada ao usuário. 
 - O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
-- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout
+- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout.
 
 ---
 
 #### **Próximo passo** 
 
-- Iniciar a implementação das telas em HTML e CSS conforme o fluxo aprovado
+- Iniciar a implementação das telas em HTML e CSS conforme o fluxo aprovado.
 

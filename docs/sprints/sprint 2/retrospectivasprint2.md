@@ -25,8 +25,8 @@
 ## Avaliação individual (cada aluno preenche)
 
 - Beatriz Samaha :
-- Contribuições principais: Documentação( Dailies,Abertura da Sprint), Organização das pastas
-- Dificuldade enfrentada: Padronização do formato de registro das dailies encontrou variações na forma de preenchimento e nível de detalhamento, o que comprometeu a consistência dos registros e a documentação e o refinamento da abertura da Sprint 2 apresentaram dificuldade em consolidar informações de forma padronizada, exigindo revisões para garantir clareza e coesão entre as seções.
+- Contribuições principais: Documentação( Dailies,Abertura da Sprint), Organização das pastas.
+- Dificuldade enfrentada: Padronização do formato de registro das dailies encontrou variações na forma de preenchimento e nível de detalhamento, o que comprometeu a consistência dos registros e a documentação e o refinamento da abertura da Sprint 2.apresentaram dificuldade em consolidar informações de forma padronizada, exigindo revisões para garantir clareza e coesão entre as seções.
 - Nota para meu desempenho (0 a 10): 10
 
 - Bruna Bento:
@@ -37,13 +37,13 @@
 
 
 - Julia Leal:
-- Contribuições principais: Organização do Backlog e do Sprint Backlog, além da criação de slides
+- Contribuições principais: Organização do Backlog e do Sprint Backlog, além da criação de slides.
 - Dificuldade enfrentada: A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas ,a revisão e consolidação do backlog demandaram tempo adicional e a finalização da documentação em slides da Sprint 2 demandou atenção à clareza textual, legibilidade e consistência entre as seções, o que prolongou o tempo de edição.
 - Nota para meu desempenho (0 a 10): 9 
 
 
 
 - Pedro Paulucci:
-- Contribuições principais: Html, Css e JavaScript e Responsividade em aplicativos
-- Dificuldade enfrentada: Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo e
+- Contribuições principais: Html, Css e JavaScript e Responsividade em aplicativos.
+- Dificuldade enfrentada: Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
 - Nota para meu desempenho (0 a 10): 10

@@ -7,14 +7,14 @@
 ## Objetivos da Sprint
 
 - [ ] Organizar a estrutura de pastas e arquivos.
-- [ ] Criar as telas de alta fidelidade 
+- [ ] Criar as telas de alta fidelidade.
 - [ ] Organizar o backlog.
-- [ ] Definir o sprint backlog 
-- [ ] Finalizar o Html e CSS completos
-- [ ] Iniciar as interações básicas em JS ( definidas no backlog- navegação, API’s,     placeholders, efeitos de hover )
-- [ ] Ajustes pontuais no design;
+- [ ] Definir o sprint backlog.
+- [ ] Finalizar o Html e CSS completos.
+- [ ] Iniciar as interações básicas em JS ( definidas no backlog- navegação, API’s,     placeholders, efeitos de hover ).
+- [ ] Ajustes pontuais no design.
 - [ ] Estilização responsiva aplicada em todas as páginas.
-- [ ] Realizar as instalações das dependências: Jest, TypeScript, Express, Tsx.- Integração com bibliotecas e frameworks JavaScript;
+- [ ] Realizar as instalações das dependências: Jest, TypeScript, Express, Tsx.- Integração com bibliotecas e frameworks JavaScript.
 - [ ] Elaborar testes unitários.
 - [ ] Iniciar a construção dos endpoints da API.
 

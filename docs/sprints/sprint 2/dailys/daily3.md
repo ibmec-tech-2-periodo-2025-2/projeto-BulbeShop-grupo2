@@ -11,16 +11,16 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Documentar e refinar a abertura de Sprint 2
+- Documentar e refinar a abertura de Sprint 2.
 - Finalizar e validar o protótipo de alta fidelidade completo, garantindo responsividade e coerência com a hierarquia de informações.
-- Iniciar a documentação da Daily 3
+- Iniciar a documentação da Daily 3.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar e formatar a retrospectiva da sprint 2 
+- Iniciar e formatar a retrospectiva da sprint 2.
 
 ---
 
@@ -45,7 +45,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Consolidar o protótipo de alta fidelidade aprovado como base oficial para o desenvolvimento front-end.
 - Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
 - Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
-- Iniciar a documentação da Daily 4
+- Iniciar a documentação da Daily 4.
 
 
 ---
@@ -60,21 +60,21 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- MoodBoard para inspiração das telas
-- Completar o Html e Css baseado nas telas de alta fidelidade
+- MoodBoard para inspiração das telas.
+- Completar o Html e Css baseado nas telas de alta fidelidade.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar as interações básicas de JavaScripts
+- Iniciar as interações básicas de JavaScripts.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  A criação do MoodBoard apresentou dificuldade em alinhar referências visuais com a identidade definida do projeto
+-  A criação do MoodBoard apresentou dificuldade em alinhar referências visuais com a identidade definida do projeto.
 -  A conclusão do HTML e CSS com base nas telas de alta fidelidade enfrentou desafios de fidelidade visual e responsividade, principalmente em ajustes finos de espaçamento e alinhamento.
 - Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
 
@@ -82,7 +82,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que aprendi até agora?** 
 
-- O desenvolvimento do MoodBoard reforçou a importância da referência visual como guia criativo, auxiliando na padronização estética
+- O desenvolvimento do MoodBoard reforçou a importância da referência visual como guia criativo, auxiliando na padronização estética.
 - O processo de implementação aprimorou a compreensão sobre a semântica HTML, a estrutura do CSS e práticas de responsividade.
 
 ---
@@ -104,7 +104,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar a documentação em slides da Sprint 2 
+- Iniciar a documentação em slides da Sprint 2. 
 - Revisar e consolidar o backlog da sprint com prioridades ajustadas e tarefas devidamente atribuídas.
 - Acompanhar o progresso via Jira, utilizando as dailies para alinhar pendências e ajustes.
 ---
@@ -113,7 +113,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que estou fazendo agora?**
 
-- Responsável pelo avanço na estrutura dos slides e pela formatação os slides 
+- Responsável pelo avanço na estrutura dos slides e pela formatação os slides. 
 
 ---
 
@@ -129,7 +129,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **O que aprendi até agora?** 
 
 - O uso do Jira e das dailies consolidou práticas de transparência e acompanhamento contínuo, fortalecendo a cultura ágil.
-- A elaboração dos slides reforçou a importância de comunicar entregas de forma visual e objetiva
+- A elaboração dos slides reforçou a importância de comunicar entregas de forma visual e objetiva.
   
 
 ---
@@ -137,7 +137,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **Próximo passo** 
 
 - Finalizar a documentação em slides da Sprint 2, garantindo coesão visual e clareza de comunicação.
-- Responsável pela revisão de fontes e componentes do slide 
+- Responsável pela revisão de fontes e componentes do slide.
 
 
 ---
@@ -151,14 +151,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Completar o Html semântica e Css baseado nas telas de alta fidelidade
+- Completar o Html semântica e Css baseado nas telas de alta fidelidade.
 - Componentes reutilizáveis: card de produto, seletor de variação, badge de desconto, breadcrumb, tabelas e inputs do checkout.
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar as interações básicas de JavaScripts
+- Iniciar as interações básicas de JavaScripts.
 
 ---
 
@@ -166,7 +166,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - A conclusão do HTML e CSS com base nas telas de alta fidelidade enfrentou desafios de fidelidade visual e responsividade, principalmente em ajustes finos de espaçamento e alinhamento.
 - Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
-- Inconsistências entre o layout previsto e o comportamento responsivo real, exigindo ajustes finos
+- Inconsistências entre o layout previsto e o comportamento responsivo real, exigindo ajustes finos.
 
 ---
 

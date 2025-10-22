@@ -11,17 +11,17 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar e formatar a retrospectiva da sprint 2 
+- Iniciar e formatar a retrospectiva da sprint 2. 
 - Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
 - Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
-- Iniciar a documentação da Daily 4
+- Iniciar a documentação da Daily 4.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Finalizar a retrospectiva da Sprint 2
+- Finalizar a retrospectiva da Sprint 2.
 
 ---
 
@@ -57,7 +57,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar as interações básicas de JavaScripts
+- Iniciar as interações básicas de JavaScripts.
 - Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
 
 
@@ -86,8 +86,8 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo**
 
-- Integração com bibliotecas e frameworks JavaScript
-- Flask 
+- Integração com bibliotecas e frameworks JavaScript.
+- Flask. 
 
 
 ---
@@ -102,16 +102,16 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Responsável pelo avanço na estrutura dos slides e pela formatação os slides 
+- Responsável pelo avanço na estrutura dos slides e pela formatação os slides. 
 - Finalizar a documentação em slides da Sprint 2, garantindo coesão visual e clareza de comunicação.
-- Revisão de fontes e componentes do slide 
+- Revisão de fontes e componentes do slide. 
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Revisar as documentações da Sprint 2 
+- Revisar as documentações da Sprint 2.
 
 ---
 
@@ -133,7 +133,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo** 
 
-- Ajustes pontuais no design
+- Ajustes pontuais no design.
 
 ---
 
@@ -151,7 +151,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar as interações básicas de JavaScripts
+- Iniciar as interações básicas de JavaScripts.
 - Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
 
 ---
@@ -179,6 +179,6 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo** 
 
-- Integração com bibliotecas e frameworks JavaScript
-- Flask 
+- Integração com bibliotecas e frameworks JavaScript.
+- Flask. 
 
