@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cadastro • Bulbe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../html/altafidelidade/.assets/altafidelidade/style-pagamento.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="appbar">
+    <button class="appbar__back" aria-label="Voltar">
+      <img src="../../../html/altafidelidade/.assets/altafidelidade/img/corner-up-left.svg" alt="">
+    </button>
+    <img class="appbar__logo" src="../../../html/altafidelidade/.assets/altafidelidade/img/logo-base.svg" alt="Bulbe">
+  </header>
+
+  <main class="wrap">
+    <!-- PAÍS -->
+    <section class="card">
+      <header class="card__title">
+        <img src="../../../html/altafidelidade/.assets/altafidelidade/img/globe-05.svg" alt="" class="ico">
+        <span>País</span>
+      </header>
+
+      <!-- Abre “empurrando” o conteúdo, sem sobrepor -->
+      <div class="select-block" id="countrySelect" aria-expanded="false">
+        <button type="button" class="select-head" aria-haspopup="listbox">
+          <span class="select-placeholder">Selecionar</span>
+          <img class="chev" src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+        </button>
+
+        <ul class="select-list" role="listbox">
+          <li class="opt">Brasil</li>
+          <li class="opt">Argentina</li>
+          <li class="opt">Chile</li>
+          <li class="opt">Paraguai</li>
+          <li class="opt">Uruguai</li>
+          <li class="opt">Portugal</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DADOS DO COMPRADOR -->
+    <section class="card">
+      <header class="card__title">
+        <img src="../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
+        <span>Dados do comprador</span>
+      </header>
+
+      <label class="field">
+        <span class="label">Nome completo:</span>
+        <input class="input" type="text" placeholder="Digite seu nome">
+      </label>
+
+      <label class="field">
+        <span class="label">Número de telefone:</span>
+        <input class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
+      </label>
+
+      <label class="field">
+        <span class="label">CPF:</span>
+        <input class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
+      </label>
+    </section>
+
+    <!-- ENDEREÇO DE ENTREGA -->
+    <section class="card">
+      <header class="card__title">
+        <img src="../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
+        <span>Endereço de entrega</span>
+      </header>
+
+      <label class="field">
+        <span class="label">CEP:</span>
+        <input class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
+      </label>
+
+      <label class="field">
+        <span class="label">Rua / Avenida:</span>
+        <input class="input" type="text" placeholder="Digite a rua">
+      </label>
+
+      <div class="row-2">
+        <label class="field">
+          <span class="label">Número:</span>
+          <input class="input" type="text" inputmode="numeric" placeholder="Digite o número">
+        </label>
+
+        <label class="checkbox-inline">
+          <input type="checkbox">
+          <span>Sem número</span>
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="label">Complemento (opcional):</span>
+        <input class="input" type="text" placeholder="Digite o complemento">
+      </label>
+
+      <label class="field">
+        <span class="label">Bairro:</span>
+        <input class="input" type="text" placeholder="Digite o bairro">
+      </label>
+
+      <div class="row-2">
+        <label class="field">
+          <span class="label">Estado:</span>
+          <div class="select-inline" data-inline>
+            <select>
+              <option selected>Selecione o estado</option>
+              <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+              <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+              <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+              <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+              <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+              <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+              <option>SP</option><option>SE</option><option>TO</option>
+            </select>
+            <img src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="label">Cidade:</span>
+          <div class="select-inline" data-inline>
+            <select>
+              <option selected>Selecione a cidade</option>
+              <option>São Paulo</option>
+              <option>Rio de Janeiro</option>
+              <option>Belo Horizonte</option>
+              <option>Curitiba</option>
+            </select>
+            <img src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <!-- FRETE -->
+    <section class="card">
+      <header class="card__title">
+        <img src="../../../html/altafidelidade/.assets/altafidelidade/img/truck-01.svg" alt="" class="ico">
+        <span>Frete</span>
+      </header>
+
+      <ul class="frete-list">
+        <li class="frete-item">
+          <label><input type="checkbox"><span>Sedex (4 a 7 dias úteis)</span></label>
+          <strong>R$ 30,67</strong>
+        </li>
+        <li class="frete-item">
+          <label><input type="checkbox"><span>Loggi (2 a 3 dias úteis)</span></label>
+          <strong>R$ 82,21</strong>
+        </li>
+        <li class="frete-item">
+          <label><input type="checkbox"><span>JadLog (10 a 12 dias úteis)</span></label>
+          <strong>R$ 11,59</strong>
+        </li>
+        <li class="frete-item">
+          <label><input type="checkbox"><span>Logtime (6 a 9 dias úteis)</span></label>
+          <strong>R$ 18,03</strong>
+        </li>
+      </ul>
+
+      <button class="primary-btn" type="button" id="btnSave">Salvar</button>
+    </section>
+
+  </main>
+
+  <!-- TABBAR -->
+  <nav class="tabbar">
+    <a class="tabbar__item" href="#">
+      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Faturas.svg" alt="">
+      <span>Faturas</span>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Consumo.svg" alt="">
+      <span>Consumo</span>
+    </a>
+    <a class="tabbar__item is-active" href="#">
+      <img class="sacola" src="../../html/altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg" alt="">
+      <span>Bulbe Shop</span>
+      <i class="underline"></i>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Indicações.svg" alt="">
+      <span>Indicações</span>
+    </a>
+  </nav>
+
+  <script src="../../html/altafidelidade/.assets/altafidelidade/script-pagamento.js"></script>
+</body>
+</html>

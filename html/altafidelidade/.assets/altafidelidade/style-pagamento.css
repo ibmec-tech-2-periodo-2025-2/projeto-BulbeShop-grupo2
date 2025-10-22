@@ -1,0 +1,72 @@
+:root{
+  --white:#FFFFFF; --bg:#FAFBFC;
+  --line:#E6EEF7; --line-2:#DCE6EF;
+  --gray-300:#A4B3C1; --gray-400:#8699AC;
+  --gray-600:#536B79; --gray-700:#3E4D5B;
+  --blue:#08068D;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--gray-700);font:400 12px/1.35 "Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+
+/* Header */
+.appbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line)}
+.appbar__back{border:0;background:transparent;padding:6px;cursor:pointer}
+.appbar__back img{width:22px;height:22px}
+.appbar__logo{height:26px;width:auto}
+
+/* Layout */
+.wrap{max-width:420px;margin:0 auto;padding:12px 12px 88px}
+
+/* Card */
+.card{background:#F6FBFF;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.card__title{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--gray-700);margin-bottom:10px}
+.card__title .ico{width:18px;height:18px;opacity:.9}
+
+/* Campos */
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.label{font-weight:700;color:var(--gray-700)}
+.input{width:100%;height:40px;border-radius:10px;border:1px solid var(--line-2);background:#fff;padding:0 12px;color:var(--gray-700)}
+.input::placeholder{color:#B7C0CA}
+.row-2{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.checkbox-inline{display:flex;align-items:center;gap:8px;color:var(--gray-600);margin-bottom:10px}
+.checkbox-inline input{width:16px;height:16px}
+
+/* Selects nativos (estado/cidade) */
+.select-inline{position:relative}
+.select-inline select{width:100%;height:40px;border-radius:10px;border:1px solid var(--line-2);background:#fff;padding:0 36px 0 12px;color:var(--gray-600);appearance:none}
+.select-inline img{position:absolute;right:10px;top:50%;transform:translateY(-50%) rotate(90deg);width:16px;height:16px;opacity:.6;pointer-events:none}
+
+/* Select País que empurra conteúdo */
+.select-block{position:relative}
+.select-head{width:100%;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border:1px solid var(--line-2);background:#fff;border-radius:10px;cursor:pointer}
+.select-placeholder{color:#B7C0CA;font-weight:600}
+.select-head .chev{width:16px;height:16px;transform:rotate(90deg);opacity:.7;transition:transform .2s}
+.select-block[aria-expanded="true"] .chev{transform:rotate(270deg)}
+.select-list{margin-top:8px;background:#fff;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;max-height:0;opacity:0;transform:translateY(-4px);transition:max-height .28s ease,opacity .2s ease,transform .2s ease}
+.select-block[aria-expanded="true"] .select-list{max-height:240px;opacity:1;transform:none}
+.opt{padding:12px 14px;cursor:pointer}
+.opt:hover{background:#F6F9F9}
+
+/* Frete */
+.frete-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.frete-item{display:grid;grid-template-columns:1fr auto;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.frete-item:last-child{border-bottom:0}
+.frete-item label{display:flex;align-items:center;gap:8px}
+.frete-item input{width:16px;height:16px}
+.frete-item strong{color:var(--gray-700)}
+
+/* Botão salvar */
+.primary-btn{margin-top:12px;width:100%;height:46px;border-radius:12px;border:0;cursor:pointer;background:var(--blue);color:#fff;font-weight:800;font-size:16px}
+
+/* Tabbar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 12px 10px}
+.tabbar__item{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:#B7C0CA;font-weight:700;position:relative}
+.tabbar__item img{width:26px;height:26px;opacity:.45}
+.tabbar__item.is-active{color:var(--blue)}
+.tabbar__item.is-active img{opacity:1}
+.tabbar__item .underline{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:56px;height:4px;border-radius:999px;background:var(--blue)}
+
+/* Sacola azul */
+.sacola{filter:hue-rotate(0) saturate(1);opacity:1}
