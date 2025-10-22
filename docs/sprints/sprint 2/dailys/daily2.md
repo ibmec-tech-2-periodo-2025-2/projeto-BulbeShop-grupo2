@@ -114,7 +114,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **Quais dificuldades encontrei?**
 
 -  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento
--  A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas,
+-  A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas.
 -  A finalização das telas de alta fidelidade enfrentou ajustes contínuos de layout, cores e espaçamento, prolongando o tempo de validação e aprovação.
 ---
 
