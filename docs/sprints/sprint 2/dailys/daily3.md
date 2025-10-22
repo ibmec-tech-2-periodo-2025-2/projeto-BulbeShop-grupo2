@@ -5,7 +5,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-### **Relatório de Acompanhamento: Beatriz Samaha - Semana 3**
+### **Relatório de Acompanhamento: Beatriz Samaha - Semana 2**
 
 ---
 
@@ -53,7 +53,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
-### **Relatório de Acompanhamento: Bruna Bento - Semana 3**
+### **Relatório de Acompanhamento: Bruna Bento - Semana 2**
 
 ---
 
@@ -98,7 +98,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
-### **Relatório de Acompanhamento: Julia Leal - Semana 3**
+### **Relatório de Acompanhamento: Julia Leal - Semana 2**
 
 ---
 
@@ -145,7 +145,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 
 
-### **Relatório de Acompanhamento: Pedro Paulucci - Semana 3**
+### **Relatório de Acompanhamento: Pedro Paulucci - Semana 2**
 
 ---
 
