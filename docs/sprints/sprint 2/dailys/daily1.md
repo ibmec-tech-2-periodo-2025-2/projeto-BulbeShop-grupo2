@@ -32,14 +32,14 @@
 
 ---
 
-#### **O que aprendi até agora?** _
+#### **O que aprendi até agora?** 
 
 - Aprendi a definir e refinar o Backlog 
 - Organização de sprints 
 
 ---
 
-#### **Próximo passo //**
+#### **Próximo passo**
 
 - Iniciar a daily 2 
 
@@ -74,13 +74,13 @@
 
 ---
 
-#### **O que aprendi até agora? //** _
+#### **O que aprendi até agora?**
 
 - Aprendizado em relação ao design de aplicativos e sites 
 
 ---
 
-#### **Próximo passo //** _
+#### **Próximo passo** 
 
 - Finalizar as telas de altas fidelidades 
 
@@ -115,14 +115,14 @@
 
 ---
 
-#### **O que aprendi até agora? //** 
+#### **O que aprendi até agora?** 
 
 - Aprendizado em relação ao design de aplicativos e sites 
 
 
 ---
 
-#### **Próximo passo //** 
+#### **Próximo passo** 
 
 - Finalizar as telas de altas fidelidades 
 
@@ -156,14 +156,14 @@
 
 ---
 
-#### **O que aprendi até agora? //** _
+#### **O que aprendi até agora?** 
 
 - Ampliou a compreensão sobre hierarquia de informações, destacando o que realmente gera valor para o usuário.
 - Importância da padronização visual e da documentação compartilhada, garantindo consistência entre design e código.
 
 ---
 
-#### **Próximo passo //** _
+#### **Próximo passo** 
 
 - Definir os fluxos iniciais de navegação
   

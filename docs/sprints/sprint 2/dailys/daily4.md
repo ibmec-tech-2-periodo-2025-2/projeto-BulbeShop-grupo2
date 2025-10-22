@@ -77,14 +77,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - A finalização dos ajustes de CSS e responsividade demandou testes repetidos em diferentes resoluções e navegadores, para assegurar a fidelidade total ao protótipo de alta fidelidade.
 ---
 
-#### **O que aprendi até agora? //** _
+#### **O que aprendi até agora?** 
 
 - A importância de planejar interações de forma progressiva, garantindo que cada funcionalidade seja validada antes da próxima.
 - A etapa de ajustes finais em CSS reforçou o valor de testes de responsividade e acessibilidade, assegurando que o produto mantenha consistência visual em todos os dispositivos.
 
 ---
 
-#### **Próximo passo //** _
+#### **Próximo passo**
 
 - Integração com bibliotecas e frameworks JavaScript
 - Flask 
@@ -123,7 +123,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Ajustes pontuais de espaçamento e alinhamento gráfico foram necessários para assegurar a fidelidade ao padrão visual definido para o projeto.
 ---
 
-#### **O que aprendi até agora? //** 
+#### **O que aprendi até agora?** 
 
 - A estruturação dos slides reforçou o aprendizado sobre organização visual e narrativa de apresentação, facilitando a comunicação das entregas da sprint.
 - A equipe desenvolveu maior domínio sobre coerência visual e hierarquia tipográfica, aplicando princípios de design de informação.
@@ -131,7 +131,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //** 
+#### **Próximo passo** 
 
 - Ajustes pontuais no design
 
@@ -170,14 +170,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** 
+#### **O que aprendi até agora?** 
 
 - A importância de planejar interações de forma progressiva, garantindo que cada funcionalidade seja validada antes da próxima.
 - A etapa de ajustes finais em CSS reforçou o valor de testes de responsividade e acessibilidade, assegurando que o produto mantenha consistência visual em todos os dispositivos. 
 
 ---
 
-#### **Próximo passo //** 
+#### **Próximo passo** 
 
 - Integração com bibliotecas e frameworks JavaScript
 - Flask 

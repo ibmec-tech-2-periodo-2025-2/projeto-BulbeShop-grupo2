@@ -30,7 +30,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora?** _
+#### **O que aprendi até agora?** 
 
 - A organização da documentação e das pastas mostrou a importância de padronizar nomes, estruturas e versões, facilitando o acesso e a rastreabilidade dos arquivos pela equipe.
 - O registro da daily 2 reforçou o valor da comunicação contínua e transparente, permitindo identificar bloqueios mais cedo e alinhar prioridades.
@@ -39,7 +39,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //**
+#### **Próximo passo**
 
 - Finalizar e validar o protótipo de alta fidelidade completo, garantindo responsividade e coerência com a hierarquia de informações.
 - Manter o registro contínuo das dailies, reforçando a comunicação e acompanhamento do progresso da equipe.
@@ -75,7 +75,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _
+#### **O que aprendi até agora?** 
 
 - A organização das pastas no Figma destacou a importância de estruturar o arquivo de forma lógica e colaborativa, com nomes claros e camadas bem agrupadas.
 - A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
@@ -83,7 +83,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //** _
+#### **Próximo passo** 
 
 - Completar o Html e Css baseado nas telas de alta fidelidade
 - 
@@ -118,14 +118,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 -  A finalização das telas de alta fidelidade enfrentou ajustes contínuos de layout, cores e espaçamento, prolongando o tempo de validação e aprovação.
 ---
 
-#### **O que aprendi até agora? //** _
+#### **O que aprendi até agora?** 
 
 - A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
 - A utilização do Jira consolidou o entendimento sobre gestão ágil de tarefas
 
 ---
 
-#### **Próximo passo //** 
+#### **Próximo passo** 
 
 - Revisar e consolidar o backlog da sprint com prioridades ajustadas e tarefas devidamente atribuídas.
 - Acompanhar o progresso via Jira, utilizando as dailies para alinhar pendências e ajustes.
@@ -159,7 +159,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** 
+#### **O que aprendi até agora?** 
 
 - O processo de definição do fluxo de navegação fortaleceu o entendimento sobre arquitetura da informação e usabilidade orientada ao usuário. 
 - O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
@@ -167,7 +167,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //** _
+#### **Próximo passo** 
 
 - Iniciar a implementação das telas em HTML e CSS conforme o fluxo aprovado
 
