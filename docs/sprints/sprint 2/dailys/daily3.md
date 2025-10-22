@@ -44,7 +44,8 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - Consolidar o protótipo de alta fidelidade aprovado como base oficial para o desenvolvimento front-end.
 - Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
--  Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
+- Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
+- Iniciar a documentação da Daily 4
 
 
 ---
@@ -90,10 +91,9 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
 - Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
-- 
+  
 
 ---
-
 
 
 
