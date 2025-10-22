@@ -23,7 +23,7 @@
     <section class="card">
       <header class="card__title">
         <img src="../../../html/altafidelidade/.assets/altafidelidade/img/globe-05.svg" alt="" class="ico">
-        <span>País</span>
+        <span>País <b class="req">*</b></span>
       </header>
 
       <!-- Abre “empurrando” o conteúdo, sem sobrepor -->
@@ -47,22 +47,22 @@
     <!-- DADOS DO COMPRADOR -->
     <section class="card">
       <header class="card__title">
-        <img src="../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
+        <img src="../../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
         <span>Dados do comprador</span>
       </header>
 
       <label class="field">
-        <span class="label">Nome completo:</span>
+        <span class="label">Nome completo: <b class="req">*</b></span>
         <input class="input" type="text" placeholder="Digite seu nome">
       </label>
 
       <label class="field">
-        <span class="label">Número de telefone:</span>
+        <span class="label">Número de telefone: <b class="req">*</b></span>
         <input class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
       </label>
 
       <label class="field">
-        <span class="label">CPF:</span>
+        <span class="label">CPF: <b class="req">*</b></span>
         <input class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
       </label>
     </section>
@@ -70,23 +70,23 @@
     <!-- ENDEREÇO DE ENTREGA -->
     <section class="card">
       <header class="card__title">
-        <img src="../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
+        <img src="../../../html/altafidelidade/.assets/altafidelidade/img/user-edit.svg" alt="" class="ico">
         <span>Endereço de entrega</span>
       </header>
 
       <label class="field">
-        <span class="label">CEP:</span>
+        <span class="label">CEP: <b class="req">*</b></span>
         <input class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
       </label>
 
       <label class="field">
-        <span class="label">Rua / Avenida:</span>
+        <span class="label">Rua / Avenida: <b class="req">*</b></span>
         <input class="input" type="text" placeholder="Digite a rua">
       </label>
 
       <div class="row-2">
         <label class="field">
-          <span class="label">Número:</span>
+          <span class="label">Número: <b class="req">*</b></span>
           <input class="input" type="text" inputmode="numeric" placeholder="Digite o número">
         </label>
 
@@ -102,39 +102,46 @@
       </label>
 
       <label class="field">
-        <span class="label">Bairro:</span>
+        <span class="label">Bairro: <b class="req">*</b></span>
         <input class="input" type="text" placeholder="Digite o bairro">
       </label>
 
-      <div class="row-2">
+      <!-- Estado e Cidade: um embaixo do outro, com a mesma animação -->
+      <div class="row-2 row-stack">
         <label class="field">
-          <span class="label">Estado:</span>
-          <div class="select-inline" data-inline>
-            <select>
-              <option selected>Selecione o estado</option>
-              <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
-              <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
-              <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
-              <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
-              <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
-              <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
-              <option>SP</option><option>SE</option><option>TO</option>
-            </select>
-            <img src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+          <span class="label">Estado: <b class="req">*</b></span>
+          <div class="select-inline inline-enhanced" data-inline id="stateSelect" aria-expanded="false">
+            <button class="inline-head" type="button">
+              <span class="inline-label">Selecione o estado</span>
+              <img class="inline-chev" src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+            </button>
+            <ul class="inline-list">
+              <li class="inline-opt">AC</li><li class="inline-opt">AL</li><li class="inline-opt">AP</li><li class="inline-opt">AM</li>
+              <li class="inline-opt">BA</li><li class="inline-opt">CE</li><li class="inline-opt">DF</li><li class="inline-opt">ES</li>
+              <li class="inline-opt">GO</li><li class="inline-opt">MA</li><li class="inline-opt">MT</li><li class="inline-opt">MS</li>
+              <li class="inline-opt">MG</li><li class="inline-opt">PA</li><li class="inline-opt">PB</li><li class="inline-opt">PR</li>
+              <li class="inline-opt">PE</li><li class="inline-opt">PI</li><li class="inline-opt">RJ</li><li class="inline-opt">RN</li>
+              <li class="inline-opt">RS</li><li class="inline-opt">RO</li><li class="inline-opt">RR</li><li class="inline-opt">SC</li>
+              <li class="inline-opt">SP</li><li class="inline-opt">SE</li><li class="inline-opt">TO</li>
+            </ul>
           </div>
         </label>
 
         <label class="field">
-          <span class="label">Cidade:</span>
-          <div class="select-inline" data-inline>
-            <select>
-              <option selected>Selecione a cidade</option>
-              <option>São Paulo</option>
-              <option>Rio de Janeiro</option>
-              <option>Belo Horizonte</option>
-              <option>Curitiba</option>
-            </select>
-            <img src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+          <span class="label">Cidade: <b class="req">*</b></span>
+          <div class="select-inline inline-enhanced" data-inline id="citySelect" aria-expanded="false">
+            <button class="inline-head" type="button">
+              <span class="inline-label">Selecione a cidade</span>
+              <img class="inline-chev" src="../../../html/altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+            </button>
+            <ul class="inline-list">
+              <li class="inline-opt">São Paulo</li>
+              <li class="inline-opt">Rio de Janeiro</li>
+              <li class="inline-opt">Belo Horizonte</li>
+              <li class="inline-opt">Curitiba</li>
+              <li class="inline-opt">Porto Alegre</li>
+              <li class="inline-opt">Recife</li>
+            </ul>
           </div>
         </label>
       </div>
@@ -147,21 +154,21 @@
         <span>Frete</span>
       </header>
 
-      <ul class="frete-list">
+      <ul class="frete-list" id="freteList">
         <li class="frete-item">
-          <label><input type="checkbox"><span>Sedex (4 a 7 dias úteis)</span></label>
+          <label><input type="checkbox" name="frete"><span>Sedex (4 a 7 dias úteis)</span></label>
           <strong>R$ 30,67</strong>
         </li>
         <li class="frete-item">
-          <label><input type="checkbox"><span>Loggi (2 a 3 dias úteis)</span></label>
+          <label><input type="checkbox" name="frete"><span>Loggi (2 a 3 dias úteis)</span></label>
           <strong>R$ 82,21</strong>
         </li>
         <li class="frete-item">
-          <label><input type="checkbox"><span>JadLog (10 a 12 dias úteis)</span></label>
+          <label><input type="checkbox" name="frete"><span>JadLog (10 a 12 dias úteis)</span></label>
           <strong>R$ 11,59</strong>
         </li>
         <li class="frete-item">
-          <label><input type="checkbox"><span>Logtime (6 a 9 dias úteis)</span></label>
+          <label><input type="checkbox" name="frete"><span>Logtime (6 a 9 dias úteis)</span></label>
           <strong>R$ 18,03</strong>
         </li>
       </ul>
@@ -174,24 +181,24 @@
   <!-- TABBAR -->
   <nav class="tabbar">
     <a class="tabbar__item" href="#">
-      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Faturas.svg" alt="">
+      <img src="../../../html/altafidelidade/.assets/altafidelidade/img/Faturas.svg" alt="">
       <span>Faturas</span>
     </a>
     <a class="tabbar__item" href="#">
-      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Consumo.svg" alt="">
+      <img src="../../../html/altafidelidade/.assets/altafidelidade/img/Consumo.svg" alt="">
       <span>Consumo</span>
     </a>
     <a class="tabbar__item is-active" href="#">
-      <img class="sacola" src="../../html/altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg" alt="">
+      <img class="sacola" src="../../../html/altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg" alt="">
       <span>Bulbe Shop</span>
       <i class="underline"></i>
     </a>
     <a class="tabbar__item" href="#">
-      <img src="../../html/altafidelidade/.assets/altafidelidade/img/Indicações.svg" alt="">
+      <img src="../../../html/altafidelidade/.assets/altafidelidade/img/Indicações.svg" alt="">
       <span>Indicações</span>
     </a>
   </nav>
 
-  <script src="../../html/altafidelidade/.assets/altafidelidade/script-pagamento.js"></script>
+  <script src="../../../html/altafidelidade/.assets/altafidelidade/script.js"></script>
 </body>
 </html>
