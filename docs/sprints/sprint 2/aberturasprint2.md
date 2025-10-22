@@ -37,4 +37,9 @@
 
 ## Critérios de Entrega
 - Tarefa de configuração de dependências depende da finalização da estrutura.
-- 
+- Telas de baixa fidelidade devem ser concluídas antes do início das telas de alta fidelidade.
+- Telas de alta fidelidade devem estar aprovadas antes do desenvolvimento em HTML e CSS.
+- O código HTML e CSS deve estar completo antes da implementação das interações em JavaScript.
+- As interações em JavaScript devem seguir fielmente o protótipo de alta fidelidade.
+- A integração com a API depende da finalização do front-end e dos endpoints principais.
+- A entrega final depende da aprovação de design, funcionamento das interações e testes concluídos.
