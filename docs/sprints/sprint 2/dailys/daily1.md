@@ -156,14 +156,14 @@
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** _
 
 - Ampliou a compreensão sobre hierarquia de informações, destacando o que realmente gera valor para o usuário.
 - Importância da padronização visual e da documentação compartilhada, garantindo consistência entre design e código.
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** _
 
 - Definir os fluxos iniciais de navegação
   

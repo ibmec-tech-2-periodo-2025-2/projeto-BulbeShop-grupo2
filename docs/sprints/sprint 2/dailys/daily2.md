@@ -118,14 +118,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 -  A finalização das telas de alta fidelidade enfrentou ajustes contínuos de layout, cores e espaçamento, prolongando o tempo de validação e aprovação.
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** _
 
 - A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
 - A utilização do Jira consolidou o entendimento sobre gestão ágil de tarefas
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** 
 
 - Revisar e consolidar o backlog da sprint com prioridades ajustadas e tarefas devidamente atribuídas.
 - Acompanhar o progresso via Jira, utilizando as dailies para alinhar pendências e ajustes.
@@ -159,7 +159,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** 
 
 - O processo de definição do fluxo de navegação fortaleceu o entendimento sobre arquitetura da informação e usabilidade orientada ao usuário. 
 - O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
@@ -167,7 +167,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** _
 
 - Iniciar a implementação das telas em HTML e CSS conforme o fluxo aprovado
 

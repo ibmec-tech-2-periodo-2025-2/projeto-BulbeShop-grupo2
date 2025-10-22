@@ -112,14 +112,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** 
 
 - Aprendizado 1  
 - Aprendizado 2  
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** 
 
 - Tarefa próxima
 
@@ -157,14 +157,14 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** 
 
 - Aprendizado 1  
 - Aprendizado 2  
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** 
 
 - Tarefa próxima
 

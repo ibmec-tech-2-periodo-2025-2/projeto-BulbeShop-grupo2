@@ -126,7 +126,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** _
 
 - O uso do Jira e das dailies consolidou práticas de transparência e acompanhamento contínuo, fortalecendo a cultura ágil.
 - A elaboração dos slides reforçou a importância de comunicar entregas de forma visual e objetiva
@@ -134,7 +134,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** _
 
 - Finalizar a documentação em slides da Sprint 2, garantindo coesão visual e clareza de comunicação.
 - Responsável pela revisão de fontes e componentes do slide 
@@ -170,13 +170,13 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 ---
 
-#### **O que aprendi até agora? //** _**não é necessário**_
+#### **O que aprendi até agora? //** 
 
 - O processo de implementação aprimorou a compreensão sobre a semântica HTML, a estrutura do CSS e práticas de responsividade.
 
 ---
 
-#### **Próximo passo //** _**não é necessário**_
+#### **Próximo passo //** 
 
 - Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
 - Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
