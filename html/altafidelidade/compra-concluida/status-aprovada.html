@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Compra aprovada • Bulbe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../compra-concluida/css/status.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="appbar">
+    <button class="appbar__back" aria-label="Voltar">
+      <img src="../compra-concluida/.assets/img/corner-up-left.svg" alt="">
+    </button>
+    <img class="appbar__logo" src="../compra-concluida/.assets/img/logo-base (1).svg" alt="Bulbe">
+  </header>
+
+  <main class="wrap">
+
+    <!-- Banner de status (azul) -->
+    <button class="status-banner status-banner--ok">
+      Compra aprovada!
+    </button>
+
+    <!-- Caixa Dados do pedido (EXATAMENTE como no Figma: fill 40% + stroke 60% peso 3, raio 10) -->
+    <section class="info-card info-card--ok">
+      <header class="info-card__head">
+        <img src="../compra-concluida/.assets/img/receipt-check.svg" alt="" class="info-card__ico">
+        <span class="info-card__title">Dados do pedido</span>
+      </header>
+      <p class="info-card__text">
+        Número do pedido: AP82493201K8J<br>
+        Código de rastreio: (será atualizado em breve)
+      </p>
+    </section>
+
+    <!-- Ações -->
+    <div class="actions actions--two">
+      <button class="btn btn--ok" id="btnResumo">Resumo da compra</button>
+      <button class="btn btn--ok" id="btnInicio">Voltar para início</button>
+    </div>
+
+  </main>
+
+  <!-- TABBAR -->
+  <nav class="tabbar">
+    <a class="tabbar__item" href="#">
+      <img src="../compra-concluida/.assets/img/Ícone __ Faturas (1).svg" alt="">
+      <span>Faturas</span>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../compra-concluida/.assets/img/Ícone __ Economia (1).svg" alt="">
+      <span>Consumo</span>
+    </a>
+    <a class="tabbar__item is-active" href="#">
+      <img class="sacola" src="../compra-concluida/.assets/img/shopping-bag-02 (3).svg" alt="">
+      <span>Bulbe Shop</span>
+      <i class="underline"></i>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../compra-concluida/.assets/img/users-plus.svg" alt="">
+      <span>Indicações</span>
+    </a>
+  </nav>
+
+  <script src="../compra-concluida/scripts/script.js"></script>
+</body>
+</html>
