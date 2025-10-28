@@ -8,12 +8,19 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: white;
 }
 
 :root {
     --header: #08068D;
     --filtro: #678098;
     --filtroback: #D9D9D9;
+    --laranja: #FFA733;
+    --bannerback: #0E0AF5;
+    ---bordercolor: #D1D9E0;
+    --ofertarolampago: #26D07C;
+    --cachbackcolor: #18814D;
+    --prince: #105633;
 }
 
 /* HEADER */
@@ -360,91 +367,482 @@ body {
 }
 
 /* BANNER */
-.banner-cashback {
-    background: #0E0AF5;
-    color: #fff;
+.cashback-banner {
+    padding: 14px 16px 24px;
+}
+
+.banner-inner {
+    background: var(--bannerback);
+    color: white;
+    border-radius: 26px;
+    min-height: 340px;
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* duas colunas */
+    gap: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* coluna esquerda */
+.banner-left {
+    padding: 28px 34px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px;
-    border-radius: 16px;
-    margin: 10px;
-}
-
-.banner-info span {
-    color: #FFA733;
-    font-size: 2.6rem;
-}
-
-.banner-info h2 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.banner-info p {
-    font-size: 14px;
-    margin: 6px 0 18px;
-}
-
-.banner-info button {
-    padding: 10px 22px;
-    font-size: 14px;
-    background: #FFA733;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Imagem da direita */
-.banner-img img {
-    width: 180px;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-.modal-content {
+.brand-mark {
+    width: 26px;
+    height: 24px;
+    margin-bottom: 18px;
+}
+
+.headline {
+    margin: 0 0 8px 0;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: .2px;
+    font-size: clamp(28px, 4.6vw, 44px);
+}
+
+.headline .percent {
+    color: var(--laranja)
+}
+
+.headline .strong {
+    font-weight: 800
+}
+
+.subtitle {
+    margin: 8px 0 22px 0;
+    font-size: clamp(14px, 1.7vw, 18px);
+    line-height: 1.45;
+    opacity: 0.96;
+}
+
+.cta {
+    display: inline-block;
+    background: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    padding: 12px 24px;
+    font-size: clamp(14px, 1.6vw, 18px);
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .18);
+    transition: transform .06s ease, filter .15s ease;
+    width: fit-content;
+}
+
+.cta:hover {
+    filter: brightness(1.05)
+}
+
+.cta:active {
+    transform: translateY(1px)
+}
+
+
+/* ===== Modal ===== */
+.modal[hidden] {
+    display: none
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+}
+
+.dialog {
+    position: relative;
+    z-index: 1;
     background: #fff;
-    width: 80%;
-    max-width: 350px;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: left;
+    width: min(640px, 92vw);
+    border-radius: 18px;
+    overflow: hidden;
+    transform: translateY(12px);
+    opacity: 0;
+    animation: drop .18s ease-out forwards;
 }
 
-.modal-content h3 {
-    margin-top: 0;
-    color: #0E0AF5;
+@keyframes drop {
+    to {
+        transform: translateY(0);
+        opacity: 1
+    }
 }
 
 .close {
-    float: right;
-    font-size: 20px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    border: none;
+    background: #fff;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
 }
 
-/* Responsividade */
-@media(max-width: 600px) {
-    .banner-cashback {
-        flex-direction: column;
-        text-align: center;
+.dialog-header {
+    padding: 16px 18px 8px
+}
+
+.dialog-header h3 {
+    margin: 0 0 4px 0
+}
+
+.dialog-header p {
+    margin: 0;
+    color: var(--filtro);
+}
+
+.dialog-body {
+    padding: 0 18px 12px;
+    max-height: 55vh;
+    /* altura máxima do conteúdo */
+    overflow-y: auto;
+    /* rolagem vertical */
+    scrollbar-width: thin;
+}
+
+.dialog-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dialog-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.dialog-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.rules {
+    margin: 8px 0 0 18px;
+    padding: 0;
+    line-height: 1.55
+}
+
+.rules li {
+    margin: .35rem 0
+}
+
+.dialog-footer {
+    padding: 0 18px 18px
+}
+
+.btn-primary {
+    background: var(--header);
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 860px) {
+    .banner-inner {
+        grid-template-columns: 1fr;
+        /* empilha */
+        min-height: auto;
     }
 
-    .banner-img img {
-        width: 140px;
-        margin-top: 12px;
+    .banner-left {
+        padding: 24px 22px 12px;
+    }
+}
+
+/*CARD*/
+
+/* Título da seção */
+.section-title {
+    margin: 4px 6px 14px;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--header);
+    font-weight: 800;
+}
+
+/* ===== GRID (sempre 2 colunas) ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    position: relative;
+    background: #F6F9F9;
+    border: 1px solid #D1D9E0;
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 10px 24px rgba(10, 30, 70, .06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* empilha tudo na vertical */
+    justify-content: space-between;
+    /* garante distribuição */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    flex: 1;
+    /* ocupa o espaço disponível */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Badge (selo no topo) */
+.badge {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 13px;
+    background: #eaf6ff;
+    color: #000000;
+}
+
+.badge-flash {
+    background: var(--ofertarolampago);
+    color: white;
+}
+
+.badge-cash {
+    background: var(--cachbackcolor);
+    color: white;
+}
+
+/* Imagem */
+.media {
+    background: white;
+    border-radius: 14px;
+    padding: 14px;
+    margin: 32px 4px 10px;
+    display: grid;
+    place-items: center;
+    min-height: 200px;
+}
+
+.media img {
+    max-width: 100%;
+    height: 150px;
+    display: block
+}
+
+/* Texto/infos */
+.info {
+    padding: 0 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin: 8px 0 6px;
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--header);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.pricebox {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.price-now {
+    color: var(--price);
+    font-weight: 900;
+    font-size: clamp(18px, 2.2vw, 22px)
+}
+
+.price-was {
+    color: var(--filtro);
+    text-decoration: line-through;
+    font-weight: 700
+}
+
+
+.promo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 13px
+}
+
+.pill-green {
+    background: var(--ofertarolampago);
+    color: #fff
+}
+
+.footnote {
+    color: var(--filtro);
+    font-size: 12px
+}
+
+/* Frete/grátis */
+.ship-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 12px;
+    background: var(--ofertarolampago);
+    color: white;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+
+/* Ações (coração/carrinho) */
+.actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 4px 2px;
+    margin-top: auto;
+    /* empurra para o final do card */
+    padding-top: 12px;
+    /* um respiro antes da área dos ícones */
+}
+
+
+.icon-btn {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid #D1D9E0;
+    background: #F6F9F9;
+    cursor: pointer;
+    transition: box-shadow .15s ease, transform .06s ease, background .15s ease;
+}
+
+.icon-btn:hover {
+    box-shadow: 0 10px 18px rgba(0, 0, 0, .06)
+}
+
+.icon-btn:active {
+    transform: translateY(1px)
+}
+
+/* cores por tipo */
+.icon-btn.heart {
+    color: #F04438
+}
+
+.icon-btn.cart {
+    color: var(--laranja)
+}
+
+
+/* estado ativo: preencher ícone */
+.icon-btn.active svg path {
+    fill: currentColor
+}
+
+.icon-btn.active svg circle {
+    fill: currentColor
+}
+
+/* ===== RESPONSIVO (mantém 2 colunas) ===== */
+/* Ajustes para telas menores para continuar cabendo 2 por linha */
+@media (max-width: 760px) {
+    .wrap {
+        padding: 12px
+    }
+
+    .grid {
+        gap: 12px
+    }
+
+    .card {
+        padding: 10px;
+        border-radius: 16px
+    }
+
+    .badge {
+        left: 10px;
+        top: 6px;
+        padding: 6px 10px;
+        font-size: 12px
+    }
+
+    .media {
+        padding: 12px;
+        margin: 28px 4px 8px;
+        min-height: 160px;
+        border-radius: 12px
+    }
+
+    .title {
+        font-size: clamp(15px, 3.6vw, 18px)
+    }
+
+    .price-now {
+        font-size: clamp(16px, 3.4vw, 20px)
+    }
+
+    .pill,
+    .ship-pill {
+        font-size: 12px;
+        padding: 6px 10px
+    }
+
+    .icon-btn {
+        width: 34px;
+        height: 34px
+    }
+}
+
+/* Ultra compacto (ainda 2 colunas) */
+@media (max-width: 360px) {
+    .grid {
+        gap: 10px
+    }
+
+    .media {
+        min-height: 140px
+    }
+
+    .title {
+        font-size: 14px
+    }
+
+    .price-now {
+        font-size: 16px
     }
 }

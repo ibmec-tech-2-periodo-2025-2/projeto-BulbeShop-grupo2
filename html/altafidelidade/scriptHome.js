@@ -88,18 +88,40 @@ document.querySelectorAll('.categoria').forEach(item => {
     });
 });
 
-// Abrir Modal
-document.getElementById("btnModal").addEventListener("click", () => {
-    document.getElementById("modalCashback").style.display = "flex";
+// Modal "Saiba Mais"
+const openBtn = document.getElementById("saibaMaisBtn");
+const modal = document.getElementById("modalCashback");
+const toClose = document.querySelectorAll("[data-close]");
+
+let lastFocused = null;
+
+function openModal() {
+    if (!modal) return;
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+
+    const firstFocus = modal.querySelector("button, .btn-primary");
+    if (firstFocus) firstFocus.focus();
+
+    document.body.style.overflow = "hidden"; // trava scroll do fundo
+}
+function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+}
+
+if (openBtn) openBtn.addEventListener("click", openModal);
+toClose.forEach(el => el.addEventListener("click", closeModal));
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal && !modal.hidden) closeModal();
 });
 
-// Fechar Modal
-document.querySelector(".close").addEventListener("click", () => {
-    document.getElementById("modalCashback").style.display = "none";
-});
-
-// Fechar ao clicar fora do conteúdo
-window.addEventListener("click", (e) => {
-    const modal = document.getElementById("modalCashback");
-    if (e.target === modal) modal.style.display = "none";
+//icones que preenchem
+// Toggle dos ícones (preencher com a cor ao clicar)
+document.querySelectorAll('.icon-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+    });
 });

@@ -88,7 +88,7 @@
         </a>
     </div>
     <!--Carrosel de Categorias-->
-    
+
     <section class="carousel">
 
         <div class="categoria" data-url="eletronicos.html">
@@ -97,21 +97,21 @@
             </div>
             <p>Eletrônicos</p>
         </div>
-    
+
         <div class="categoria" data-url="energia.html">
             <div class="circle">
                 <img src="./img/luz.png">
             </div>
             <p>Economia de energia</p>
         </div>
-    
+
         <div class="categoria" data-url="conforto.html">
             <div class="circle">
                 <img src="./img/saude.png">
             </div>
             <p>Conforto</p>
         </div>
-    
+
         <div class="categoria" data-url="eletro.html">
             <div class="circle">
                 <img src="./img/eletro.png">
@@ -119,34 +119,163 @@
             <p>Eletrodomésticos</p>
         </div>
     </section>
+    <!--BANNER-->
+    <section class="cashback-banner" id="topo" aria-label="Banner de cashback 2%">
+        <div class="banner-inner">
+            <!-- coluna esquerda (conteúdo) -->
+            <div class="banner-left">
+                <img class="brand-mark" src="./img/logoe.png" alt="Marca" />
 
-    <section class="banner-cashback">
+                <h2 class="headline">
+                    <span class="percent">2%</span> de<br>
+                    <span class="strong">cashback!</span>
+                </h2>
 
-        <div class="banner-info">
-            <img class="logo" src="./img/logoe.png" alt="Logo">
-            <h2><span>2%</span> de cashback!</h2>
-            <p>Na sua fatura de energia em<br>compras finalizadas</p>
-            <button id="btnModal">Saiba Mais</button>
+                <p class="subtitle">
+                    Na sua fatura de energia em<br>
+                    compras finalizadas!
+                </p>
+
+                <button id="saibaMaisBtn" class="cta" aria-haspopup="dialog" aria-controls="modalCashback">
+                    Saiba Mais
+                </button>
+
+            </div>
         </div>
-    
-        <div class="banner-img">
-            <img src="./img/banner.png" alt="Imagem Cashback">
-        </div>
-    
     </section>
-    
-    <!-- Modal -->
-    <div id="modalCashback" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Condições do Cashback</h3>
-            <p>• Cashback aplicado somente em compras finalizadas<br>
-            • Valor creditado diretamente na fatura de energia<br>
-            • Até 30 dias para ser processado<br>
-            • Sujeito a regras e aprovação</p>
+
+    <!-- MODAL -->
+    <div id="modalCashback" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+        aria-describedby="modalDesc" hidden>
+        <div class="backdrop" data-close></div>
+
+        <div class="dialog" role="document">
+            <button class="close" aria-label="Fechar" title="Fechar" data-close>✕</button>
+
+            <header class="dialog-header">
+                <h3 id="modalTitle">Regras do cashback de 2%</h3>
+                <p id="modalDesc">Entenda como o crédito é aplicado na sua fatura.</p>
+            </header>
+
+            <div class="dialog-body">
+                <ul class="rules">
+                    <li>Válido para compras finalizadas em parceiros participantes através do site.</li>
+                    <li>O valor do cashback é de <strong>2% sobre o total pago</strong> em cima da fatura, (frete e
+                        serviços não entram no
+                        cálculo).</li>
+                    <li>O crédito aparece na <strong>próxima fatura de energia</strong> (ou subsequente, se a fatura já
+                        estiver emitida).</li>
+                    <li>Pedidos cancelados/devolvidos <strong>não geram</strong> cashback.</li>
+                    <li>Prazo para compensação: até <strong>30 dias</strong> após a aprovação do pagamento.</li>
+                    <li>Não cumulativo com campanhas que tenham regras próprias.</li>
+                    <li>Parceiros e condições podem mudar sem aviso prévio.</li>
+                </ul>
+            </div>
+
+            <footer class="dialog-footer">
+                <button class="btn-primary" data-close>Entendi</button>
+            </footer>
         </div>
     </div>
-    <script src="scriptHome.js"></script>
+    <!--CARDS-->
+    <main class="wrap">
+        <h2 class="section-title">Em alta</h2>
+
+        <section class="grid">
+            <!-- CARD 1 -->
+            <article class="card">
+                <div class="card-body">
+                    <span class="badge badge-flash">oferta relâmpago</span>
+
+                    <div class="media">
+                        <img src="./img/ventiladorbritania.webp" alt="Ventilador de mesa Britânia">
+                    </div>
+
+                    <div class="info">
+                        <h3 class="title">Ventilador de<br>mesa Britânia</h3>
+
+                        <div class="pricebox">
+                            <div class="price-now">R$ 279,00</div>
+                            <div class="price-was">R$349,00</div>
+                        </div>
+
+                        <div class="promo-row">
+                            <span class="pill pill-green">20% off</span>
+                            <small class="footnote">oferta válida até 20 de outubro</small>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <!-- coração (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <!-- carrinho (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+            </article>
+
+            <!-- CARD 2 -->
+            <article class="card">
+                <div class="card-body">
+                    <span class="badge badge-cash">com cashback</span>
+
+                    <div class="media">
+                        <img src="./img/blender.jpg" alt="Liquidificador Mondial 1000W">
+                    </div>
+
+
+                    <div class="info">
+                        <h3 class="title">Liquidificador<br>Mondial 1000W</h3>
+
+                        <div class="pricebox">
+                            <div class="price-now">R$ 183,00</div>
+
+                        </div>
+
+                        <div class="promo-row">
+                            <span class="ship-pill">
+                                <span class="truck" aria-hidden="true"> <img src="" alt=""></span>🚚 grátis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <!-- coração (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <!-- carrinho (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+            </article>
+        </section>
+
+        <script src="scriptHome.js"></script>
 </body>
 
 </html>
