@@ -1,11 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial</title>
+    <link rel="stylesheet" href="styleHome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="menu-icon" id="menu-btn">
+            <img src="./img/menuicon.png" alt="Menu">
+        </div>
+
+        <div class="logo">
+            <img src="./img/logoHeader.png" alt="Bulbe Logo">
+        </div>
+
+        <div class="icons">
+            <a href="favoritos.html"><img src="./img/favicon.png" alt="Favoritos"></a>
+            <a href="carrinho.html"><img src="./img/carrinho.png" alt="Carrinho"></a>
+            <a href="#"><img src="./img/bellicon.png" alt="Notificações"></a>
+        </div>
+    </header>
+
+    <!-- MENU LATERAL -->
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="#">Cupons</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="#">Lojas Parceiras</a></li>
+            <li><a href="#">Meu Perfil</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+    <!--Barra de Pesquisa-->
+
+    <div class="search-container">
+        <button class="filter-btn" id="filter-btn">
+            <img src="./img/filtoicon.png" alt="Filtro"> filtro
+        </button>
+
+        <input type="text" id="search-input" placeholder="">
+
+        <button class="search-btn">
+            <img src="./img/searchicon.png" alt="Buscar">
+        </button>
+    </div>
+    <!--FILTRO MENU-->
+    <div class="filter-menu" id="filter-menu">
+        <ul>
+            <li>Eletrônicos</li>
+            <li>Economia de Energia</li>
+            <li>Casa, Conforto e Bem-Estar</li>
+            <li>Eletrodomésticos</li>
+            <li>Família e Educação</li>
+        </ul>
+    </div>
+    <!--NAV BAR SCROLAVEL-->
+    <div class="nav-scroll">
+        <a href="categorias.html" class="nav-item">
+            <img src="./img/categoriaicon.png" alt="Categorias">
+            <span>Categorias</span>
+        </a>
+
+        <a href="lojas-parceiras.html" class="nav-item">
+            <img src="./img/lojaparceiraicon.png" alt="Lojas Parceiras">
+            <span>Lojas Parceiras</span>
+        </a>
+
+        <a href="cupons.html" class="nav-item">
+            <img src="./img/cuponicon.png" alt="Cupons">
+            <span>Cupons</span>
+        </a>
+
+        <a href="favoritos.html" class="nav-item">
+            <img src="./img/coreicon.png" alt="Favoritos">
+            <span>Favoritos</span>
+        </a>
+    </div>
+    <!--Carrosel de Categorias-->
     
+    <section class="carousel">
+
+        <div class="categoria" data-url="eletronicos.html">
+            <div class="circle">
+                <img src="./img/computador.png">
+            </div>
+            <p>Eletrônicos</p>
+        </div>
+    
+        <div class="categoria" data-url="energia.html">
+            <div class="circle">
+                <img src="./img/luz.png">
+            </div>
+            <p>Economia de energia</p>
+        </div>
+    
+        <div class="categoria" data-url="conforto.html">
+            <div class="circle">
+                <img src="./img/saude.png">
+            </div>
+            <p>Conforto</p>
+        </div>
+    
+        <div class="categoria" data-url="eletro.html">
+            <div class="circle">
+                <img src="./img/eletro.png">
+            </div>
+            <p>Eletrodomésticos</p>
+        </div>
+    </section>
+
+    <section class="banner-cashback">
+
+        <div class="banner-info">
+            <img class="logo" src="./img/logoe.png" alt="Logo">
+            <h2><span>2%</span> de cashback!</h2>
+            <p>Na sua fatura de energia em<br>compras finalizadas</p>
+            <button id="btnModal">Saiba Mais</button>
+        </div>
+    
+        <div class="banner-img">
+            <img src="./img/banner.png" alt="Imagem Cashback">
+        </div>
+    
+    </section>
+    
+    <!-- Modal -->
+    <div id="modalCashback" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Condições do Cashback</h3>
+            <p>• Cashback aplicado somente em compras finalizadas<br>
+            • Valor creditado diretamente na fatura de energia<br>
+            • Até 30 dias para ser processado<br>
+            • Sujeito a regras e aprovação</p>
+        </div>
+    </div>
+    <script src="scriptHome.js"></script>
 </body>
+
 </html>
