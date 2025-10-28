@@ -120,8 +120,10 @@ document.addEventListener("keydown", e => {
 
 //icones que preenchem
 // Toggle dos ícones (preencher com a cor ao clicar)
+
 document.querySelectorAll('.icon-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (event) => {
+        event.stopPropagation(); // impede que o clique afete o card
         btn.classList.toggle('active');
     });
 });
