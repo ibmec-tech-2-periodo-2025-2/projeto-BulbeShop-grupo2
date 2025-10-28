@@ -9,7 +9,8 @@
 }
 
 /* Base */
-*{box-sizing:border-box}
+*{box-sizing:border-box;
+font-family: poppins;}
 html,body{height:100%}
 body{
   margin:0; background:#FAFBFC; color:var(--ink);
