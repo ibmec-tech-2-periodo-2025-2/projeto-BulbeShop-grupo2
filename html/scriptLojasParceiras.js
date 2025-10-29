@@ -81,6 +81,7 @@ navScroll.addEventListener("mousemove", (e) => {
     navScroll.scrollLeft = scrollLeft - walk;
 });
 
+//menu categoria
 document.addEventListener("DOMContentLoaded", function() {
     const btnCategorias = document.getElementById("btn-categorias");
     const menuCategorias = document.getElementById("menu-categorias");
@@ -100,5 +101,15 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.target === menuCategorias) {
             menuCategorias.classList.remove("active");
         }
+    });
+});
+
+//icones que preenchem
+// Toggle dos ícones (preencher com a cor ao clicar)
+
+document.querySelectorAll('.icon-btn').forEach(btn => {
+    btn.addEventListener('click', (event) => {
+        event.stopPropagation(); // impede que o clique afete o card
+        btn.classList.toggle('active');
     });
 });
