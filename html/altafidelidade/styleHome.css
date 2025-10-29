@@ -369,6 +369,7 @@ body {
 /* BANNER */
 .cashback-banner {
     padding: 14px 16px 24px;
+    position: relative;
 }
 
 .banner-inner {
@@ -384,6 +385,7 @@ body {
     gap: 0;
     overflow: hidden;
     position: relative;
+    border-bottom-right-radius: 30px; /*nao consegui ajustar melhor o border radiuns para boneca*/
 }
 
 /* coluna esquerda */
@@ -416,7 +418,12 @@ body {
     font-weight: 800
 }
 
+.title{
+    
+}
 .subtitle {
+    position: relative;
+    z-index: 1;
     margin: 8px 0 22px 0;
     font-size: clamp(14px, 1.7vw, 18px);
     line-height: 1.45;
@@ -658,7 +665,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+.info a{
+    text-decoration: none;
+}
 .title {
     margin: 8px 0 6px;
     font-size: clamp(16px, 2.4vw, 20px);
@@ -850,8 +859,9 @@ body {
 
 .bonequinha {
     width: 180px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    left: 212px;
-    border-bottom-right-radius: 50px;
+    left: 197px;
+    top: 49.5px;
+    border-bottom-right-radius: 83px;
 }
