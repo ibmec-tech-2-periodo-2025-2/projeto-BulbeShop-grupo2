@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cupons | Bulbe</title>
+    <link rel="stylesheet" href="styleCarrinho.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<body id="topo">
+    <!-- HEADER -->
+    <header class="header">
+        <button onclick="window.history.back()" class="back-btn" aria-label="Voltar"><span class="arrow">←</span></button>
+        <a href="#topo" class="logo-link">
+            <img src="./img/logobulbe.png" alt="Bulbe" class="logo">
+        </a>
+    </header>
+
+    <!--CARRINHO-->
+    <div class="cart-header">
+        <div class="cart-title">
+            <img src="./img/carrinhoicone.png" alt="Carrinho" class="cart-icon">
+            <h1>Carrinho</h1>
+        </div>
+        <label class="select-all">
+            <input type="checkbox">
+            <span>Selecionar tudo</span>
+        </label>
+    </div>
+    <!--PRODUTO1-->
+    <div class="produto-conteudo">
+        <div class="containerimg">
+            <img src="./img/lampada.png" alt="Lâmpada" class="produto-img">
+        </div>
+        
+        <div class="produto-info">
+            <p class="produto-nome">
+                Lâmpada de LED E27 Bulbo <br>
+                9W 803lm Luz Branca Bivolt Black + Decker
+            </p>
+
+            <div class="produto-preco">
+                <div class="valor">
+                    <span class="simbolo">R$</span>
+                    <span class="preco">4,59</span>
+                </div>
+                <div class="quantidade">
+                    <button>-</button>
+                    <span>5</span>
+                    <button>+</button>
+                </div>
+            </div>
+
+            <p class="produto-unidades">(5 unidades)</p>
+        </div>
+    </div>
+    <!--PRODUTO 2-->
+    <div class="produto-conteudo">
+        <div class="containerimg">
+            <img src="./img/parafuzadeira.png" alt="Parafusadeira" class="produto-img">
+        </div>
+        <div class="produto-info">
+            <p class="produto-nome">
+                Parafusadeira Philco Force PPF120 3 em 1 1500RPM
+                
+            </p>
+
+            <p class="produto-antigo">
+                De <span class="risco">R$ 399,90</span> por
+            </p>
+
+            <div class="produto-preco">
+                <div class="valor">
+                    <span class="simbolo">R$</span>
+                    <span class="preco">199,90</span>
+                </div>
+                <div class="quantidade">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <p class="produto-unidades">(1 unidade)</p>
+        </div>
+    </div>
+
+    <div class="produto-desconto">
+        <span>Na Bulbe Sai:</span>
+        <span>R$ 200,00</span>
+        <img src="./img/ebulbe.png" alt="Ícone compartilhar" class="icone-desconto">
+    </div>
+    <!--ADD MAIS ITENS-->
+    <div class="additem">
+        <h2>Adicionar mais itens</h2>
+    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Relâmpago</title>
+    <link rel="stylesheet" href="oferta-relampago.css">
+    </head>
+
+
+    <div class="oferta-relampago">
+        <div class="oferta-topo">
+            <span class="badge">Oferta relâmpago</span>
+        </div>
+
+        <div class="oferta-container">
+            <div class="produtos">
+                <!-- Produto 1 -->
+                <div class="card">
+                    <img src="./img/caixaferramentas.png" alt="Caixa de Ferramentas" class="produto-img">
+                    <p class="produto-nome">Caixa de Ferramentas Philco...</p>
+                    <div class="precos">
+                        <span class="preco-atual">R$59,90</span>
+                        <span class="preco-antigo">R$119,90</span>
+                    </div>
+                    <div class="icones">
+                        <img src="./img/iconecoracao.png" alt="Favoritar" class="icone">
+                        <img src="./img/carrinhoiconelaranja.png" alt="Adicionar ao carrinho" class="icone">
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="card">
+                    <img src="./img/caixaferramentas.png" alt="Caixa de Ferramentas" class="produto-img">
+                    <p class="produto-nome">Caixa de Ferramentas Philco...</p>
+                    <div class="precos">
+                        <span class="preco-atual">R$179,30</span>
+                    </div>
+                    <div class="icones">
+                        <img src="./img/iconecoracao.png" alt="Favoritar" class="icone">
+                        <img src="./img/carrinhoiconelaranja.png" alt="Adicionar ao carrinho" class="icone">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <footer class="compra-footer">
+        <div class="compra-box">
+
+            <div class="item-linha">
+                <img src="./img/lampada.png" alt="Lâmpada" class="item-foto">
+
+                <div class="item-detalhes">
+                    <div class="item-qtd">
+                        <button>-</button>
+                        <span>5</span>
+                        <button>+</button>
+                    </div>
+
+                    <p class="item-nome">
+                        Lâmpada de LED E27 Bulbo 9W 803lm<br>
+                        Luz Branca Bivolt Black + Decker
+                    </p>
+                </div>
+
+                <p class="item-valor">R$22,95</p>
+            </div>
+
+            <div class="resumo-total">
+                <p class="txt-total">Total: <span id="valor-total">R$22,95</span></p>
+            </div>
+
+            <button id="btn-continuar" class="btn-finalizar">Continuar Compra</button>
+        </div>
+    </footer>
+
+</body>
+
+</html>
