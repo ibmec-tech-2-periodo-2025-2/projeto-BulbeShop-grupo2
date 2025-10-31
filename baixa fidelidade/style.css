@@ -1,0 +1,1480 @@
+/* =========================================================
+   BASE RESET & GLOBALS
+   ========================================================= */
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 120px;
+    background-color: rgb(246, 246, 250)
+}
+
+/* =========================================================
+   HEADER (FIXO) 
+   - Altura fixa para acomodar a logo
+   - Centralizado com sombra sutil
+   ========================================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 90px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    height: 80px; 
+    cursor: pointer; 
+    margin-top: 25px;
+}
+
+/* Ações no cabeçalho (ex.: usuário) posicionadas à direita */
+.header-actions{
+  position: absolute;
+  top: 50%;
+  right: 45px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-btn{
+  background: #fff;
+  cursor: pointer;
+}
+
+.user-btn img{
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+/* Header: ajustes responsivos de ícones/posicionamento */
+@media (max-width: 520px){
+  .user-btn{ width: 42px; height: 42px; }
+  .header-actions{ right: 12px; }
+}
+
+/* =========================================================
+   TOKENS (CSS Custom Properties)
+   ========================================================= */
+:root {
+    --radius: 999px;
+    --border: 2px;
+    --h: 64px;
+    --padX: 18px;
+}
+
+/* =========================================================
+   HERO / ÁREA CENTRAL
+   ========================================================= */
+.hero {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo {
+    font-size: clamp(28px, 5vw, 54px);
+    margin: 0 0 22px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   BARRA DE BUSCA
+   ========================================================= */
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: var(--h);
+    border: var(--border) solid #222;
+    border-radius: var(--radius);
+    padding: 0 var(--padX);
+    max-width: 820px;
+    margin-inline: auto;
+    background: #fff;
+}
+
+.search__icon {
+    display: grid;
+    place-items: center;
+    color: #222;
+    flex: 0 0 auto;
+}
+
+.search__input {
+    flex: 1 1 auto;
+    border: 0;
+    outline: none;
+    font-size: clamp(16px, 2.5vw, 22px);
+    padding: 0 6px;
+    background: transparent;
+    min-width: 0;
+}
+
+.search__btn {
+    flex: 0 0 auto;
+    height: calc(var(--h) - 10px);
+    padding: 0 18px;
+    border-radius: var(--radius);
+    border: var(--border) solid #222;
+    background: #111;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search__btn:hover {
+    filter: brightness(1.1);
+}
+
+.search:focus-within {
+    box-shadow: 0 0 0 4px rgba(17, 17, 17, .06);
+}
+
+/* Busca: ocultar botão no mobile para ganhar espaço */
+@media (max-width: 520px) {
+    :root { --h: 56px; }
+    .search__btn { display: none; }
+}
+
+/* =========================================================
+   LINHA DA BUSCA + CARRINHO
+   ========================================================= */
+.search-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.search {
+    flex: 1 1 auto;
+    max-width: 820px;
+}
+
+/* Botão do carrinho */
+.cart-btn {
+    width: 46px;
+    height: 46px;
+    border: 2px solid #111;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+    cursor: pointer;
+    color: #111;
+    transition: transform .2s ease, .2s ease, color .2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.cart-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.cart-btn:hover {
+    background: #111;
+    color: #fff;
+    transform: scale(1.06);
+}
+
+/* Grid de produtos (mobile) e ajuste do carrinho */
+@media (max-width:520px) {
+    .produtos { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .cart-btn { width: 42px; height: 42px; }
+}
+
+/* =========================================================
+   CATEGORIAS (CÍRCULOS)
+   ========================================================= */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.category {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #111;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.circle img {
+    width: 45%;
+    height: auto;
+}
+
+.circle:hover {
+    background: #111;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.circle:hover img { filter: brightness(0) invert(1); }
+
+/* =========================================================
+   LISTAGEM DE PRODUTOS (GRID)
+   ========================================================= */
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    gap: 20px 16px;
+    justify-content: center;
+    margin: 30px auto 0;
+    padding: 0 12px;
+}
+
+/* =========================================================
+   CARDS DE PRODUTO (LEGADO POR ITEM)
+   ========================================================= */
+.prod1 {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 7px;
+    border: solid 3px #111;
+}
+.prod1:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img1 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/body.jpeg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto1 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod2 {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: solid 3px black
+}
+.prod2:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img2 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/regata.jpeg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto2 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod3 {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 3px solid black
+}
+.prod3:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img3 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/jaqueta.jpeg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto3 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod4 {
+    width: 300px;
+    height: 400px;
+    background-color: #ffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: solid 3px black
+}
+.prod4:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img4 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/vestido.jpeg");
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto4 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod5 {
+    width: 300px;
+    height: 400px;
+    background-color: #ffff;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 7px;
+    border: 3px solid black
+}
+.prod5:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img5 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/Apple.jpg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto5 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod6 {
+    width: 300px;
+    height: 400px;
+    background-color: #ffff;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 3px solid black
+}
+.prod6:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img6 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/iphone17jpg.jpg");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto6 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod7 {
+    width: 300px;
+    height: 400px;
+    background-color: #ffff;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 3px solid black;
+}
+.prod7:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img7 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/air-pods.png");
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto7 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.prod8 {
+    width: 300px;
+    height: 400px;
+    background-color: #ffff;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 3px solid black
+}
+.prod8:hover { transform: scale(1.05); filter: brightness(0.8); }
+
+.img8 {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-radius: 5px;
+    background-image: url("./img/imac2.webp");
+    background-size: cover;
+    border: #111 solid 1px;
+}
+
+.texto8 {
+    width: 250px;
+    height: 120px;
+    background-color: #ffff;
+    margin-left: 25px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* =========================================================
+   TIPOGRAFIA (BLOCOS DOS CARDS)
+   ========================================================= */
+.produtos [class^="texto"] {
+    padding: 10px 12px;
+    color: #000000;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.produtos .nome {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.produtos .preco {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #0c3a97;
+}
+
+.produtos .avaliacao {
+    font-size: 14px;
+    opacity: .95;
+    margin: 0;
+}
+
+.avaliacao {
+    font-size: 14px;
+    color: #111;
+    font-family: Arial, sans-serif;
+}
+
+.produtos .descricao {
+    font-size: 13px;
+    line-height: 1.35;
+    opacity: .9;
+    margin: 2px 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+footer {
+    color: black;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.contatos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0;
+}
+
+.icone1 {
+    background-image: url("./img/instagram-logo.png");
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* =========================================================
+   MOBILE: CATEGORIAS EM 4 COLUNAS
+   ========================================================= */
+@media (max-width: 520px) {
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 20px;
+        justify-items: center;
+    }
+    .circle { width: 70px; height: 70px; }
+    .circle img { width: 50%; }
+    .category { font-size: 14px; }
+}
+
+/* =========================================================
+   MOBILE: PRODUTOS EM 2 COLUNAS + AJUSTES DE CARD
+   ========================================================= */
+@media (max-width: 520px) {
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        justify-content: center;
+        padding: 0 8px;
+    }
+    .produtos>[class^="prod"] { width: auto; margin: 0; }
+    .produtos [class^="img"] {
+        width: calc(100% - 24px);
+        margin: 12px auto 0;
+        background-position: center;
+        background-size: cover;
+    }
+    .produtos [class^="texto"] {
+        width: calc(100% - 24px);
+        margin: 8px auto 12px;
+    }
+}
+
+/* =========================================================
+   MOBILE: PLACEHOLDER COM SCROLL (ANIMAÇÃO)
+   ========================================================= */
+@media (max-width: 520px) {
+    .search__input { white-space: nowrap; overflow: hidden; }
+    .search__input:placeholder-shown { animation: ph-scroll 10s linear infinite; }
+    @keyframes ph-scroll {
+        0% { text-indent: 0; }
+        100% { text-indent: -380px; }
+    }
+}
+
+/* =========================================================
+   BADGE DE DESCONTO (COR INSTITUCIONAL)
+   ========================================================= */
+.produtos [class^="prod"] { position: relative; }
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    background: #0c3a97;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+    z-index: 2;
+}
+
+/* =========================================================
+   DESKTOP: NORMALIZA MARGENS DOS CARDS (USA APENAS O GAP)
+   ========================================================= */
+@media (min-width: 521px){
+  .produtos > [class^="prod"]{
+    margin: 0 !important;
+  }
+}
+
+/* =========================================================
+   TIPOGRAFIA GLOBAL (PADRONIZA FONTE)
+   ========================================================= */
+:root {
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body { font-family: var(--font-base); }
+
+/* Controles herdam a mesma fonte base */
+button, input, select, textarea { font: inherit; }
+
+/* Itens específicos passam a herdar da base */
+.produtos [class^="texto"],
+.category,
+.avaliacao,
+.badge,
+.btn-add { font-family: inherit; }
+
+
+/* ====== ACESSIBILIDADE: Skip Link ====== */
+.skip-link{
+  position: absolute; left: -9999px; top: -9999px;
+  background: #0c3a97; color: #fff; padding: 8px 12px; border-radius: 8px;
+}
+.skip-link:focus{ left: 12px; top: 12px; z-index: 1100; }
+
+/* ====== CHIPS DE ATALHO (abaixo da busca) ====== */
+.quick-chips{
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center; margin: 10px auto 0; padding: 0 12px; max-width: 900px;
+}
+.quick-chips a{
+  display: inline-block; padding: 8px 12px; border-radius: 999px;
+  border: 1.5px solid #0c3a97; color: #0c3a97; text-decoration: none; font-weight: 600;
+}
+.quick-chips a:hover, .quick-chips a:focus-visible{
+  background: #0c3a97; color: #fff; outline: none;
+}
+
+/* ====== SEÇÃO: PREÇOS ESPECIAIS ====== */
+.special-prices{ max-width: 1100px; margin: 28px auto 0; padding: 0 12px; }
+.special-prices .section-head{
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px;
+}
+.special-prices h2{ font-size: 20px; line-height: 1.3; }
+.special-prices .see-all{
+  color: #0c3a97; text-decoration: none; font-weight: 700;
+}
+.special-prices .see-all:hover, .special-prices .see-all:focus-visible{ text-decoration: underline; }
+
+.special-grid{
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 900px){
+  .special-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 520px){
+  .special-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.deal-card{
+  position: relative; background: #fff; border: 2px solid #111; border-radius: 10px;
+  padding: 12px; min-height: 110px; display: flex; flex-direction: column; gap: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.deal-card h3{ font-size: 15px; line-height: 1.25; }
+.deal-card .deal-price{ font-weight: 700; color: #0c3a97; }
+.deal-card .deal-price s{ color: #666; font-weight: 400; margin-right: 6px; }
+
+/* Reuso da badge existente */
+.deal-card .badge{
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+}
+
+/* ====== FAIXA: CASHBACK ====== */
+.cashback-banner{
+  margin: 26px auto 0; padding: 0 12px; max-width: 1100px;
+}
+.cbk-wrap{
+  background: #0c3a97; color: #fff; border-radius: 12px; padding: 14px 16px;
+  display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.cbk-ic{ display: grid; place-items: center; }
+.cbk-text strong{ display: block; font-size: 16px; line-height: 1.25; margin-bottom: 2px; }
+.cbk-text a{ color: #fff; font-weight: 700; text-decoration: underline; }
+
+/* ====== BLOCO: PARCELAMENTO NA FATURA ====== */
+.billing-installments{
+  margin: 18px auto 0; padding: 0 12px; max-width: 1100px;
+}
+.bi-wrap{
+  background: #fff; border: 2px solid #111; border-radius: 12px; padding: 14px 16px;
+  display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.bi-ic{ display: grid; place-items: center; color: #0c3a97; }
+.bi-text strong{ display: block; font-size: 16px; line-height: 1.25; margin-bottom: 2px; }
+.bi-text a{ color: #0c3a97; font-weight: 700; text-decoration: underline; }
+
+/* ===== FIX MOBILE: alinhar início dos chips com o início das categorias ===== */
+@media (max-width: 520px) {
+  :root { --gutter: 16px; }                 /* guia única para ambas as seções */
+
+  /* 1) Chips: faixa rolável ocupando 100% com o mesmo gutter lateral */
+  .quick-chips {
+    /* zera possíveis centramentos herdados */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0 0 !important;
+
+    /* carrossel horizontal simples e estável */
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    /* usa o mesmo recuo das categorias */
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* se houver um bloco anterior que criou max-width/auto, isto garante o fill */
+    max-width: none !important;
+    scrollbar-width: none;
+  }
+  .quick-chips::-webkit-scrollbar { height: 0; }
+
+  .quick-chips a {
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  /* Remove espaçadores de antes, caso existam, para não “empurrar” demais */
+  .quick-chips::before,
+  .quick-chips::after { content: none !important; }
+
+  /* 2) Categorias: mesmo gutter e alinhadas à ESQUERDA (não centralizadas) */
+  .categories {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* garante grid à esquerda, não herda justify-content:center do desktop */
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+    justify-items: start;     /* começa no mesmo X dos chips */
+  }
+
+  /* tamanhos já usados no mobile */
+  .circle { width: 70px; height: 70px; }
+  .circle img { width: 50%; }
+  .category { font-size: 14px; }
+
+  /* 3) Evita clipping por ancestrais */
+  .hero { overflow: visible; }
+}
+/* ============================
+   MOBILE (<=520px)
+   - Alinha BUSCA + CARRINHO ao mesmo gutter das CATEGORIAS
+   - Chips (quick-chips) em carrossel, com espaçamento horizontal
+     IGUAL ao espaçamento vertical entre chips e categorias
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;     /* guia lateral única (esq/dir) para tudo */
+    --chip-gap: 12px;   /* distância entre chips (horizontal) */
+  }
+
+  /* 1) BUSCA + CARRINHO: ocupam 100% e respeitam o mesmo gutter */
+  .hero { overflow: visible; } /* evita qualquer clipping */
+
+  .search-row{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    gap: 10px; /* espaço entre busca e carrinho */
+    margin-top: 10px; /* leve respiro abaixo do header */
+  }
+
+  .search{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none; /* alinha pelo gutter, não por max-width */
+  }
+
+  .cart-btn{
+    flex: 0 0 auto; /* mantém o botão compacto, à direita da barra */
+  }
+
+  /* 2) CHIPS (filtros): carrossel horizontal alinhado ao mesmo gutter */
+  .quick-chips{
+    display: block;           /* fallback mais estável que flex */
+    white-space: nowrap;      /* todos em uma linha */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    /* regra de ouro do espaçamento: 
+       - gap horizontal entre chips = --chip-gap
+       - distância VERTICAL dos chips até as categorias = --chip-gap
+    */
+    margin: 14px 0 var(--chip-gap); /* bottom = --chip-gap */
+
+    scrollbar-width: none; /* oculta barra no Firefox */
+  }
+  .quick-chips::-webkit-scrollbar{ height: 0; } /* oculta barra no WebKit */
+
+  .quick-chips a{
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: var(--chip-gap);   /* gap horizontal entre chips */
+    white-space: nowrap;
+  }
+
+  /* remove qualquer spacer antigo que empurre demais */
+  .quick-chips::before,
+  .quick-chips::after{ content: none !important; }
+
+  /* 3) CATEGORIAS: mesmo gutter e início alinhado à esquerda */
+  .categories{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+
+    /* a distância entre CHIPS e CATEGORIAS = --chip-gap (definida acima) */
+    margin-top: var(--chip-gap);
+
+    justify-items: start; /* inicia no mesmo X dos chips */
+  }
+
+  /* tamanhos mobile já consolidados */
+  .circle{ width: 70px; height: 70px; }
+  .circle img{ width: 50%; }
+  .category{ font-size: 14px; }
+}
+/* ============================
+   MOBILE (<=520px)
+   - Sobe a barra de busca
+   - Alinha busca + carrinho ao mesmo gutter das categorias
+   - Padroniza a distância vertical (ritmo) entre topo → busca → chips → categorias
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;   /* guia lateral única */
+    --stack: 12px;    /* espaçamento vertical padrão entre blocos */
+  }
+
+  /* 1) Compensa o header fixo e já deixa um respiro padronizado */
+  body{
+    padding-top: calc(90px + var(--stack)); /* header (90) + espaçamento */
+  }
+
+  /* Remove aquele "empurrão" da logo no mobile */
+  header .logo{ margin-top: 0; }
+
+  /* 2) BUSCA + CARRINHO: largura cheia alinhada ao mesmo gutter das categorias */
+  .hero{ overflow: visible; }
+
+  .search-row{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    gap: 10px;
+    margin-top: 0; /* já contamos o respiro no padding-top do body */
+  }
+
+  .search{
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .cart-btn{ flex: 0 0 auto; }
+
+  /* 3) CHIPS (filtros): carrossel horizontal alinhado e com ritmo vertical padronizado */
+  .quick-chips{
+    display: block;           /* fallback mais estável que flex para rolagem */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+
+    margin: var(--stack) 0 var(--stack);  /* cima e baixo = espaçamento padrão */
+    scrollbar-width: none;
+  }
+  .quick-chips::-webkit-scrollbar{ height: 0; }
+  .quick-chips a{
+    display: inline-flex;
+    vertical-align: top;
+    white-space: nowrap;
+    margin-right: 12px; /* espaçamento horizontal entre chips */
+  }
+
+  /* 4) CATEGORIAS: mesmo gutter e início alinhado à esquerda */
+  .categories{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: var(--stack);   /* mesma distância dos chips */
+    justify-items: start;       /* começa no mesmo X da busca/chips */
+  }
+
+  /* tamanhos mobile */
+  .circle{ width: 70px; height: 70px; }
+  .circle img{ width: 50%; }
+  .category{ font-size: 14px; }
+}
+/* Chips (filtros): borda ligeiramente mais espessa */
+.quick-chips a {
+  border-width: 2px; /* antes era 1.5px */
+}
+/* ============================
+   MOBILE (<=520px)
+   Ofertas do Dia em carrossel horizontal (sem JS)
+   - Alinha com o mesmo gutter usado no restante da página
+   - Evita corte do 1º/último card com espaçadores internos
+   - Mantém snap suave ao arrastar
+   ============================ */
+@media (max-width: 520px) {
+  :root{
+    --gutter: 16px;   /* mesmo usado para busca/chips/categorias */
+    --deal-gap: 12px; /* espaçamento entre cards de oferta */
+  }
+
+  /* Cabeçalho da seção alinhado ao gutter */
+  .special-prices {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .special-prices .section-head{
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin-bottom: var(--deal-gap);
+  }
+
+  /* Faixa rolável horizontal para os cards */
+  .special-grid{
+    /* Em vez de grid, usamos linha única rolável */
+    display: block;
+    white-space: nowrap;            /* impede quebra para a linha de baixo */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    /* Snap suave e ocultar scrollbar */
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin: 0; /* distância vertical já controlada pela section-head e próxima seção */
+  }
+  .special-grid::-webkit-scrollbar{ height: 0; }
+
+  /* Evita que o 1º/último card “colem” na borda (sem corte visual) */
+  .special-grid::before,
+  .special-grid::after{
+    content: "";
+    display: inline-block;
+    width: var(--gutter);
+  }
+
+  /* Cada deal-card vira um “card” inline com largura mínima */
+  .special-grid .deal-card{
+    display: inline-flex;      /* preserva padding interno e altura automática */
+    flex-direction: column;
+    vertical-align: top;
+    white-space: normal;       /* o texto interno pode quebrar normalmente */
+    min-width: 220px;          /* ajuste fino conforme seu design */
+    margin-right: var(--deal-gap);
+    scroll-snap-align: start;  /* encosta bem ao gutter ao parar a rolagem */
+  }
+
+  /* remove a última margem à direita para um acabamento melhor (opcional) */
+  .special-grid .deal-card:last-child{
+    margin-right: 0;
+  }
+}
+/* =========================================================
+   OFERTAS DA SEMANA — HOVERS CRIATIVOS (DESKTOP)
+   - Efeitos somente em dispositivos com hover/pointer fino
+   - Mantém mobile intacto (sem hover)
+   ========================================================= */
+@media (hover:hover) and (pointer:fine) {
+
+  /* 1) Título com sublinhado que se revela ao passar o mouse */
+  .special-prices .section-head h2 {
+    position: relative;
+    display: inline-block;
+  }
+  .special-prices .section-head h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;            /* começa “oculto” */
+    bottom: -4px;
+    height: 3px;
+    background: linear-gradient(90deg, #0c3a97, rgba(12,58,151,.2));
+    transition: right .35s ease;
+    border-radius: 4px;
+  }
+  .special-prices .section-head:hover h2::after {
+    right: 0;               /* revela o traço */
+  }
+
+  /* 2) "Ver tudo" com seta que desliza */
+  .special-prices .see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  .special-prices .see-all::after {
+    content: "→";
+    transition: transform .25s ease;
+  }
+  .special-prices .see-all:hover::after,
+  .special-prices .see-all:focus-visible::after {
+    transform: translateX(4px);
+  }
+
+  /* 3) Cards com lift + sombra + brilho diagonal (shine) */
+  .special-grid .deal-card {
+    position: relative;
+    isolation: isolate;            /* garante camadas seguras para pseudo-elements */
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    will-change: transform;
+    z-index: 0;
+  }
+
+  /* Borda/sombra ao hover */
+  .special-grid .deal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(12, 58, 151, .18);
+    border-color: #0c3a97;
+    z-index: 1;                    /* eleva acima dos vizinhos */
+  }
+
+  /* Brilho diagonal que “varre” o card */
+  .special-grid .deal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255,255,255,.28) 48%,
+      transparent 62%
+    );
+    transform: translateX(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .special-grid .deal-card:hover::before {
+    animation: deal-shine .8s ease forwards;
+    opacity: 1;
+  }
+
+  /* Opcional: contorno sutil animado (halo) usando box-shadow interno */
+  .special-grid .deal-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;                    /* ligeiramente maior que o card */
+    border-radius: inherit;
+    box-shadow:
+      0 0 0 0 rgba(12,58,151, .0),
+      inset 0 0 0 0 rgba(12,58,151, .0);
+    transition: box-shadow .28s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .special-grid .deal-card:hover::after {
+    box-shadow:
+      0 0 0 2px rgba(12,58,151, .08),
+      inset 0 0 0 2px rgba(12,58,151, .06);
+  }
+
+  @keyframes deal-shine {
+    to { transform: translateX(120%); }
+  }
+}
+/* =========================================================
+   OFERTAS DA SEMANA — FEEDBACK DE TOQUE (MOBILE, sem JS)
+   - Aplica apenas em telas com pointer "coarse" e sem hover
+   - Efeito de "press": leve compressão, sombra e destaque da borda
+   - Brilho sutil por cima durante o toque
+   - Título e link "Ver tudo" também ganham feedback ao toque
+   ========================================================= */
+@media (max-width: 520px) and (hover: none) and (pointer: coarse) {
+
+  /* Cards: tornam o toque mais "vivo" sem alterar layout */
+  .special-grid .deal-card {
+    position: relative;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    -webkit-tap-highlight-color: transparent; /* remove flash azul no iOS */
+  }
+
+  /* Feedback no toque (press): levemente menor e elevado */
+  .special-grid .deal-card:active {
+    transform: scale(.98) translateY(-1px);
+    box-shadow: 0 8px 18px rgba(12, 58, 151, .18);
+    border-color: #0c3a97; /* cor institucional */
+  }
+
+  /* Overlay de brilho rápido enquanto pressiona (sem JS) */
+  .special-grid .deal-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(closest-side, rgba(255,255,255,.22), rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity .12s ease;
+    pointer-events: none;
+  }
+  .special-grid .deal-card:active::after {
+    opacity: 1;
+  }
+
+  /* Título da seção: sublinhado aparece ao toque */
+  .special-prices .section-head h2 {
+    position: relative;
+    display: inline-block;
+  }
+  .special-prices .section-head h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -4px;
+    height: 3px;
+    background: linear-gradient(90deg, #0c3a97, rgba(12,58,151,.2));
+    border-radius: 4px;
+    transition: right .25s ease;
+  }
+  .special-prices .section-head:active h2::after {
+    right: 0;
+  }
+
+  /* "Ver tudo": seta desliza um pouquinho ao toque */
+  .special-prices .see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .special-prices .see-all::after {
+    content: "→";
+    transition: transform .15s ease;
+  }
+  .special-prices .see-all:active::after {
+    transform: translateX(3px);
+  }
+}
+
+/* Acessibilidade: reduz animações se o usuário pedir menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .special-grid .deal-card,
+  .special-grid .deal-card::after,
+  .special-prices .section-head h2::after,
+  .special-prices .see-all::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* ============================
+   MOBILE (<=520px)
+   Vitrine menos "apertada"
+   - Mais respiro lateral (gutter)
+   - Gap maior entre cards
+   - Espaço interno maior nos cards
+   - Altura da imagem ajustada para caber melhor
+   ============================ */
+@media (max-width: 520px){
+  :root{
+    --gutter: 16px;           /* recuo lateral único */
+    --grid-gap: 16px;         /* espaço entre os cards da grade */
+    --card-pad: 12px;         /* “respiro” dentro do card */
+    --section-stack: 16px;    /* espaçamento vertical entre seções */
+  }
+
+  /* seção de produtos: recuo lateral + gap maior */
+  .produtos{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin-top: calc(var(--section-stack) + 4px); /* leve respiro acima */
+  }
+
+  /* cada card: sem margens externas ad-hoc e borda mais suave */
+  .produtos > [class^="prod"]{
+    width: auto;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.06); /* sombra mais macia para dar leveza */
+  }
+
+  /* bloco de imagem: largura cheia do card e altura ajustada */
+  .produtos [class^="img"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    height: 220px;                      /* antes mais alta; ajusta para caber melhor */
+    margin: var(--card-pad) auto 0;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+  }
+
+  /* bloco de textos: mais respiro e leitura confortável */
+  .produtos [class^="texto"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    margin: 10px auto var(--card-pad);
+    padding: 0;                         /* usa o “respiro” pelas larguras calculadas */
+    gap: 6px;                           /* espaço entre linhas do conteúdo */
+  }
+
+  /* leve ajuste tipográfico para melhorar a leitura no mobile */
+  .produtos .nome{ font-size: 15px; line-height: 1.3; }
+  .produtos .preco{ font-size: 17px; }
+  .produtos .descricao{ font-size: 13px; line-height: 1.4; }
+
+  /* respiro extra antes do rodapé para não “grudar” */
+  .produtos + footer{
+    margin-top: calc(var(--section-stack) * 1.5);
+  }
+}
+/* ============================
+   MOBILE (<=520px)
+   Vitrine menos "apertada"
+   - Mais respiro lateral (gutter)
+   - Gap maior entre cards
+   - Espaço interno maior nos cards
+   - Altura da imagem ajustada para caber melhor
+   ============================ */
+@media (max-width: 520px){
+  :root{
+    --gutter: 16px;           /* recuo lateral único */
+    --grid-gap: 16px;         /* espaço entre os cards da grade */
+    --card-pad: 12px;         /* “respiro” dentro do card */
+    --section-stack: 16px;    /* espaçamento vertical entre seções */
+  }
+
+  /* seção de produtos: recuo lateral + gap maior */
+  .produtos{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    margin-top: calc(var(--section-stack) + 4px); /* leve respiro acima */
+  }
+
+  /* cada card: sem margens externas ad-hoc e borda mais suave */
+  .produtos > [class^="prod"]{
+    width: auto;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.06); /* sombra mais macia para dar leveza */
+  }
+
+  /* bloco de imagem: largura cheia do card e altura ajustada */
+  .produtos [class^="img"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    height: 220px;                      /* antes mais alta; ajusta para caber melhor */
+    margin: var(--card-pad) auto 0;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+  }
+
+  /* bloco de textos: mais respiro e leitura confortável */
+  .produtos [class^="texto"]{
+    width: calc(100% - (var(--card-pad) * 2));
+    margin: 10px auto var(--card-pad);
+    padding: 0;                         /* usa o “respiro” pelas larguras calculadas */
+    gap: 6px;                           /* espaço entre linhas do conteúdo */
+  }
+
+  /* leve ajuste tipográfico para melhorar a leitura no mobile */
+  .produtos .nome{ font-size: 15px; line-height: 1.3; }
+  .produtos .preco{ font-size: 17px; }
+  .produtos .descricao{ font-size: 13px; line-height: 1.4; }
+
+  /* respiro extra antes do rodapé para não “grudar” */
+  .produtos + footer{
+    margin-top: calc(var(--section-stack) * 1.5);
+  }
+}
+/* ============================
+   MOBILE (<=520px)
+   Cards mais baixos sem perder conteúdo essencial
+   ============================ */
+@media (max-width: 520px){
+  :root{
+    --gutter: 16px;     /* recuo lateral */
+    --grid-gap: 16px;   /* espaço entre cards */
+    --card-pad: 10px;   /* padding interno do card */
+  }
+
+  /* Grade: mantém 2 por linha com mais respiro */
+  .produtos{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  /* CARD (tira altura fixa, aplica layout em coluna e padding interno) */
+  .produtos > [class^="prod"]{
+    margin: 0 !important;
+    height: auto !important;            /* sobrescreve os 400px */
+    padding: var(--card-pad);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  }
+
+  /* Imagem: ocupa largura do card e usa razão 4:3 para reduzir altura total */
+  .produtos [class^="img"]{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto !important;            /* caso alguma regra antiga fixe a altura */
+    margin: 0;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Bloco de texto: sem altura fixa, compactado */
+  .produtos [class^="texto"]{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto !important;            /* sobrescreve os 120px */
+    gap: 4px;
+  }
+
+  /* Título: 1 linha com ellipsis para não esticar o card */
+  .produtos .nome{
+    font-size: 14px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Tipos: levemente mais compactos */
+  .produtos .preco{ font-size: 16px; line-height: 1.2; }
+  .produtos .avaliacao{ font-size: 13px; line-height: 1.2; }
+
+ /* Descrição: limita a 2 linhas para não esticar o card */
+  .produtos .descricao{
+    font-size: 13px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;        /* 2 linhas no mobile */
+    overflow: hidden;
+    min-height: calc(1.35em * 2); /* mantém altura uniforme entre cards */
+  }
+
+  /* Badge: compacta para não aumentar a altura útil do card */
+  .produtos [class^="prod"] .badge{
+    top: 8px;
+    left: 8px;
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+}
