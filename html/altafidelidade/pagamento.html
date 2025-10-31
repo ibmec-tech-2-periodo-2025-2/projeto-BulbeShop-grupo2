@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Checkout • Bulbe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../altafidelidade/.assets/altafidelidade/style-checkout.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="appbar">
+    <button class="appbar__back" aria-label="Voltar">
+      <img src="../altafidelidade/.assets/altafidelidade/img/corner-up-left.svg" alt="">
+    </button>
+    <img class="appbar__logo" src="../altafidelidade/.assets/altafidelidade/img/logo-base.svg" alt="Bulbe">
+  </header>
+
+  <main class="wrap">
+    <!-- ENDEREÇO -->
+    <section class="address-card">
+      <div class="address-card__icon">
+        <img src="../altafidelidade/.assets/altafidelidade/img/marker-pin-02.svg" alt="">
+      </div>
+      <div class="address-card__text">
+        <div class="address-card__title">Nome do comprador</div>
+        <div class="address-card__sub">
+          Rua do comprador 000, complemento 000<br>
+          00000-000 Cidade, estado país
+        </div>
+      </div>
+      <div class="address-card__chev">
+        <img src="../altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+      </div>
+    </section>
+
+    <!-- CARRINHO -->
+    <section class="cart">
+      <!-- Lâmpada -->
+      <article class="cart-card">
+        <img class="cart-card__thumb"
+             src="../altafidelidade/.assets/altafidelidade/img/c6559d49aec17a510b73b50f7689acc97fe64b4d.png"
+             alt="Lâmpada">
+        <div class="cart-card__body">
+          <h4 class="cart-card__title">
+            Lâmpada de LED E27 Bulbo 9W 803lm<br>
+            Luz Branca Bivolt Black + Decker
+          </h4>
+
+          <span class="pill pill--good">
+            <img src="../altafidelidade/.assets/altafidelidade/img/star-01.svg" class="pill__ico" alt="">
+            boas avaliações
+          </span>
+
+          <div class="cart-card__price-row">
+            <div class="price"><span class="price__curr">R$</span><span class="price__big">4,59</span></div>
+            <div class="units">(3 unidades)</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Parafusadeira + faixa colada -->
+      <article class="cart-card cart-card--has-strip">
+        <img class="cart-card__thumb"
+             src="../altafidelidade/.assets/altafidelidade/img/f522bac792bf441d089879622204f18fd4c8d80a.png"
+             alt="Parafusadeira">
+        <div class="cart-card__body">
+          <h4 class="cart-card__title">
+            Parafusadeira Philco Force PPF12D 3<br>
+            em 1 1500RPM
+          </h4>
+
+          <span class="pill pill--low">
+            <img src="../altafidelidade/.assets/altafidelidade/img/hourglass.svg" class="pill__ico" alt="">
+            quase esgotado
+          </span>
+
+          <div class="cart-card__price-row">
+            <div class="price"><span class="price__curr">R$</span><span class="price__big">399,90</span></div>
+            <div class="units">(1 unidade)</div>
+          </div>
+        </div>
+
+        <footer class="discount-strip">
+          <span class="discount-strip__label">Desconto Bulbe:</span>
+          <strong class="discount-strip__value">R$ 200,00</strong>
+          <span class="discount-strip__icons">
+            <img src="../altafidelidade/.assets/altafidelidade/img/wallet-02.svg" alt="">
+            <img src="../altafidelidade/.assets/altafidelidade/img/Group 427318503.svg" alt="">
+          </span>
+        </footer>
+      </article>
+    </section>
+
+    <!-- REVISÃO DO PEDIDO -->
+    <section class="review-card">
+      <h3 class="review-title">Revisão do pedido</h3>
+
+      <div class="review-row"><span class="label">Valor total:</span><span class="value">R$ 413,67</span></div>
+      <div class="review-row"><span class="label">Promoções:</span><span class="value value--neg">-R$ 200,00</span></div>
+      <div class="review-row"><span class="label">Subtotal:</span><span class="value value--muted">R$ 213,67</span></div>
+      <div class="review-row"><span class="label">Taxa de envio:</span><span class="value value--free">GRÁTIS</span></div>
+      <div class="review-row"><span class="label">Cupons:</span><span class="value value--neg">-R$ 21,36 ></span></div>
+      <div class="review-row"><span class="label">Pontos Bulbe:</span><span class="value value--link">178 pontos disponíveis ></span></div>
+
+      <div class="review-total"><span>Total do pedido:</span><strong>R$ 192,31</strong></div>
+    </section>
+
+    <!-- MÉTODO DE PAGAMENTO -->
+    <section class="payment-card">
+      <div class="payment-card__title">
+        <img src="../altafidelidade/.assets/altafidelidade/img/wallet-02.svg" alt="">
+        <span>Método de pagamento</span>
+      </div>
+      <div class="payment-card__hint">Clique para selecionar:</div>
+
+      <div class="selectbox" id="paySelect" aria-expanded="false">
+        <button type="button" class="selectbox__head" aria-haspopup="listbox" aria-expanded="false">
+          <span class="selectbox__dot"></span>
+          <span class="selectbox__label">Selecionado</span>
+          <img class="selectbox__chev" src="../altafidelidade/.assets/altafidelidade/img/chevron-right.svg" alt="">
+        </button>
+
+        <ul class="selectbox__list" role="listbox">
+          <li class="selectbox__opt" role="option">Crédito</li>
+          <li class="selectbox__opt is-active" role="option" aria-selected="true">Débito</li>
+          <li class="selectbox__opt" role="option">Pix</li>
+          <li class="selectbox__opt" role="option">Boleto bancário</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA: próxima caixa no fluxo, abaixo do método de pagamento -->
+    <div class="cta">
+      <button class="cta__btn" type="button">
+        Prosseguir para pagamento
+        <img src="../altafidelidade/.assets/altafidelidade/img/Icon.svg" alt="" width="18" height="18">
+      </button>
+    </div>
+
+  </main>
+
+  <!-- TABBAR -->
+  <nav class="tabbar">
+    <a class="tabbar__item" href="#">
+      <img src="../altafidelidade/.assets/altafidelidade/img/Faturas.svg" alt="">
+      <span>Faturas</span>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../altafidelidade/.assets/altafidelidade/img/Consumo.svg" alt="">
+      <span>Consumo</span>
+    </a>
+    <a class="tabbar__item is-active" href="#">
+      <img class="sacola" src="../altafidelidade/.assets/altafidelidade/img/shopping-bag-02.svg" alt="">
+      <span>Bulbe Shop</span>
+      <i class="underline"></i>
+    </a>
+    <a class="tabbar__item" href="#">
+      <img src="../altafidelidade/.assets/altafidelidade/img/Indicações.svg" alt="">
+      <span>Indicações</span>
+    </a>
+  </nav>
+
+  <script src="../altafidelidade/.assets/altafidelidade/script-checkout.js"></script>
+</body>
+</html>
