@@ -132,3 +132,24 @@ function wirePaymentSelectMovesCTA() {
     }
   });
 }
+// /altafidelidade/pagamento1/script-checkout.js
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.cta__btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    // ajuste o caminho abaixo se o arquivo tiver outro nome/local
+    window.location.href = '/altafidelidade/pagamento2/pagamento2.html';
+  });
+});
+
+// /altafidelidade/pagamento1/script-checkout.js
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.appbar__back');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    // ajuste o caminho abaixo se o arquivo tiver outro nome/local
+    window.location.href = '/altafidelidade/carrinhos/carrinho.html';
+  });
+});

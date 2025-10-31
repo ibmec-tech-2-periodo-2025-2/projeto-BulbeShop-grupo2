@@ -149,3 +149,13 @@ btnSave?.addEventListener('click', ()=>{
   if(btnSave.disabled) return; // guarda de segurança
   alert('Endereço e preferências salvos.');
 });
+// Voltar para pagamento.html ao clicar na seta do header
+document.addEventListener('DOMContentLoaded', () => {
+  const backBtn = document.querySelector('.appbar__back');
+  if (!backBtn) return;
+
+  backBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = '../pagamento1/pagamento.html';
+  });
+});
