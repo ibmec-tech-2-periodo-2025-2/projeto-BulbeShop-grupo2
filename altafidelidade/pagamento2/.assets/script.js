@@ -159,3 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = '../pagamento1/pagamento.html';
   });
 });
+
+// /altafidelidade/pagamento1/script-checkout.js
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.appbar__logo');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    // ajuste o caminho abaixo se o arquivo tiver outro nome/local
+    window.location.href = '/altafidelidade/home/paginicial.html';
+  });
+});
