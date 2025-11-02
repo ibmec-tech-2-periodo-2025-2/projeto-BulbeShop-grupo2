@@ -1,0 +1,222 @@
+/* ===== TOKENS ===== */
+:root{
+  --white:#FFFFFF;
+  --gray-25:#F6F9F9;
+  --gray-100:#D1D9E0;
+  --gray-200:#C2CCD6;
+  --gray-300:#A4B3C1;
+  --gray-400:#8699AC;
+  --gray-700:#3E4D5B;
+
+  --blue:#08068D;
+  --green:#12B76A;
+  --red:#F04438;
+}
+
+*{box-sizing:border-box;
+font-family:poppins}
+html,body{height:100%}
+body{
+  margin:0;
+  background:#FAFBFC;
+  color:var(--gray-700);
+  font:400 12px/1.35 "Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+/* ===== HEADER ===== */
+.appbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 16px; background:#fff; border-bottom:1px solid var(--gray-100);
+}
+.appbar__back{border:0;background:transparent;padding:6px;cursor:pointer}
+.appbar__back img{width:22px;height:22px}
+.appbar__logo{height:26px;width:auto}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:420px;margin:0 auto;padding:12px 12px 96px}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff; border:1px solid var(--gray-100); border-radius:12px;
+  padding:12px; margin-top:10px;
+}
+.card__title{
+  display:flex; align-items:center; gap:8px;
+  color:var(--gray-700); font-weight:800; margin-bottom:10px;
+}
+.card__title .ico{width:18px;height:18px;opacity:.9}
+.card__title--chev{justify-content:space-between}
+.card__title--chev .left{display:flex;align-items:center;gap:8px}
+.card__title--chev .chev{width:16px;height:16px;opacity:.7}
+
+/* ===== CAMPOS ===== */
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
+.label{font-weight:700; color:var(--gray-700)}
+.input{
+  height:44px; padding:0 12px; border-radius:10px;
+  border:1px solid var(--gray-100); background:#fff; color:var(--gray-700); outline:none;
+}
+.input::placeholder{color:var(--gray-300)}
+.row-2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+
+/* select inline */
+.select-inline{position:relative}
+.select-inline select{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  width:100%; height:44px; border-radius:10px; border:1px solid var(--gray-100);
+  background:#fff; color:var(--gray-700); padding:0 36px 0 12px; font:inherit;
+}
+.select-inline img{
+  position:absolute; right:12px; top:50%; transform:translateY(-50%) rotate(90deg);
+  width:16px; height:16px; opacity:.7; pointer-events:none;
+}
+
+/* ===== PAGAMENTO PARCELADO (2x3 sem sobreposição) ===== */
+.installments-card{ padding-top:4px; }
+
+.parcel-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:10px;
+  margin-top:10px;
+}
+
+.parcel{
+  display:flex; flex-direction:column; justify-content:center; gap:6px;
+  min-height:78px;
+  padding:10px 12px;
+  background:#fff;
+  border:1px solid var(--gray-100);
+  border-radius:12px;
+  cursor:pointer;
+  transition: box-shadow .18s ease, border-color .18s ease, transform .06s ease;
+}
+.parcel strong{display:block; color:var(--blue); font:800 16px/1.1 "Poppins",system-ui}
+.parcel small{display:block; color:var(--gray-400); font-weight:600}
+
+.parcel.is-selected{
+  outline:2px solid var(--blue);
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(8,6,141,.08);
+}
+.parcel:hover{ box-shadow:0 3px 12px rgba(8,6,141,.06) }
+.parcel:active{ transform: translateY(1px) }
+
+/* fallback p/ telas muito estreitas */
+@media (max-width:360px){
+  .parcel-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ===== ENDEREÇO COBRANÇA ===== */
+.billing-text{margin:0; color:var(--gray-400)}
+
+/* ===== CTA ===== */
+.cta{margin:12px 0 24px}
+.cta__btn{
+  width:100%; height:48px; border:0; border-radius:12px;
+  background:var(--blue); color:#fff; font-weight:800; cursor:pointer;
+}
+.cta__btn:disabled{opacity:.45; cursor:not-allowed}
+
+/* ===== TABBAR ===== */
+.tabbar{
+  position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--gray-100);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:8px 12px 10px;
+}
+.tabbar__item{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  text-decoration:none; color:#B7C0CA; font-weight:700; position:relative;
+}
+.tabbar__item img{width:26px;height:26px;opacity:.45}
+.tabbar__item.is-active{color:var(--blue)}
+.tabbar__item.is-active img{opacity:1}
+.tabbar__item .underline{
+  position:absolute; top:-6px; left:50%; transform:translateX(-50%);
+  width:56px; height:4px; border-radius:999px; background:var(--blue);
+}
+
+/* responsivo mínimo */
+@media (max-width:360px){ .row-2{grid-template-columns:1fr} }
+/* ===================== PAGAMENTO PARCELADO (refinado) ===================== */
+.installments-card{ padding-top:6px; }
+
+.parcel-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colunas fixas */
+  gap:12px;
+  margin-top:10px;
+}
+
+.parcel{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px;
+  min-height:92px;                      /* altura uniforme */
+  padding:12px 10px;
+  background:#fff;
+  border:1px solid #E6EEF7;             /* borda azuladinha leve */
+  border-radius:14px;
+  box-shadow:0 1px 0 rgba(16,24,40,.04);
+  cursor:pointer;
+  transition:
+    box-shadow .18s ease,
+    border-color .18s ease,
+    transform .06s ease,
+    outline-color .18s ease,
+    background-color .18s ease;
+}
+
+.parcel strong{
+  color:var(--blue);
+  font:800 15px/1.15 "Poppins",system-ui;
+  text-align:center;
+}
+.parcel small{
+  color:var(--gray-400);
+  font-weight:700;
+  text-align:center;
+}
+
+.parcel:hover{
+  background:#FAFCFF;
+  box-shadow:0 4px 14px rgba(8,6,141,.08);
+}
+.parcel:active{ transform: translateY(1px); }
+
+/* Acessibilidade */
+.parcel:focus-visible{
+  outline:2px solid rgba(8,6,141,.55);
+  outline-offset:2px;
+}
+
+/* Selecionado */
+.parcel.is-selected{
+  border-color:var(--blue);
+  outline:2px solid var(--blue);
+  box-shadow:
+    0 0 0 3px rgba(8,6,141,.10),
+    0 6px 16px rgba(8,6,141,.10);
+}
+
+/* (opcional) telas muito estreitas: quebrar para 2 colunas
+@media (max-width:360px){
+  .parcel-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+*/
+
+/* ===================== SACOLA DO TABBAR EM AZUL EXATO (sem filtro) ===================== */
+/* Mantém o <img class="sacola"> no HTML. Tornamos a imagem transparente e
+   desenhamos por cima um pseudo-elemento usando CSS mask com a cor exata. */
+.tabbar .sacola{
+  position:relative;
+  width:26px; height:26px;
+  opacity:0;                /* sem usar filter */
+}
+.tabbar .sacola::after{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--blue);  /* #08068D exato */
+  -webkit-mask: url("../../altafidelidade/pagamento-cartao/.assets/img/shopping-bag-02.svg") center / contain no-repeat;
+          mask: url("../../altafidelidade/pagamento-cartao/.assets/img/shopping-bag-02.svg") center / contain no-repeat;
+}
+/* garante ícones intensos no item ativo */
+.tabbar__item.is-active img{ opacity:1; }
