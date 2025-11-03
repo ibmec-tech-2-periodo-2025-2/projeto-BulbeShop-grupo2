@@ -34,6 +34,16 @@
 
 
 ## Critérios de Entrega
-- 
-- 
-- 
+-  Telas de alta fidelidade devem estar aprovadas e revisadas antes do desenvolvimento em HTML e CSS.
+- O código HTML e CSS deve estar completo - todas as telas desenvolvidas.
+- As interações em JavaScript devem seguir fielmente o protótipo de alta fidelidade.
+- A integração com a API depende da finalização do front-end e dos endpoints principais.
+- A entrega final depende da aprovação de design, funcionamento das interações e testes concluídos.
+- O fluxo de navegação entre todas as páginas está funcional
+- Elementos interativos em JavaScript (menus, botões, modais, carrosséis, validações) estão integrados corretamente.
+- Registro das dailies com o progresso e obstáculos da equipe.
+- Retrospectiva da Sprint 3 documentada com aprendizados e melhorias para a próxima iteração
+- Código organizado e comentado (HTML semântico, CSS limpo, JS modularizado).
+- Testes básicos de usabilidade e funcionalidade realizados com sucesso.
+- Repositório atualizado no GitHub, com README.md contendo instruções claras de execução do projeto.
+- Apresentação feita da sprint 3 
