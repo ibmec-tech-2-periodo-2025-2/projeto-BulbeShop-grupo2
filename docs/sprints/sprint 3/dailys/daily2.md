@@ -1,7 +1,7 @@
 rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci  
 ## *Daily Projeto Bulbe*
 
-### Daily 2 - Sprint 2
+### Daily 2 - Sprint 3
 
 ---
 

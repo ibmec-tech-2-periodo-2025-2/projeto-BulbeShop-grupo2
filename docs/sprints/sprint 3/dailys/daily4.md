@@ -1,7 +1,7 @@
 Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci  
 ## *Daily Projeto Bulbe*
 
-### Daily 4 - Sprint 2
+### Daily 4 - Sprint 3
 
 ---
 
