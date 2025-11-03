@@ -3,10 +3,10 @@ Documentação do Projeto
 
 Integrantes
 
-Beatriz Samaha - Scrum Master (Sprint 1 e 2)
-Bruna Bento - Desenvolvedor
+Beatriz Samaha - Scrum Master (Sprint 1)
+Bruna Bento - Scrum Master (Sprint 2)
 Júlia Leal - Desenvolvedor
-Pedro Paulucci - Desenvolvedor
+Pedro Paulucci - Scrum Master (Sprint 3)
 
 
 Gestão de Código
