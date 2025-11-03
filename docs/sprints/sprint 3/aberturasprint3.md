@@ -4,11 +4,11 @@
 
 ## Objetivos da Sprint
 
-- [ ]
-- [ ] 
+- [ ] Flask (opcional)
+- [ ] Ajustes pontuais no design das telas de alta fidellidade
 - [ ] Organizar o backlog.
 - [ ] Definir o sprint backlog.
-- [ ] 
+- [ ] Integração com bibliotecas e frameworks JavaScript
 - [ ] 
 - [ ] 
 - [ ] 

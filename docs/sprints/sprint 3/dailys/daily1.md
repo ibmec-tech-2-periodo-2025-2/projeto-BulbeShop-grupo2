@@ -11,7 +11,8 @@
 
 #### **O que eu fiz desde o último relatório?**
 
-- 
+- Selecionei os itens do BackLog que serão usados na Sprint 3. 
+- Iniciei o relatório de abertura. 
 - 
 
 ---
