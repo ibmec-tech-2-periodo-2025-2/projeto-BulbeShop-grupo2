@@ -1,1 +1,125 @@
-<!DOCTYPE html> <html lang="pt-br"> <head> <meta charset="utf-8"/> <meta name="viewport" content="width=device-width,initial-scale=1"/> <title>Carrinho • Bulbe</title> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"> <!-- troque o caminho abaixo se necessário --> <link rel="stylesheet" href="./styleCarrinho.css"> </head> <body> <!-- HEADER (mesmo padrão) --> <header class="appbar"> <button class="appbar__back" aria-label="Voltar" id="btnBack"> <!-- src: substituir pelo seu --> <img src="./assets/img/corner-up-left (2).svg" alt=""> </button> <!-- src: substituir pelo seu --> <img class="appbar__logo" src="./assets/img/logo.svg" alt="Bulbe"> </header> <main class="wrap"> <!-- TÍTULO E AÇÃO "Selecionar tudo" --> <section class="cart-head"> <div class="cart-head__left"> <img class="cart-head__ico" src="./assets/img/carrinho.svg" alt=""> <h1>Carrinho</h1> </div> <label class="check-pill"> <input type="checkbox" id="checkAll"> <span class="check-pill__fake"></span> <span>Selecionar tudo</span> </label> </section> <!-- ITEM 1 --> <article class="cart-card"> <label class="check-chip"> <input type="checkbox" class="row-check"> <span class="chip">Selecionar</span> </label> <div class="cart-card__media"> <!-- lâmpada --> <img src="./assets/img/lamp.svg" alt="Lâmpada" /> </div> <div class="cart-card__body"> <h3 class="cart-card__title"> Lâmpada de LED E27 Bulbo 9W 803lm<br> Luz Branca Bivolt Black + Decker </h3> <div class="cart-card__price"> <span class="rsc">R$</span> <span class="big">4,59</span> </div> <div class="cart-card__meta"> <div class="qty" data-row="1"> <button class="qty__btn" data-act="minus" aria-label="Diminuir">–</button> <span class="qty__val">5</span> <button class="qty__btn" data-act="plus" aria-label="Aumentar">+</button> </div> <div class="units">(5 unidades)</div> </div> </div> </article> <!-- ITEM 2 --> <article class="cart-card"> <label class="check-chip"> <input type="checkbox" class="row-check"> <span class="chip">Selecionar</span> </label> <div class="cart-card__media"> <!-- parafusadeira --> <img src="./assets/img/parafusadeira.svg" alt="Parafusadeira" /> </div> <div class="cart-card__body"> <h3 class="cart-card__title"> Parafusadeira Philco Force PPF120 3<br>em 1 1500RPM </h3> <div class="oldline">De <s>R$ 399,90</s> por</div> <div class="cart-card__price"> <span class="rsc">R$</span> <span class="big">199,90</span> </div> <div class="cart-card__meta"> <div class="qty" data-row="2"> <button class="qty__btn" data-act="minus" aria-label="Diminuir">–</button> <span class="qty__val">1</span> <button class="qty__btn" data-act="plus" aria-label="Aumentar">+</button> </div> <div class="units">(1 unidade)</div> </div> </div> <!-- faixa colada (Na Bulbe sai ...) --> <footer class="bulbe-strip"> <span>Na Bulbe sai:</span> <strong>–R$ 200,00</strong> <div class="bulbe-strip__icons"> <!-- ícones de carteira/relâmpago se quiser --> <img src="./assets/img/logo-e.svg" alt=""> </div> </footer> </article> <!-- ADICIONAR MAIS ITENS --> <section class="upsell"> <h2>Adicionar mais itens:</h2> <div class="upsell__group"> <div class="tag">Oferta relâmpago</div> <!-- carrossel --> <div class="carousel"> <button class="car-arrow left" aria-label="Anterior">‹</button> <div class="car-track" id="carTrack"> <!-- CARD 1 --> <article class="mini-card"> <div class="mini-card__thumb"> <img src="./assets/img/ferramenta2.svg" alt=""> </div> <h4 class="mini-card__title">Caixa de Ferramentas Philco…</h4> <div class="mini-card__price"> <strong>R$59,90</strong> <s>R$119,90</s> </div> <div class="mini-card__actions"> <button class="icon-btn" data-like aria-label="Favoritar">❤</button> <button class="icon-btn" data-add aria-label="Adicionar">🛒</button> </div> </article> <!-- CARD 2 --> <article class="mini-card"> <div class="mini-card__thumb"> <img src="./assets/img/ferramenta.svg" alt=""> </div> <h4 class="mini-card__title">Caixa de Ferramentas Philco…</h4> <div class="mini-card__price"> <strong>R$179,30</strong> </div> <div class="mini-card__actions"> <button class="icon-btn" data-like aria-label="Favoritar">❤</button> <button class="icon-btn" data-add aria-label="Adicionar">🛒</button> </div> </article> <!-- CARD 3 --> <article class="mini-card"> <div class="mini-card__thumb"> <img src="./assets/img/fone.svg" alt=""> </div> <h4 class="mini-card__title">Fone in-ear branco</h4> <div class="mini-card__price"> <strong>R$22,95</strong> </div> <div class="mini-card__actions"> <button class="icon-btn" data-like aria-label="Favoritar">❤</button> <button class="icon-btn" data-add aria-label="Adicionar">🛒</button> </div> </article> <!-- CARD 4 --> <article class="mini-card"> <div class="mini-card__thumb"> <img src="./assets/img/carregador.svg" alt=""> </div> <h4 class="mini-card__title">Cabo reforçado</h4> <div class="mini-card__price"> <strong>R$19,90</strong> </div> <div class="mini-card__actions"> <button class="icon-btn" data-like aria-label="Favoritar">❤</button> <button class="icon-btn" data-add aria-label="Adicionar">🛒</button> </div> </article> </div> <button class="car-arrow right" aria-label="Próximo">›</button> </div> </div> </section> </main> <!-- BOTTOM SHEET: Selecionar mais itens --> <aside class="sheet" id="sheet"> <div class="sheet__drag"></div> <div class="sheet__item"> <img src="./assets/img/lamp.svg" alt=""> <div class="sheet__text"> <strong>Lâmpada de LED E27 Bulbo 9W…</strong> <div class="sheet__row"> <div class="qty" data-row="s1"> <button class="qty__btn" data-act="minus">–</button> <span class="qty__val">5</span> <button class="qty__btn" data-act="plus">+</button> </div> <strong class="sheet__price">R$22,95</strong> </div> </div> </div> <div class="sheet__total">Total: <strong>R$22,95</strong></div> <div class="cta"> <button class="cta__btn" id="btnContinue">Continuar Compra</button> </div> </aside> <!-- TABBAR --> <nav class="tabbar"> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Faturas.svg" alt=""> <span>Faturas</span> </a> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Economia.svg" alt=""> <span>Consumo</span> </a> <a class="tabbar__item is-active" href="#"> <img class="sacola" src="./assets/img/shopping-bag-02 (3).svg" alt=""> <span>Bulbe Shop</span> <i class="underline"></i> </a> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Indicações.svg" alt=""> <span>Indicações</span> </a> </nav> <!-- JS --> <script src="./assets/script-cart.js"></script> </body> </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carrinho • Bulbe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"> <!-- troque o caminho abaixo se necessário -->
+    <link rel="stylesheet" href="./styleCarrinho.css">
+</head>
+
+<body> <!-- HEADER (mesmo padrão) -->
+    <header class="appbar"> <button class="appbar__back" aria-label="Voltar" id="btnBack">
+            <!-- src: substituir pelo seu --> <img src="./assets/img/corner-up-left (2).svg" alt=""> </button>
+        <!-- src: substituir pelo seu --> <img class="appbar__logo" src="./assets/img/logo.svg" alt="Bulbe"> </header>
+    <main class="wrap"> <!-- TÍTULO E AÇÃO "Selecionar tudo" -->
+        <section class="cart-head">
+            <div class="cart-head__left"> <img class="cart-head__ico" src="./assets/img/carrinho.svg" alt="">
+                <h1>Carrinho</h1>
+            </div> <label class="check-pill"> <input type="checkbox" id="checkAll"> <span
+                    class="check-pill__fake"></span> <span>Selecionar tudo</span> </label>
+        </section> <!-- ITEM 1 -->
+        <article class="cart-card"> <label class="check-chip"> <input type="checkbox" class="row-check"> <span
+                    class="chip">Selecionar</span> </label>
+            <div class="cart-card__media"> <!-- lâmpada --> <img src="./assets/img/lamp.svg" alt="Lâmpada" /> </div>
+            <div class="cart-card__body">
+                <h3 class="cart-card__title"> Lâmpada de LED E27 Bulbo 9W 803lm<br> Luz Branca Bivolt Black + Decker
+                </h3>
+                <div class="cart-card__price"> <span class="rsc">R$</span> <span class="big">4,59</span> </div>
+                <div class="cart-card__meta">
+                    <div class="qty" data-row="1"> <button class="qty__btn" data-act="minus"
+                            aria-label="Diminuir">–</button> <span class="qty__val">5</span> <button class="qty__btn"
+                            data-act="plus" aria-label="Aumentar">+</button> </div>
+                    <div class="units">(5 unidades)</div>
+                </div>
+            </div>
+        </article> <!-- ITEM 2 -->
+        <article class="cart-card"> <label class="check-chip"> <input type="checkbox" class="row-check"> <span
+                    class="chip">Selecionar</span> </label>
+            <div class="cart-card__media"> <!-- parafusadeira --> <img src="./assets/img/parafusadeira.svg"
+                    alt="Parafusadeira" /> </div>
+            <div class="cart-card__body">
+                <h3 class="cart-card__title"> Parafusadeira Philco Force PPF120 3<br>em 1 1500RPM </h3>
+                <div class="oldline">De <s>R$ 399,90</s> por</div>
+                <div class="cart-card__price"> <span class="rsc">R$</span> <span class="big">199,90</span> </div>
+                <div class="cart-card__meta">
+                    <div class="qty" data-row="2"> <button class="qty__btn" data-act="minus"
+                            aria-label="Diminuir">–</button> <span class="qty__val">1</span> <button class="qty__btn"
+                            data-act="plus" aria-label="Aumentar">+</button> </div>
+                    <div class="units">(1 unidade)</div>
+                </div>
+            </div> <!-- faixa colada (Na Bulbe sai ...) -->
+            <footer class="bulbe-strip"> <span>Na Bulbe sai:</span> <strong>–R$ 200,00</strong>
+                <div class="bulbe-strip__icons"> <!-- ícones de carteira/relâmpago se quiser --> <img
+                        src="./assets/img/logo-e.svg" alt=""> </div>
+            </footer>
+        </article> <!-- ADICIONAR MAIS ITENS -->
+        <section class="upsell">
+            <h2>Adicionar mais itens:</h2>
+            <div class="upsell__group">
+                <div class="tag">Oferta relâmpago</div> <!-- carrossel -->
+                <div class="carousel"> <button class="car-arrow left" aria-label="Anterior">‹</button>
+                    <div class="car-track" id="carTrack"> <!-- CARD 1 -->
+                        <article class="mini-card">
+                            <div class="mini-card__thumb"> <img src="./assets/img/ferramenta2.svg" alt=""> </div>
+                            <h4 class="mini-card__title">Caixa de Ferramentas Philco…</h4>
+                            <div class="mini-card__price"> <strong>R$59,90</strong> <s>R$119,90</s> </div>
+                            <div class="mini-card__actions"> <button class="icon-btn" data-like
+                                    aria-label="Favoritar">❤</button> <button class="icon-btn" data-add
+                                    aria-label="Adicionar">🛒</button> </div>
+                        </article> <!-- CARD 2 -->
+                        <article class="mini-card">
+                            <div class="mini-card__thumb"> <img src="./assets/img/ferramenta.svg" alt=""> </div>
+                            <h4 class="mini-card__title">Caixa de Ferramentas Philco…</h4>
+                            <div class="mini-card__price"> <strong>R$179,30</strong> </div>
+                            <div class="mini-card__actions"> <button class="icon-btn" data-like
+                                    aria-label="Favoritar">❤</button> <button class="icon-btn" data-add
+                                    aria-label="Adicionar">🛒</button> </div>
+                        </article> <!-- CARD 3 -->
+                        <article class="mini-card">
+                            <div class="mini-card__thumb"> <img src="./assets/img/fone.svg" alt=""> </div>
+                            <h4 class="mini-card__title">Fone in-ear branco</h4>
+                            <div class="mini-card__price"> <strong>R$22,95</strong> </div>
+                            <div class="mini-card__actions"> <button class="icon-btn" data-like
+                                    aria-label="Favoritar">❤</button> <button class="icon-btn" data-add
+                                    aria-label="Adicionar">🛒</button> </div>
+                        </article> <!-- CARD 4 -->
+                        <article class="mini-card">
+                            <div class="mini-card__thumb"> <img src="./assets/img/carregador.svg" alt=""> </div>
+                            <h4 class="mini-card__title">Cabo reforçado</h4>
+                            <div class="mini-card__price"> <strong>R$19,90</strong> </div>
+                            <div class="mini-card__actions"> <button class="icon-btn" data-like
+                                    aria-label="Favoritar">❤</button> <button class="icon-btn" data-add
+                                    aria-label="Adicionar">🛒</button> </div>
+                        </article>
+                    </div> <button class="car-arrow right" aria-label="Próximo">›</button>
+                </div>
+            </div>
+        </section>
+    </main> <!-- BOTTOM SHEET: Selecionar mais itens -->
+    <aside class="sheet" id="sheet">
+        <div class="sheet__drag"></div>
+        <div class="sheet__item"> <img src="./assets/img/lamp.svg" alt="">
+            <div class="sheet__text"> <strong>Lâmpada de LED E27 Bulbo 9W…</strong>
+                <div class="sheet__row">
+                    <div class="qty" data-row="s1"> <button class="qty__btn" data-act="minus">–</button> <span
+                            class="qty__val">5</span> <button class="qty__btn" data-act="plus">+</button> </div> <strong
+                        class="sheet__price">R$22,95</strong>
+                </div>
+            </div>
+        </div>
+        <div class="sheet__total">Total: <strong>R$22,95</strong></div>
+        <div class="cta"> <button class="cta__btn" id="btnContinue">Continuar Compra</button> </div>
+    </aside> <!-- TABBAR -->
+    <nav class="tabbar"> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Faturas.svg" alt="">
+            <span>Faturas</span> </a> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Economia.svg"
+                alt=""> <span>Consumo</span> </a> <a class="tabbar__item is-active" href="#"> <img class="sacola"
+                src="./assets/img/shopping-bag-02 (3).svg" alt=""> <span>Bulbe Shop</span> <i class="underline"></i>
+        </a> <a class="tabbar__item" href="#"> <img src="./assets/img/Ícone __ Indicações.svg" alt="">
+            <span>Indicações</span> </a> </nav> <!-- JS -->
+    <script src="./assets/script-cart.js"></script>
+</body>
+
+</html>

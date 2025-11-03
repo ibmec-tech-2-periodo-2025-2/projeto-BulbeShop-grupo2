@@ -13,7 +13,7 @@
 
 - Selecionei os itens do BackLog que serão usados na Sprint 3. 
 - Iniciei o relatório de abertura. 
-- 
+- Definir os objetivos da Sprint 3 
 
 ---
 
