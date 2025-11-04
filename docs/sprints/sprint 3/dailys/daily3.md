@@ -54,7 +54,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - Corrigir os bugs identificados no carrinho e na página de pagamentos, e analisar as outras páginas .
 - Finalizar os testes de responsividade e comportamento dinâmico das telas.
-- Inserir os resultados nos slides finais da Sprint 3.
+- Inserir os resultados e relatorios nos slides finais da Sprint 3.
 - Fazer a revisão final , garantindo que todas as páginas estejam integradas e padronizadas antes da entrega.
 - Iniciar a documentação da Daily 4.
 
