@@ -468,6 +468,8 @@ body {
 .acoes-resumo {
   display: flex;
   gap: 12px;
+  justify-content: center;
+  align-items: center;
 }
 
 .botao-cinza,
@@ -483,6 +485,7 @@ body {
 .botao-cinza {
   background: #e3e8ef;
   color: #2d3748;
+  width: 7px;
 }
 
 .botao-azul {

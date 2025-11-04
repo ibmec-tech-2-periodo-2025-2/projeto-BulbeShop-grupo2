@@ -89,9 +89,24 @@ document.querySelector('.seta-carrossel.direita')?.addEventListener('click', () 
 });
 
 // === BOTÕES DO RESUMO ===
-document.getElementById('botaoContinuar')?.addEventListener('click', () => {
-  alert('Seguindo para pagamento…');
+document.addEventListener("DOMContentLoaded", function () {
+  const botaoContinuar = document.getElementById("botaoContinuar");
+  const resumoCarrinho = document.getElementById("resumoCarrinho");
+
+  if (botaoContinuar && resumoCarrinho) {
+    botaoContinuar.addEventListener("click", function () {
+      // Aplica classe para o fade
+      resumoCarrinho.classList.add("fade-out");
+
+      // Aguarda a animação antes de redirecionar
+      setTimeout(() => {
+        window.location.href = "../pagamento1/pagamento.html";
+      }, 400);
+    });
+  }
 });
+
+
 document.getElementById('botaoLimpar')?.addEventListener('click', limparCarrinho);
 
 // === FUNÇÃO LIMPAR CARRINHO ===
