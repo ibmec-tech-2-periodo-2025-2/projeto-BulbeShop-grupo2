@@ -14,8 +14,8 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Iniciando a montagem dos slides 
 - Fazendo ajustes nos códigos, seguindo o modelo Figma 
 - Finalizar a documentação consolidada da Sprint 3, incluindo backlog atualizado, critérios de entrega e retrospectiva parcial.
-- Padronizar o formato dos arquivos e slides, garantindo consistência visual e informacional entre os membros da equipe.
-- Iniciar a integração prática dos componentes front-end (HTML/CSS/JS) com o backend (Flask, se aplicável).
+- Padronizar o formato dos arquivos e slides, garantindo consistência visual e informacional entre o grupo.
+- Iniciar a integração prática dos componentes front-end (HTML/CSS/JS) com o backend.
 
 ---
 
@@ -105,23 +105,27 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizar a sprint Backlog no jira. 
-- Finalizar as telas de altas fidelidades.
+- Desenvolvi o JavaScript da tela de Afiliados Araujo, implementando interações dinâmicas e validações básicas de formulário.
+- Finalizei o HTML e o CSS da página de Afiliados Araujo, garantindo responsividade e alinhamento visual com o modelo do Figma.
+- Padronizei o formato dos arquivos e slides, assegurando consistência visual e informacional entre os integrantes do grupo.
+  
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar a documentação em slides da Sprint 2.
+- Testando o funcionamento completo da página de Afiliados Araujo, verificando links, responsividade e comportamento dos scripts.
+- Revisando o código JavaScript para otimização e melhor organização das funções.
+- Ajustando detalhes de estilo e alinhamento conforme o protótipo final no Figma.
 
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento.
+-  Pequenos bugs de validação no JavaScript.
 -  A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas.
--  A finalização das telas de alta fidelidade enfrentou ajustes contínuos de layout, cores e espaçamento, prolongando o tempo de validação e aprovação.
+-  
 ---
 
 #### **O que aprendi até agora?** 
@@ -134,11 +138,8 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **Próximo passo** 
 
 - Revisar e consolidar o backlog da sprint com prioridades ajustadas e tarefas devidamente atribuídas.
-- Acompanhar o progresso via Jira, utilizando as dailies para alinhar pendências e ajustes.
----
-
-
-
+- Erros de caminho relativo entre arquivos após reorganização de pastas.
+- Gestão de tempo: conciliar ajustes de código, testes e padronização visual exigiu replanejamento do cronograma interno.
 
 
 ### **Relatório de Acompanhamento: Pedro Paulucci - Semana 2**
