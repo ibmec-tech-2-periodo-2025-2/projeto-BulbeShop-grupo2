@@ -140,6 +140,49 @@ body {
     transform: translateY(-2px);
 }
 
+.banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.banner1, .banner2, .banner3 {
+  flex: 1 1 calc(33.333% - 10px);
+  height: 200px;
+  background-color: #ddd;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.banner1 {
+    background-image: url('img/banner1.png');
+}
+
+.banner2 {
+    background-image: url('img/banner2.png');
+}
+
+.banner3 {
+    background-image: url('img/banner3.png');
+}
+
+.banner-item:hover {
+  transform: scale(1.03);
+}
+
 /* LOGO */
 .logo img {
     height: 40px;
