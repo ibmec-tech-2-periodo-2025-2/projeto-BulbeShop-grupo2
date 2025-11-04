@@ -14,11 +14,12 @@
 </head>
 
 <body>
-<!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
-        <div class="menu-icon" id="menu-btn">
-            <img src="./img/menuicon.png" alt="Menu">
-        </div>
+    <!--ICONE Menu-->
+        <a class="home-btn" id="home-btn" href="/altafidelidade/home/paginicial.html" aria-label="Ir para Home">
+            <img src="./img/home-05.png" alt="Home"> 
+        </a>
 
         <div class="logo">
             <img src="./img/logoHeader.png" alt="Bulbe Logo">
@@ -31,21 +32,8 @@
         </div>
     </header>
 
-<!-- MENU LATERAL -->
-    <nav class="side-menu" id="side-menu">
-        <ul>
-            <li><a href="/altafidelidade/home/paginicial.html">Home</a></li>
-            <li><a href="/altafidelidade/cupons/cupons.html">Cupons</a></li>
-            <li><a href="/altafidelidade/favoritos/favoritos.html">Favoritos</a></li>
-            <li><a href="/altafidelidade/carrinhos/carrinho.html">Carrinhos</a></li>
-            <li><a href="/altafidelidade/lojasparceiras/lojasparceiras.html">Lojas Parceiras</a></li>
-            <li><a href="#">Meu Perfil</a></li>
-
-        </ul>
-    </nav>
-
     <div class="overlay" id="overlay"></div>
-<!--Barra de Pesquisa-->
+    <!--Barra de Pesquisa-->
 
     <div class="search-container">
         <button class="filter-btn" id="filter-btn">
@@ -58,7 +46,7 @@
             <img src="./img/searchicon.png" alt="Buscar">
         </button>
     </div>
-<!--FILTRO MENU-->
+    <!--FILTRO MENU-->
     <div class="filter-menu" id="filter-menu">
         <ul>
             <li>Eletrônicos</li>
@@ -68,13 +56,13 @@
             <li>Família e Educação</li>
         </ul>
     </div>
-<!--NAV BAR SCROLAVEL-->
+    <!--NAV BAR SCROLAVEL-->
     <div class="nav-scroll">
-            <a href="#" class="nav-item" id="btn-categorias">
+        <a href="#" class="nav-item" id="btn-categorias">
             <img src="./img/categoriaicon.png" alt="Categorias">
             <span>Categorias</span>
         </a>
-    
+
 
         <a href="/altafidelidade/lojasparceiras/lojasparceiras.html" class="nav-item">
             <img src="./img/lojaparceiraicon.png" alt="Lojas Parceiras">
@@ -91,21 +79,21 @@
             <span>Favoritos</span>
         </a>
     </div>
-<!--Menu cuculto em Categorias-->
-<div class="menu-categorias" id="menu-categorias">
-    <div class="menu-content">
-        <button id="fechar-menu">✕</button>
-        <h2>Categorias</h2>
-        <div class="categorias-grid">
-            <a href="/altafidelidade/home/paginicial.html">Home</a>
-            <a href="/altafidelidade/lojasparceiras/lojasparceiras.html">Lojas Parceiras</a>
-            <a href="/altafidelidade/cupons/cupons.html">Cupons</a>
-            <a href="/altafidelidade/favoritos/favoritos.html">Favoritos</a>
-            <a href="/altafidelidade/carrinhos/carrinho.html">Carrinho</a>
+    <!--Menu cuculto em Categorias-->
+    <div class="menu-categorias" id="menu-categorias">
+        <div class="menu-content">
+            <button id="fechar-menu">✕</button>
+            <h2>Categorias</h2>
+            <div class="categorias-grid">
+                <a href="/altafidelidade/home/paginicial.html">Home</a>
+                <a href="/altafidelidade/lojasparceiras/lojasparceiras.html">Lojas Parceiras</a>
+                <a href="/altafidelidade/cupons/cupons.html">Cupons</a>
+                <a href="/altafidelidade/favoritos/favoritos.html">Favoritos</a>
+                <a href="/altafidelidade/carrinhos/carrinho.html">Carrinho</a>
+            </div>
         </div>
     </div>
-</div>
-<!--Carrosel de Categorias-->
+    <!--Carrosel de Categorias-->
 
     <section class="carousel">
 
@@ -137,7 +125,7 @@
             <p>Eletrodomésticos</p>
         </div>
     </section>
-<!--BANNER-->
+    <!--BANNER-->
     <section class="cashback-banner" id="topo" aria-label="Banner de cashback 2%">
         <img src="./img/boniquenhaBenner.png" alt="" class="bonequinha">
         <div class="banner-inner">
@@ -163,7 +151,7 @@
         </div>
     </section>
 
-<!-- MODAL -->
+    <!-- MODAL -->
     <div id="modalCashback" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
         aria-describedby="modalDesc" hidden>
         <div class="backdrop" data-close></div>
@@ -196,22 +184,25 @@
             </footer>
         </div>
     </div>
-<!--CARDS-->
+    <!--CARDS-->
     <main class="wrap">
         <h2 class="section-title">Em alta</h2>
 
         <section class="grid">
-<!-- CARD 1 -->
+            <!-- CARD 1 -->
             <article class="card">
                 <div class="card-body">
                     <span class="badge badge-flash">oferta relâmpago</span>
 
                     <div class="media">
-                        <a href="./produto.html"><img src="./img/ventiladorbritania.webp" alt="Ventilador de mesa Britânia"></a>
+                        <a href="./produto.html"><img src="./img/ventiladorbritania.webp"
+                                alt="Ventilador de mesa Britânia"></a>
                     </div>
 
                     <div class="info">
-                        <a href="./produto.html"><h3 class="title">Ventilador de<br>mesa Britânia</h3></a>
+                        <a href="./produto.html">
+                            <h3 class="title">Ventilador de<br>mesa Britânia</h3>
+                        </a>
 
                         <div class="pricebox">
                             <div class="price-now">R$ 279,00</div>
@@ -247,7 +238,7 @@
                     </div>
             </article>
 
-<!-- CARD 2 -->
+            <!-- CARD 2 -->
             <article class="card">
                 <div class="card-body">
                     <span class="badge badge-cash">com cashback</span>
@@ -258,7 +249,9 @@
 
 
                     <div class="info">
-                        <a href="./produto.html"><h3 class="title">Liquidificador<br>Mondial 1000W</h3></a>
+                        <a href="./produto.html">
+                            <h3 class="title">Liquidificador<br>Mondial 1000W</h3>
+                        </a>
 
                         <div class="pricebox">
                             <div class="price-now">R$ 183,00</div>
@@ -293,7 +286,7 @@
                         </button>
             </article>
 
-<!-- CARD 3 -->
+            <!-- CARD 3 -->
             <article class="card">
                 <div class="card-body">
                     <span class="badge badge-cash">com cashback</span>
@@ -304,7 +297,9 @@
 
 
                     <div class="info">
-                        <a href="./produto.html"><h3 class="title">Garrafa de água<br> tuppaweea</h3></a>
+                        <a href="./produto.html">
+                            <h3 class="title">Garrafa de água<br> tuppaweea</h3>
+                        </a>
 
                         <div class="pricebox">
                             <div class="price-now">R$ 53,00</div>
@@ -339,8 +334,8 @@
                         </button>
             </article>
 
-<!--CARD 4-->
-            
+            <!--CARD 4-->
+
             <article class="card">
                 <div class="card-body">
 
@@ -349,7 +344,9 @@
                     </div>
 
                     <div class="info">
-                        <a href="./produto.html"><h3 class="title">Energia:<br>Fique por dentro</h3></a>
+                        <a href="./produto.html">
+                            <h3 class="title">Energia:<br>Fique por dentro</h3>
+                        </a>
 
                         <div class="pricebox">
                             <div class="price-now">R$ 49,00</div>
