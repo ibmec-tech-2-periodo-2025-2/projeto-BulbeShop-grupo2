@@ -13,7 +13,8 @@
 
 - Selecionei os itens do BackLog que serão usados na Sprint 3. 
 - Iniciei o relatório de abertura. 
-- Definir os objetivos da Sprint 3 
+- Definir os objetivos da Sprint 3. 
+- Inicio da montagem estrutural dos slides para apresentação 
 
 ---
 
@@ -58,31 +59,38 @@
 
 #### **O que eu fiz desde o último relatório?**
 
-- 
+- Ajustes Pontuais no Figma 
+- Pesquisa sobre a empresa Bulbe 
+  
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- 
+- Merge das branches para a main, visando linkar as paginas 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--   
+- Dificuldade inicial em gerenciar conflitos de merge entre as branches.
+- Variações sutis entre o protótipo do Figma e a implementação no HTML/CSS.
 
 ---
 
 #### **O que aprendi até agora?**
 
-- 
+- Aprendi a revisar o fluxo de integração entre as páginas antes de subir atualizações para a main.
+- Reforcei o valor de manter consistência entre design (Figma) e implementação (código) .
+- A importância de resolver conflitos de merge de forma incremental e documentada, mantendo a rastreabilidade do código.
 
 ---
 
 #### **Próximo passo** 
 
-- 
+- Finalizar a integração completa das páginas e testar a navegação em diferentes navegadores e dispositivos.
+- Corrigir eventuais inconsistências visuais e funcionais pós-merge.
+- Padronizar commits e estrutura de pastas.
 
 
 ---
@@ -97,12 +105,19 @@
 
 #### **O que eu fiz desde o último relatório?**
 
+  
+- Selecionei os itens do BackLog que serão usados na Sprint 3. 
+- Realizei ajustes pontuais no Figma, aprimorando a coerência visual e o alinhamento com o protótipo de alta fidelidade.
+- Iniciei a montagem estrutural dos slides de apresentação, definindo layout, cores e seções principais.
 - 
+
+
+
 ---
 
 #### **O que estou fazendo agora?**
 
-- 
+- Revisão dos designs finais do Figma 
 
 ---
 
