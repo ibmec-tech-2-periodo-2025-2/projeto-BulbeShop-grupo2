@@ -56,36 +56,43 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- 
+- Linkei as telas de cupom, carrinho, favoritos.
+- Fez Javascript dessas telas implementando interações dinâmicas e validações básicas.
+- Testei a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- MoodBoard para inspiração das telas.
+- Realizando testes de usabilidade e funcionamento das telas integradas (Cupom, Carrinho, Favoritos).
+- Ajustando pequenos erros de interação e layout, para manter a fidelidade ao Figma.
+  
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  Organização das pastas no Figma apresentou desafios de padronização.
--  A finalização das telas de alta fidelidade exigiu alinhamento constante entre design e desenvolvimento.
+-  Algumas funções não estavam sendo chamadas corretamente após a linkagem.
+-  Ajuste de tempo entre o desenvolvimento das funcionalidades e os testes de interface.
+-  Problemas de caminho relativo nos imports entre pastas, ocasionando falhas no carregamento de arquivos.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- A organização das pastas no Figma destacou a importância de estruturar o arquivo de forma lógica e colaborativa, com nomes claros e camadas bem agrupadas.
-- A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
-- Aprendizado sobre gestão de versões no Figma, uso de componentes reutilizáveis e boas práticas de documentação visual.
-
+- A importância de organizar o JavaScript frequentemenete, evitando repetição e melhorando a manutenção do código.
+- Que testar continuamente durante o desenvolvimento reduz erros de integração e retrabalho.
+- Reforcei o aprendizado sobre interação entre HTML, CSS e JS, garantindo coerência visual e funcional.
+- Aprendi a solucionar conflitos de linkagem e escopo com práticas mais estruturadas (como funções reutilizáveis e eventos bem definidos).
 ---
 
 #### **Próximo passo** 
 
-- Completar o Html e Css baseado nas telas de alta fidelidade.
-- 
+- Iniciando a revisão final do código JavaScript, com foco em clareza, organização e reuso de funções.
+- Finalizar os testes completos de navegação e confirmar o funcionamento pleno das telas de Cupom, Carrinho e Favoritos.
+- Otimizar o JavaScript, deixando o código mais limpo e performático.
+- Validar a responsividade das páginas e a compatibilidade com diferentes dispositivos.
 
 ---
 
