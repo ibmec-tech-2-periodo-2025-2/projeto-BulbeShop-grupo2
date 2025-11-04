@@ -45,66 +45,53 @@
     </section>
 
     <!-- DADOS DO COMPRADOR -->
-    <section class="card">
-      <header class="card__title">
-        <img src="../pagamento2/.assets/img/user-edit.svg" alt="" class="ico">
-        <span>Dados do comprador</span>
-      </header>
+<label class="field">
+  <span class="label">Nome completo: <b class="req">*</b></span>
+  <input id="nomeCompleto" class="input" type="text" placeholder="Digite seu nome">
+</label>
 
-      <label class="field">
-        <span class="label">Nome completo: <b class="req">*</b></span>
-        <input class="input" type="text" placeholder="Digite seu nome">
-      </label>
+<label class="field">
+  <span class="label">Número de telefone: <b class="req">*</b></span>
+  <input id="telefone" class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
+</label>
 
-      <label class="field">
-        <span class="label">Número de telefone: <b class="req">*</b></span>
-        <input class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
-      </label>
+<label class="field">
+  <span class="label">CPF: <b class="req">*</b></span>
+  <input id="cpf" class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
+</label>
 
-      <label class="field">
-        <span class="label">CPF: <b class="req">*</b></span>
-        <input class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
-      </label>
-    </section>
+<!-- ENDEREÇO DE ENTREGA -->
+<label class="field">
+  <span class="label">CEP: <b class="req">*</b></span>
+  <input id="cep" class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
+</label>
 
-    <!-- ENDEREÇO DE ENTREGA -->
-    <section class="card">
-      <header class="card__title">
-        <img src="../pagamento2/.assets/img/user-edit.svg" alt="" class="ico">
-        <span>Endereço de entrega</span>
-      </header>
+<label class="field">
+  <span class="label">Rua / Avenida: <b class="req">*</b></span>
+  <input id="rua" class="input" type="text" placeholder="Digite a rua">
+</label>
 
-      <label class="field">
-        <span class="label">CEP: <b class="req">*</b></span>
-        <input class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
-      </label>
+<div class="row-2">
+  <label class="field">
+    <span class="label">Número: <b class="req">*</b></span>
+    <input id="numero" class="input" type="text" inputmode="numeric" placeholder="Digite o número">
+  </label>
 
-      <label class="field">
-        <span class="label">Rua / Avenida: <b class="req">*</b></span>
-        <input class="input" type="text" placeholder="Digite a rua">
-      </label>
+  <label class="checkbox-inline">
+    <input id="semNumero" type="checkbox">
+    <span>Sem número</span>
+  </label>
+</div>
 
-      <div class="row-2">
-        <label class="field">
-          <span class="label">Número: <b class="req">*</b></span>
-          <input class="input" type="text" inputmode="numeric" placeholder="Digite o número">
-        </label>
+<label class="field">
+  <span class="label">Complemento (opcional):</span>
+  <input id="complemento" class="input" type="text" placeholder="Digite o complemento">
+</label>
 
-        <label class="checkbox-inline">
-          <input type="checkbox">
-          <span>Sem número</span>
-        </label>
-      </div>
-
-      <label class="field">
-        <span class="label">Complemento (opcional):</span>
-        <input class="input" type="text" placeholder="Digite o complemento">
-      </label>
-
-      <label class="field">
-        <span class="label">Bairro: <b class="req">*</b></span>
-        <input class="input" type="text" placeholder="Digite o bairro">
-      </label>
+<label class="field">
+  <span class="label">Bairro: <b class="req">*</b></span>
+  <input id="bairro" class="input" type="text" placeholder="Digite o bairro">
+</label>
 
       <!-- Estado e Cidade: um embaixo do outro, com a mesma animação -->
       <div class="row-2 row-stack">
