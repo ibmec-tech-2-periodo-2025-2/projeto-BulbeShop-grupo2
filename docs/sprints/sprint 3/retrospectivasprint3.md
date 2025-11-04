@@ -49,13 +49,14 @@
 
 - Bruna Bento:
 - Contribuições principais: Linkar as telas de Favoritos, Cupom, Carrinho, Favoritos, Lojas Parceiras e Home. Ajustes pontuais no figma, revisando as telas e fazendo pesquisa.
-- Dificuldade enfrentada: 
+- Dificuldade enfrentada:Integração entre múltiplas telas, que exigiu atenção redobrada para evitar erros de linkagem e duplicação de caminhos.Pequenas inconsistências nos redirecionamentos, causadas por diferenças de nomenclatura entre arquivos e pastas.Ajustes no Figma demandaram revisões frequentes para manter coerência entre o design atualizado e o código em andamento.
+Gerenciamento de tempo entre revisões visuais, linkagem e testes de navegação, especialmente na reta final da sprint.
 - Nota para meu desempenho (0 a 10): 10
 
 
 
 - Julia Leal:
-- Contribuições principais:
+- Contribuições principais: Documentação do Backlog e definição de Sprint Backlog, montagem dos slides, ajustes pontuais do figma,  
 - Dificuldade enfrentada:
 - Nota para meu desempenho (0 a 10): 10
 
