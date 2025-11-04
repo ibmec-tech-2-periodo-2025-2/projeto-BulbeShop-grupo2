@@ -1,11 +1,32 @@
-// Fecha o toast ao clicar no X
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest('.toast__close');
-  if(btn){
-    const toast = document.querySelector('.toast');
-    toast?.remove();
-  }
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // Voltar para a página de pagamento (NÃO limpa o storage)
+  const backBtn = document.querySelector(".appbar__back");
+  backBtn?.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    window.location.href = "/altafidelidade/pagamento3/pagamento3.html";
+  });
 
-// (Opcional) auto-ocultar depois de X segundos
-// setTimeout(()=> document.querySelector('.toast')?.remove(), 12000);
+  // (opcional) Fechar o toast se existir um botão de fechar com data-close
+  document.querySelectorAll("[data-close]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const toast = btn.closest(".toast-img-wrap, .toast");
+      toast?.parentElement?.removeChild(toast);
+    });
+  });
+
+  // ===== NÃO APAGAR DADOS DO USUÁRIO =====
+  // Nada de localStorage.removeItem(...) aqui.
+  // Os dados salvos em pagamento3 permanecem intactos.
+
+  // ===== REDIRECIONAR APÓS 7 SEGUNDOS =====
+  // Use um caminho RELATIVO para evitar problemas com espaços no nome de pasta.
+  // Estamos em: /altafidelidade/processando compra/html/index.html
+  // Destino:     /altafidelidade/pagamento e recusado/status-aprovada.html
+  const destino = "../../pagamento e recusado/status-aprovada.html";
+
+  // Se quiser exibir um countdown visual, você pode atualizar algum elemento aqui.
+  const timeoutMs = 7000;
+  setTimeout(() => {
+    window.location.href = destino;
+  }, timeoutMs);
+});
