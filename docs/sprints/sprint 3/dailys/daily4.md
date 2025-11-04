@@ -171,34 +171,40 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar as interações básicas de JavaScripts.
-- Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
+
+- Revisar e otimizar os scripts de WebStorage, garantindo desempenho e segurança.
+- Finalizando a documentação técnica da integração do fluxo de compra, destacando as funções JavaScript e a estrutura de dados utilizada.
+- Iniciando a revisão visual e funcional integrada de todas as páginas (Cupom, Carrinho, Pagamento e Confirmação).
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
+- Validar o funcionamento integrado entre todas as páginas do sistema, incluindo estados de erro e sucesso.
+- Realizar a revisão do projeto , garantindo consistência visual e técnica antes da entrega
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Implementação das interações básicas em JavaScript apresentou dificuldades na integração entre o código e a estrutura HTML/CSS existente, exigindo ajustes na hierarquia dos elementos e nas classes aplicadas.
-- Houve complexidade em definir o comportamento dinâmico dos componentes, especialmente nos eventos de clique, hover e transições animadas.
-- A finalização dos ajustes de CSS e responsividade demandou testes repetidos em diferentes resoluções e navegadores, para assegurar a fidelidade total ao protótipo de alta fidelidade.
+-Erros pontuais de sincronização no WebStorage, exigindo ajustes na lógica de atualização de dados entre as páginas.
+- Pequenas inconsistências de integração, especialmente em rotas de redirecionamento e transição entre etapas.
+- Gestão do tempo entre as tarefas técnicas e a finalização da documentação do fluxo de compra.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- A importância de planejar interações de forma progressiva, garantindo que cada funcionalidade seja validada antes da próxima.
-- A etapa de ajustes finais em CSS reforçou o valor de testes de responsividade e acessibilidade, assegurando que o produto mantenha consistência visual em todos os dispositivos. 
+- A importância de estruturar corretamente a comunicação entre as páginas para garantir um fluxo de compra sem interrupções.
+- Que pequenas otimizações no JavaScript e WebStorage impactam significativamente na performance e na experiência do usuário.
+- Aprendi a detectar e corrigir inconsistências de integração rapidamente por meio de testes incrementais.
+- Reforcei o valor da validação cruzada entre design e código, assegurando uma entrega coesa e profissional.
 
 ---
 
 #### **Próximo passo** 
 
-- Integração com bibliotecas e frameworks JavaScript.
-- Flask. 
+- Iniciar a revisão pós-sprint, registrando aprendizados e sugestões de aprimoramento para o próximo ciclo.
+- Realizar a checagem final de bugs e testes de usabilidade, garantindo a entrega de um produto estável.
+- Preparar a apresentação final da equipe, destacando as melhorias implementadas e a integração total do sistema.
 
