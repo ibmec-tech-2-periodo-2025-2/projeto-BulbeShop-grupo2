@@ -1,58 +1,86 @@
-// /altafidelidade/pagamento1/script-checkout.js
+document.addEventListener('DOMContentLoaded', () => {
+  const box    = document.getElementById('paySelect');
+  if (!box) return;
 
-(function () {
-  // Elementos do select custom
-  const select = document.getElementById('paySelect');
-  const head   = select?.querySelector('.selectbox__head');
-  const list   = select?.querySelector('.selectbox__list');
-  const label  = select?.querySelector('.selectbox__label');
+  const head   = box.querySelector('.selectbox__head');
+  const list   = box.querySelector('.selectbox__list');
+  const label  = box.querySelector('.selectbox__label');
+  const btn    = document.querySelector('.cta__btn');
 
-  // Botão "Prosseguir para pagamento"
-  const btn = document.querySelector('.cta__btn');
+  const BLUE = '#08068D';
 
-  function isDefault() {
-    const t = (label?.textContent || '').trim().toLowerCase();
-    // Seu placeholder é "Selecionado"
-    return !t || t === 'selecionado' || t === 'selecionar';
+  function norm(s=''){ return s.trim().toLowerCase(); }
+  function getMethod(){ return norm(label?.textContent || ''); }
+
+  function refreshCTA(){
+    if (!btn) return;
+    // habilita somente quando NÃO for “Selecionado”
+    const isDefault = getMethod() === 'selecionado' || getMethod() === '';
+    btn.disabled = isDefault;
   }
 
-  function refreshCTA() {
-    if (btn) btn.disabled = isDefault();
-  }
-
-  // Estado inicial: desabilita se estiver no placeholder
-  refreshCTA();
-
-  // Abre/fecha a caixa
+  // Abre/fecha a lista
   head?.addEventListener('click', () => {
-    const open = select.getAttribute('aria-expanded') === 'true';
-    select.setAttribute('aria-expanded', String(!open));
+    const open = box.getAttribute('aria-expanded') === 'true';
+    box.setAttribute('aria-expanded', String(!open));
   });
 
-  // Escolha de opção
+  // Clique nas opções
   list?.addEventListener('click', (ev) => {
-    const li = ev.target.closest('.selectbox__opt');
-    if (!li) return;
+    const opt = ev.target.closest('.selectbox__opt');
+    if (!opt) return;
 
-    const choice = li.textContent.trim();
-    if (label) label.textContent = choice;
+    // limpa estado anterior
+    list.querySelectorAll('.selectbox__opt').forEach(li => {
+      li.classList.remove('is-active');
+      li.removeAttribute('aria-selected');
+    });
 
-    // fecha dropdown
-    select.setAttribute('aria-expanded', 'false');
+    // aplica ativo e acessibilidade
+    opt.classList.add('is-active');
+    opt.setAttribute('aria-selected','true');
 
-    // Atualiza botão
+    // atualiza rótulo do cabeçalho
+    const text = opt.textContent.trim();
+    if (label) label.textContent = text;
+
+    // fecha o dropdown e habilita CTA
+    box.setAttribute('aria-expanded','false');
     refreshCTA();
+
+    // salva método para o fluxo
+    localStorage.setItem('payMethod', norm(text));
   });
 
-  // Prosseguir
+  // Sincroniza rótulo com item ativo que possa vir no HTML
+  (function syncOnLoad(){
+    const active = list?.querySelector('.selectbox__opt.is-active');
+    if (active && label) {
+      label.textContent = active.textContent.trim();
+      localStorage.setItem('payMethod', norm(active.textContent));
+    }
+    refreshCTA();
+  })();
+
+  // Fluxo do CTA
   btn?.addEventListener('click', () => {
-    if (isDefault()) return;
-    const method = (label?.textContent || '').trim().toLowerCase();
+    if (btn.disabled) return;
 
-    // salva método para o próximo passo
-    localStorage.setItem('payMethod', method);
+    const method = localStorage.getItem('payMethod') || '';
+    // define a próxima página depois do cadastro
+    let nextAfterCadastro = '';
+    if (method === 'débito' || method === 'debito') {
+      nextAfterCadastro = '/altafidelidade/cartao de debito/index.html';
+    } else if (method === 'crédito' || method === 'credito') {
+      nextAfterCadastro = '/altafidelidade/pagamento3/pagamento3.html';
+    } else if (method === 'pix' || method === 'boleto bancário' || method === 'boleto bancario') {
+      // se for implementar depois, já fica salvo
+      nextAfterCadastro = method;
+    }
 
-    // rota para a página de cadastro (pagamento2.html)
+    localStorage.setItem('nextAfterCadastro', nextAfterCadastro);
+
+    // vai para o cadastro (pagamento2)
     window.location.href = '/altafidelidade/pagamento2/pagamento2.html';
   });
-})();
+});
