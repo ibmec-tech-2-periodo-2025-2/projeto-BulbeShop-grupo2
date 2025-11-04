@@ -61,4 +61,7 @@ Gerenciamento de tempo entre revisões visuais, linkagem e testes de navegação
 - Nota para meu desempenho (0 a 10): 10
 
 
-
+- Pedro Paulucci:
+- Contribuições principais: Revisar e otimizar os scripts de WebStorage, garantindo desempenho e segurança.Finalizando a documentação técnica da integração do fluxo de compra, destacando as funções JavaScript e a estrutura de dados utilizada.Executando testes finais de funcionalidade e comportamento nas telas de pagamento e confirmação.Revisando o código JavaScript e WebStorage para otimizar o desempenho e reduzir redundâncias.
+- Dificuldade enfrentada: Complexidade na integração do WebStorage, exigindo ajustes na lógica de persistência e sincronização de dados entre páginas.Conflitos leves entre scripts JavaScript, necessitando revisão da ordem de execução e modularização de funções.Inconsistências visuais após alterações no código, que demandaram refinamento manual no CSS e nos layouts.
+- Nota para meu desempenho (0 a 10): 10
