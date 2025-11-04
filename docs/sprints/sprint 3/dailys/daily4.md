@@ -11,17 +11,21 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar e formatar a retrospectiva da sprint 2. 
-- Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
-- Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
+- Montagem final do Slide para a apresentação.
+- Revisão e alteração de detalhes em JS, Html e Css com a página de carrinho.
+- Testando a funcionalidade das interações JavaScript nas páginas de Carrinho e Pagamentos.
+- Revisando o fluxo de dados entre as telas, especialmente os cálculos e atualizações automáticas dos valores de compra.
 - Iniciar a documentação da Daily 4.
-
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Finalizar a retrospectiva da Sprint 2.
+- Corrigir os bugs identificados no carrinho e na página de pagamentos, e analisar as outras páginas .
+- Finalizar os testes de responsividade e comportamento dinâmico das telas.
+- Inserir os resultados e relatorios nos slides finais da Sprint 3.
+- Fazer a revisão final , garantindo que todas as páginas estejam integradas e padronizadas antes da entrega.
+- Fazer o relatorio de encerramento da Sprint 3
 
 ---
 
@@ -30,6 +34,9 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - A padronização do formato de registro das dailies encontrou variações na forma de preenchimento e nível de detalhamento, o que comprometeu a consistência dos registros.
 - A revisão de fontes e componentes do slide, bem como a definição de ícones e símbolos do site, trouxe desafios de padronização visual e compatibilidade estética entre telas e apresentações.
 - A documentação da Daily 4 enfrentou dificuldades na manutenção de regularidade e atualização em tempo real, impactando a rastreabilidade das tarefas.
+- Ajustes complexos de integração entre o carrinho e a página de pagamento, exigindo refinamento da lógica JavaScript.
+- Pequenos conflitos visuais após a otimização dos estilos CSS, demandando ajustes finos de alinhamento e espaçamento.
+- Gestão de tempo: conciliar testes, correções e finalização dos slides dentro do prazo da entrega final.
 
 ---
 
@@ -37,14 +44,18 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - A retrospectiva reforçou a importância de analisar o desempenho coletivo e individual, identificando pontos fortes e áreas de melhoria para as próximas sprints.
 - A padronização das dailies mostrou-se essencial para garantir uniformidade, clareza e comparabilidade entre sprints, facilitando o acompanhamento do progresso.
-- A definição de fontes, ícones e símbolos consolidou o aprendizado sobre identidade visual e coesão entre design e comunicação, fortalecendo a estética e o profissionalismo do projeto.
+- Aprendi a manter consistência entre código e design, garantindo fidelidade ao Figma sem comprometer a performance.
 - A documentação contínua das dailies aprimorou a organização e disciplina da equipe, promovendo alinhamento e agilidade na resolução de pendências.
 ---
 
 #### **Próximo passo**
 
-- Preparar a abertura da Sprint 3, definindo objetivos, tarefas e responsáveis com base nos aprendizados da sprint atual.
+- Preparar a abertura da Sprint 4, definindo objetivos, tarefas e responsáveis com base nos aprendizados da sprint atual.
 - Montar a versão final dos slides da Sprint 3, incluindo objetivos, entregas e aprendizados.
+- Concluir o relatório final da Sprint 3, documentando resultados, aprendizados e melhorias para a próxima sprint.
+- Validar a apresentação oficial da equipe, revisando tempo, conteúdo e clareza visual.
+- Preparar o relatorio interno da sprint, com sugestões de aprimoramento para os processos de integração e revisão de código.
+- Iniciar o planejamento preliminar da Sprint 4, considerando as lições aprendidas nesta entrega.
 
 ---
 

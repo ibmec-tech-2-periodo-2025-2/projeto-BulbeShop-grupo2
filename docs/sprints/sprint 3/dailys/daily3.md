@@ -213,5 +213,5 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 - Validar o funcionamento integrado entre todas as páginas do sistema, incluindo estados de erro e sucesso.
 - Realizar a revisão do projeto , garantindo consistência visual e técnica antes da entrega
-- 
+  
 
