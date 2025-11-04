@@ -24,6 +24,7 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Executando testes de navegação e integração entre as páginas após o merge.
 - Verificando a responsividade das telas e o comportamento visual em diferentes resoluções.
 - Ajustando detalhes estéticos e de conteúdo nos slides para a versão final da apresentação.
+- Registrando a daily 2. 
 ---
 
 #### **Quais dificuldades encontrei?**
@@ -43,7 +44,8 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo**
 
-- Montar a página de carrinhos e relacionar a página de pagamento 
+- Montar a página de carrinhos e relacionar a página de pagamento. 
+- Registrar daily 3.
 ---
 
 

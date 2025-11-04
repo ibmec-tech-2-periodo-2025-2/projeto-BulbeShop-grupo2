@@ -11,45 +11,55 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Documentar e refinar a abertura de Sprint 2.
-- Finalizar e validar o protótipo de alta fidelidade completo, garantindo responsividade e coerência com a hierarquia de informações.
-- Iniciar a documentação da Daily 3.
-
-
+- Executei testes de navegação e integração entre as páginas após o merge, garantindo a continuidade do fluxo do usuário.
+- Verifiquei a responsividade das telas, validando o comportamento visual em diferentes tamanhos de tela e dispositivos..
+- Ajustei detalhes estéticos e de conteúdo nos slides para a versão final da apresentação da Sprint 3.
+- Desenvolvi a página de Carrinho, implementando sua estrutura completa com HTML, CSS e JavaScript. 
+- Realizei a integração entre a página de Carrinho e a página de Pagamentos, assegurando transição fluida e correta transmissão de dados entre as etapas de compra.
 ---
+
+
 
 #### **O que estou fazendo agora?**
 
-- Iniciar e formatar a retrospectiva da sprint 2.
+- Montagem final do Slide para a apresentação.
+- Revisão e alteração de detalhes em JS, Html e Css com a página de carrinho.
+- Testando a funcionalidade das interações JavaScript nas páginas de Carrinho e Pagamentos.
+- Revisando o fluxo de dados entre as telas, especialmente os cálculos e atualizações automáticas dos valores de compra.
+- Registrando a daily 3.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- A documentação e o refinamento da abertura da Sprint 2 apresentaram dificuldade em consolidar informações de forma padronizada, exigindo revisões para garantir clareza e coesão entre as seções.
-- A finalização e validação do protótipo de alta fidelidade demandaram alinhamento contínuo entre design e equipe técnica, principalmente na adequação da responsividade e hierarquia visual.
-- Ajustes visuais de espaçamento, tipografia e contraste geraram revisões sucessivas até a aprovação final.
+- Pequenos bugs nas funções de atualização do carrinho, como somas incorretas e falhas ao remover itens.
+- Problemas temporários de redirecionamento entre as páginas de Carrinho e Pagamento após integração inicial.
+- Dificuldade de criar os códigos com base no design no Figma da página de carrinho.
 - O início da documentação da Daily 3 apresentou desafios na regularidade dos registros e no detalhamento das atualizações individuais, impactando a rastreabilidade das tarefas.
+- Gestão de tempo: dificuldade de equilibrar os testes funcionais com os ajustes visuais e de conteúdo.
 
 ---
 
 #### **O que aprendi até agora?** 
 
 - O processo de documentação reforçou a importância de padronizar relatórios e registros de sprint, garantindo consistência
-- A validação do protótipo de alta fidelidade proporcionou aprendizado sobre design responsivo e coerência visual entre telas, destacando a necessidade de testes práticos antes da implementação.
+- A importância de testar cada etapa do fluxo de compra para garantir a usabilidade e prevenir erros de cálculo.
+- Reforcei o conhecimento em integração entre múltiplas páginas via JavaScript, mantendo a coerência de dados e layout.
+- Aprendi a identificar rapidamente falhas de interatividade e a solucioná-las com funções de verificação.
+- Percebi o valor de alinhar constantemente o design e o código, evitando divergências entre Figma e desenvolvimento.
 - A documentação da Daily 3 reforçou o valor da comunicação contínua e objetiva, promovendo maior alinhamento entre os integrantes.
 ---
 
 #### **Próximo passo**
 
-- Consolidar o protótipo de alta fidelidade aprovado como base oficial para o desenvolvimento front-end.
-- Padronizar o formato de registro das dailies, garantindo consistência entre as próximas sprints.
-- Responsável pela revisão de fontes e componentes do slide e pela definição de ícones e símbolos utilizados no site.
+- Corrigir os bugs identificados no carrinho e na página de pagamentos, e analisar as outras páginas .
+- Finalizar os testes de responsividade e comportamento dinâmico das telas.
+- Inserir os resultados nos slides finais da Sprint 3.
+- Fazer a revisão final , garantindo que todas as páginas estejam integradas e padronizadas antes da entrega.
 - Iniciar a documentação da Daily 4.
 
 
 ---
-
 
 
 
