@@ -124,14 +124,17 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **Quais dificuldades encontrei?**
 
 -  Pequenos bugs de validação no JavaScript.
--  A organização da sprint backlog no Jira apresentou dificuldades de priorização e definição de dependências entre tarefas.
--  
+-  Erros de caminho relativo entre arquivos após reorganização de pastas.
+-  Gestão de tempo: conciliar ajustes de código, testes e padronização visual exigiu replanejamento do cronograma interno.
+  
 ---
 
 #### **O que aprendi até agora?** 
 
-- A finalização das telas de alta fidelidade reforçou a necessidade de seguir padrões consistentes de design tokens, garantindo coerência entre diferentes telas e estados de interface.
-- A utilização do Jira consolidou o entendimento sobre gestão ágil de tarefas.
+- A importância de testar cada interação JavaScript imediatamente após sua implementação, reduzindo retrabalho.
+- Como padronizar a estrutura de código e nomenclaturas melhora a colaboração e facilita a manutenção.
+- Reforcei o aprendizado sobre responsividade e adaptação visual, garantindo que o layout se mantenha fiel ao design original.
+- Aprendi a conciliar estética e funcionalidade, priorizando uma experiência fluida para o usuário.
 
 ---
 
