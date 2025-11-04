@@ -56,13 +56,9 @@ Gerenciamento de tempo entre revisões visuais, linkagem e testes de navegação
 
 
 - Julia Leal:
-- Contribuições principais: Documentação do Backlog e definição de Sprint Backlog, montagem dos slides, ajustes pontuais do figma,  
-- Dificuldade enfrentada:
+- Contribuições principais: Documentação do Backlog e definição de Sprint Backlog, montagem dos slides, ajustes pontuais do figma, criação de páginas e integração de js.
+- Dificuldade enfrentada: Ajustes no Figma demandaram revisões frequentes para manter coerência entre o design atualizado e o código em andamento. Integração do JavaScript com novas páginas, que apresentou pequenos conflitos e necessidade de ajustes nas rotas.Limitação de tempo na fase final da sprint, com sobreposição de tarefas e entregas em paralelo (documentação, slides e testes).Desafios na compatibilidade estética entre títulos, ícones e tipografia, impactando a uniformidade visual.
 - Nota para meu desempenho (0 a 10): 10
 
 
 
-- Pedro Paulucci:
-- Contribuições principais: 
-- Dificuldade enfrentada:
-- Nota para meu desempenho (0 a 10): 10
