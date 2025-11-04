@@ -165,24 +165,29 @@
 
 #### **O que estou fazendo agora?**
 
-- 
+- Testando o funcionamento das rotas e links após o merge, garantindo a navegação correta entre as páginas.
+- Realizando verificações visuais e de responsividade, comparando o design final com o Figma.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- 
-- 
+- Conflitos durante o merge, exigindo ajustes manuais para evitar perda de alterações.
+- Pequenas divergências entre o design do Figma e a renderização no navegador, exigindo refinamentos de CSS.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- 
+- A importância de revisar e validar cada branch antes do merge, evitando conflitos e retrabalho.
+- A necessidade de testar continuamente as rotas e componentes para garantir uma navegação fluida.
+- Aprendi que pequenas inconsistências de nomenclatura podem gerar erros de linkagem e impacto visual.
+- Reforcei o valor da integração constante entre design e desenvolvimento, garantindo fidelidade ao protótipo.
 ---
 
 #### **Próximo passo** 
 
-- 
+- Corrigir os erros de navegação e alinhamento visual identificados após o merge.
+- Realizar testes finais de usabilidade e responsividade em diferentes dispositivos.
   
 
