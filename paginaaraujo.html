@@ -1,167 +1,299 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <title>Página do afiliado</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial</title>
+    <link rel="stylesheet" href="styleLojasParceiras.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Moldura de tela mobile -->
-  <div class="phone">
-    <!-- Barra de título superior -->
-    <div class="app-title">Página do afiliado</div>
-
-    <!-- Header com seta e logos -->
+<!-- HEADER -->
     <header class="header">
-      <button class="btn-back" aria-label="Voltar">
-        <img src="img/Exclude-4.png" alt="" />
-      </button>
+        <div class="menu-icon" id="menu-btn">
+            <img src="./img/menu.png" alt="Menu">
+        </div>
 
-      <div class="logos">
-        <img class="araujo" src="img/logo-araujo.png" alt="Araujo" />
-        <img class="bulbe"  src="img/logo-bulbe1.png" alt="bulbe" />
-      </div>
+        <div class="logo">
+            <img src="./img/logobulbe.png" alt="Bulbe Logo">
+        </div>
+
+        <div class="icons">
+            <a href="favoritos.html"><img src="./img/favoritos.png" alt="Favoritos"></a>
+            <a href="carrinho.html"><img src="./img/carrinho.png" alt="Carrinho"></a>
+            <a href="#"><img src="./img/bell.png" alt="Notificações"></a>
+        </div>
     </header>
 
-    <!-- Busca -->
-    <div class="search">
-      <input type="text" placeholder="Digite o produto" />
-      <button class="btn-search" aria-label="Buscar">
-        <!-- usando mesmo ícone do sistema por simplicidade visual -->
-        <span>🔍</span>
-      </button>
-    </div>
-
-    <!-- Categorias -->
-    <nav class="cats">
-      <button class="cat">
-        <img src="img/beleza-e-cuidados.png" alt="" />
-        <span>Beleza e cuidados</span>
-      </button>
-      <button class="cat">
-        <img src="img/criancas.png" alt="" />
-        <span>Infantil</span>
-      </button>
-      <button class="cat">
-        <img src="img/medicamentos.png" alt="" />
-        <span>Medicamentos</span>
-      </button>
+<!-- MENU LATERAL -->
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="cupons.html">Cupons</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="#">Carrinhos</a></li>
+            <li><a href="lojasparceiras.html">Lojas Parceiras</a></li>
+            <li><a href="meuperfil.html">Meu Perfil</a></li>
+        </ul>
     </nav>
 
-    <!-- Banners (carrossel) -->
-    <section class="row banners">
-      <button class="arrow left" data-target="#banners" aria-label="anterior">‹</button>
-      <div id="banners" class="scroll">
-        <img src="img/banner1.png" alt="Higiene" class="banner" />
-        <img src="img/banner2.png" alt="Medicamento" class="banner" />
-        <img src="img/banner3.png" alt="Genéricos" class="banner" />
-      </div>
-      <button class="arrow right" data-target="#banners" aria-label="próximo">›</button>
-    </section>
+    <div class="overlay" id="overlay"></div>
+<!--Barra de Pesquisa-->
 
-    <!-- Título seção -->
-    <h2 class="section-title">Produtos mais vistos</h2>
+    <div class="search-container">
+        <button class="filter-btn" id="filter-btn">
+            <img src="./img/filtro.png" alt="Filtro"> filtro
+        </button>
 
-    <!-- Lista 1 -->
-    <section class="row products">
-      <button class="arrow left" data-target="#p1" aria-label="anterior">‹</button>
+        <input type="text" id="search-input" placeholder="">
 
-      <div id="p1" class="scroll">
-        <!-- Card 1 -->
-        <article class="card">
-          <span class="badge">Oferta relâmpago</span>
-          <div class="thumb">
-            <img src="img/soro.png" alt="Soro fisiológico 0,9% 500ml" />
-          </div>
-          <h3 class="name">Soro fisiologico 0,9% 500ml...</h3>
-          <div class="price">
-            <span class="now">R$59,90</span>
-            <span class="old">R$110,90</span>
-          </div>
-          <div class="actions">
-            <button class="icon" aria-label="Favoritar">
-              <img src="img/Exclude-5.png" alt="" />
-            </button>
-            <button class="icon cart" aria-label="Adicionar ao carrinho">🛒</button>
-          </div>
-        </article>
+        <button class="search-btn">
+            <img src="./img/search.png" alt="Buscar">
+        </button>
+    </div>
+<!--FILTRO MENU-->
+    <div class="filter-menu" id="filter-menu">
+        <ul>
+            <li>Eletrônicos</li>
+            <li>Economia de Energia</li>
+            <li>Casa, Conforto e Bem-Estar</li>
+            <li>Eletrodomésticos</li>
+            <li>Família e Educação</li>
+        </ul>
+    </div>
+<!--NAV BAR SCROLAVEL-->
+    <div class="nav-scroll">
+        <a href="#" class="nav-item" id="btn-categorias">
+            <img src="./img/categorias.png" alt="Categorias">
+            <span>Categorias</span>
+        </a>
 
-        <!-- Card 2 -->
-        <article class="card">
-          <div class="thumb">
-            <img src="img/pomada.png" alt="Bepantriz pomada" />
-          </div>
-          <h3 class="name">Bepantriz pomada para...</h3>
-          <div class="price">
-            <span class="now">R$179,30</span>
-          </div>
-          <div class="actions">
-            <button class="icon" aria-label="Favoritar">
-              <img src="img/Exclude-5.png" alt="" />
-            </button>
-            <button class="icon cart" aria-label="Adicionar ao carrinho">🛒</button>
-          </div>
-        </article>
-      </div>
+        <a href="./lojasparceiras.html" class="nav-item">
+            <img src="./img/lojasparceiras.png" alt="Lojas Parceiras">
+            <span>Lojas Parceiras</span>
+        </a>
 
-      <button class="arrow right" data-target="#p1" aria-label="próximo">›</button>
-    </section>
+        <a href="cupons.html" class="nav-item">
+            <img src="./img/cupom.png" alt="Cupons">
+            <span>Cupons</span>
+        </a>
 
-    <!-- Lista 2 -->
-    <section class="row products">
-      <button class="arrow left" data-target="#p2" aria-label="anterior">‹</button>
+        <a href="favoritos.html" class="nav-item">
+            <img src="./img/favicon.png" alt="Favoritos">
+            <span>Favoritos</span>
+        </a>
+    </div>
+<!--Menu cuculto em Categorias-->
+<div class="menu-categorias" id="menu-categorias">
+    <div class="menu-content">
+        <button id="fechar-menu">✕</button>
+        <h2>Categorias</h2>
+        <div class="categorias-grid">
+            <a href="./lojasparceiras.html">Lojas Parceiras</a>
+            <a href="cupon.html">Cupons</a>
+            <a href="favoritos.html">Favoritos</a>
+            <a href="carrinho.html">Carrinho</a>
+        </div>
+    </div>
+</div>
 
-      <div id="p2" class="scroll">
-        <!-- Card 3 -->
-        <article class="card">
-          <span class="badge">Oferta relâmpago</span>
-          <div class="thumb">
-            <img src="img/bepantol.png" alt="Bepantol baby" />
-          </div>
-          <h3 class="name">Bepantol baby pomada...</h3>
-          <div class="price">
-            <span class="now">R$59,90</span>
-            <span class="old">R$110,90</span>
-          </div>
-          <div class="actions">
-            <button class="icon" aria-label="Favoritar">
-              <img src="img/Exclude-5.png" alt="" />
-            </button>
-            <button class="icon cart" aria-label="Adicionar ao carrinho">🛒</button>
-          </div>
-        </article>
+<!--CARDS-->
+    <main class="wrap">
+        <h2 class="section-title">Lojas Parceiras</h2>
 
-        <!-- Card 4 -->
-        <article class="card">
-          <div class="thumb">
-            <img src="img/desodorante.png" alt="Desodorante Rexona Clinical" />
-          </div>
-          <h3 class="name">Desodorante Rexona clinical...</h3>
-          <div class="price">
-            <span class="now">R$179,30</span>
-          </div>
-          <div class="actions">
-            <button class="icon" aria-label="Favoritar">
-              <img src="img/Exclude-5.png" alt="" />
-            </button>
-            <button class="icon cart" aria-label="Adicionar ao carrinho">🛒</button>
-          </div>
-        </article>
-      </div>
+        <section class="grid">
+<!-- CARD 1 -->
+            <article class="card">
+                <div class="card-body">
+                    <div class="brand">
+                        <div class="brand-logo">
+                            <img src="./img/logo_drogaria-araujo.png" alt="Logo Drogaria Araujo">
+                        </div>
+                        <span class="brand-name">Drogaria Araujo</span>
+                    </div>
+            
+                    <div class="media">
+                        <a href="./produto.html"><img src="./img/ventiladorbritania.webp" alt="Ventilador de mesa Britânia"></a>
+                    </div>
+            
+                    <div class="info">
+                        <a href="./produto.html"><h3 class="title">Ventilador de<br>mesa Britânia</h3></a>
+            
+                        <div class="pricebox">
+                            <div class="price-now">R$ 279,00</div>
+                            <div class="price-was">R$349,00</div>
+                        </div>
+            
+                        <div class="promo-row">
+                            <span class="pill pill-green">20% off</span>
+                            <small class="footnote">oferta válida até 20 de outubro</small>
+                        </div>
+                    </div>
+            
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+            
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+            </article>
 
-      <button class="arrow right" data-target="#p2" aria-label="próximo">›</button>
-    </section>
+<!-- CARD 2 -->
+            <article class="card">
+                <div class="card-body">
+                    <div class="brand">
+                        <div class="brand-logo-ponto">
+                            <img src="./img/logopontofrio.jpeg" alt="Logo Drogaria Araujo">
+                        </div>
+                        <span class="brand-name">Ponto Frio<br></span>
+                    </div>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-      <img src="img/logo-bulbe2.png" alt="bulbe sua próxima energia" />
-    </footer>
-  </div>
+                    <div class="media">
+                        <a href="./produto.html"><img src="./img/blender.jpg" alt="Liquidificador Mondial 1000W"></a>
+                    </div>
 
-  <script src="script.js"></script>
+
+                    <div class="info">
+                        <a href="./produto.html"><h3 class="title">Liquidificador<br>Mondial 1000W</h3></a>
+
+                        <div class="pricebox">
+                            <div class="price-now">R$ 183,00</div>
+
+                        </div>
+
+                        <div class="promo-row">
+                            <span class="ship-pill">
+                                <span class="truck" aria-hidden="true"> <img src="" alt=""></span>🚚 grátis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <!-- coração (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <!-- carrinho (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+            </article>
+
+<!-- CARD 3 -->
+            <article class="card">
+                <div class="card-body">
+                    <span class="badge badge-cash">Philco</span>
+
+                    <div class="media">
+                        <a href="./produto.html"><img src="./img/tupperware.jpg" alt="Liquidificador Mondial 1000W"></a>
+                    </div>
+
+
+                    <div class="info">
+                        <a href="./produto.html"><h3 class="title">Garrafa de água<br> tuppaweea</h3></a>
+
+                        <div class="pricebox">
+                            <div class="price-now">R$ 53,00</div>
+
+                        </div>
+
+                        <div class="promo-row">
+                            <span class="ship-pill">
+                                <span class="truck" aria-hidden="true"> <img src="" alt=""></span>🚚 grátis
+                            </span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <!-- coração (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <!-- carrinho (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+            </article>
+
+<!--CARD 4-->
+            
+            <article class="card">
+                <div class="card-body">
+                    <span class="badge badge-cash">Ponto Frio</span>
+
+                    <div class="media">
+                        <a href="./produto.html"><img src="./img/livro.jpg" alt="Ventilador de mesa Britânia"></a>
+                    </div>
+
+                    <div class="info">
+                        <a href="./produto.html"><h3 class="title">Energia:<br>Fique por dentro</h3></a>
+
+                        <div class="pricebox">
+                            <div class="price-now">R$ 49,00</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="icon-btn heart" aria-label="Favoritar">
+                            <!-- coração (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path
+                                    d="M12.1 8.64l-.1.1-.1-.1C10.14 6.8 7.4 6.75 5.6 8.56c-1.82 1.82-1.78 4.72.1 6.6l5.83 5.83c.26.26.68.26.94 0l5.83-5.83c1.88-1.88 1.92-4.78.1-6.6-1.8-1.81-4.54-1.76-6.3.08z"
+                                    fill="none" stroke="currentColor" stroke-width="1.7" />
+                            </svg>
+                        </button>
+
+                        <button class="icon-btn cart" aria-label="Adicionar ao carrinho">
+                            <!-- carrinho (stroke) -->
+                            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6" fill="none"
+                                    stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="9" cy="20" r="1.6" fill="currentColor" />
+                                <circle cx="17" cy="20" r="1.6" fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+            </article>
+        </section>
+
+        <script src="scriptLojasParceiras.js"></script>
 </body>
+
 </html>

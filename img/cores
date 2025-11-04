@@ -1,0 +1,9 @@
+:root{
+    --fundo-branco: #F9F9FF;
+    --cinza-box: #E6F1FE;
+    --texto-grande: #043062;
+    --texto-pequeno: #060462;
+    --verde: #29D07C;
+    --cinza-header: #536679;
+    --sombra: 0 2px 8px rgba(17, 27, 90, .08);
+}
