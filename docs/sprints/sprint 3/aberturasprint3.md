@@ -14,6 +14,7 @@
 - [ ] Implementar interações com o JavaScript
 - [ ] Implementar o fluxo completo de navegação do usuário, e revisa-lo detectando pontos de melhoria de UX.
 - [ ] Validar integração entre front e back
+- [ ] Finalizar o figma 
   
 
 ## Distribuição de Tarefas // arrumar 
@@ -47,3 +48,4 @@
 - Testes básicos de usabilidade e funcionalidade realizados com sucesso.
 - Repositório atualizado no GitHub, com README.md contendo instruções claras de execução do projeto.
 - Apresentação feita da sprint 3 
+- Figma completo e revisado 
