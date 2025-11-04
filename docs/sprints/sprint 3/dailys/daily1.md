@@ -117,26 +117,35 @@
 
 #### **O que estou fazendo agora?**
 
-- Revisão dos designs finais do Figma 
+- Executando a revisão dos designs finais no Figma, garantindo padronização entre todas as telas e componentes.
+- Validando a coerência visual com o estilo da marca Bulbe e preparando o material para integração com o front-end.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- 
+- Pequenas diferenças de proporção, margens e tipografia entre as telas, exigindo revisões manuais.
+- Sincronização entre membros: ajustes simultâneos no mesmo arquivo Figma causaram sobreposição de versões.
+- Integração visual com o código: diferenças sutis entre o design do Figma e a renderização no HTML/CSS.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- 
+- A importância de manter consistência e hierarquia visual desde o início do projeto para evitar retrabalho nas fases finais.
+- Que a integração contínua entre design e desenvolvimento melhora a agilidade e reduz erros de implementação.
+- Aprendi a identificar pontos críticos de revisão no design (como tipografia, alinhamento e espaçamento) antes de exportar para o código.
 
 
 ---
 
 #### **Próximo passo** 
 
-- 
+- Finalizar a revisão de todos os designs e iniciar a exportação dos componentes para integração com o front-end.
+- Montar a versão final dos slides da Sprint 3, incluindo objetivos, entregas e aprendizados.
+- Validar com a equipe se os elementos de design estão prontos para o merge final.
+
+
 
 ---
 

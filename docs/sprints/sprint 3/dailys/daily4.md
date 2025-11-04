@@ -44,6 +44,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **Próximo passo**
 
 - Preparar a abertura da Sprint 3, definindo objetivos, tarefas e responsáveis com base nos aprendizados da sprint atual.
+- Montar a versão final dos slides da Sprint 3, incluindo objetivos, entregas e aprendizados.
 
 ---
 
