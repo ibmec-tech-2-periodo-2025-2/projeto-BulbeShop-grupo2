@@ -20,7 +20,8 @@
 
 #### **O que estou fazendo agora?**
 
-- Organizando a documentaçao da sprint 3 e iniciando a montagem dos slides 
+- Organizando a documentaçao da sprint 3 
+- Iniciando a montagem dos slides 
 
 ---
 

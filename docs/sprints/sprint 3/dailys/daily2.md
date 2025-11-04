@@ -11,39 +11,39 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizando a documentação e as pastas da Sprint 2.
-- Iniciar e documentar a daily 2.
-- Refinar o Wireframe, protótipo de alta fidelidade.
+- Iniciando a montagem dos slides 
+- Fazendo ajustes nos códigos, seguindo o modelo Figma 
+- Finalizar a documentação consolidada da Sprint 3, incluindo backlog atualizado, critérios de entrega e retrospectiva parcial.
+- Padronizar o formato dos arquivos e slides, garantindo consistência visual e informacional entre os membros da equipe.
+- Iniciar a integração prática dos componentes front-end (HTML/CSS/JS) com o backend (Flask, se aplicável).
 
 ---
 
 #### **O que estou fazendo agora?**
 
--  Documentar e refinar a abertura de Sprint 2.
-
+- Executando testes de navegação e integração entre as páginas após o merge.
+- Verificando a responsividade das telas e o comportamento visual em diferentes resoluções.
+- Ajustando detalhes estéticos e de conteúdo nos slides para a versão final da apresentação.
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Início e documentação da daily 2 apresentou falhas de registro e comunicação, impactando o acompanhamento do progresso individual.
-- Refinamento do wireframe e do protótipo de alta fidelidade teve divergências entre o design previsto e a viabilidade técnica, além de atrasos na validação visual.
-
+- Inconsistências entre o Figma e o front-end, especialmente em margens, espaçamentos e tamanhos de fonte.
+- Gerenciamento do tempo: conciliar revisões de design, correção de bugs e finalização dos slides exigiu replanejamento das tarefas.
 ---
 
 #### **O que aprendi até agora?** 
-
-- A organização da documentação e das pastas mostrou a importância de padronizar nomes, estruturas e versões, facilitando o acesso e a rastreabilidade dos arquivos pela equipe.
-- O registro da daily 2 reforçou o valor da comunicação contínua e transparente, permitindo identificar bloqueios mais cedo e alinhar prioridades.
-- O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
-- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout.
-
+  
+- A importância de testar continuamente cada etapa de integração entre design e desenvolvimento.
+- Que a padronização da estrutura do projeto e da documentação facilita a colaboração e reduz erros.
+- Aprendi a manter comunicação constante entre os membros durante merges e revisões.
+- Aprendi a revisar visualmente e funcionalmente cada código.
+- Ganhei mais segurança em organizar sprints com foco em entregas incrementais, sem perder qualidade.
 ---
 
 #### **Próximo passo**
 
-- Finalizar e validar o protótipo de alta fidelidade completo, garantindo responsividade e coerência com a hierarquia de informações.
-- Manter o registro contínuo das dailies, reforçando a comunicação e acompanhamento do progresso da equipe.
-
+- Montar a página de carrinhos e linka-lá ao pagamento 
 ---
 
 
