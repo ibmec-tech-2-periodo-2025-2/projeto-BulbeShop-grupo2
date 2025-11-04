@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-    <link rel="stylesheet" href="styleLojasParceiras.css">
+    <title>Página Araujo</title>
+    <link rel="stylesheet" href="stylepaginaaraujo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -14,44 +14,26 @@
 <body>
 <!-- HEADER -->
     <header class="header">
-        <div class="menu-icon" id="menu-btn">
-            <img src="./img/menu.png" alt="Menu">
+        <div class="seta-header" id="seta-btn">
+            <img src="./img/seta-header.png" alt="Seta para voltar">
         </div>
 
-        <div class="logo">
-            <img src="./img/logobulbe.png" alt="Bulbe Logo">
-        </div>
-
-        <div class="icons">
-            <a href="favoritos.html"><img src="./img/favoritos.png" alt="Favoritos"></a>
-            <a href="carrinho.html"><img src="./img/carrinho.png" alt="Carrinho"></a>
-            <a href="#"><img src="./img/bell.png" alt="Notificações"></a>
+        <div class="logo-header">
+            <img src="./img/logo-bulbe1.png" alt="Logo da Bulbe">
         </div>
     </header>
 
-<!-- MENU LATERAL -->
-    <nav class="side-menu" id="side-menu">
-        <ul>
-            <li><a href="cupons.html">Cupons</a></li>
-            <li><a href="favoritos.html">Favoritos</a></li>
-            <li><a href="#">Carrinhos</a></li>
-            <li><a href="lojasparceiras.html">Lojas Parceiras</a></li>
-            <li><a href="meuperfil.html">Meu Perfil</a></li>
-        </ul>
-    </nav>
+<!-- HEADER DO AFILIADO -->
+    <div class="logo-afiliado">  
+        <img src="./img/logo-araujo.png" alt="Logo da Drogaria Araujo">
+    </div>
 
-    <div class="overlay" id="overlay"></div>
-<!--Barra de Pesquisa-->
-
-    <div class="search-container">
-        <button class="filter-btn" id="filter-btn">
-            <img src="./img/filtro.png" alt="Filtro"> filtro
-        </button>
-
+<!-- BARRA DE PESQUISA -->
+    <div class="barra-de-pesquisa">
+        <p class="texto-barra-de-pesquisa">Buscar</p>
         <input type="text" id="search-input" placeholder="">
-
-        <button class="search-btn">
-            <img src="./img/search.png" alt="Buscar">
+        <button class="botao-lupa" aria-label="Buscar">
+            <img src="./img/lupa.png" alt="Ícone de lupa">
         </button>
     </div>
 <!--FILTRO MENU-->
