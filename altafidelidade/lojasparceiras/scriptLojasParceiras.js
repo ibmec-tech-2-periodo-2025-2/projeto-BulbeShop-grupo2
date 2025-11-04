@@ -1,19 +1,3 @@
-// Seleciona elementos
-const menuBtn = document.getElementById("menu-btn");
-const sideMenu = document.getElementById("side-menu");
-const overlay = document.getElementById("overlay");
-
-// Abre o menu
-menuBtn.addEventListener("click", () => {
-    sideMenu.classList.add("active");
-    overlay.classList.add("active");
-});
-
-// Fecha o menu ao clicar fora
-overlay.addEventListener("click", () => {
-    sideMenu.classList.remove("active");
-    overlay.classList.remove("active");
-});
 
 // === MENU DE FILTRO ===
 const filterBtn = document.getElementById("filter-btn");
