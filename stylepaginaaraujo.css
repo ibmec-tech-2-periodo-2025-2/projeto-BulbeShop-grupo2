@@ -10,6 +10,7 @@
     --cinza-box-pesquisa: #F6F9F9;
     --cinza-borda-pesquisa: #D1D9E0;
     --lilas: #6E6CF9;
+    --preto-texto: #043062;
 }
 :root {
     --header: #08068D;
@@ -183,6 +184,40 @@ body {
   transform: scale(1.03);
 }
 
+.titulo-secao {
+    color: var(--preto-texto);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+}
+
+.titulo-produto {
+    margin: 8px 0 6px;
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--header);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.preco {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.preco-atual {
+    color: var(--price);
+    font-weight: 900;
+    font-size: clamp(18px, 2.2vw, 22px)
+}
+
+.preco-anterior {
+    color: var(--filtro);
+    text-decoration: line-through;
+    font-weight: 700
+}
+
 /* LOGO */
 .logo img {
     height: 40px;
@@ -204,6 +239,9 @@ body {
     transform: scale(1.1);
 }
 
+.titulo-secao {
+    color: --
+}
 /* CONTAINER PRINCIPAL */
 
 /* RESPONSIVIDADE */
@@ -446,60 +484,6 @@ body {
 
 .info a {
     text-decoration: none;
-}
-
-.title {
-    margin: 8px 0 6px;
-    font-size: clamp(16px, 2.4vw, 20px);
-    color: var(--header);
-    line-height: 1.2;
-    font-weight: 800;
-}
-
-.pricebox {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    flex-wrap: wrap
-}
-
-.price-now {
-    color: var(--price);
-    font-weight: 900;
-    font-size: clamp(18px, 2.2vw, 22px)
-}
-
-.price-was {
-    color: var(--filtro);
-    text-decoration: line-through;
-    font-weight: 700
-}
-
-
-.promo-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-}
-
-.pill {
-    display: inline-block;
-    padding: 7px 12px;
-    border-radius: 12px;
-    font-weight: 900;
-    font-size: 13px
-}
-
-.pill-green {
-    background: var(--ofertarolampago);
-    color: #fff
-}
-
-.footnote {
-    color: var(--filtro);
-    font-size: 12px
 }
 
 /* Frete/grátis */
