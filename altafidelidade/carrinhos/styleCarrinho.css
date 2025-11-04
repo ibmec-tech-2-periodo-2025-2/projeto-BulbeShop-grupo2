@@ -401,21 +401,29 @@ body {
 }
 
 /* ======== RESUMO (BOTTOM SHEET) ======== */
-.resumo-carrinho {
+
+.resumo-carrinho{
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 70px;
-  max-width: 420px;
-  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
   background: #fff;
+  border-top: 1px solid #E5E7EB;
+  padding: 16px;
+  /* espaço seguro p/ iPhone com notch */
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 9999;
   border: 1px solid rgba(230, 241, 254, 0.5);
   border-radius: 12px;
   box-shadow: 0 0 0 3px rgba(230, 241, 254, 0.4);
-  padding: 10px 12px 12px;
-  z-index: 20;
 }
 
+/* Evitar que o conteúdo fique escondido atrás da barra */
+.conteudo-principal{
+  /* ajuste conforme a altura real da barra (16 + conteúdo) */
+  padding-bottom: 140px;
+}
 .barra-arrastar {
   width: 56px;
   height: 5px;
@@ -493,55 +501,6 @@ body {
   color: #fff;
 }
 
-/* ======== BARRA DE NAVEGAÇÃO ======== */
-.barra-navegacao {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #fff;
-  border-top: 1px solid var(--cinza-100);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  padding: 8px 12px 10px;
-}
-
-.item-navegacao {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: #B7C0CA;
-  font-weight: 700;
-  position: relative;
-}
-
-.item-navegacao img {
-  width: 26px;
-  height: 26px;
-  opacity: .45;
-}
-
-.item-navegacao.ativo {
-  color: var(--azul);
-}
-
-.item-navegacao.ativo img {
-  opacity: 1;
-}
-
-.linha-ativa {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 56px;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--azul);
-}
 
 
 /* ======== AJUSTE DA UNIDADE DA PARAFUSADEIRA ======== */

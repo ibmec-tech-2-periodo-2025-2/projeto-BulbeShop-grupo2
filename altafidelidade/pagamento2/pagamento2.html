@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cadastro • Bulbe</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../pagamento2/.assets/style-pagamento.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
   <header class="appbar">
-    <button class="appbar__back" aria-label="Voltar">
+    <button class="appbar__back" aria-label="Voltar" onclick="history.back()">
       <img src="../pagamento2/.assets/img/corner-up-left.svg" alt="">
     </button>
+
     <img class="appbar__logo" src="../pagamento2/.assets/img/logo-base.svg" alt="Bulbe">
   </header>
 
@@ -45,93 +48,113 @@
     </section>
 
     <!-- DADOS DO COMPRADOR -->
-<label class="field">
-  <span class="label">Nome completo: <b class="req">*</b></span>
-  <input id="nomeCompleto" class="input" type="text" placeholder="Digite seu nome">
-</label>
+    <label class="field">
+      <span class="label">Nome completo: <b class="req">*</b></span>
+      <input id="nomeCompleto" class="input" type="text" placeholder="Digite seu nome">
+    </label>
 
-<label class="field">
-  <span class="label">Número de telefone: <b class="req">*</b></span>
-  <input id="telefone" class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
-</label>
+    <label class="field">
+      <span class="label">Número de telefone: <b class="req">*</b></span>
+      <input id="telefone" class="input" type="tel" inputmode="tel" placeholder="Digite seu número">
+    </label>
 
-<label class="field">
-  <span class="label">CPF: <b class="req">*</b></span>
-  <input id="cpf" class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
-</label>
+    <label class="field">
+      <span class="label">CPF: <b class="req">*</b></span>
+      <input id="cpf" class="input" type="text" inputmode="numeric" placeholder="Digite seu CPF">
+    </label>
 
-<!-- ENDEREÇO DE ENTREGA -->
-<label class="field">
-  <span class="label">CEP: <b class="req">*</b></span>
-  <input id="cep" class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
-</label>
+    <!-- ENDEREÇO DE ENTREGA -->
+    <label class="field">
+      <span class="label">CEP: <b class="req">*</b></span>
+      <input id="cep" class="input" type="text" inputmode="numeric" placeholder="Digite o CEP">
+    </label>
 
-<label class="field">
-  <span class="label">Rua / Avenida: <b class="req">*</b></span>
-  <input id="rua" class="input" type="text" placeholder="Digite a rua">
-</label>
+    <label class="field">
+      <span class="label">Rua / Avenida: <b class="req">*</b></span>
+      <input id="rua" class="input" type="text" placeholder="Digite a rua">
+    </label>
 
-<div class="row-2">
-  <label class="field">
-    <span class="label">Número: <b class="req">*</b></span>
-    <input id="numero" class="input" type="text" inputmode="numeric" placeholder="Digite o número">
-  </label>
+    <div class="row-2">
+      <label class="field">
+        <span class="label">Número: <b class="req">*</b></span>
+        <input id="numero" class="input" type="text" inputmode="numeric" placeholder="Digite o número">
+      </label>
 
-  <label class="checkbox-inline">
-    <input id="semNumero" type="checkbox">
-    <span>Sem número</span>
-  </label>
-</div>
+      <label class="checkbox-inline">
+        <input id="semNumero" type="checkbox">
+        <span>Sem número</span>
+      </label>
+    </div>
 
-<label class="field">
-  <span class="label">Complemento (opcional):</span>
-  <input id="complemento" class="input" type="text" placeholder="Digite o complemento">
-</label>
+    <label class="field">
+      <span class="label">Complemento (opcional):</span>
+      <input id="complemento" class="input" type="text" placeholder="Digite o complemento">
+    </label>
 
-<label class="field">
-  <span class="label">Bairro: <b class="req">*</b></span>
-  <input id="bairro" class="input" type="text" placeholder="Digite o bairro">
-</label>
+    <label class="field">
+      <span class="label">Bairro: <b class="req">*</b></span>
+      <input id="bairro" class="input" type="text" placeholder="Digite o bairro">
+    </label>
 
-      <!-- Estado e Cidade: um embaixo do outro, com a mesma animação -->
-      <div class="row-2 row-stack">
-        <label class="field">
-          <span class="label">Estado: <b class="req">*</b></span>
-          <div class="select-inline inline-enhanced" data-inline id="stateSelect" aria-expanded="false">
-            <button class="inline-head" type="button">
-              <span class="inline-label">Selecione o estado</span>
-              <img class="inline-chev" src="../pagamento2/.assets/img/chevron-right.svg" alt="">
-            </button>
-            <ul class="inline-list">
-              <li class="inline-opt">AC</li><li class="inline-opt">AL</li><li class="inline-opt">AP</li><li class="inline-opt">AM</li>
-              <li class="inline-opt">BA</li><li class="inline-opt">CE</li><li class="inline-opt">DF</li><li class="inline-opt">ES</li>
-              <li class="inline-opt">GO</li><li class="inline-opt">MA</li><li class="inline-opt">MT</li><li class="inline-opt">MS</li>
-              <li class="inline-opt">MG</li><li class="inline-opt">PA</li><li class="inline-opt">PB</li><li class="inline-opt">PR</li>
-              <li class="inline-opt">PE</li><li class="inline-opt">PI</li><li class="inline-opt">RJ</li><li class="inline-opt">RN</li>
-              <li class="inline-opt">RS</li><li class="inline-opt">RO</li><li class="inline-opt">RR</li><li class="inline-opt">SC</li>
-              <li class="inline-opt">SP</li><li class="inline-opt">SE</li><li class="inline-opt">TO</li>
-            </ul>
-          </div>
-        </label>
+    <!-- Estado e Cidade: um embaixo do outro, com a mesma animação -->
+    <div class="row-2 row-stack">
+      <label class="field">
+        <span class="label">Estado: <b class="req">*</b></span>
+        <div class="select-inline inline-enhanced" data-inline id="stateSelect" aria-expanded="false">
+          <button class="inline-head" type="button">
+            <span class="inline-label">Selecione o estado</span>
+            <img class="inline-chev" src="../pagamento2/.assets/img/chevron-right.svg" alt="">
+          </button>
+          <ul class="inline-list">
+            <li class="inline-opt">AC</li>
+            <li class="inline-opt">AL</li>
+            <li class="inline-opt">AP</li>
+            <li class="inline-opt">AM</li>
+            <li class="inline-opt">BA</li>
+            <li class="inline-opt">CE</li>
+            <li class="inline-opt">DF</li>
+            <li class="inline-opt">ES</li>
+            <li class="inline-opt">GO</li>
+            <li class="inline-opt">MA</li>
+            <li class="inline-opt">MT</li>
+            <li class="inline-opt">MS</li>
+            <li class="inline-opt">MG</li>
+            <li class="inline-opt">PA</li>
+            <li class="inline-opt">PB</li>
+            <li class="inline-opt">PR</li>
+            <li class="inline-opt">PE</li>
+            <li class="inline-opt">PI</li>
+            <li class="inline-opt">RJ</li>
+            <li class="inline-opt">RN</li>
+            <li class="inline-opt">RS</li>
+            <li class="inline-opt">RO</li>
+            <li class="inline-opt">RR</li>
+            <li class="inline-opt">SC</li>
+            <li class="inline-opt">SP</li>
+            <li class="inline-opt">SE</li>
+            <li class="inline-opt">TO</li>
+          </ul>
+        </div>
+      </label>
 
-        <label class="field">
-          <span class="label">Cidade: <b class="req">*</b></span>
-          <div class="select-inline inline-enhanced" data-inline id="citySelect" aria-expanded="false">
-            <button class="inline-head" type="button">
-              <span class="inline-label">Selecione a cidade</span>
-              <img class="inline-chev" src="../pagamento2/.assets/img/chevron-right.svg" alt="">
-            </button>
-            <ul class="inline-list">
-              <li class="inline-opt">São Paulo</li>
-              <li class="inline-opt">Rio de Janeiro</li>
-              <li class="inline-opt">Belo Horizonte</li>
-              <li class="inline-opt">Curitiba</li>
-              <li class="inline-opt">Porto Alegre</li>
-              <li class="inline-opt">Recife</li>
-            </ul>
-          </div>
-        </label>
-      </div>
+      <label class="field">
+        <span class="label">Cidade: <b class="req">*</b></span>
+        <div class="select-inline inline-enhanced" data-inline id="citySelect" aria-expanded="false">
+          <button class="inline-head" type="button">
+            <span class="inline-label">Selecione a cidade</span>
+            <img class="inline-chev" src="../pagamento2/.assets/img/chevron-right.svg" alt="">
+          </button>
+          <ul class="inline-list">
+            <li class="inline-opt">São Paulo</li>
+            <li class="inline-opt">Rio de Janeiro</li>
+            <li class="inline-opt">Belo Horizonte</li>
+            <li class="inline-opt">Curitiba</li>
+            <li class="inline-opt">Porto Alegre</li>
+            <li class="inline-opt">Recife</li>
+          </ul>
+        </div>
+      </label>
+    </div>
     </section>
 
     <!-- FRETE -->
@@ -165,27 +188,8 @@
 
   </main>
 
-  <!-- TABBAR -->
-  <nav class="tabbar">
-    <a class="tabbar__item" href="#">
-      <img src="../pagamento2/.assets/img/Faturas.svg" alt="">
-      <span>Faturas</span>
-    </a>
-    <a class="tabbar__item" href="#">
-      <img src="../pagamento2/.assets/img/Consumo.svg" alt="">
-      <span>Consumo</span>
-    </a>
-    <a class="tabbar__item is-active" href="#">
-      <img class="sacola" src="../pagamento2/.assets/img/shopping-bag-02.svg" alt="">
-      <span>Bulbe Shop</span>
-      <i class="underline"></i>
-    </a>
-    <a class="tabbar__item" href="#">
-      <img src="../pagamento2/.assets/img/Indicações.svg" alt="">
-      <span>Indicações</span>
-    </a>
-  </nav>
 
   <script src="../pagamento2/.assets/script.js"></script>
 </body>
+
 </html>
