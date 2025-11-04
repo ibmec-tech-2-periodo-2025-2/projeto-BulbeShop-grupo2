@@ -171,14 +171,17 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar as interações básicas de JavaScripts.
-- Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
+- Revisar e otimizar os scripts de WebStorage, garantindo desempenho e segurança.
+- Finalizando a documentação técnica da integração do fluxo de compra, destacando as funções JavaScript e a estrutura de dados utilizada.
+- Iniciando a revisão visual e funcional integrada de todas as páginas (Cupom, Carrinho, Pagamento e Confirmação).
+
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
+- Validar o funcionamento integrado entre todas as páginas do sistema, incluindo estados de erro e sucesso.
+- Realizar a revisão do projeto , garantindo consistência visual e técnica antes da entrega
 
 ---
 
@@ -199,6 +202,6 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo** 
 
-- Integração com bibliotecas e frameworks JavaScript.
-- Flask. 
-
+- Iniciar a revisão pós-sprint, registrando aprendizados e sugestões de aprimoramento para o próximo ciclo.
+- Realizar a checagem final de bugs e testes de usabilidade, garantindo a entrega de um produto estável.
+- Preparar a apresentação final da equipe, destacando as melhorias implementadas e a integração total do sistema.
