@@ -43,7 +43,7 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **Próximo passo**
 
-- Montar a página de carrinhos e linka-lá ao pagamento 
+- Montar a página de carrinhos e relacionar a página de pagamento 
 ---
 
 
@@ -56,8 +56,7 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Organizando as pastas no figma. 
-- Finalizar as telas de altas fidelidades. 
+- 
 
 
 ---
