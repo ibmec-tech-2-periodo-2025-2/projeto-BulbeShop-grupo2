@@ -1,59 +1,111 @@
-:root{
-  --white:#FFFFFF; --gray-25:#F6F9F9; --gray-100:#D1D9E0;
-  --gray-400:#8699AC; --gray-700:#3E4D5B; --blue:#08068D;
+:root {
+  --white: #FFFFFF;
+  --gray-25: #F6F9F9;
+  --gray-100: #D1D9E0;
+  --gray-400: #8699AC;
+  --gray-700: #3E4D5B;
+  --blue: #08068D;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; background:#FAFBFC; color:var(--gray-700);
-  font:400 12px/1.35 "Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  background: #FAFBFC;
+  color: var(--gray-700);
+  font: 400 12px/1.35 "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 /* HEADER */
-.appbar{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:10px 16px; background:#fff; border-bottom:1px solid var(--gray-100);
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--gray-100);
 }
-.appbar__back{border:0;background:transparent;padding:6px;cursor:pointer}
-.appbar__back img{width:22px;height:22px}
-.appbar__logo{height:26px;width:auto}
+
+.appbar__back {
+  border: 0;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer
+}
+
+.appbar__back img {
+  width: 22px;
+  height: 22px
+}
+
+.appbar__logo {
+  height: 26px;
+  width: auto
+}
 
 /* LAYOUT */
-.wrap{
-  max-width:420px; margin:0 auto; padding:48px 16px 180px;
-  display:flex; align-items:center; justify-content:center; min-height:60vh;
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 16px 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  margin-top: -10px;
 }
-.brand{width:160px; height:auto; opacity:.95}
+
+.brand {
+  width: 160px;
+  height: auto;
+  opacity: .95
+}
 
 /* IMAGEM DO TOAST (ARQUIVO ENVIADO) */
-.toast-img-wrap{
-  position:fixed; left:50%; bottom:76px; transform:translateX(-50%);
-  width:min(420px, calc(100% - 24px)); margin:0;
-}
-.toast-img{
-  display:block; width:100%; height:auto;
-  /* sombra suave e bordas iguais às outras telas */
-  filter: drop-shadow(0 10px 30px rgba(8,6,141,.08));
-  border-radius:12px;
+
+
+.toast-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;                /* Ocupa toda a largura */
+  max-width: 420px;           /* Limite da imagem */
+  margin: 32px auto 0 auto;   /* Centraliza horizontalmente */
+  padding: 0 16px;
+  margin-top:-170px;           /* Respiro lateral no mobile */
 }
 
-/* TABBAR */
-.tabbar{
-  position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--gray-100);
-  display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:8px 12px 10px;
-}
-.tabbar__item{
-  display:flex; flex-direction:column; align-items:center; gap:6px; text-decoration:none;
-  color:#B7C0CA; font-weight:700; position:relative;
-}
-.tabbar__item img{width:26px;height:26px;opacity:.45}
-.tabbar__item.is-active{color:var(--blue)}
-.tabbar__item.is-active img{opacity:1}
-.tabbar__item .underline{
-  position:absolute; top:-6px; left:50%; transform:translateX(-50%);
-  width:56px; height:4px; border-radius:999px; background:var(--blue);
+.toast-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 30px rgba(8, 6, 141, .08));
+  border-radius: 12px;
 }
 
-/* sacola azul exata (sem filtros adicionais) */
-.tabbar .sacola{filter:none}
+.imagem-superior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  
+}
+
+.imagem-superior img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
