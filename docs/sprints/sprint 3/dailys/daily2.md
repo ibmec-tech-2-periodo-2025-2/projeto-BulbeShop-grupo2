@@ -151,33 +151,38 @@ rupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Arquitetura inicial de navegação: definir o fluxo.
-- Refinar o Wireframe, protótipo de alta fidelidade.
-
+- Linkei as telas de “Processando Compra” e “Cartão de Débito”, garantindo a navegação fluida entre as etapas de pagamento.
+- Desenvolvi o JavaScript dessas telas, implementando interações dinâmicas (ex.: confirmação de compra, atualização automática de status) e validações básicas .
+- Testei a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
+- Defini fluxos lógicos via JavaScript e WebStorage, permitindo armazenar dados temporários do usuário (como informações de pagamento e status da compra) para uma experiência mais contínua.
 ---
 
 #### **O que estou fazendo agora?**
 
-- Protótipo de alta fidelidade da página de produto ,com responsividade.
+- Executando testes finais de funcionalidade e comportamento nas telas de pagamento e confirmação.
+- Revisando o código JavaScript e WebStorage para otimizar o desempenho e reduzir redundâncias.
+- Ajustando o layout visual dessas páginas e revisando os códigos, garantindo coerência com o Figma e responsividade em múltiplas telas.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- A definição da arquitetura inicial de navegação apresentou dificuldade em alinhar o fluxo entre as páginas e componentes, exigindo revisões para garantir uma experiência de usuário intuitiva.
-- O refinamento do wireframe e do protótipo de alta fidelidade demandou ajustes de hierarquia visual, espaçamento e responsividade, gerando revisões sucessivas até a validação final.
-
+- Erros de sincronização no WebStorage, exigindo revisão da lógica de salvamento e recuperação de dados.
+- Problemas de redirecionamento entre as telas de pagamento e confirmação após a execução dos scripts.
+- Inconsistências visuais no carregamento das páginas após interação dinâmica (necessidade de arrumar CSS após eventos JS).
+- Limitação de tempo para balancear ajustes técnicos e revisões visuais.
 ---
 
 #### **O que aprendi até agora?** 
 
-- O processo de definição do fluxo de navegação fortaleceu o entendimento sobre arquitetura da informação e usabilidade orientada ao usuário. 
-- O refinamento do wireframe e do protótipo de alta fidelidade reforçou a importância de validação visual precoce e colaboração contínua entre design e desenvolvimento.
-- Consolidação de boas práticas em navegação hierárquica, consistência visual e clareza de layout.
+- Como estruturar fluxos de compra dinâmicos utilizando JavaScript e WebStorage de forma eficiente.
+- A importância de testar eventos e redirecionamentos em diferentes navegadores para garantir compatibilidade.
+- Reforcei o entendimento sobre validação de dados e experiência do usuário, tornando o processo de pagamento mais seguro e intuitivo.
 
 ---
 
 #### **Próximo passo** 
 
-- Iniciar a implementação das telas em HTML e CSS conforme o fluxo aprovado.
+- Concluir os testes completos do fluxo de compra, assegurando que todos os eventos (início, processamento e confirmação) funcionem sem erros.
+- Revisar e otimizar os scripts de WebStorage, garantindo desempenho e segurança.
 
