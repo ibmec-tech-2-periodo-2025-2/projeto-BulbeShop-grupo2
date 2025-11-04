@@ -69,38 +69,46 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Linkei as telas de favoritos, lojas parceiras, home.
-- Fez Javascript dessas telas implementando interações dinâmicas e validações básicas.
-- Testei a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
-
-
+- Linkei as telas de Favoritos, Lojas Parceiras e Home, garantindo navegação fluida e coerente entre as seções principais do site.
+- Desenvolvi o JavaScript dessas telas, implementando interações dinâmicas e validações básicas, como cliques, animações e respostas aos eventos do usuário.
+- Testei a integração entre os componentes, assegurando que os scripts estivessem corretamente conectados ao HTML e CSS e funcionando em conjunto com as demais páginas do sistema.
+  
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
+
+- Finalizando a versão consolidada do projeto, com código otimizado, revisado e documentação atualizada.
+- Realizando a revisão final de integração, garantindo que todas as páginas estejam padronizadas e conectadas conforme o fluxo de navegação definido.
+- Corrigindo bugs identificados nas páginas de Carrinho e Pagamentos, além de revisar a estabilidade das outras telas.
+- Concluindo os testes de responsividade e comportamento dinâmico, assegurando que o site mantenha funcionalidade e boa experiência em diferentes dispositivos.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- Implementação das interações básicas em JavaScript apresentou dificuldades na integração entre o código e a estrutura HTML/CSS existente, exigindo ajustes na hierarquia dos elementos e nas classes aplicadas.
-- Houve complexidade em definir o comportamento dinâmico dos componentes, especialmente nos eventos de clique, hover e transições animadas.
-- A finalização dos ajustes de CSS e responsividade demandou testes repetidos em diferentes resoluções e navegadores, para assegurar a fidelidade total ao protótipo de alta fidelidade.
----
+- Pequenos conflitos visuais após a otimização dos estilos CSS, demandando ajustes finos de alinhamento e espaçamento.
+- Gestão de tempo: conciliar testes, correções e finalização dos slides dentro do prazo da entrega final.
+- Conflitos leves entre scripts, exigindo ajustes na ordem de execução e modularização do código.
+- Problemas de rotas internas, especialmente ao conectar páginas recém-linkadas com as existentes.
+- Inconsistências visuais após ajustes de integração, como desalinhamentos e variação de espaçamento entre telas.
+  
 
 #### **O que aprendi até agora?** 
 
-- A importância de planejar interações de forma progressiva, garantindo que cada funcionalidade seja validada antes da próxima.
-- A etapa de ajustes finais em CSS reforçou o valor de testes de responsividade e acessibilidade, assegurando que o produto mantenha consistência visual em todos os dispositivos.
+- A importância de validar as rotas e eventos JS imediatamente após cada linkagem de página.
+- Como integrar múltiplas telas de forma modular e organizada, mantendo a consistência entre design e código.
+- Reforcei o aprendizado sobre otimização e organização de scripts, evitando duplicações e melhorando o desempenho.
+- Aprendi a gerenciar a revisão final de projeto, equilibrando estética, funcionalidade e prazos de entrega.
 
 ---
 
 #### **Próximo passo**
 
-- Integração com bibliotecas e frameworks JavaScript.
-- Flask. 
+- Iniciar a revisão pós-sprint, registrando aprendizados e sugestões de aprimoramento para o próximo ciclo.
+- Realizar a checagem final de bugs e testes de usabilidade, garantindo a entrega de um produto estável.
+- Preparar a apresentação final da equipe, destacando as melhorias implementadas e a integração total do sistema.
 
 
 ---
