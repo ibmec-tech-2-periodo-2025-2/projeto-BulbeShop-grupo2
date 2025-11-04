@@ -110,11 +110,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Realizar a checagem final de bugs e testes de usabilidade, garantindo a entrega de um produto estável.
 - Preparar a apresentação final da equipe, destacando as melhorias implementadas e a integração total do sistema.
 
-
 ---
-
-
-
 
 
 ### **Relatório de Acompanhamento: Julia Leal - Semana 3**
@@ -124,45 +120,48 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **O que eu fiz desde o último relatório?**
 
 - Responsável pelo avanço na estrutura dos slides e pela formatação os slides. 
-- Finalizar a documentação em slides da Sprint 2, garantindo coesão visual e clareza de comunicação.
-- Revisão de fontes e componentes do slide. 
+- Finalizando os testes de integração entre as páginas, garantindo o funcionamento de todos os fluxos de navegação.
+- Padronizando componentes e nomenclaturas para uniformizar o código entre os integrantes.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Revisar as documentações da Sprint 2.
+
+- Responsável pela revisão de fontes e componentes do slide.
+- Testar a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
+- Finalizar a versão consolidada do projeto, com código otimizado e documentação atualizada.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
 - O avanço e a formatação da estrutura dos slides apresentaram dificuldades na padronização de layout e hierarquia visual, exigindo revisões para garantir coerência entre os conteúdos.
-- A finalização da documentação em slides da Sprint 2 demandou atenção à clareza textual, legibilidade e consistência entre as seções, o que prolongou o tempo de edição.
+- A finalização da documentação em slides da Sprint 3 demandou atenção à clareza textual, legibilidade e consistência entre as seções, o que prolongou o tempo de edição.
 - A revisão de fontes e componentes dos slides trouxe desafios na compatibilidade estética entre títulos, ícones e tipografia, impactando a uniformidade visual.
-- Ajustes pontuais de espaçamento e alinhamento gráfico foram necessários para assegurar a fidelidade ao padrão visual definido para o projeto.
+- Pequenas inconsistências na integração de scripts, especialmente após atualizações coletivas no repositório.
+
 ---
 
 #### **O que aprendi até agora?** 
 
 - A estruturação dos slides reforçou o aprendizado sobre organização visual e narrativa de apresentação, facilitando a comunicação das entregas da sprint.
-- A equipe desenvolveu maior domínio sobre coerência visual e hierarquia tipográfica, aplicando princípios de design de informação.
 - A revisão de fontes e componentes aprimorou o entendimento sobre identidade visual e consistência entre diferentes materiais de comunicação.
+- A importância de manter a identidade visual coesa em todos os materiais de entrega da sprint.
+- Como garantir consistência de nomenclatura e componentes melhora a colaboração e o controle de versão.
+- Aprendi a integrar a comunicação visual dos slides com o conteúdo técnico, facilitando o entendimento da entrega pelo avaliador.
+- Reforcei o valor do trabalho colaborativo e da revisão cruzada, especialmente em fases de finalização de sprint.
 
 ---
 
 #### **Próximo passo** 
 
-- Ajustes pontuais no design.
+- Preparar os slides finais de apresentação.
+- Finalizar e revisar a documentação em slides da Sprint 3, garantindo coesão visual e clareza de comunicação.
+
 
 ---
-
-
-
-
-
-
 
 
 
