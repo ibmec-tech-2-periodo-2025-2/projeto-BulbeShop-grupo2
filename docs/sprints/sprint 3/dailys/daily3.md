@@ -110,10 +110,7 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 - Finalizar a versão consolidada do projeto, com código otimizado e documentação atualizada.
 - Fazer a revisão final , garantindo que todas as páginas estejam integradas e padronizadas antes da entrega.
   
-
 ---
-
-
 
 
 ### **Relatório de Acompanhamento: Julia Leal - Semana 2**
@@ -122,9 +119,12 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar a documentação em slides da Sprint 2. 
+- Testando o funcionamento completo da página de Afiliados Araujo, verificando links, responsividade e comportamento dos scripts.
+- Revisando o código JavaScript para otimização e melhor organização das funções.
+- Ajustando detalhes de estilo e alinhamento conforme o protótipo final no Figma.
 - Revisar e consolidar o backlog da sprint com prioridades ajustadas e tarefas devidamente atribuídas.
-- Acompanhar o progresso via Jira, utilizando as dailies para alinhar pendências e ajustes.
+- Erros de caminho relativo entre arquivos após reorganização de pastas.
+- Gestão de tempo: conciliar ajustes de código, testes e padronização visual exigiu replanejamento do cronograma interno.
 ---
 
 ---
@@ -132,35 +132,40 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 #### **O que estou fazendo agora?**
 
 - Responsável pelo avanço na estrutura dos slides e pela formatação os slides. 
+- Finalizando os testes de integração entre as páginas, garantindo o funcionamento de todos os fluxos de navegação.
+- Padronizando componentes e nomenclaturas para uniformizar o código entre os integrantes.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- A documentação em slides da Sprint 2 apresentou dificuldades na síntese das informações principais, exigindo revisão de linguagem.
+-
 - Houve desafio em alinhar o formato dos slides com o padrão visual do projeto, mantendo clareza e consistência entre as seções.
-- A revisão e consolidação do backlog demandaram tempo adicional para reavaliar prioridades, dependências e responsáveis, impactando o cronograma de início da próxima sprint.
-- O acompanhamento do progresso via Jira mostrou dificuldades de atualização contínua e registro detalhado nas dailies, prejudicando a visibilidade das tarefas em andamento.
+- A revisão e consolidação das páginas demandaram tempo adicional para reavaliar o código, as funcionalidades, impactando o cronograma de entrega.
+- Ajustes visuais de última hora, necessários para manter fidelidade ao Figma após mudanças estruturais no CSS.
+
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- O uso do Jira e das dailies consolidou práticas de transparência e acompanhamento contínuo, fortalecendo a cultura ágil.
-- A elaboração dos slides reforçou a importância de comunicar entregas de forma visual e objetiva.
+- A importância de manter a estrutura de diretórios organizada e documentada para evitar conflitos de caminho.
+- Que refatorar o JavaScript periodicamente melhora o desempenho e facilita a colaboração entre a equipe.
+- Aprendi a replanejar cronogramas de forma estratégica, priorizando entregas de maior impacto.
+- Reforcei o valor da comunicação constante entre os membros do grupo, especialmente em fases de integração e testes.
   
 
 ---
 
 #### **Próximo passo** 
 
-- Finalizar a documentação em slides da Sprint 2, garantindo coesão visual e clareza de comunicação.
+- Finalizar a documentação em slides da Sprint 3, garantindo coesão visual e clareza de comunicação.
 - Responsável pela revisão de fontes e componentes do slide.
-
+- Preparar os slides finais de apresentação,
+- Testar a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
+- Finalizar a versão consolidada do projeto, com código otimizado e documentação atualizada.
 
 ---
-
-
 
 
 ### **Relatório de Acompanhamento: Pedro Paulucci - Semana 2**
