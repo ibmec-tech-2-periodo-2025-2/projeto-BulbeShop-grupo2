@@ -174,34 +174,44 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Completar o Html semântica e Css baseado nas telas de alta fidelidade.
-- Componentes reutilizáveis: card de produto, seletor de variação, badge de desconto, breadcrumb, tabelas e inputs do checkout.
+
+- Executando testes finais de funcionalidade e comportamento nas telas de pagamento e confirmação.
+- Revisando o código JavaScript e WebStorage para otimizar o desempenho e reduzir redundâncias.
+- Ajustando o layout visual dessas páginas e revisando os códigos, garantindo coerência com o Figma e responsividade em múltiplas telas.
+- Concluir os testes completos do fluxo de compra, assegurando que todos os eventos (início, processamento e confirmação) funcionem sem erros.
+
 
 ---
 
 #### **O que estou fazendo agora?**
 
-- Iniciar as interações básicas de JavaScripts.
+
+- Revisar e otimizar os scripts de WebStorage, garantindo desempenho e segurança.
+- Finalizando a documentação técnica da integração do fluxo de compra, destacando as funções JavaScript e a estrutura de dados utilizada.
+- Iniciando a revisão visual e funcional integrada de todas as páginas (Cupom, Carrinho, Pagamento e Confirmação).
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
-- A conclusão do HTML e CSS com base nas telas de alta fidelidade enfrentou desafios de fidelidade visual e responsividade, principalmente em ajustes finos de espaçamento e alinhamento.
-- Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
-- Inconsistências entre o layout previsto e o comportamento responsivo real, exigindo ajustes finos.
+- Inconsistências no armazenamento de dados via WebStorage, exigindo revisão da lógica de persistência entre páginas.
+- Gestão de tempo na finalização simultânea de testes, ajustes visuais e documentação.
+- Diferenças sutis no layout entre as páginas e o figma, demandando ajustes manuais no CSS.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- O processo de implementação aprimorou a compreensão sobre a semântica HTML, a estrutura do CSS e práticas de responsividade.
+- A importância de validar fluxos complexos de compra com testes em diferentes cenários e dispositivos.
+- Que a otimização do código e do WebStorage melhora significativamente a performance e a experiência do usuário.
+- Reforcei o aprendizado sobre segurança no armazenamento local
+- Aprendi a alinhar performance técnica e design responsivo, mantendo a estabilidade do sistema .
 
 ---
 
 #### **Próximo passo** 
 
-- Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
-- Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
+- Validar o funcionamento integrado entre todas as páginas do sistema, incluindo estados de erro e sucesso.
+- Realizar a revisão do projeto , garantindo consistência visual e técnica antes da entrega
 - 
 
