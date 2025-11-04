@@ -70,37 +70,45 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- MoodBoard para inspiração das telas.
-- Completar o Html e Css baseado nas telas de alta fidelidade.
+- Realizando testes de usabilidade e funcionamento das telas integradas (Cupom, Carrinho, Favoritos).
+- Ajustando pequenos erros de interação e layout, para manter a fidelidade ao Figma.
+- Iniciando a revisão final do código JavaScript, com foco em clareza, organização e reuso de funções.
+- Finalizar os testes completos de navegação e confirmar o funcionamento pleno das telas de Cupom, Carrinho e Favoritos.
+- Otimizar o JavaScript, deixando o código mais limpo e performático.
+- Validar a responsividade das páginas e a compatibilidade com diferentes dispositivos.
 
 
 ---
 
 #### **O que estou fazendo agora?**
 
+- Linkas as telas de favoritos, lojas parceiras, home.
 - Iniciar as interações básicas de JavaScripts.
 
 ---
 
 #### **Quais dificuldades encontrei?**
 
--  A criação do MoodBoard apresentou dificuldade em alinhar referências visuais com a identidade definida do projeto.
--  A conclusão do HTML e CSS com base nas telas de alta fidelidade enfrentou desafios de fidelidade visual e responsividade, principalmente em ajustes finos de espaçamento e alinhamento.
-- Pequenas divergências entre o protótipo e o código real geraram necessidade de retrabalho e refinamento iterativo.
+-  Funções JavaScript sobrepostas, exigindo refatoração para evitar conflitos.
+- Validação cruzada entre páginas integradas, para assegurar atualização correta de informações (ex.: valores e itens do carrinho).
+- Dificuldade de equilibrar entre otimização e prazos de entrega, demandando priorização das tarefas.
 
 ---
 
 #### **O que aprendi até agora?** 
 
-- O desenvolvimento do MoodBoard reforçou a importância da referência visual como guia criativo, auxiliando na padronização estética.
-- O processo de implementação aprimorou a compreensão sobre a semântica HTML, a estrutura do CSS e práticas de responsividade.
+- A importância de refatorar e otimizar o código continuamente para garantir desempenho .
+- Como testar e validar múltiplas telas integradas de forma eficiente dentro do mesmo fluxo funcional.
+- A necessidade de verificar a experiência do usuário em diferentes dispositivos e resoluções desde o início do desenvolvimento.
+- Que a organização do JavaScript e que a reutilização das funções reduzem falhas e tornam o projeto mais escalável.
 
 ---
 
 #### **Próximo passo** 
 
-- Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
-- Integrar o front-end com os primeiros componentes dinâmicos em JavaScript.
+- Testar a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
+- Finalizar a versão consolidada do projeto, com código otimizado e documentação atualizada.
+- Fazer a revisão final , garantindo que todas as páginas estejam integradas e padronizadas antes da entrega.
   
 
 ---

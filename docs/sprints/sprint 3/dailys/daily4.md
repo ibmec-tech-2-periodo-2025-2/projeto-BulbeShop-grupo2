@@ -58,8 +58,9 @@ Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci
 
 #### **O que eu fiz desde o último relatório?**
 
-- Iniciar as interações básicas de JavaScripts.
-- Finalizar ajustes de CSS e responsividade, garantindo fidelidade total ao protótipo de alta fidelidade.
+- Linkei as telas de favoritos, lojas parceiras, home.
+- Fez Javascript dessas telas implementando interações dinâmicas e validações básicas.
+- Testei a integração entre os componentes, assegurando que os scripts estejam corretamente conectados ao HTML e CSS.
 
 
 
