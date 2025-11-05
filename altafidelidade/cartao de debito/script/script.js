@@ -51,3 +51,113 @@ btn.addEventListener('click', () => {
 
 // valida no load
 validate();
+// debito.js
+(function () {
+  // ajuste para o caminho exato da sua página "processando compra"
+  const PROCESSING_URL = '/altafidelidade/processando compra/html/index.html';
+  // chave única de armazenamento desta página
+  const STORAGE_KEY = 'bulbe:debito:index';
+
+  // util: pega valor representativo de um campo
+  function readField(el) {
+    if (!el || !el.name && !el.id) return undefined;
+    const type = (el.type || '').toLowerCase();
+    if (type === 'password') return undefined;  // nunca salvar senha
+    if (['cccvv', 'ccnumber'].includes((el.name || el.id).toLowerCase())) return undefined;
+
+    if (type === 'checkbox') return !!el.checked;
+    if (type === 'radio')    return el.checked ? el.value : undefined;
+    return el.value;
+  }
+
+  // util: escreve valor no campo
+  function writeField(el, val) {
+    if (val === undefined) return;
+    const type = (el.type || '').toLowerCase();
+    if (type === 'checkbox') {
+      el.checked = !!val;
+    } else if (type === 'radio') {
+      el.checked = (el.value === val);
+    } else {
+      el.value = val;
+    }
+    // dispara evento de change/input para componentes que dependem disso
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
+  // seleciona todos os campos relevantes da página
+  function allFields(scope = document) {
+    return Array.from(scope.querySelectorAll('input, select, textarea'));
+  }
+
+  // salva estado atual
+  function saveForm() {
+    const data = {};
+    allFields().forEach(el => {
+      const key = el.name || el.id;
+      if (!key) return;
+      const val = readField(el);
+      if (val !== undefined) data[key] = val;
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+  }
+
+  // restaura estado salvo
+  function restoreForm() {
+    let raw;
+    try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { raw = null; }
+    if (!raw) return;
+    let data;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    if (!data || typeof data !== 'object') return;
+
+    Object.keys(data).forEach(key => {
+      const val = data[key];
+
+      // tenta por [name] primeiro (melhor para grupos de rádio), depois por [id]
+      let els = Array.from(document.querySelectorAll(`[name="${CSS.escape(key)}"]`));
+      if (els.length === 0) {
+        const byId = document.getElementById(key);
+        if (byId) els = [byId];
+      }
+      els.forEach(el => writeField(el, val));
+    });
+  }
+
+  // debounce leve para autosave
+  let t;
+  function scheduleSave() {
+    clearTimeout(t);
+    t = setTimeout(saveForm, 180);
+  }
+
+  // wire: salva a cada input/change
+  function wireAutosave() {
+    allFields().forEach(el => {
+      el.addEventListener('input', scheduleSave, { passive: true });
+      el.addEventListener('change', scheduleSave);
+    });
+  }
+
+  // botão concluir compra (ajuste o seletor se necessário)
+  function wireFinish() {
+    const btn = document.getElementById('btnFinish') || document.querySelector('[data-action="finish"]');
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // se seu fluxo usa "disabled" quando inválido, respeita
+      if (btn.disabled) return;
+      // salva método e formulário
+      try { localStorage.setItem('bulbe:paymentMethod', 'debito'); } catch (e) {}
+      saveForm();
+      // redireciona para "processando compra"
+      window.location.href = PROCESSING_URL;
+    });
+  }
+
+  // inicializa
+  restoreForm();
+  wireAutosave();
+  wireFinish();
+})();
