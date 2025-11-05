@@ -955,3 +955,11 @@ body {
     padding-right: 16px;
   }
 }
+.shelf .tile,
+.shelf .tile:link,
+.shelf .tile:visited,
+.shelf .tile:hover,
+.shelf .tile:focus {
+  text-decoration: none;
+  color: inherit;  
+}
