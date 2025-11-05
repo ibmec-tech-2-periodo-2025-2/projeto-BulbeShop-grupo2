@@ -42,7 +42,7 @@
 
 ## Avaliação individual (cada aluno preenche)
 
-- Beatriz Samaha : 
+- Beatriz Samaha: 
 - Contribuições principais:Documentação (Dailies,Abertura da Sprint), montagem dos slides, criação de páginas e integração de js, revisão dos componentes dos slides e dos códigos.
 - Dificuldade enfrentada:  Padronização do formato de registro das dailies encontrou variações na forma de preenchimento e nível de detalhamento, o que comprometeu a consistência dos registros e a documentação e o refinamento da abertura da Sprint 3 e apresentaram dificuldade em consolidar informações de forma padronizada, exigindo revisões para garantir clareza e coesão entre as seções. Pequenas falhas de integração entre CSS e JS, resultando em desalinhamentos e comportamentos inesperados após o merge.
 - Nota para meu desempenho (0 a 10):  10
