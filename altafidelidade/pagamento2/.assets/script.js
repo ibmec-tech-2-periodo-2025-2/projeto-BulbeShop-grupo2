@@ -191,3 +191,70 @@
   });
 })();
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const btnSave = document.getElementById("btnSave");
+
+  // Lista dos campos obrigatórios por ID
+  const camposObrigatorios = [
+    "nomeCompleto",
+    "telefone",
+    "cpf",
+    "cep",
+    "rua",
+    "numero",
+    "bairro"
+  ];
+
+  function validarCampos() {
+    let valido = true;
+
+    // Validação dos campos de texto
+    camposObrigatorios.forEach(id => {
+      const campo = document.getElementById(id);
+      if (!campo.value.trim()) {
+        valido = false;
+      }
+    });
+
+    // Validação do País
+    const paisSelecionado =
+      document.querySelector("#countrySelect .select-placeholder").textContent.trim() !== "Selecionar";
+    if (!paisSelecionado) valido = false;
+
+    // Estado
+    const estadoSelecionado =
+      document.querySelector("#stateSelect .inline-label").textContent.trim() !== "Selecione o estado";
+    if (!estadoSelecionado) valido = false;
+
+    // Cidade
+    const cidadeSelecionada =
+      document.querySelector("#citySelect .inline-label").textContent.trim() !== "Selecione a cidade";
+    if (!cidadeSelecionada) valido = false;
+
+    // Frete
+    const freteSelecionado = document.querySelector("input[name='frete']:checked");
+    if (!freteSelecionado) valido = false;
+
+    // Ativa / Desativa botão
+    btnSave.disabled = !valido;
+    btnSave.classList.toggle("enabled", valido);
+  }
+
+  // Eventos de atualização
+  camposObrigatorios.forEach(id => {
+    document.getElementById(id).addEventListener("input", validarCampos);
+  });
+
+  document.querySelectorAll("input[name='frete']").forEach(el => {
+    el.addEventListener("change", validarCampos);
+  });
+
+  document.getElementById("countrySelect").addEventListener("click", validarCampos);
+  document.getElementById("stateSelect").addEventListener("click", validarCampos);
+  document.getElementById("citySelect").addEventListener("click", validarCampos);
+
+  validarCampos(); // Evita botão ativado inicial
+});
+
