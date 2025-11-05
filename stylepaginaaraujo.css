@@ -11,6 +11,8 @@
     --cinza-borda-pesquisa: #D1D9E0;
     --lilas: #6E6CF9;
     --preto-texto: #043062;
+    --vermelho: #F04438;
+    --laranja: #DC6803;
 }
 :root {
     --header: #08068D;
@@ -186,7 +188,7 @@ body {
 
 .titulo-secao {
     color: var(--preto-texto);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.2rem;
     padding-bottom: 10px;
 }
@@ -194,9 +196,9 @@ body {
 .titulo-produto {
     margin: 8px 0 6px;
     font-size: clamp(16px, 2.4vw, 20px);
-    color: var(--header);
+    color: var(--texto-pequeno);
     line-height: 1.2;
-    font-weight: 800;
+    font-weight: 500;
 }
 
 .preco {
@@ -207,15 +209,15 @@ body {
 }
 
 .preco-atual {
-    color: var(--price);
-    font-weight: 900;
+    color: var(--header);
+    font-weight: 600;
     font-size: clamp(18px, 2.2vw, 22px)
 }
 
 .preco-anterior {
     color: var(--filtro);
     text-decoration: line-through;
-    font-weight: 700
+    font-weight: 500
 }
 
 /* LOGO */
@@ -237,10 +239,6 @@ body {
 
 .icons img:hover {
     transform: scale(1.1);
-}
-
-.titulo-secao {
-    color: --
 }
 
 /* RESPONSIVIDADE */
@@ -307,108 +305,24 @@ body {
 }
 
 .card {
-    position: relative;
-    background: rgb(246, 249, 249, .40);
-    border: 2px solid rgb(246, 249, 249);;
-    border-radius: 18px;
-    padding: 12px;
-    box-shadow: 0 10px 24px rgba(10, 30, 70, .06);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    /* empilha tudo na vertical */
-    justify-content: space-between;
-    /* garante distribuição */
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  position: relative;
+  background: rgba(230, 241, 254, 0.4);
+  border: 2px solid rgba(230, 241, 254, 0.8);
+  border-radius: 18px;
+  padding: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .card-body {
     flex: 1;
-    /* ocupa o espaço disponível */
     display: flex;
     flex-direction: column;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: auto;
-    background-color: rgba(230, 241, 254, .40);
-    border-radius: 10px;
-    width: 150px;
-    height: 50px;
-
-}
-
-.brand-logo {
-    width: 50px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: white; /* cor de fundo do círculo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-left: 5px;
-}
-
-.brand-logo img {
-    width: 70%;
-    height: auto;
-    object-fit: cover;
-}
-
-.brand-name {
-    font-weight: 600;
-    color: #222;
-    font-size: 1rem;
-}
-
-.brand-logo-ponto{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: rgb(0, 0, 0); /* cor de fundo do círculo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-left: 5px;
-}
-.brand-logo-ponto img{
-    width: 70%;
-    height: auto;
-    object-fit: cover
-}
-/* Badge (selo no topo) */
-.badge {
-    position: absolute;
-    left: 12px;
-    top: 8px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 13px;
-    background: #eaf6ff;
-    color: #000000;
-}
-
-.badge-flash {
-    background: var(--ofertarolampago);
-    color: white;
-}
-
-.badge-cash {
-    background: var(--cachbackcolor);
-    color: white;
-}
-
-/* Imagem */
 .media {
     background: white;
     border-radius: 14px;
@@ -416,7 +330,6 @@ body {
     margin: 32px 4px 10px;
     display: grid;
     place-items: center;
-    min-height: 200px;
 }
 
 .media img {
@@ -425,7 +338,6 @@ body {
     display: block
 }
 
-/* Texto/infos */
 .info {
     padding: 0 4px;
     flex: 1;
@@ -437,31 +349,13 @@ body {
     text-decoration: none;
 }
 
-/* Frete/grátis */
-.ship-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 10px;
-    border-radius: 12px;
-    background: var(--ofertarolampago);
-    color: white;
-    font-weight: 800;
-    font-size: 13px;
-}
-
-
-/* Ações (coração/carrinho) */
 .actions {
     display: flex;
     gap: 10px;
-    padding: 10px 4px 2px;
+    padding: 5px 2px 2px;
     margin-top: auto;
-    /* empurra para o final do card */
-    padding-top: 12px;
-    /* um respiro antes da área dos ícones */
+    padding-top: 10px;
 }
-
 
 .icon-btn {
     display: grid;
@@ -469,31 +363,22 @@ body {
     width: 38px;
     height: 38px;
     border-radius: 10px;
-    border: 1px solid #D1D9E0;
-    background: #F6F9F9;
-    cursor: pointer;
-    transition: box-shadow .15s ease, transform .06s ease, background .15s ease;
-}
-
-.icon-btn:hover {
-    box-shadow: 0 10px 18px rgba(0, 0, 0, .06)
+    border: 0px;
+    background: transparent;
 }
 
 .icon-btn:active {
     transform: translateY(1px)
 }
 
-/* cores por tipo */
 .icon-btn.heart {
-    color: #F04438
+    color: var(--vermelho)
 }
 
 .icon-btn.cart {
     color: var(--laranja)
 }
 
-
-/* estado ativo: preencher ícone */
 .icon-btn.active svg path {
     fill: currentColor
 }
@@ -502,8 +387,6 @@ body {
     fill: currentColor
 }
 
-/* ===== RESPONSIVO (mantém 2 colunas) ===== */
-/* Ajustes para telas menores para continuar cabendo 2 por linha */
 @media (max-width: 760px) {
     .wrap {
         padding: 12px
@@ -552,7 +435,6 @@ body {
     }
 }
 
-/* Ultra compacto (ainda 2 colunas) */
 @media (max-width: 360px) {
     .grid {
         gap: 10px
@@ -569,14 +451,4 @@ body {
     .price-now {
         font-size: 16px
     }
-}
-
-
-.bonequinha {
-    width: 180px;
-    position: absolute;
-    z-index: 1;
-    left: 197px;
-    top: 49.5px;
-    border-bottom-right-radius: 83px;
 }
