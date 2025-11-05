@@ -6,24 +6,12 @@
     --verde: #29D07C;
     --cinza-header: #536679;
     --cinza-texto: #A4B3C1;
-    --sombra: 0 2px 8px rgba(17, 27, 90, .08);
     --cinza-box-pesquisa: #F6F9F9;
     --cinza-borda-pesquisa: #D1D9E0;
     --lilas: #6E6CF9;
     --preto-texto: #043062;
     --vermelho: #F04438;
     --laranja: #DC6803;
-}
-:root {
-    --header: #08068D;
-    --filtro: #678098;
-    --filtroback: #D9D9D9;
-    --laranja: #FFA733;
-    --bannerback: #0E0AF5;
-    ---bordercolor: #D1D9E0;
-    --ofertarolampago: #26D07C;
-    --cachbackcolor: #18814D;
-    --prince: #105633;
 }
 
 * {
