@@ -84,3 +84,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = '/altafidelidade/pagamento2/pagamento2.html';
   });
 });
+
+// header-nav.js
+(function () {
+  // ajuste para o caminho real da sua home:
+  const HOME_URL = '/altafidelidade/home/paginicial.html';
+
+  const backBtn = document.querySelector('.appbar__back');
+  const logoImg = document.querySelector('.appbar__logo');
+
+  // seta: sempre voltar para a página anterior
+  if (backBtn) {
+    backBtn.style.cursor = 'pointer';
+    backBtn.addEventListener('click', () => window.history.back());
+  }
+
+  // logo: sempre ir para a home
+  if (logoImg) {
+    logoImg.style.cursor = 'pointer';
+    logoImg.addEventListener('click', () => {
+      const override = logoImg.getAttribute('data-home'); // opcional
+      window.location.href = override || HOME_URL;
+    });
+  }
+})();
