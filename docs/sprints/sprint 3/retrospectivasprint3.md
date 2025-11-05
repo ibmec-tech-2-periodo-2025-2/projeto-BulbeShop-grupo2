@@ -15,7 +15,7 @@
 - Dificuldades na responsividade de algumas páginas, especialmente após adição de novos scripts.
 - Gestão de tempo apertada na reta final, com acúmulo de revisões e testes simultâneos.
 - Diferenças entre o layout implementado e o protótipo no Figma, exigindo ajustes visuais para manter coerência e fidelidade ao design.
-- Validações incompletas em formulários, permitindo que o usuário avance mesmo com campos obrigatórios não preenchidos.
+- Validações incompletas em formulários, opções limitadas em determinadas questões.
 - Fluxos de navegação parcialmente inoperantes, principalmente entre telas de cadastro, pagamento e confirmação.
 - Interferência entre scripts JavaScript, com risco de perda de funcionalidades quando há alterações em arquivos já estruturados.
 - Elementos redundantes no layout (headers e footers) em telas onde não deveriam aparecer, comprometendo a hierarquia visual.
