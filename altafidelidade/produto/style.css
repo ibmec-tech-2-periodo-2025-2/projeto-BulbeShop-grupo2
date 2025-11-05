@@ -800,11 +800,20 @@ body {
   border: 2px solid var(--gray-300);
 }
 
-.btn-fav{
-  background-image: url(./img/heart-outline.png);
+.btn-fav {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
+
+.btn-fav:hover {
+  transform: scale(1.1);
+}
+
 /* Prateleira */
 .shelf {
   background: #F3F7FB;

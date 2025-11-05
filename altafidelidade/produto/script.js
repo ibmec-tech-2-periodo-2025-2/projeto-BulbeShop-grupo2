@@ -3,9 +3,9 @@
    ========================================================= */
 
 /* --------- Caminhos de imagens --------- */
-const IMG_BASE           = "./.assets/altafidelidade/img/";
-const IMG_HEART_OUTLINE  = IMG_BASE + "./img/heart-outline.png";
-const IMG_HEART_FILLED   = IMG_BASE + "./img/Exclude.png"; // coração cheio (laranja)
+const IMG_BASE           = "/altafidelidade/produto/img/";
+const IMG_HEART_OUTLINE  = IMG_BASE + "heart-outline.png";
+const IMG_HEART_FILLED   = IMG_BASE + "Exclude(1).png"; // coração cheio // coração cheio (laranja)
 
 /* =========================================================
    Header condensado no scroll
