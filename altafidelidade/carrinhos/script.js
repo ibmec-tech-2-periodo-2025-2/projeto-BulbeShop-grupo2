@@ -130,3 +130,5 @@ function limparCarrinho() {
 // === INICIALIZAÇÃO ===
 ativarContadores();
 atualizarResumo();
+
+
