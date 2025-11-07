@@ -132,3 +132,70 @@ ativarContadores();
 atualizarResumo();
 
 
+// === BRIDGE HOME->CARRINHO (definitivo, mínimo e sem conflitar) ===
+(function () {
+  'use strict';
+
+  function moedaBR(n) {
+    return (Number(n) || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  // Ajusta caminho da imagem que veio da Home (ex.: "./img/xxx.png") para o contexto do carrinho
+  function resolverImgParaCarrinho(p) {
+    if (!p) return './assets/img/lamp.svg';
+    // estamos em /altafidelidade/carrinhos/ — a Home fica em ../home/
+    if (p.startsWith('./img/')) return '../home/' + p.slice(2);
+    return p; // caminho absoluto ou já válido
+  }
+
+  try {
+    const raw = localStorage.getItem('bulbe:addToCart');
+    if (!raw) return; // nada a importar
+
+    const incoming = JSON.parse(raw);
+    localStorage.removeItem('bulbe:addToCart'); // evita duplicar em reload
+
+    // 1) DOM: atualiza o cartão da LÂMPADA (mantém layout e JS existentes)
+    const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
+    if (!lamp) return;
+
+    const imgEl = lamp.querySelector('.imagem-produto img');
+    if (imgEl) {
+      imgEl.src = resolverImgParaCarrinho(incoming.img);
+      imgEl.alt = incoming.alt || incoming.title || 'Produto';
+    }
+
+    const titleEl = lamp.querySelector('.titulo-produto');
+    if (titleEl) {
+      // Mantém possíveis <br> do template, apenas troca o conteúdo
+      titleEl.innerHTML = (incoming.title || 'Produto').replace(/\s{2,}/g, ' ');
+    }
+
+    const priceEl = lamp.querySelector('.valor-produto');
+    if (priceEl) {
+      const pv = Number(incoming.price || 0);
+      priceEl.dataset.preco = String(pv.toFixed(2));
+      priceEl.textContent = moedaBR(pv);
+    }
+
+    // Garante quantidade = 1 na UI do cartão da lâmpada
+    const qtdSpan = lamp.querySelector('[data-quantidade]');
+    if (qtdSpan) qtdSpan.textContent = '1';
+    const unidades = lamp.querySelector('.texto-unidades');
+    if (unidades) unidades.textContent = '(1 unidade)';
+
+    // 2) ESTADO: atualiza o objeto já usado pelo seu carrinho
+    if (typeof produtos === 'object' && produtos.lampada) {
+      produtos.lampada.titulo = incoming.title || produtos.lampada.titulo;
+      produtos.lampada.preco = Number(incoming.price || produtos.lampada.preco);
+      produtos.lampada.quantidade = 1; // inicia com 1
+    }
+
+    // 3) Recalcula resumo usando suas funções existentes
+    if (typeof atualizarResumo === 'function') {
+      try { atualizarResumo(); } catch (e) { /* silencioso */ }
+    }
+  } catch (e) {
+    console.error('[Cart Bridge] Falha ao importar item da Home:', e);
+  }
+})();

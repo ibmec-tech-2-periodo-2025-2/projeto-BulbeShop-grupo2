@@ -132,3 +132,39 @@ document.querySelectorAll('.icon-btn').forEach(btn => {
         btn.classList.toggle('active');
     });
 });
+// === ADD TO CART (HOME) -> salva produto e abre o carrinho (não interfere no resto) ===
+(function () {
+  function parseBR(txt) {
+    if (!txt) return 0;
+    // Ex.: "R$ 2.799,90" -> 2799.90
+    const cleaned = String(txt).replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.');
+    const n = parseFloat(cleaned);
+    return isNaN(n) ? 0 : n;
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.icon-btn.cart');
+    if (!btn) return;
+
+    // Sobe até o "card" do produto
+    const card = btn.closest('.card, .card-body') || document;
+
+    // Tenta pegar imagem, título e preço pelos seletores que já existem na Home
+    const imgEl   = card.querySelector('.media img, .card-img img, img');
+    const titleEl = card.querySelector('.title, .card-title, h3, h2');
+    const priceEl = card.querySelector('.price-now, .price, .card-price');
+
+    const title = (titleEl?.textContent || '').replace(/\s+/g, ' ').trim();
+    const price = parseBR(priceEl?.textContent);
+    const img   = imgEl?.getAttribute('src') || '';
+    const alt   = imgEl?.getAttribute('alt') || title || 'Produto';
+
+    const payload = { title, price, img, alt, qty: 1, when: Date.now() };
+
+    // Armazena para o carrinho ler
+    localStorage.setItem('bulbe:addToCart', JSON.stringify(payload));
+
+    // Caminho RELATIVO da Home -> Carrinho
+    window.location.href = '../carrinhos/carrinho.html';
+  });
+})();
