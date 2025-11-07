@@ -911,3 +911,10 @@ body {
     top: 49.5px;
     border-bottom-right-radius: 83px;
 }
+.card {
+  transition: all 0.2s ease-in-out;
+}
+
+.card[style*="block"] {
+  transform: scale(1.02);
+}
