@@ -56,6 +56,41 @@ function typeEffect() {
 }
 
 typeEffect();
+//  BUSCA FUNCIONAL 
+const searchInputEl = document.getElementById("search-input");
+const searchBtnEl = document.querySelector(".search-btn");
+const cards = document.querySelectorAll(".card");
+
+function filtrarProdutos() {
+  const termo = searchInputEl.value.trim().toLowerCase();
+
+  // se campo vazio, mostra todos
+  if (termo === "") {
+    cards.forEach(card => card.style.display = "block");
+    return;
+  }
+
+  // percorre os cards e filtra
+  cards.forEach(card => {
+    const titulo = card.querySelector(".title")?.textContent.toLowerCase() || "";
+    const preco = card.querySelector(".price-now")?.textContent.toLowerCase() || "";
+    const texto = titulo + " " + preco;
+
+    if (texto.includes(termo)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+// ativa ao clicar na lupa
+searchBtnEl.addEventListener("click", filtrarProdutos);
+
+// ativa também ao pressionar Enter
+searchInputEl.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") filtrarProdutos();
+});
 
 // Rolagem suave com clique e arraste (melhor usabilidade mobile)
 const navScroll = document.querySelector(".nav-scroll");
@@ -168,3 +203,4 @@ document.querySelectorAll('.icon-btn').forEach(btn => {
     window.location.href = '../carrinhos/carrinho.html';
   });
 })();
+
