@@ -559,3 +559,73 @@ body {
 .cartao-produto[data-produto="parafusadeira"] .faixa-desconto {
   bottom: 0;
 }
+.item-resumo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-resumo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border: 1px solid var(--cinza-100);
+  border-radius: 10px;
+  background: #fff;
+}
+/* === MELHOR PROPORÇÃO DO MINI-CARD === */
+.item-resumo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  background: #f9fbff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.item-resumo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-100);
+  object-fit: contain;
+  background: white;
+}
+
+.item-resumo .texto-resumo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-resumo strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza-700);
+}
+
+.linha-resumo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linha-resumo .contador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linha-resumo .botao-quantidade {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 1px solid var(--cinza-100);
+  background: #fff;
+  cursor: pointer;
+}

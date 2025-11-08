@@ -70,13 +70,26 @@ function calcularTotal() {
 
 // === ATUALIZA RESUMO (BOTTOM SHEET) ===
 function atualizarResumo() {
+   // --- Lâmpada ---
   const qtdResumo = document.getElementById('quantidadeResumo');
   const precoResumo = document.getElementById('precoResumo');
   const totalResumo = document.getElementById('totalResumo');
 
   qtdResumo.textContent = produtos.lampada.quantidade;
   precoResumo.textContent = `R$${formatoBR(produtos.lampada.quantidade * produtos.lampada.preco)}`;
+
+  // --- Parafusadeira ---
+  const qtdResumoParafusadeira = document.getElementById('quantidadeResumoParafusadeira');
+  const precoResumoParafusadeira = document.getElementById('precoResumoParafusadeira');
+
+  if (qtdResumoParafusadeira && precoResumoParafusadeira) {
+    qtdResumoParafusadeira.textContent = produtos.parafusadeira.quantidade;
+    precoResumoParafusadeira.textContent = `R$${formatoBR(produtos.parafusadeira.quantidade * produtos.parafusadeira.preco)}`;
+  }
+
+  // --- Total ---
   totalResumo.textContent = `R$${formatoBR(calcularTotal())}`;
+
 }
 
 // === CARROSSEL (SETA ESQUERDA / DIREITA) ===
@@ -199,3 +212,48 @@ atualizarResumo();
     console.error('[Cart Bridge] Falha ao importar item da Home:', e);
   }
 })();
+
+// === CONTROLE DE QUANTIDADE NO MINI-CARD (BOTTOM SHEET) ===
+document.querySelectorAll('.contador[data-produto$="-resumo"]').forEach(contador => {
+  contador.addEventListener('click', e => {
+    const botao = e.target.closest('.botao-quantidade');
+    if (!botao) return;
+
+    const acao = botao.dataset.acao;
+    const id = contador.dataset.produto;
+
+    if (id === 'lampada-resumo') {
+      if (acao === 'aumentar') produtos.lampada.quantidade++;
+      if (acao === 'diminuir') produtos.lampada.quantidade = Math.max(1, produtos.lampada.quantidade - 1);
+    }
+
+    if (id === 'parafusadeira-resumo') {
+      if (acao === 'aumentar') produtos.parafusadeira.quantidade++;
+      if (acao === 'diminuir') produtos.parafusadeira.quantidade = Math.max(1, produtos.parafusadeira.quantidade - 1);
+    }
+
+    atualizarResumo();
+  });
+});
+
+// === FUNÇÃO ATUALIZAR RESUMO (nova versão sincronizada) ===
+function atualizarResumo() {
+  const qtdLamp = produtos.lampada.quantidade;
+  const qtdParaf = produtos.parafusadeira.quantidade;
+
+  // Atualiza UI da lâmpada
+  document.querySelectorAll('#quantidadeResumoLampada').forEach(el => el.textContent = qtdLamp);
+  document.querySelectorAll('#precoResumoLampada').forEach(el =>
+    el.textContent = `R$${formatoBR(produtos.lampada.preco * qtdLamp)}`
+  );
+
+  // Atualiza UI da parafusadeira
+  document.querySelectorAll('#quantidadeResumoParafusadeira').forEach(el => el.textContent = qtdParaf);
+  document.querySelectorAll('#precoResumoParafusadeira').forEach(el =>
+    el.textContent = `R$${formatoBR(produtos.parafusadeira.preco * qtdParaf)}`
+  );
+
+  // Atualiza total geral
+  const total = calcularTotal();
+  document.querySelectorAll('#totalResumo').forEach(el => el.textContent = `R$${formatoBR(total)}`);
+}

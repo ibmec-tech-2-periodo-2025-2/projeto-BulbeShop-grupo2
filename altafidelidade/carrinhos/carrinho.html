@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -188,34 +189,54 @@
 
   <!-- RESUMO DO CARRINHO -->
   <aside class="resumo-carrinho" id="resumoCarrinho">
+
     <div class="barra-arrastar"></div>
 
+    <!-- ITEM 1: LÂMPADA -->
     <div class="item-resumo">
-      <img src="./assets/img/lamp.svg" alt="">
+      <img src="./assets/img/lamp.svg" alt="Lâmpada LED">
       <div class="texto-resumo">
         <strong id="tituloResumo">Lâmpada de LED E27 Bulbo 9W…</strong>
         <div class="linha-resumo">
-          <div class="contador" data-produto="resumo">
+          <div class="contador" data-produto="lampada-resumo">
             <button class="botao-quantidade" data-acao="diminuir">–</button>
-            <span class="quantidade-atual" id="quantidadeResumo">5</span>
+            <span class="quantidade-atual" id="quantidadeResumoLampada">5</span>
             <button class="botao-quantidade" data-acao="aumentar">+</button>
           </div>
-          <strong class="preco-resumo" id="precoResumo">R$22,95</strong>
+          <strong class="preco-resumo" id="precoResumoLampada">R$22,95</strong>
         </div>
       </div>
     </div>
 
-    <div class="total-resumo">Total: <strong id="totalResumo">R$22,95</strong></div>
-
-    <div class="acoes-resumo">
-        <button class="botao-cinza" id="botaoLimpar">Limpar Carrinho</button>
-            <button class="botao-azul" id="botaoContinuar">Continuar Compra <link rel="stylesheet" href="../pagamento1/pagamento.html"></button>
-            
+    <!-- ITEM 2: PARAFUSADEIRA -->
+    <div class="item-resumo">
+      <img src="./assets/img/parafusadeira.svg" alt="Parafusadeira Philco">
+      <div class="texto-resumo">
+        <strong id="tituloResumoParafusadeira">Parafusadeira Philco Force PPF120</strong>
+        <div class="linha-resumo">
+          <div class="contador" data-produto="parafusadeira-resumo">
+            <button class="botao-quantidade" data-acao="diminuir">–</button>
+            <span class="quantidade-atual" id="quantidadeResumoParafusadeira">1</span>
+            <button class="botao-quantidade" data-acao="aumentar">+</button>
+          </div>
+          <strong class="preco-resumo" id="precoResumoParafusadeira">R$199,90</strong>
+        </div>
       </div>
     </div>
+
+    <!-- TOTAL GERAL -->
+    <div class="total-resumo">Total: <strong id="totalResumo">R$223,67</strong></div>
+
+    <!-- BOTÕES -->
+    <div class="acoes-resumo">
+      <button class="botao-cinza" id="botaoLimpar">Limpar Carrinho</button>
+      <button class="botao-azul" id="botaoContinuar">Continuar Compra</button>
+    </div>
   </aside>
+
 
   <script src="script.js"></script>
   <script src="./assets/script-carrossel.js"></script>
 </body>
+
 </html>
