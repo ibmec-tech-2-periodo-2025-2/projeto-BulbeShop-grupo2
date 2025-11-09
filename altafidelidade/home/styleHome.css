@@ -383,6 +383,8 @@ body {
     align-items: center;
     cursor: pointer;
     scroll-snap-align: center;
+    text-decoration: none; /* tira o sublinhado */
+    color: inherit;
 }
 
 .circle {
