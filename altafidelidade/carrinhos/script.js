@@ -1,11 +1,11 @@
 /* ======================================================
    CARRINHO (BulbeShop) — script.js
-   - "Selecionar" vira botão funcional (toggle) por produto
-   - Resumo de compra mostra APENAS itens selecionados
-   - Se não houver selecionados: OCULTA a barra de itens do resumo
-     (apenas o bloco dos itens; o footer/total permanece)
-   - Mantém: voltar, carrossel, +/−, continuar (fade+redirect), limpar, persistência
-   - Não cria arquivos/HTML/CSS e não altera IDs/classes existentes
+   Objetivo adicional:
+   - Quando a quantidade estiver em 1 e o usuário clicar no "−",
+     o item é REMOVIDO do carrinho (não mostra 0)
+   - Mantém tudo já implementado: “Selecionar” acessível/estilizado,
+     resumo apenas dos selecionados, selecionar tudo, limpar, persistência etc.
+   - Sem criar/editar HTML/CSS de arquivos: apenas JS
    ====================================================== */
 
 /* ==== BOTÃO VOLTAR ==== */
@@ -21,10 +21,10 @@ const produtos = {
   parafusadeira: { titulo: "Parafusadeira Philco Force PPF120 3 em 1 1500RPM",                    preco: 199.9, quantidade: 1 },
 };
 
-/* ==== SELEÇÃO (quais entram no RESUMO) — começa tudo desmarcado ==== */
+/* ==== SELEÇÃO (quais entram no RESUMO) — começa desmarcado ==== */
 const selecionados = { lampada: false, parafusadeira: false };
 
-/* ==== PERSISTÊNCIA DO CARRINHO ==== */
+/* ==== PERSISTÊNCIA ==== */
 function loadCart() { try { return JSON.parse(localStorage.getItem("bulbe:cart")) || []; } catch { return []; } }
 function saveCart(arr) { try { localStorage.setItem("bulbe:cart", JSON.stringify(arr)); } catch {} }
 function getLastId() { try { return localStorage.getItem("bulbe:lastAddedId") || ""; } catch { return ""; } }
@@ -32,23 +32,96 @@ function setLastId(id) { try { localStorage.setItem("bulbe:lastAddedId", id || "
 function resolverImgParaCarrinho(p) { if (!p) return "./assets/img/lamp.svg"; if (p.startsWith("./img/")) return "../home/" + p.slice(2); return p; }
 
 /* ======================================================
-   HELPERS — BLOCO DOS ITENS NA BARRA DE RESUMO
-   (não alteramos HTML/CSS; apenas controlamos display via JS)
+   CSS DO BOTÃO “SELECIONAR” (injetado)
+   ====================================================== */
+function injectSelecionarStyles() {
+  if (document.getElementById("bulbeSelecionarStyles")) return;
+  const css = `
+  .btn-selecao{
+    cursor:pointer; user-select:none; pointer-events:auto;
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.35rem .75rem; border-radius:9999px;
+    border:1px solid rgba(8,6,141,.28); background:#fff;
+    font-weight:600; line-height:1; font-size:.95rem;
+    transition: box-shadow .15s ease, transform .05s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .btn-selecao:hover{ box-shadow:0 2px 6px rgba(0,0,0,.08); background:#f7f8ff; border-color:#c9cdea; }
+  .btn-selecao:active{ transform:translateY(1px); }
+  .btn-selecao:focus-visible{ outline:2px solid #08068D; outline-offset:2px; }
+  .cartao-produto.is-selecionado .btn-selecao{
+    background:#08068D; border-color:#08068D; color:#fff;
+  }
+  .cartao-produto.is-selecionado .btn-selecao::before{
+    content:"✓"; font-weight:700;
+  }
+  `;
+  const style = document.createElement("style");
+  style.id = "bulbeSelecionarStyles";
+  style.textContent = css;
+  document.head.appendChild(style);
+}
+
+/* ======================================================
+   UPGRADE DOS GATILHOS “Selecionar” → BOTÃO
+   (sem alterar HTML de arquivo; apenas adiciona classe/atributos via JS)
+   ====================================================== */
+function enhanceSelecionarUI() {
+  const known = document.querySelectorAll(
+    '[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar'
+  );
+  const fallbacks = Array.from(document.querySelectorAll('article.cartao-produto *')).filter(el => {
+    if (!(el instanceof HTMLElement)) return false;
+    if (el.matches('input,button,select,textarea,[role="button"],a')) return false;
+    const t = (el.textContent || "").trim().toLowerCase();
+    return t === "selecionar";
+  });
+  const triggers = new Set([...known, ...fallbacks]);
+  triggers.forEach((el) => {
+    el.classList.add("btn-selecao");
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    const alreadySelected = !!el.closest(".cartao-produto")?.classList.contains("is-selecionado");
+    el.setAttribute("aria-pressed", alreadySelected ? "true" : "false");
+    el.setAttribute("aria-label", alreadySelected ? "Selecionado" : "Selecionar produto");
+  });
+}
+
+function updateTriggerA11y(card, selected) {
+  card.querySelectorAll('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao')
+      .forEach(el=>{
+        el.setAttribute("aria-pressed", selected ? "true" : "false");
+        el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
+      });
+}
+
+/* ======================================================
+   BLOCO DE ITENS NA BARRA DE RESUMO — mostrar/ocultar
+   (não mexe na barra inteira; apenas no bloco dos itens)
    ====================================================== */
 function getResumoItensNodes() {
-  // tente os contêineres mais comuns do "bloco de itens" do resumo
   return document.querySelectorAll(
     "#resumoCarrinho .lista-resumo, #resumoCarrinho .itens-resumo, #resumoCarrinho .items, #resumoCarrinho .item-resumo"
   );
 }
 function mostrarItensResumo(mostrar) {
-  getResumoItensNodes().forEach((n) => {
-    n.style.display = mostrar ? "" : "none";
-  });
+  getResumoItensNodes().forEach((n) => { n.style.display = mostrar ? "" : "none"; });
 }
 
 /* ======================================================
-   CONTADORES (+/−) DOS CARDS
+   ATALHO: Atualiza estado visual de #selecionarTudo
+   ====================================================== */
+function atualizarSelecionarTudoEstado() {
+  const selecionarTudo = document.getElementById("selecionarTudo");
+  if (!selecionarTudo) return;
+  const cbs = Array.from(document.querySelectorAll(".selecao-individual"));
+  const all = cbs.length > 0 && cbs.every((x) => x.checked);
+  const any = cbs.some((x) => x.checked);
+  selecionarTudo.checked = all;
+  selecionarTudo.indeterminate = !all && any;
+}
+
+/* ======================================================
+   CONTADORES (+/−) — com remoção ao tentar ir para 0
    ====================================================== */
 function ativarContadores() {
   document.querySelectorAll(".contador").forEach((contador) => {
@@ -66,43 +139,88 @@ function ativarContadores() {
       const span = contador.querySelector("[data-quantidade]") || contador.querySelector(".quantidade-atual");
       let n = parseInt(span?.textContent || "1", 10) || 1;
 
+      // >>> NOVO COMPORTAMENTO: se está em 1 e clicou "diminuir", REMOVE o item
+      if (acao === "diminuir" && n === 1) {
+        removerItemDoCarrinho(chave, produtoPai);
+        return; // não segue para setar 0
+      }
+
       if (acao === "aumentar") n++;
-      if (acao === "diminuir") n = Math.max(1, n - 1);
+      if (acao === "diminuir") n = Math.max(1, n - 1); // nunca abaixo de 1
 
       span.textContent = String(n);
       produtos[chave].quantidade = n;
 
-      // "(N unidades)" no card
       const textoUnidades = produtoPai?.querySelector(".texto-unidades");
       if (textoUnidades) textoUnidades.textContent = `(${n} unidade${n > 1 ? "s" : ""})`;
 
-      // se mudou a lâmpada, refletir no storage do carrinho
       if (chave === "lampada") syncLampadaToStorageFromUI();
 
-      // Atualizações
-      atualizarResumo();             // totais gerais do carrinho (todos os itens)
-      atualizarResumoSelecionados(); // apenas itens selecionados na barra inferior
+      atualizarResumo();             // totais gerais (todos os itens)
+      atualizarResumoSelecionados(); // apenas selecionados (barra inferior)
     });
   });
 }
 
 /* ======================================================
-   TOTAL GERAL DO CARRINHO (todos os itens, independente de seleção)
+   REMOÇÃO DE ITEM DO CARRINHO
    ====================================================== */
-function calcularTotalCarrinho() {
-  return produtos.lampada.preco       * produtos.lampada.quantidade +
-         produtos.parafusadeira.preco * produtos.parafusadeira.quantidade;
+function removerItemDoCarrinho(chave, card) {
+  // 1) Estado interno
+  if (produtos[chave]) produtos[chave].quantidade = 0;
+
+  // 2) Seleção: desmarcar e limpar classes/ARIA
+  const cb = card?.querySelector(".selecao-individual");
+  if (cb) cb.checked = false;
+  selecionados[chave] = false;
+  card?.classList.remove("is-selecionado");
+  updateTriggerA11y(card, false);
+
+  // 3) Persistência: remover do bulbe:cart (se existir)
+  //    Tentar montar o mesmo id usado no armazenamento (título + preço)
+  let title = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
+  let priceEl = card?.querySelector(".valor-produto, .price, [data-preco]");
+  let unit = 0;
+  if (priceEl?.dataset?.preco) {
+    unit = Number(priceEl.dataset.preco);
+  } else {
+    unit = Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
+  }
+  const idGuess = `${String(title).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(unit || 0).toFixed(2)}`;
+  const cartArr = loadCart();
+  const idx = cartArr.findIndex((it) => it.id === idGuess);
+  if (idx >= 0) {
+    cartArr.splice(idx, 1);
+    saveCart(cartArr);
+  }
+  // limpar lastAddedId se corresponder
+  const last = getLastId();
+  if (last && last === idGuess) setLastId("");
+
+  // 4) Remover o card do DOM
+  if (card && typeof card.remove === "function") {
+    card.remove();
+  } else if (card && card.style) {
+    card.style.display = "none";
+  }
+
+  // 5) Atualizar "selecionar tudo"
+  atualizarSelecionarTudoEstado();
+
+  // 6) Atualizar resumos
+  atualizarResumo();
+  atualizarResumoSelecionados();
 }
 
-/* Mantém seu painel/área de totais ORIGINAL (fora da barra dos selecionados) */
+/* ======================================================
+   TOTAL GERAL (fora da barra dos selecionados)
+   ====================================================== */
 function atualizarResumo() {
-  // Lâmpada
   const qtdLamp   = produtos.lampada.quantidade;
   const valorLamp = produtos.lampada.preco * qtdLamp;
   document.querySelectorAll("#quantidadeResumoLampada").forEach((el) => (el.textContent = String(qtdLamp)));
   document.querySelectorAll("#precoResumoLampada").forEach((el) => (el.textContent = moedaBR(valorLamp)));
 
-  // Parafusadeira
   const qtdParaf   = produtos.parafusadeira.quantidade;
   const valorParaf = produtos.parafusadeira.preco * qtdParaf;
   document.querySelectorAll("#quantidadeResumoParafusadeira").forEach((el) => (el.textContent = String(qtdParaf)));
@@ -111,13 +229,11 @@ function atualizarResumo() {
 
 /* ======================================================
    RESUMO DE COMPRA (BARRA INFERIOR) — APENAS SELECIONADOS
-   - Se não houver selecionados, oculta o bloco dos itens do resumo
+   - Se vazio: oculta o bloco de itens do resumo
    ====================================================== */
 function atualizarResumoSelecionados() {
-  // chaves atualmente selecionadas
   const chavesSel = Object.keys(produtos).filter((k) => selecionados[k]);
 
-  // soma apenas selecionados
   let qtdTotalSel = 0;
   let subtotalSel = 0;
   chavesSel.forEach((k) => {
@@ -127,17 +243,16 @@ function atualizarResumoSelecionados() {
     subtotalSel += p * q;
   });
 
-  // Atualiza barra inferior (conteúdo, sem mexer em visibilidade do footer)
   const qtdResumo   = document.getElementById("quantidadeResumo");
   const precoResumo = document.getElementById("precoResumo");
-  const totalResumo = document.getElementById("totalResumo"); // na barra, exibir o total dos selecionados
+  const totalResumo = document.getElementById("totalResumo");
   if (qtdResumo)   qtdResumo.textContent   = String(qtdTotalSel);
   if (precoResumo) precoResumo.textContent = moedaBR(subtotalSel);
   if (totalResumo) totalResumo.textContent = moedaBR(subtotalSel);
 
-  // Título e mini-imagem do primeiro selecionado (ou limpa se vazio)
   const tituloResumo = document.getElementById("tituloResumo");
   const miniImg      = document.querySelector("#resumoCarrinho .item-resumo img");
+
   if (chavesSel.length) {
     const first = chavesSel[0];
     const card  = document.querySelector(`article.cartao-produto[data-produto="${first}"]`);
@@ -146,11 +261,11 @@ function atualizarResumoSelecionados() {
     const src        = imgCard?.getAttribute("src") || "./assets/img/lamp.svg";
     if (tituloResumo) tituloResumo.textContent = String(tituloCard).trim();
     if (miniImg) { miniImg.src = src; miniImg.alt = String(tituloCard).trim(); }
-    mostrarItensResumo(true);  // <-- há selecionados: mostra o bloco dos itens
+    mostrarItensResumo(true);
   } else {
     if (tituloResumo) tituloResumo.textContent = "";
     if (miniImg) { miniImg.src = ""; miniImg.alt = ""; }
-    mostrarItensResumo(false); // <-- sem selecionados: esconde o bloco dos itens
+    mostrarItensResumo(false);
   }
 }
 
@@ -177,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ======================================================
-   IMPORTAR ITEM DA HOME + PERSISTÊNCIA (lâmpada)
+   IMPORTAÇÃO E PERSISTÊNCIA (lâmpada)
    ====================================================== */
 function aplicarLampadaDoCarrinho() {
   const cart   = loadCart();
@@ -205,7 +320,6 @@ function aplicarLampadaDoCarrinho() {
   if (qtdEl)  qtdEl.textContent = String(q);
   if (unidadesEl) unidadesEl.textContent = `(${q} unidade${q > 1 ? "s" : ""})`;
 
-  // estado interno
   if (produtos.lampada) {
     produtos.lampada.titulo     = item.title || produtos.lampada.titulo;
     produtos.lampada.preco      = Number(item.price || produtos.lampada.preco);
@@ -248,7 +362,7 @@ function syncLampadaToStorageFromUI() {
 }
 
 function importarDoLocalStorage() {
-  aplicarLampadaDoCarrinho(); // tenta persistente
+  aplicarLampadaDoCarrinho();
 
   const raw = localStorage.getItem("bulbe:addToCart");
   if (raw) {
@@ -276,12 +390,10 @@ function importarDoLocalStorage() {
           if (unidadesEl) unidadesEl.textContent = `(${q} unidade${q > 1 ? "s" : ""})`;
         }
 
-        // estado
         produtos.lampada.titulo     = incoming.title || produtos.lampada.titulo;
         produtos.lampada.preco      = Number(incoming.price || produtos.lampada.preco);
         produtos.lampada.quantidade = Number(incoming.qty || 1);
 
-        // merge persistente
         const id  = `${String(produtos.lampada.titulo).toLowerCase().replace(/\s+/g, " ").slice(0,200)}|${Number(produtos.lampada.preco||0).toFixed(2)}`;
         const img = resolverImgParaCarrinho(incoming.img || "");
         const alt = incoming.alt || incoming.title || produtos.lampada.titulo;
@@ -298,89 +410,81 @@ function importarDoLocalStorage() {
   }
 
   atualizarResumo();
-  atualizarResumoSelecionados(); // resumo segue apenas selecionados; oculta bloco se vazio
+  atualizarResumoSelecionados();
 }
 
 /* ======================================================
-   LIMPAR CARRINHO — limpa seleção e zera resumo (sem esconder footer)
+   LIMPAR CARRINHO
    ====================================================== */
 document.getElementById("botaoLimpar")?.addEventListener("click", limparCarrinho);
 function limparCarrinho() {
-  // reset quantidades visuais (mantém 1 pra não quebrar layout do card)
+  // zera quantidades internas
   produtos.lampada.quantidade       = 1;
   produtos.parafusadeira.quantidade = 1;
 
+  // zera UI (onde existir)
   document.querySelectorAll('[data-produto="lampada"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
   document.querySelectorAll('[data-produto="parafusadeira"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
   document.querySelectorAll('[data-produto="lampada"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
   document.querySelectorAll('[data-produto="parafusadeira"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
 
-  // zera carrinho persistente
+  // storage
   try { localStorage.removeItem("bulbe:cart"); } catch {}
   try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
 
-  // zera seleção (checkboxes e estado)
+  // seleção
   document.querySelectorAll(".selecao-individual").forEach((cb) => (cb.checked = false));
   selecionados.lampada = false;
   selecionados.parafusadeira = false;
-  const selecionarTudo = document.getElementById("selecionarTudo");
-  if (selecionarTudo) { selecionarTudo.checked = false; selecionarTudo.indeterminate = false; }
+  document.querySelectorAll("article.cartao-produto").forEach(card => {
+    card.classList.remove("is-selecionado");
+    updateTriggerA11y(card, false);
+  });
 
-  // atualizações
-  atualizarResumo();             // totais gerais
-  atualizarResumoSelecionados(); // resumo zerado e bloco de itens oculto
+  atualizarSelecionarTudoEstado();
+  atualizarResumo();
+  atualizarResumoSelecionados(); // oculta bloco de itens do resumo
 }
 
 /* ======================================================
-   SELEÇÃO: "Selecionar" (texto/botão) + checkboxes
+   EVENTOS: “Selecionar” SEMPRE seleciona (não alterna)
+   - Delegação de evento única (evita duplicações)
    ====================================================== */
-
-// Delegação para o texto/botão "Selecionar"
-document.addEventListener("click", (e) => {
-  let trigger = e.target.closest('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar');
+function onClickSelecionar(e) {
+  let trigger = e.target.closest('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao');
   if (!trigger && (e.target?.textContent || "").trim().toLowerCase() === "selecionar") {
     trigger = e.target;
   }
   if (!trigger) return;
 
+  e.preventDefault();
+
   const card  = trigger.closest("article.cartao-produto");
   const chave = card?.dataset.produto;
   if (!chave || !produtos[chave]) return;
 
-  // alterna seleção
-  const novo = !Boolean(selecionados[chave]);
-  selecionados[chave] = novo;
-
-  // sincronia com checkbox (se existir) e classe visual opcional
-  const cb = card.querySelector(".selecao-individual");
-  if (cb) cb.checked = novo;
-  card.classList.toggle("is-selecionado", novo);
-
-  // manter coerência do "selecionar tudo"
-  const selecionarTudo = document.getElementById("selecionarTudo");
-  if (selecionarTudo) {
-    const cards = Object.keys(produtos);
-    const vals  = cards.map((k) => !!selecionados[k]);
-    const all   = vals.every(Boolean);
-    const any   = vals.some(Boolean);
-    selecionarTudo.checked = all;
-    selecionarTudo.indeterminate = !all && any;
+  if (!selecionados[chave]) {
+    selecionados[chave] = true;
+    const cb = card.querySelector(".selecao-individual");
+    if (cb) cb.checked = true;
+    card.classList.add("is-selecionado");
+    updateTriggerA11y(card, true);
+    atualizarSelecionarTudoEstado();
+    atualizarResumoSelecionados();
   }
+}
 
-  atualizarResumoSelecionados();
-});
-
-// Teclado acessível para "Selecionar" (Enter/Espaço)
-document.addEventListener("keydown", (e) => {
-  const isEnterOrSpace = (e.key === "Enter" || e.key === " ");
-  if (!isEnterOrSpace) return;
-  const trigger = document.activeElement?.closest?.('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar');
+function onKeydownSelecionar(e) {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const trigger = document.activeElement?.closest?.('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao');
   if (!trigger) return;
   e.preventDefault();
   trigger.click();
-});
+}
 
-// Checkboxes individuais
+/* ======================================================
+   CHECKBOXES: individuais e “Selecionar tudo”
+   ====================================================== */
 function bindCheckboxesSelecao() {
   const selecionarTudo = document.getElementById("selecionarTudo");
   const cbs = Array.from(document.querySelectorAll(".selecao-individual"));
@@ -403,7 +507,6 @@ function bindCheckboxesSelecao() {
   });
 }
 
-// Sincroniza o objeto "selecionados" a partir dos checkboxes
 function syncSelectionFromCheckboxes() {
   document.querySelectorAll("article.cartao-produto").forEach((card) => {
     const k  = card.dataset.produto;
@@ -412,15 +515,23 @@ function syncSelectionFromCheckboxes() {
     const isOn = cb ? !!cb.checked : false;
     selecionados[k] = isOn;
     card.classList.toggle("is-selecionado", isOn);
+    updateTriggerA11y(card, isOn);
   });
+  atualizarSelecionarTudoEstado();
   atualizarResumoSelecionados();
 }
 
 /* ======================================================
-   INICIALIZAÇÃO
+   INICIALIZAÇÃO (com proteção contra listeners duplicados)
    ====================================================== */
 function init() {
-  // Inicia SEM itens no resumo: força todos desmarcados
+  if (window.__bulbeCartInit) return; // evita binds duplicados
+  window.__bulbeCartInit = true;
+
+  injectSelecionarStyles();
+  enhanceSelecionarUI();
+
+  // Estado inicial: SEM itens no resumo
   document.querySelectorAll(".selecao-individual").forEach((cb) => (cb.checked = false));
   selecionados.lampada = false;
   selecionados.parafusadeira = false;
@@ -429,11 +540,14 @@ function init() {
 
   bindCheckboxesSelecao();
   ativarContadores();
-  importarDoLocalStorage(); // aplica item salvo (se houver)
+  importarDoLocalStorage();
 
-  // Atualiza áreas
-  atualizarResumo();             // totais gerais (não mexe no bloco de itens)
-  atualizarResumoSelecionados(); // resumo inicia zerado e bloco dos itens oculto
+  // Delegação única
+  document.addEventListener("click", onClickSelecionar);
+  document.addEventListener("keydown", onKeydownSelecionar);
+
+  atualizarResumo();
+  atualizarResumoSelecionados(); // inicia zerado e oculta bloco de itens
 }
 
 if (document.readyState === "loading") {
@@ -442,7 +556,11 @@ if (document.readyState === "loading") {
   init();
 }
 
-// Reexecuta quando voltar via bfcache
+// Reexecuta quando voltar via bfcache (sem duplicar binds)
 window.addEventListener("pageshow", (ev) => {
-  if (ev.persisted) init();
+  if (ev.persisted) {
+    enhanceSelecionarUI();
+    atualizarResumo();
+    atualizarResumoSelecionados();
+  }
 });
