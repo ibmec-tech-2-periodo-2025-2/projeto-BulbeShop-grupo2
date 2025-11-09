@@ -1,11 +1,12 @@
 /* ======================================================
    CARRINHO (BulbeShop) — script.js
-   Objetivo adicional:
-   - Quando a quantidade estiver em 1 e o usuário clicar no "−",
-     o item é REMOVIDO do carrinho (não mostra 0)
-   - Mantém tudo já implementado: “Selecionar” acessível/estilizado,
-     resumo apenas dos selecionados, selecionar tudo, limpar, persistência etc.
-   - Sem criar/editar HTML/CSS de arquivos: apenas JS
+   Atualizações:
+   - Carrinho VAZIO por padrão (se não houver bulbe:cart e nem bulbe:addToCart)
+   - Botão “Selecionar/Selecionado” com TOGGLE (texto, ARIA e estilo)
+   - Mantém: voltar, carrossel, +/−, remover ao ir a 0, selecionar tudo,
+             limpar carrinho, persistência (bulbe:cart/lastAddedId),
+             compatibilidade com bulbe:addToCart, resumo apenas dos selecionados
+   - Sem criar/editar HTML/CSS externos: todo o CSS extra é injetado por JS
    ====================================================== */
 
 /* ==== BOTÃO VOLTAR ==== */
@@ -15,13 +16,13 @@ document.getElementById("botaoVoltar")?.addEventListener("click", () => history.
 const formatoBR = (n) => (Number(n) || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const moedaBR   = (n) => `R$${formatoBR(n)}`;
 
-/* ==== ESTADO INICIAL (espelho do template do seu HTML) ==== */
+/* ==== ESTADO (rótulos básicos; quantidades serão ajustadas por inicialização) ==== */
 const produtos = {
   lampada:       { titulo: "Lâmpada de LED E27 Bulbo 9W 803lm Luz Branca Bivolt Black + Decker", preco: 4.59,  quantidade: 5 },
   parafusadeira: { titulo: "Parafusadeira Philco Force PPF120 3 em 1 1500RPM",                    preco: 199.9, quantidade: 1 },
 };
 
-/* ==== SELEÇÃO (quais entram no RESUMO) — começa desmarcado ==== */
+/* ==== SELEÇÃO (entram no RESUMO) ==== */
 const selecionados = { lampada: false, parafusadeira: false };
 
 /* ==== PERSISTÊNCIA ==== */
@@ -32,7 +33,7 @@ function setLastId(id) { try { localStorage.setItem("bulbe:lastAddedId", id || "
 function resolverImgParaCarrinho(p) { if (!p) return "./assets/img/lamp.svg"; if (p.startsWith("./img/")) return "../home/" + p.slice(2); return p; }
 
 /* ======================================================
-   CSS DO BOTÃO “SELECIONAR” (injetado)
+   CSS DO BOTÃO “SELECIONAR/SELECIONADO” (injetado)
    ====================================================== */
 function injectSelecionarStyles() {
   if (document.getElementById("bulbeSelecionarStyles")) return;
@@ -62,8 +63,7 @@ function injectSelecionarStyles() {
 }
 
 /* ======================================================
-   UPGRADE DOS GATILHOS “Selecionar” → BOTÃO
-   (sem alterar HTML de arquivo; apenas adiciona classe/atributos via JS)
+   UPGRADE DOS GATILHOS “Selecionar/Selecionado” → BOTÃO
    ====================================================== */
 function enhanceSelecionarUI() {
   const known = document.querySelectorAll(
@@ -73,17 +73,25 @@ function enhanceSelecionarUI() {
     if (!(el instanceof HTMLElement)) return false;
     if (el.matches('input,button,select,textarea,[role="button"],a')) return false;
     const t = (el.textContent || "").trim().toLowerCase();
-    return t === "selecionar";
+    return t === "selecionar" || t === "selecionado";
   });
   const triggers = new Set([...known, ...fallbacks]);
   triggers.forEach((el) => {
     el.classList.add("btn-selecao");
     el.setAttribute("role", "button");
     el.setAttribute("tabindex", "0");
-    const alreadySelected = !!el.closest(".cartao-produto")?.classList.contains("is-selecionado");
-    el.setAttribute("aria-pressed", alreadySelected ? "true" : "false");
-    el.setAttribute("aria-label", alreadySelected ? "Selecionado" : "Selecionar produto");
+    const card = el.closest(".cartao-produto");
+    const selected = !!card?.classList.contains("is-selecionado");
+    el.setAttribute("aria-pressed", selected ? "true" : "false");
+    el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
+    // Ajusta texto inicial de acordo com o estado atual do card
+    try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch {}
   });
+}
+
+function updateTriggerLabel(card, selected) {
+  card.querySelectorAll('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao')
+    .forEach(el => { try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch {} });
 }
 
 function updateTriggerA11y(card, selected) {
@@ -92,11 +100,11 @@ function updateTriggerA11y(card, selected) {
         el.setAttribute("aria-pressed", selected ? "true" : "false");
         el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
       });
+  updateTriggerLabel(card, selected);
 }
 
 /* ======================================================
    BLOCO DE ITENS NA BARRA DE RESUMO — mostrar/ocultar
-   (não mexe na barra inteira; apenas no bloco dos itens)
    ====================================================== */
 function getResumoItensNodes() {
   return document.querySelectorAll(
@@ -139,14 +147,14 @@ function ativarContadores() {
       const span = contador.querySelector("[data-quantidade]") || contador.querySelector(".quantidade-atual");
       let n = parseInt(span?.textContent || "1", 10) || 1;
 
-      // >>> NOVO COMPORTAMENTO: se está em 1 e clicou "diminuir", REMOVE o item
+      // Remoção quando iria a 0
       if (acao === "diminuir" && n === 1) {
         removerItemDoCarrinho(chave, produtoPai);
-        return; // não segue para setar 0
+        return;
       }
 
       if (acao === "aumentar") n++;
-      if (acao === "diminuir") n = Math.max(1, n - 1); // nunca abaixo de 1
+      if (acao === "diminuir") n = Math.max(1, n - 1);
 
       span.textContent = String(n);
       produtos[chave].quantidade = n;
@@ -156,8 +164,8 @@ function ativarContadores() {
 
       if (chave === "lampada") syncLampadaToStorageFromUI();
 
-      atualizarResumo();             // totais gerais (todos os itens)
-      atualizarResumoSelecionados(); // apenas selecionados (barra inferior)
+      atualizarResumo();
+      atualizarResumoSelecionados();
     });
   });
 }
@@ -169,7 +177,7 @@ function removerItemDoCarrinho(chave, card) {
   // 1) Estado interno
   if (produtos[chave]) produtos[chave].quantidade = 0;
 
-  // 2) Seleção: desmarcar e limpar classes/ARIA
+  // 2) Seleção: desmarcar e limpar classes/ARIA/label
   const cb = card?.querySelector(".selecao-individual");
   if (cb) cb.checked = false;
   selecionados[chave] = false;
@@ -177,37 +185,24 @@ function removerItemDoCarrinho(chave, card) {
   updateTriggerA11y(card, false);
 
   // 3) Persistência: remover do bulbe:cart (se existir)
-  //    Tentar montar o mesmo id usado no armazenamento (título + preço)
   let title = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
   let priceEl = card?.querySelector(".valor-produto, .price, [data-preco]");
   let unit = 0;
-  if (priceEl?.dataset?.preco) {
-    unit = Number(priceEl.dataset.preco);
-  } else {
-    unit = Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
-  }
+  if (priceEl?.dataset?.preco) unit = Number(priceEl.dataset.preco);
+  else unit = Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
   const idGuess = `${String(title).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(unit || 0).toFixed(2)}`;
   const cartArr = loadCart();
   const idx = cartArr.findIndex((it) => it.id === idGuess);
-  if (idx >= 0) {
-    cartArr.splice(idx, 1);
-    saveCart(cartArr);
-  }
-  // limpar lastAddedId se corresponder
+  if (idx >= 0) { cartArr.splice(idx, 1); saveCart(cartArr); }
   const last = getLastId();
   if (last && last === idGuess) setLastId("");
 
   // 4) Remover o card do DOM
-  if (card && typeof card.remove === "function") {
-    card.remove();
-  } else if (card && card.style) {
-    card.style.display = "none";
-  }
+  if (card && typeof card.remove === "function") card.remove();
+  else if (card && card.style) card.style.display = "none";
 
-  // 5) Atualizar "selecionar tudo"
+  // 5) Atualizar "selecionar tudo" + resumos
   atualizarSelecionarTudoEstado();
-
-  // 6) Atualizar resumos
   atualizarResumo();
   atualizarResumoSelecionados();
 }
@@ -228,8 +223,7 @@ function atualizarResumo() {
 }
 
 /* ======================================================
-   RESUMO DE COMPRA (BARRA INFERIOR) — APENAS SELECIONADOS
-   - Se vazio: oculta o bloco de itens do resumo
+   RESUMO (BARRA INFERIOR) — APENAS SELECIONADOS
    ====================================================== */
 function atualizarResumoSelecionados() {
   const chavesSel = Object.keys(produtos).filter((k) => selecionados[k]);
@@ -292,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ======================================================
-   IMPORTAÇÃO E PERSISTÊNCIA (lâmpada)
+   IMPORTAÇÃO E PERSISTÊNCIA (lâmpada como template)
    ====================================================== */
 function aplicarLampadaDoCarrinho() {
   const cart   = loadCart();
@@ -302,6 +296,9 @@ function aplicarLampadaDoCarrinho() {
 
   const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
   if (!lamp) return false;
+
+  // Garante que o card apareça se estava oculto pelo "carrinho vazio"
+  lamp.style.display = "";
 
   const imgEl      = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
   const titleEl    = lamp.querySelector(".titulo-produto, .title, h3, h2");
@@ -372,6 +369,7 @@ function importarDoLocalStorage() {
       if (incoming && incoming.title) {
         const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
         if (lamp) {
+          lamp.style.display = ""; // garantir visibilidade
           const imgEl      = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
           const titleEl    = lamp.querySelector(".titulo-produto, .title, h3, h2");
           const priceEl    = lamp.querySelector(".valor-produto, .price, [data-preco]");
@@ -414,32 +412,65 @@ function importarDoLocalStorage() {
 }
 
 /* ======================================================
+   CARRINHO VAZIO POR PADRÃO (se não houver storage nem payload)
+   ====================================================== */
+function inicializarCarrinhoVazioSeNecessario() {
+  const cart = loadCart();
+  const hasCart = Array.isArray(cart) && cart.length > 0;
+  const hasPayload = !!localStorage.getItem("bulbe:addToCart");
+
+  if (hasCart || hasPayload) return; // há itens → não esconder
+
+  // Zera quantidades internas
+  produtos.lampada.quantidade = 0;
+  produtos.parafusadeira.quantidade = 0;
+
+  // Oculta cards padrão
+  const cLamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
+  const cPar  = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
+  if (cLamp) { cLamp.style.display = "none"; cLamp.classList.remove("is-selecionado"); }
+  if (cPar)  { cPar.style.display  = "none"; cPar.classList.remove("is-selecionado"); }
+
+  // Desmarca checkboxes e rótulos → “Selecionar”
+  [cLamp, cPar].forEach(card => {
+    if (!card) return;
+    const cb = card.querySelector(".selecao-individual");
+    if (cb) cb.checked = false;
+    updateTriggerA11y(card, false);
+  });
+  selecionados.lampada = false;
+  selecionados.parafusadeira = false;
+
+  // Resumos zerados + bloco de itens oculto
+  atualizarResumo();
+  atualizarResumoSelecionados();
+}
+
+/* ======================================================
    LIMPAR CARRINHO
    ====================================================== */
 document.getElementById("botaoLimpar")?.addEventListener("click", limparCarrinho);
 function limparCarrinho() {
-  // zera quantidades internas
+  // Mantém comportamento anterior (quantidade volta a 1 nos cards presentes)
   produtos.lampada.quantidade       = 1;
   produtos.parafusadeira.quantidade = 1;
 
-  // zera UI (onde existir)
   document.querySelectorAll('[data-produto="lampada"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
   document.querySelectorAll('[data-produto="parafusadeira"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
   document.querySelectorAll('[data-produto="lampada"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
   document.querySelectorAll('[data-produto="parafusadeira"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
 
-  // storage
   try { localStorage.removeItem("bulbe:cart"); } catch {}
   try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
 
-  // seleção
-  document.querySelectorAll(".selecao-individual").forEach((cb) => (cb.checked = false));
+  document.querySelectorAll("article.cartao-produto").forEach(card => {
+    const cb = card.querySelector(".selecao-individual");
+    if (cb) cb.checked = false;
+    card.classList.remove("is-selecionado");
+    updateTriggerA11y(card, false); // volta rótulo para “Selecionar”
+  });
   selecionados.lampada = false;
   selecionados.parafusadeira = false;
-  document.querySelectorAll("article.cartao-produto").forEach(card => {
-    card.classList.remove("is-selecionado");
-    updateTriggerA11y(card, false);
-  });
 
   atualizarSelecionarTudoEstado();
   atualizarResumo();
@@ -447,8 +478,7 @@ function limparCarrinho() {
 }
 
 /* ======================================================
-   EVENTOS: “Selecionar” SEMPRE seleciona (não alterna)
-   - Delegação de evento única (evita duplicações)
+   EVENTOS: “Selecionar/Selecionado” com TOGGLE
    ====================================================== */
 function onClickSelecionar(e) {
   let trigger = e.target.closest('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao');
@@ -461,17 +491,18 @@ function onClickSelecionar(e) {
 
   const card  = trigger.closest("article.cartao-produto");
   const chave = card?.dataset.produto;
-  if (!chave || !produtos[chave]) return;
+  if (!chave || !(chave in produtos)) return;
 
-  if (!selecionados[chave]) {
-    selecionados[chave] = true;
-    const cb = card.querySelector(".selecao-individual");
-    if (cb) cb.checked = true;
-    card.classList.add("is-selecionado");
-    updateTriggerA11y(card, true);
-    atualizarSelecionarTudoEstado();
-    atualizarResumoSelecionados();
-  }
+  const novoEstado = !selecionados[chave];
+  selecionados[chave] = novoEstado;
+
+  const cb = card.querySelector(".selecao-individual");
+  if (cb) cb.checked = novoEstado;
+
+  card.classList.toggle("is-selecionado", novoEstado);
+  updateTriggerA11y(card, novoEstado);
+  atualizarSelecionarTudoEstado();
+  atualizarResumoSelecionados();
 }
 
 function onKeydownSelecionar(e) {
@@ -525,18 +556,21 @@ function syncSelectionFromCheckboxes() {
    INICIALIZAÇÃO (com proteção contra listeners duplicados)
    ====================================================== */
 function init() {
-  if (window.__bulbeCartInit) return; // evita binds duplicados
+  if (window.__bulbeCartInit) return;
   window.__bulbeCartInit = true;
 
   injectSelecionarStyles();
   enhanceSelecionarUI();
 
-  // Estado inicial: SEM itens no resumo
+  // Estado inicial: SEM selecionados
   document.querySelectorAll(".selecao-individual").forEach((cb) => (cb.checked = false));
   selecionados.lampada = false;
   selecionados.parafusadeira = false;
   const selecionarTudo = document.getElementById("selecionarTudo");
   if (selecionarTudo) { selecionarTudo.checked = false; selecionarTudo.indeterminate = false; }
+
+  // Carrinho vazio por padrão (se não houver storage/payload)
+  inicializarCarrinhoVazioSeNecessario();
 
   bindCheckboxesSelecao();
   ativarContadores();
@@ -547,7 +581,7 @@ function init() {
   document.addEventListener("keydown", onKeydownSelecionar);
 
   atualizarResumo();
-  atualizarResumoSelecionados(); // inicia zerado e oculta bloco de itens
+  atualizarResumoSelecionados();
 }
 
 if (document.readyState === "loading") {
@@ -556,7 +590,7 @@ if (document.readyState === "loading") {
   init();
 }
 
-// Reexecuta quando voltar via bfcache (sem duplicar binds)
+// Reexecuta quando voltar via bfcache
 window.addEventListener("pageshow", (ev) => {
   if (ev.persisted) {
     enhanceSelecionarUI();
