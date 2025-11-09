@@ -1,11 +1,12 @@
 /* ======================================================
    CARRINHO (BulbeShop) — script.js
    Atualizações:
-   - Carrinho VAZIO por padrão (se não houver bulbe:cart e nem bulbe:addToCart)
-   - Botão “Selecionar/Selecionado” com TOGGLE (texto, ARIA e estilo)
-   - Mantém: voltar, carrossel, +/−, remover ao ir a 0, selecionar tudo,
-             limpar carrinho, persistência (bulbe:cart/lastAddedId),
-             compatibilidade com bulbe:addToCart, resumo apenas dos selecionados
+   - Tooltip moderno “Selecionado” (hover/focus) no botão Selecionar
+   - “Selecionar tudo” opera APENAS sobre itens VISÍVEIS (e estado indeterminate correto)
+   - Corrige bug: parafusadeira NÃO é adicionada junto via bulbe:addToCart
+   - Mantém: carrinho vazio por padrão, toggle Selecionar/Selecionado, +/−,
+             remoção ao ir para 0, limpar carrinho, persistência, compat com addToCart,
+             resumo só dos selecionados e acessibilidade do botão
    - Sem criar/editar HTML/CSS externos: todo o CSS extra é injetado por JS
    ====================================================== */
 
@@ -16,7 +17,7 @@ document.getElementById("botaoVoltar")?.addEventListener("click", () => history.
 const formatoBR = (n) => (Number(n) || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const moedaBR   = (n) => `R$${formatoBR(n)}`;
 
-/* ==== ESTADO (rótulos básicos; quantidades serão ajustadas por inicialização) ==== */
+/* ==== ESTADO (títulos/preços base; quantidades serão ajustadas na inicialização) ==== */
 const produtos = {
   lampada:       { titulo: "Lâmpada de LED E27 Bulbo 9W 803lm Luz Branca Bivolt Black + Decker", preco: 4.59,  quantidade: 5 },
   parafusadeira: { titulo: "Parafusadeira Philco Force PPF120 3 em 1 1500RPM",                    preco: 199.9, quantidade: 1 },
@@ -33,11 +34,11 @@ function setLastId(id) { try { localStorage.setItem("bulbe:lastAddedId", id || "
 function resolverImgParaCarrinho(p) { if (!p) return "./assets/img/lamp.svg"; if (p.startsWith("./img/")) return "../home/" + p.slice(2); return p; }
 
 /* ======================================================
-   CSS DO BOTÃO “SELECIONAR/SELECIONADO” (injetado)
+   CSS DO BOTÃO “SELECIONAR/SELECIONADO” + TOOLTIP (injetado)
    ====================================================== */
 function injectSelecionarStyles() {
-  if (document.getElementById("bulbeSelecionarStyles")) return;
-  const css = `
+  let style = document.getElementById("bulbeSelecionarStyles");
+  const base = `
   .btn-selecao{
     cursor:pointer; user-select:none; pointer-events:auto;
     display:inline-flex; align-items:center; gap:.4rem;
@@ -45,6 +46,7 @@ function injectSelecionarStyles() {
     border:1px solid rgba(8,6,141,.28); background:#fff;
     font-weight:600; line-height:1; font-size:.95rem;
     transition: box-shadow .15s ease, transform .05s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    position: relative; /* necessário pro tooltip */
   }
   .btn-selecao:hover{ box-shadow:0 2px 6px rgba(0,0,0,.08); background:#f7f8ff; border-color:#c9cdea; }
   .btn-selecao:active{ transform:translateY(1px); }
@@ -52,14 +54,51 @@ function injectSelecionarStyles() {
   .cartao-produto.is-selecionado .btn-selecao{
     background:#08068D; border-color:#08068D; color:#fff;
   }
+  .cartao-produto.is-selecionado .btn-selecao::before,
+  .cartao-produto.is-selecionado .btn-selecao::after{ pointer-events:none; }
+
+  /* Estado base do tooltip (invisível) para itens selecionados */
+  .cartao-produto.is-selecionado .btn-selecao::after{
+    content:"Selecionado";
+    position:absolute; left:50%; bottom:calc(100% + 10px);
+    transform: translateX(-50%) translateY(6px);
+    opacity:0; white-space:nowrap; max-width:220px; text-overflow:ellipsis; overflow:hidden;
+    padding:.4rem .6rem; border-radius:10px;
+    color:#111; background:rgba(255,255,255,.7);
+    border:1px solid rgba(8,6,141,.15);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    backdrop-filter: blur(6px);
+    z-index:60;
+    transition: opacity .18s ease, transform .18s ease;
+  }
   .cartao-produto.is-selecionado .btn-selecao::before{
-    content:"✓"; font-weight:700;
+    content:"";
+    position:absolute; left:50%; bottom:100%;
+    transform: translateX(-50%) translateY(4px);
+    opacity:0; z-index:59;
+    border-width:6px; border-style:solid;
+    border-color: transparent transparent rgba(255,255,255,.7) transparent;
+    filter: drop-shadow(0 -1px 0 rgba(8,6,141,.15));
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  /* Exibe tooltip no hover/focus */
+  .cartao-produto.is-selecionado .btn-selecao:hover::after,
+  .cartao-produto.is-selecionado .btn-selecao:focus-visible::after{
+    opacity:1; transform: translateX(-50%) translateY(0);
+  }
+  .cartao-produto.is-selecionado .btn-selecao:hover::before,
+  .cartao-produto.is-selecionado .btn-selecao:focus-visible::before{
+    opacity:1; transform: translateX(-50%) translateY(0);
   }
   `;
-  const style = document.createElement("style");
-  style.id = "bulbeSelecionarStyles";
-  style.textContent = css;
-  document.head.appendChild(style);
+  if (!style) {
+    style = document.createElement("style");
+    style.id = "bulbeSelecionarStyles";
+    document.head.appendChild(style);
+    style.textContent = base;
+  } else if (!style.textContent.includes(".btn-selecao")) {
+    style.textContent += base;
+  }
 }
 
 /* ======================================================
@@ -84,7 +123,6 @@ function enhanceSelecionarUI() {
     const selected = !!card?.classList.contains("is-selecionado");
     el.setAttribute("aria-pressed", selected ? "true" : "false");
     el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
-    // Ajusta texto inicial de acordo com o estado atual do card
     try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch {}
   });
 }
@@ -104,6 +142,17 @@ function updateTriggerA11y(card, selected) {
 }
 
 /* ======================================================
+   HELPERS DE VISIBILIDADE (para “Selecionar tudo” e contagens)
+   ====================================================== */
+function isVisibleCard(card){
+  if (!card) return false;
+  const cs = getComputedStyle(card);
+  return card.offsetParent !== null && cs.display !== "none" && cs.visibility !== "hidden" && cs.opacity !== "0";
+}
+function getVisibleCards(){ return Array.from(document.querySelectorAll('article.cartao-produto')).filter(isVisibleCard); }
+function getVisibleCheckboxes(){ return getVisibleCards().map(c=>c.querySelector('.selecao-individual')).filter(Boolean); }
+
+/* ======================================================
    BLOCO DE ITENS NA BARRA DE RESUMO — mostrar/ocultar
    ====================================================== */
 function getResumoItensNodes() {
@@ -116,13 +165,18 @@ function mostrarItensResumo(mostrar) {
 }
 
 /* ======================================================
-   ATALHO: Atualiza estado visual de #selecionarTudo
+   “Selecionar tudo” — estado baseado SOMENTE em itens VISÍVEIS
    ====================================================== */
 function atualizarSelecionarTudoEstado() {
   const selecionarTudo = document.getElementById("selecionarTudo");
   if (!selecionarTudo) return;
-  const cbs = Array.from(document.querySelectorAll(".selecao-individual"));
-  const all = cbs.length > 0 && cbs.every((x) => x.checked);
+  const cbs = getVisibleCheckboxes();
+  if (cbs.length === 0) {
+    selecionarTudo.checked = false;
+    selecionarTudo.indeterminate = false;
+    return;
+  }
+  const all = cbs.every((x) => x.checked);
   const any = cbs.some((x) => x.checked);
   selecionarTudo.checked = all;
   selecionarTudo.indeterminate = !all && any;
@@ -358,8 +412,55 @@ function syncLampadaToStorageFromUI() {
   setLastId(id);
 }
 
+/* ======================================================
+   CARRINHO VAZIO POR PADRÃO (se não houver storage nem payload)
+   ====================================================== */
+function inicializarCarrinhoVazioSeNecessario() {
+  const cart = loadCart();
+  const hasCart = Array.isArray(cart) && cart.length > 0;
+  const hasPayload = !!localStorage.getItem("bulbe:addToCart");
+
+  if (hasCart || hasPayload) return; // há itens → não esconder
+
+  // Zera quantidades internas e oculta cards padrão
+  const cLamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
+  const cPar  = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
+
+  produtos.lampada.quantidade = 0;
+  produtos.parafusadeira.quantidade = 0;
+
+  if (cLamp) { cLamp.style.display = "none"; cLamp.classList.remove("is-selecionado"); const cb = cLamp.querySelector(".selecao-individual"); if (cb) cb.checked=false; updateTriggerA11y(cLamp, false); }
+  if (cPar)  { cPar.style.display  = "none"; cPar.classList.remove("is-selecionado");  const cb = cPar.querySelector(".selecao-individual");  if (cb) cb.checked=false;  updateTriggerA11y(cPar,  false); }
+
+  selecionados.lampada = false;
+  selecionados.parafusadeira = false;
+
+  atualizarResumo();
+  atualizarResumoSelecionados();
+}
+
+/* ======================================================
+   GARANTE que PARAFUSADEIRA não aparece indevidamente
+   ====================================================== */
+function ensureParafusadeiraNaoAutoCarrega() {
+  const cardPar = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
+  if (!cardPar) return;
+  const cart = loadCart();
+  const existsInCart = cart.some(it => (it.title||"").toLowerCase().includes("parafusadeira"));
+  if (!existsInCart) {
+    produtos.parafusadeira.quantidade = 0;
+    const cb = cardPar.querySelector(".selecao-individual"); if (cb) cb.checked = false;
+    cardPar.classList.remove("is-selecionado");
+    updateTriggerA11y(cardPar, false);
+    cardPar.style.display = "none";
+  }
+}
+
+/* ======================================================
+   IMPORTA DO LOCALSTORAGE / PAYLOAD (deve usar APENAS card “lampada” como template)
+   ====================================================== */
 function importarDoLocalStorage() {
-  aplicarLampadaDoCarrinho();
+  aplicarLampadaDoCarrinho(); // popula o template "lampada" se houver item salvo
 
   const raw = localStorage.getItem("bulbe:addToCart");
   if (raw) {
@@ -369,7 +470,7 @@ function importarDoLocalStorage() {
       if (incoming && incoming.title) {
         const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
         if (lamp) {
-          lamp.style.display = ""; // garantir visibilidade
+          lamp.style.display = ""; // garantir visibilidade SÓ do lampada
           const imgEl      = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
           const titleEl    = lamp.querySelector(".titulo-produto, .title, h3, h2");
           const priceEl    = lamp.querySelector(".valor-produto, .price, [data-preco]");
@@ -386,62 +487,27 @@ function importarDoLocalStorage() {
           const q = Number(incoming.qty || 1);
           if (qtdEl)  qtdEl.textContent = String(q);
           if (unidadesEl) unidadesEl.textContent = `(${q} unidade${q > 1 ? "s" : ""})`;
+
+          produtos.lampada.titulo     = incoming.title || produtos.lampada.titulo;
+          produtos.lampada.preco      = Number(incoming.price || produtos.lampada.preco);
+          produtos.lampada.quantidade = Number(incoming.qty || 1);
+
+          const id  = `${String(produtos.lampada.titulo).toLowerCase().replace(/\s+/g, " ").slice(0,200)}|${Number(produtos.lampada.preco||0).toFixed(2)}`;
+          const img = resolverImgParaCarrinho(incoming.img || "");
+          const alt = incoming.alt || incoming.title || produtos.lampada.titulo;
+
+          const cart = loadCart();
+          const ix   = cart.findIndex((it) => it.id === id);
+          if (ix >= 0) cart[ix].qty = Number(incoming.qty || 1);
+          else cart.push({ id, title: produtos.lampada.titulo, price: produtos.lampada.preco, img, alt, qty: Number(incoming.qty || 1) });
+
+          saveCart(cart);
+          setLastId(id);
         }
-
-        produtos.lampada.titulo     = incoming.title || produtos.lampada.titulo;
-        produtos.lampada.preco      = Number(incoming.price || produtos.lampada.preco);
-        produtos.lampada.quantidade = Number(incoming.qty || 1);
-
-        const id  = `${String(produtos.lampada.titulo).toLowerCase().replace(/\s+/g, " ").slice(0,200)}|${Number(produtos.lampada.preco||0).toFixed(2)}`;
-        const img = resolverImgParaCarrinho(incoming.img || "");
-        const alt = incoming.alt || incoming.title || produtos.lampada.titulo;
-
-        const cart = loadCart();
-        const ix   = cart.findIndex((it) => it.id === id);
-        if (ix >= 0) cart[ix].qty = Number(incoming.qty || 1);
-        else cart.push({ id, title: produtos.lampada.titulo, price: produtos.lampada.preco, img, alt, qty: Number(incoming.qty || 1) });
-
-        saveCart(cart);
-        setLastId(id);
       }
     } catch {}
   }
 
-  atualizarResumo();
-  atualizarResumoSelecionados();
-}
-
-/* ======================================================
-   CARRINHO VAZIO POR PADRÃO (se não houver storage nem payload)
-   ====================================================== */
-function inicializarCarrinhoVazioSeNecessario() {
-  const cart = loadCart();
-  const hasCart = Array.isArray(cart) && cart.length > 0;
-  const hasPayload = !!localStorage.getItem("bulbe:addToCart");
-
-  if (hasCart || hasPayload) return; // há itens → não esconder
-
-  // Zera quantidades internas
-  produtos.lampada.quantidade = 0;
-  produtos.parafusadeira.quantidade = 0;
-
-  // Oculta cards padrão
-  const cLamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
-  const cPar  = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
-  if (cLamp) { cLamp.style.display = "none"; cLamp.classList.remove("is-selecionado"); }
-  if (cPar)  { cPar.style.display  = "none"; cPar.classList.remove("is-selecionado"); }
-
-  // Desmarca checkboxes e rótulos → “Selecionar”
-  [cLamp, cPar].forEach(card => {
-    if (!card) return;
-    const cb = card.querySelector(".selecao-individual");
-    if (cb) cb.checked = false;
-    updateTriggerA11y(card, false);
-  });
-  selecionados.lampada = false;
-  selecionados.parafusadeira = false;
-
-  // Resumos zerados + bloco de itens oculto
   atualizarResumo();
   atualizarResumoSelecionados();
 }
@@ -514,32 +580,44 @@ function onKeydownSelecionar(e) {
 }
 
 /* ======================================================
-   CHECKBOXES: individuais e “Selecionar tudo”
+   CHECKBOXES: individuais e “Selecionar tudo” (somente visíveis)
    ====================================================== */
 function bindCheckboxesSelecao() {
   const selecionarTudo = document.getElementById("selecionarTudo");
-  const cbs = Array.from(document.querySelectorAll(".selecao-individual"));
 
   selecionarTudo?.addEventListener("change", () => {
-    cbs.forEach((c) => (c.checked = selecionarTudo.checked));
-    syncSelectionFromCheckboxes();
+    const cbs = getVisibleCheckboxes();
+    cbs.forEach((c) => {
+      const card = c.closest("article.cartao-produto");
+      const chave = card?.dataset.produto;
+      if (!chave || !(chave in produtos)) return;
+      c.checked = selecionarTudo.checked;
+      selecionados[chave] = c.checked;
+      card.classList.toggle("is-selecionado", c.checked);
+      updateTriggerA11y(card, c.checked);
+    });
+    atualizarResumoSelecionados();
   });
 
-  cbs.forEach((c) => {
+  // listeners individuais (nos que existem inicialmente)
+  document.querySelectorAll(".selecao-individual").forEach((c) => {
     c.addEventListener("change", () => {
-      if (selecionarTudo) {
-        const all = cbs.every((x) => x.checked);
-        const any = cbs.some((x) => x.checked);
-        selecionarTudo.indeterminate = !all && any;
-        selecionarTudo.checked = all;
-      }
-      syncSelectionFromCheckboxes();
+      const card = c.closest("article.cartao-produto");
+      const chave = card?.dataset.produto;
+      if (!chave || !(chave in produtos)) return;
+      const on = !!c.checked;
+      selecionados[chave] = on;
+      card.classList.toggle("is-selecionado", on);
+      updateTriggerA11y(card, on);
+      atualizarSelecionarTudoEstado();
+      atualizarResumoSelecionados();
     });
   });
 }
 
 function syncSelectionFromCheckboxes() {
-  document.querySelectorAll("article.cartao-produto").forEach((card) => {
+  // Sincroniza somente visíveis para o estado do "selecionar tudo"
+  getVisibleCards().forEach((card) => {
     const k  = card.dataset.produto;
     if (!k || !(k in produtos)) return;
     const cb = card.querySelector(".selecao-individual");
@@ -572,6 +650,9 @@ function init() {
   // Carrinho vazio por padrão (se não houver storage/payload)
   inicializarCarrinhoVazioSeNecessario();
 
+  // Garante que parafusadeira não apareça indevidamente
+  ensureParafusadeiraNaoAutoCarrega();
+
   bindCheckboxesSelecao();
   ativarContadores();
   importarDoLocalStorage();
@@ -594,6 +675,7 @@ if (document.readyState === "loading") {
 window.addEventListener("pageshow", (ev) => {
   if (ev.persisted) {
     enhanceSelecionarUI();
+    atualizarSelecionarTudoEstado();
     atualizarResumo();
     atualizarResumoSelecionados();
   }
