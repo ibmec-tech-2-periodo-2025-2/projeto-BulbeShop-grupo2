@@ -193,3 +193,129 @@ function limparCarrinho() {
     if (ev.persisted) init();
   });
 })();
+
+/* ==== [ADDON PERSISTÊNCIA] CARRINHO -> carrega/sincroniza com localStorage ==== */
+(() => {
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem('bulbe:cart')) || []; } catch { return []; }
+  }
+  function saveCart(arr) {
+    try { localStorage.setItem('bulbe:cart', JSON.stringify(arr)); } catch {}
+  }
+  function getLastId() {
+    try { return localStorage.getItem('bulbe:lastAddedId') || ''; } catch { return ''; }
+  }
+  function setLastId(id) {
+    try { localStorage.setItem('bulbe:lastAddedId', id || ''); } catch {}
+  }
+
+  function moedaBR(n) {
+    return (Number(n) || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function resolverImgParaCarrinho(p) {
+    if (!p) return './assets/img/lamp.svg';
+    if (p.startsWith('./img/')) return '../home/' + p.slice(2);
+    return p;
+  }
+
+  // Aplica um item salvo no cartão da lâmpada (mantendo layout/JS)
+  function aplicarLampadaDoCarrinho() {
+    const cart = loadCart();
+    if (!cart.length) return false;
+
+    // Preferir o último adicionado, senão o primeiro
+    const lastId = getLastId();
+    const item = cart.find(it => it.id === lastId) || cart[0];
+
+    const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
+    if (!lamp || !item) return false;
+
+    const imgEl   = lamp.querySelector('.imagem-produto img, .img img, picture img, img');
+    const titleEl = lamp.querySelector('.titulo-produto, .title, h3, h2');
+    const priceEl = lamp.querySelector('.valor-produto, .price, [data-preco]');
+    const qtdEl   = lamp.querySelector('[data-quantidade], .qtd, .quantidade');
+    const unidadesEl = lamp.querySelector('.texto-unidades, .units, .info-qtd');
+
+    if (imgEl)  { imgEl.src = resolverImgParaCarrinho(item.img); imgEl.alt = item.alt || item.title || 'Produto'; }
+    if (titleEl){ titleEl.innerHTML = (item.title || 'Produto').replace(/\s{2,}/g, ' '); }
+    if (priceEl){
+      if (priceEl instanceof HTMLElement) priceEl.dataset.preco = String(Number(item.price || 0).toFixed(2));
+      priceEl.textContent = moedaBR(item.price || 0);
+    }
+    if (qtdEl)  qtdEl.textContent = String(item.qty || 1);
+    if (unidadesEl) unidadesEl.textContent = `(${item.qty || 1} unidade${(item.qty||1) > 1 ? 's' : ''})`;
+
+    // Atualiza seu estado existente
+    if (typeof window.produtos === 'object' && window.produtos.lampada) {
+      window.produtos.lampada.titulo = item.title || window.produtos.lampada.titulo;
+      window.produtos.lampada.preco  = Number(item.price || window.produtos.lampada.preco);
+      window.produtos.lampada.quantidade = Number(item.qty || 1);
+    }
+
+    // Recalcula com suas funções
+    if (typeof window.atualizarResumo === 'function') { try { window.atualizarResumo(); } catch {} }
+    if (typeof window.atualizarQuantidadesNaTela === 'function') { try { window.atualizarQuantidadesNaTela(); } catch {} }
+
+    // Guarda o ID aplicado
+    setLastId(item.id || '');
+    return true;
+  }
+
+  // Mantém o localStorage sincronizado quando o usuário muda a quantidade no carrinho
+  function sincronizarQtdLampadaNoStorage() {
+    document.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.botao-quantidade');
+      if (!btn) return;
+
+      const card = btn.closest('article.cartao-produto[data-produto="lampada"]');
+      if (!card) return; // só cuidamos da lâmpada (seu template-alvo)
+
+      // Lê o estado atual da UI
+      const qtdEl = card.querySelector('[data-quantidade], .qtd, .quantidade');
+      const title = (card.querySelector('.titulo-produto, .title, h3, h2')?.textContent || '').trim();
+      const priceEl = card.querySelector('.valor-produto, .price, [data-preco]');
+      const price = priceEl?.dataset?.preco ? Number(priceEl.dataset.preco) : Number((priceEl?.textContent || '0').replace(/[^\d,.-]/g, '').replace(/\./g,'').replace(',', '.'));
+      const qty = Math.max(1, parseInt(qtdEl?.textContent || '1', 10) || 1);
+
+      // Reconstrói o id
+      const id = `${String(title).toLowerCase().replace(/\s+/g,' ').slice(0,200)}|${Number(price||0).toFixed(2)}`;
+
+      const cart = loadCart();
+      const ix = cart.findIndex(it => it.id === id);
+
+      if (ix >= 0) {
+        cart[ix].qty = qty;
+      } else {
+        // Se não achar (ex.: veio direto sem Home), cria uma entrada mínima
+        const img = card.querySelector('.imagem-produto img, .img img, picture img, img')?.getAttribute('src') || '';
+        const alt = card.querySelector('.imagem-produto img, .img img, picture img, img')?.getAttribute('alt') || title;
+        cart.push({ id, title, price: Number(price||0), img, alt, qty });
+      }
+      saveCart(cart);
+      setLastId(id);
+    });
+  }
+
+  // Limpar carrinho -> também limpa o localStorage
+  function integrarLimparCarrinho() {
+    const btn = document.getElementById('botaoLimpar');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      try { localStorage.removeItem('bulbe:cart'); } catch {}
+      try { localStorage.removeItem('bulbe:lastAddedId'); } catch {}
+    });
+  }
+
+  // Inicialização
+  function initPersistencia() {
+    aplicarLampadaDoCarrinho();     // carrega do storage para a lâmpada
+    sincronizarQtdLampadaNoStorage(); // mantém storage alinhado a cada +/−
+    integrarLimparCarrinho();       // limpa storage quando o usuário limpar
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPersistencia, { once: true });
+  } else {
+    initPersistencia();
+  }
+})();

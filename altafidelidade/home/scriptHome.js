@@ -158,3 +158,60 @@ document.querySelectorAll(".icon-btn").forEach((btn) => {
     event.stopPropagation();
   });
 });
+
+/* ==== [ADDON PERSISTÊNCIA] HOME -> salva no carrinho do usuário ==== */
+(() => {
+  // Gera um "id" simples e estável para o item (título normalizado + preço)
+  function makeId(title, price) {
+    const t = String(title || '').trim().toLowerCase().replace(/\s+/g, ' ').slice(0, 200);
+    const p = Number(price || 0).toFixed(2);
+    return `${t}|${p}`;
+  }
+
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem('bulbe:cart')) || []; } catch { return []; }
+  }
+  function saveCart(arr) {
+    try { localStorage.setItem('bulbe:cart', JSON.stringify(arr)); } catch {}
+  }
+
+  // Intercepta o salvamento que já fazemos ao clicar no ícone do carrinho
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.icon-btn.cart, .btn-cart, [data-action="add-to-cart"]');
+    if (!btn) return;
+
+    const card = btn.closest('.card, .produto, .card-body, [data-card="produto"], [data-produto]') || document;
+
+    const imgEl   = card.querySelector('.media img, .card-img img, picture img, img');
+    const titleEl = card.querySelector('.title, .card-title, .nome, h3, h2');
+    const priceEl = card.querySelector('.price-now, .price, .valor, .card-price, [data-preco]');
+
+    const parsePrecoBR = (txt) => {
+      if (!txt) return 0;
+      const n = parseFloat(String(txt).replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.'));
+      return Number.isFinite(n) ? n : 0;
+    };
+
+    const title = (titleEl?.textContent || '').replace(/\s+/g, ' ').trim() || 'Produto';
+    const price = priceEl?.dataset?.preco ? parseFloat(priceEl.dataset.preco) : parsePrecoBR(priceEl?.textContent || '0');
+    const img   = imgEl?.getAttribute('src') || '';
+    const alt   = imgEl?.getAttribute('alt') || title;
+    const id    = makeId(title, price);
+
+    // 1) Atualiza bulbe:cart (persistente)
+    const cart = loadCart();
+    const ix = cart.findIndex(it => it.id === id);
+    if (ix >= 0) {
+      cart[ix].qty = Math.min(999, Number(cart[ix].qty || 0) + 1);
+    } else {
+      cart.push({ id, title, price: Number(price || 0), img, alt, qty: 1 });
+    }
+    saveCart(cart);
+
+    // 2) Guarda o último adicionado (para o Carrinho saber qual aplicar)
+    try { localStorage.setItem('bulbe:lastAddedId', id); } catch {}
+
+    // 3) Mantém o comportamento já existente (bulbe:addToCart) para render imediato
+    try { localStorage.setItem('bulbe:addToCart', JSON.stringify({ title, price, img, alt, qty: 1, id })); } catch {}
+  }, { capture: true }); // capture para executar antes de event.stopPropagation() de outros handlers
+})();
