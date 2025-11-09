@@ -44,6 +44,23 @@ A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, pe
         -style.css
         /script/js
         -index.html
+    /categorias
+        /conforto
+            -conforto.html
+            -scriptConforto.js
+            -styleConforto.css
+        /economia de energia
+            -economiaEnergia.html
+            -scriptEconomiaEnergia.js
+            -styleEconomiaEnergia.css
+        /educacao
+            -educacao.html
+            -scriptEducacao.js
+            -styleEducacao.css
+        /eletronico
+            -eletronico.html
+            -scriptEletronicos.js
+            -styleEletronicos.css
     /cupons
         -cupons.html
         -logobulbe.img
@@ -58,6 +75,11 @@ A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, pe
         -paginainicial.html
         -scriptHome.js
         -styleHome.css
+    /loja araujo
+        /img
+        -paginaaraujo.html
+        -script.js
+        -stylepaginaaraujo.css
     /lojasparceiras
         /img
         -lojasparceiras.html

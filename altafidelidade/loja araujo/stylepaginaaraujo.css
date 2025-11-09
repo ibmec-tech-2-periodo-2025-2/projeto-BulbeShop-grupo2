@@ -41,6 +41,7 @@ body {
     height: 20px;
     cursor: pointer;
 }
+.appbar__back{border:0;background:transparent;padding:6px;cursor:pointer}
 
 .logo-afiliado {
     display: flex;
