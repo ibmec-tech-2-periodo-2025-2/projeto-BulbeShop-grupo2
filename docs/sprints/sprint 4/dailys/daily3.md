@@ -58,7 +58,7 @@
 #### **O que estou fazendo agora?**
 
 - Alterações nas telas do Figma, seguindo as sugestões do professor Daniel.
-- Adição de foto no slide para comprovação de dailys 
+- Adição de foto no slide para comprovação de dailys. 
 ---
 
 #### **Quais dificuldades encontrei?**
