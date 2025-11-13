@@ -1,7 +1,9 @@
 **Grupo:** Beatriz Samaha, Bruna Bento, Julia Leal, Pedro Paulucci  
 ## *Daily Projeto Bulbe*
 
-### Daily 1 11/11- Sprint 4
+### Daily 5 11/11- Sprint 4
+
+----- CANCELADA- questões academicas --------
 
 ---
 
