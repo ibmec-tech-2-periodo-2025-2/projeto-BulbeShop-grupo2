@@ -1,135 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho • Bulbe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styleCarrinhoVazio.css">
+    <link rel="stylesheet" href="./styleCarrinhoVazio.css">
 </head>
 
 <body>
 
     <!-- CABEÇALHO -->
-    <header class="barra-superior">
-        <button class="botao-voltar" id="btnVoltar">
-            <img src="./assets/corner-up-left (2).svg" alt="Voltar">
+    <header class="topo">
+        <button class="btn-voltar">
+            <img src="./assets/img/corner-up-left (2).svg" alt="Voltar">
         </button>
 
-        <img class="logo-bulbe" src="./assets/logo.svg" alt="Bulbe">
+        <img src="./assets/img/logo.svg" class="logo" alt="Bulbe">
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="conteudo-principal">
-
-        <!-- TÍTULO -->
-        <h1 class="titulo-carrinho">
-            <img src="./assets/carrinho.svg" class="icone-carrinho" alt="Carrinho">
-            Carrinho
-        </h1>
-
-        <!-- BANNER CARRINHO VAZIO -->
-        <section class="banner-vazio">
-
-            <!-- imagem principal -->
-            <img src="./assets/carrinhovazio.svg" alt="Carrinho vazio" class="banner-img">
-
-            <!-- faixa azul -->
-            <div class="faixa-azul-vazio">
-                <img src="./assets/sadface.svg" class="icone-sad" alt="Triste">
-                <span>O carrinho está vazio</span>
-            </div>
-
-       <!-- SEÇÃO DE ITENS ADICIONAIS -->
-    <section class="secao-adicionar-itens">
-      <div class="conteudo-adicional">
-        <h2>Adicionar mais itens:</h2>
-        <div class="grupo-adicional">
-          <div class="etiqueta-oferta">Oferta relâmpago</div>
-
-          <div class="carrossel">
-            <button class="seta-carrossel esquerda" aria-label="Anterior">‹</button>
-
-            <div class="trilha-carrossel" id="trilhaCarrossel">
-              <!-- CARD 1 -->
-              <article class="cartao-mini">
-                <div class="miniatura-produto">
-                  <img src="./assets/img/ferramenta2.svg" alt="Caixa de Ferramentas Philco">
-                </div>
-                <h4 class="titulo-mini">Caixa de Ferramentas Philco…</h4>
-                <div class="preco-mini">
-                  <strong>R$59,90</strong>
-                  <s>R$119,90</s>
-                </div>
-                <div class="acoes-mini">
-                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
-                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
-                </div>
-              </article>
-
-              <!-- CARD 2 -->
-              <article class="cartao-mini">
-                <div class="miniatura-produto">
-                  <img src="./assets/img/ferramenta.svg" alt="Caixa de Ferramentas Philco">
-                </div>
-                <h4 class="titulo-mini">Caixa de Ferramentas Philco…</h4>
-                <div class="preco-mini">
-                  <strong>R$179,30</strong>
-                </div>
-                <div class="acoes-mini">
-                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
-                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
-                </div>
-              </article>
-
-              <!-- CARD 3 -->
-              <article class="cartao-mini">
-                <div class="miniatura-produto">
-                  <img src="./assets/img/fone.svg" alt="Fone in-ear branco">
-                </div>
-                <h4 class="titulo-mini">Fone in-ear branco</h4>
-                <div class="preco-mini">
-                  <strong>R$22,95</strong>
-                </div>
-                <div class="acoes-mini">
-                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
-                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
-                </div>
-              </article>
-
-              <!-- CARD 4 -->
-              <article class="cartao-mini">
-                <div class="miniatura-produto">
-                  <img src="./assets/img/carregador.svg" alt="Cabo reforçado">
-                </div>
-                <h4 class="titulo-mini">Cabo reforçado</h4>
-                <div class="preco-mini">
-                  <strong>R$19,90</strong>
-                </div>
-                <div class="acoes-mini">
-                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
-                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
-                </div>
-              </article>
-            </div>
-
-            <button class="seta-carrossel direita" aria-label="Próximo">›</button>
-          </div>
-        </div>
-      </div>
+    <!-- BANNER DO CARRINHO -->
+    <section class="banner">
+        <img src="./assets/img/carrinhovazio.svg" class="banner-img" alt="Carrinho vazio">
+        <p class="msg-vazio"> O carrinho está vazio</p>
     </section>
-  </main>
 
-        <!-- RODAPÉ LOGO -->
-        <footer class="rodape">
-            <img src="./assets/logo.svg" alt="Bulbe logo">
-        </footer>
+    <!-- RECOMENDAÇÕES -->
+    <section class="recomendacoes">
+        <h2>Recomendações para você:</h2>
 
-    </main>
+        <div class="grid-produtos">
 
-    <script src="script.js"></script>
+            <!-- CARD 1 -->
+            <div class="card">
+                <span class="badge">Oferta relâmpago</span>
+                <img src="./assets/img/ferramenta.svg" class="produto-img" alt="Caixa de Ferramentas 1">
+                <p class="produto-nome">Caixa de Ferramentas Philco</p>
+                <p class="produto-preco">R$59,90</p>
 
+                <div class="acoes">
+                    <img src="./assets/img/carrinho.svg" class="icone">
+                    <img src="./assets/img/Exclude (2).svg" class="icone">
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card">
+                <span class="badge">Oferta relâmpago</span>
+                <img src="./assets/img/ferramenta2.svg" class="produto-img" alt="Caixa de Ferramentas 2">
+                <p class="produto-nome">Caixa de Ferramentas Philco</p>
+                <p class="produto-preco">R$179,30</p>
+
+                <div class="acoes">
+                    <img src="./assets/img/carrinho.svg" class="icone">
+                    <img src="./assets/img/Exclude (2).svg" class="icone">
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card">
+                <span class="badge">Oferta relâmpago</span>
+                <img src="./assets/img/fone.svg" class="produto-img" alt="Fone de ouvido">
+                <p class="produto-nome">Fone de ouvido com fio</p>
+                <p class="produto-preco">R$29,90</p>
+
+                <div class="acoes">
+                    <img src="./assets/img/carrinho.svg" class="icone">
+                    <img src="./assets/img/Exclude (2).svg" class="icone">
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card">
+                <span class="badge">Oferta relâmpago</span>
+                <img src="./assets/img/carregador.svg" class="produto-img" alt="Cabo USB-C">
+                <p class="produto-nome">Cabo USB-C Tipo C</p>
+                <p class="produto-preco">R$19,90</p>
+
+                <div class="acoes">
+                    <img src="./assets/img/carrinho.svg" class="icone">
+                    <img src="./assets/img/Exclude (2).svg" class="icone">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="./script.js"></script>
 </body>
-
 </html>
