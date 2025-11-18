@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrinho • Bulbe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleCarrinhoVazio.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="barra-superior">
+        <button class="botao-voltar" id="btnVoltar">
+            <img src="./assets/corner-up-left (2).svg" alt="Voltar">
+        </button>
+
+        <img class="logo-bulbe" src="./assets/logo.svg" alt="Bulbe">
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-principal">
+
+        <!-- TÍTULO -->
+        <h1 class="titulo-carrinho">
+            <img src="./assets/carrinho.svg" class="icone-carrinho" alt="Carrinho">
+            Carrinho
+        </h1>
+
+        <!-- BANNER CARRINHO VAZIO -->
+        <section class="banner-vazio">
+
+            <!-- imagem principal -->
+            <img src="./assets/carrinhovazio.svg" alt="Carrinho vazio" class="banner-img">
+
+            <!-- faixa azul -->
+            <div class="faixa-azul-vazio">
+                <img src="./assets/sadface.svg" class="icone-sad" alt="Triste">
+                <span>O carrinho está vazio</span>
+            </div>
+
+       <!-- SEÇÃO DE ITENS ADICIONAIS -->
+    <section class="secao-adicionar-itens">
+      <div class="conteudo-adicional">
+        <h2>Adicionar mais itens:</h2>
+        <div class="grupo-adicional">
+          <div class="etiqueta-oferta">Oferta relâmpago</div>
+
+          <div class="carrossel">
+            <button class="seta-carrossel esquerda" aria-label="Anterior">‹</button>
+
+            <div class="trilha-carrossel" id="trilhaCarrossel">
+              <!-- CARD 1 -->
+              <article class="cartao-mini">
+                <div class="miniatura-produto">
+                  <img src="./assets/img/ferramenta2.svg" alt="Caixa de Ferramentas Philco">
+                </div>
+                <h4 class="titulo-mini">Caixa de Ferramentas Philco…</h4>
+                <div class="preco-mini">
+                  <strong>R$59,90</strong>
+                  <s>R$119,90</s>
+                </div>
+                <div class="acoes-mini">
+                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
+                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
+                </div>
+              </article>
+
+              <!-- CARD 2 -->
+              <article class="cartao-mini">
+                <div class="miniatura-produto">
+                  <img src="./assets/img/ferramenta.svg" alt="Caixa de Ferramentas Philco">
+                </div>
+                <h4 class="titulo-mini">Caixa de Ferramentas Philco…</h4>
+                <div class="preco-mini">
+                  <strong>R$179,30</strong>
+                </div>
+                <div class="acoes-mini">
+                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
+                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
+                </div>
+              </article>
+
+              <!-- CARD 3 -->
+              <article class="cartao-mini">
+                <div class="miniatura-produto">
+                  <img src="./assets/img/fone.svg" alt="Fone in-ear branco">
+                </div>
+                <h4 class="titulo-mini">Fone in-ear branco</h4>
+                <div class="preco-mini">
+                  <strong>R$22,95</strong>
+                </div>
+                <div class="acoes-mini">
+                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
+                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
+                </div>
+              </article>
+
+              <!-- CARD 4 -->
+              <article class="cartao-mini">
+                <div class="miniatura-produto">
+                  <img src="./assets/img/carregador.svg" alt="Cabo reforçado">
+                </div>
+                <h4 class="titulo-mini">Cabo reforçado</h4>
+                <div class="preco-mini">
+                  <strong>R$19,90</strong>
+                </div>
+                <div class="acoes-mini">
+                  <button class="botao-icone"><img src="./assets/img/Exclude (1).svg" alt=""></button>
+                  <button class="botao-icone"><img src="./assets/img/Exclude (2).svg" alt=""></button>
+                </div>
+              </article>
+            </div>
+
+            <button class="seta-carrossel direita" aria-label="Próximo">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+        <!-- RODAPÉ LOGO -->
+        <footer class="rodape">
+            <img src="./assets/logo.svg" alt="Bulbe logo">
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
