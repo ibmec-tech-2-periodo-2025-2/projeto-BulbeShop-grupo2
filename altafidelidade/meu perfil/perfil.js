@@ -31,3 +31,42 @@ if (cpf) {
         e.target.value = out;
     });
 }
+
+// ====== Modal Pontos Bulbe ======
+const btnAbrirPontos = document.getElementById('abrirPontosBulbe');
+const modalPontos = document.getElementById('modalPontosBulbe');
+const overlayPontos = document.getElementById('overlayPontosBulbe');
+const btnFecharPontos = document.getElementById('fecharPontosBulbe');
+
+function abrirModalPontos() {
+    if (modalPontos) {
+        modalPontos.classList.add('aberto');
+        modalPontos.setAttribute('aria-hidden', 'false');
+    }
+}
+
+function fecharModalPontos() {
+    if (modalPontos) {
+        modalPontos.classList.remove('aberto');
+        modalPontos.setAttribute('aria-hidden', 'true');
+    }
+}
+
+if (btnAbrirPontos) {
+    btnAbrirPontos.addEventListener('click', abrirModalPontos);
+}
+
+if (overlayPontos) {
+    overlayPontos.addEventListener('click', fecharModalPontos);
+}
+
+if (btnFecharPontos) {
+    btnFecharPontos.addEventListener('click', fecharModalPontos);
+}
+
+// Fecha no ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        fecharModalPontos();
+    }
+});

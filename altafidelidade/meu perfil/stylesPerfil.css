@@ -219,3 +219,132 @@ back-btn {
         left: calc(50% - 190px);
     }
 }
+/* ====== Pontos Bulbe (texto abaixo do nome) ====== */
+.user-points {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.points-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #00b96b; /* verde dos pontos */
+    cursor: pointer;
+}
+
+/* ====== Modal Pontos Bulbe ====== */
+.modal-pontos {
+    position: fixed;
+    inset: 0;
+    display: none; /* escondido por padrão */
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-pontos.aberto {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); /* escurece a tela de perfil */
+}
+
+.modal-card {
+    position: relative;
+    z-index: 1;
+    width: min(420px, 92%);
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+    overflow: hidden;
+    font-size: 14px;
+}
+
+/* Cabeçalho verde */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #00c46a;
+    color: #ffffff;
+    padding: 12px 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.modal-title {
+    letter-spacing: 0.06em;
+}
+
+.modal-logo {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Corpo do modal */
+.modal-body {
+    padding: 16px 18px 18px;
+    color: #111827;
+}
+
+.modal-body h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.modal-body p {
+    margin: 0 0 10px;
+}
+
+.modal-body ul {
+    padding-left: 18px;
+    margin: 0 0 10px;
+}
+
+/* Caixinha de dica */
+.modal-dica {
+    border-radius: 10px;
+    border: 1px solid #00c46a;
+    background: #e6ffe6;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+}
+
+.dica-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.modal-total {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.modal-total-valor {
+    color: #00b96b;
+}
+
+/* Botão fechar (X) */
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+}

@@ -25,6 +25,12 @@
 
                 <div class="user-label">Usuário:</div>
                 <h2 class="user-name">Jeferson Soares</h2>
+                <p class="user-points">
+                    Pontos Bulbe:
+                    <button type="button" class="points-link" id="abrirPontosBulbe">
+                        230 pts &gt;
+                    </button>
+                </p>
             </div>
 
             <form class="form" action="#" method="post" autocomplete="off">
@@ -78,6 +84,50 @@
             </form>
         </section>
     </main>
+    <!-- Modal Pontos Bulbe -->
+    <div class="modal-pontos" id="modalPontosBulbe" aria-hidden="true">
+        <div class="modal-overlay" id="overlayPontosBulbe"></div>
+
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="tituloPontosBulbe">
+            <div class="modal-header">
+                <span class="modal-title" id="tituloPontosBulbe">PONTOS</span>
+                <span class="modal-logo">bulbe</span>
+            </div>
+
+            <div class="modal-body">
+                <h3>Como funciona?</h3>
+                <p>Você acumula pontos de benefício automaticamente ao comprar em nossa plataforma!</p>
+
+                <ul>
+                    <li>A cada R$ 1,00 gasto, você recebe 1 ponto.</li>
+                </ul>
+
+                <div class="modal-dica">
+                    <div class="dica-header">
+                        <img class="dica-icone" src="/altafidelidade\meu perfil\img\lightbulb-04.png" alt="Ícone de dica">
+                        <span class="dica-titulo">Dica</span>
+                    </div>
+                    <p>
+                        Acumule pontos para resgatar <strong>descontos</strong>, produtos ou
+                        <strong>vantagens exclusivas</strong>. Quanto maior a quantidade de pontos, melhor é a
+                        recompensa.
+                    </p>
+                </div>
+
+                <ul>
+                    <li>Em campanhas promocionais, a pontuação pode ser multiplicada para um acúmulo mais rápido.</li>
+                </ul>
+
+                <p class="modal-total">
+                    Total de pontos: <span class="modal-total-valor">230 pts</span>
+                </p>
+            </div>
+
+            <button type="button" class="modal-close" id="fecharPontosBulbe" aria-label="Fechar">
+                ✕
+            </button>
+        </div>
+    </div>
 
     <script src="perfil.js"></script>
 </body>
