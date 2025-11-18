@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Checkout • Bulbe</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/altafidelidade/pagamento1/.assets/style-checkout.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -19,6 +21,47 @@
   </header>
 
   <main class="wrap">
+    <section class="steps">
+      <p class="steps__title">Etapas de pagamento</p>
+
+      <div class="steps__bar">
+        <ol class="steps__list">
+
+          <!-- 1: Checar (etapa atual) -->
+          <li class="step is-current">
+            <div class="step__circle">
+              <span class="step__number">1</span>
+            </div>
+            <span class="step__text">Checar</span>
+          </li>
+
+          <!-- 2: Cadastro (próxima) -->
+          <li class="step">
+            <div class="step__circle">
+              <span class="step__number">2</span>
+            </div>
+            <span class="step__text">Cadastro</span>
+          </li>
+
+          <!-- 3: Pagamento (próxima) -->
+          <li class="step">
+            <div class="step__circle">
+              <span class="step__number">3</span>
+            </div>
+            <span class="step__text">Pagamento</span>
+          </li>
+
+          <!-- 4: Confirmação (próxima) -->
+          <li class="step">
+            <div class="step__circle">
+              <span class="step__number">4</span>
+            </div>
+            <span class="step__text">Confirmação</span>
+          </li>
+
+        </ol>
+      </div>
+    </section>
     <!-- ENDEREÇO -->
     <section class="address-card">
       <div class="address-card__icon">
@@ -41,8 +84,7 @@
       <!-- Lâmpada -->
       <article class="cart-card">
         <img class="cart-card__thumb"
-             src="/altafidelidade/pagamento1/.assets/img/c6559d49aec17a510b73b50f7689acc97fe64b4d.png"
-             alt="Lâmpada">
+          src="/altafidelidade/pagamento1/.assets/img/c6559d49aec17a510b73b50f7689acc97fe64b4d.png" alt="Lâmpada">
         <div class="cart-card__body">
           <h4 class="cart-card__title">
             Lâmpada de LED E27 Bulbo 9W 803lm<br>
@@ -64,8 +106,7 @@
       <!-- Parafusadeira + faixa colada -->
       <article class="cart-card cart-card--has-strip">
         <img class="cart-card__thumb"
-             src="/altafidelidade/pagamento1/.assets/img/f522bac792bf441d089879622204f18fd4c8d80a.png"
-             alt="Parafusadeira">
+          src="/altafidelidade/pagamento1/.assets/img/f522bac792bf441d089879622204f18fd4c8d80a.png" alt="Parafusadeira">
         <div class="cart-card__body">
           <h4 class="cart-card__title">
             Parafusadeira Philco Force PPF12D 3<br>
@@ -99,11 +140,15 @@
       <h3 class="review-title">Revisão do pedido</h3>
 
       <div class="review-row"><span class="label">Valor total:</span><span class="value">R$ 413,67</span></div>
-      <div class="review-row"><span class="label">Promoções:</span><span class="value value--neg">-R$ 200,00</span></div>
-      <div class="review-row"><span class="label">Subtotal:</span><span class="value value--muted">R$ 213,67</span></div>
-      <div class="review-row"><span class="label">Taxa de envio:</span><span class="value value--free">GRÁTIS</span></div>
+      <div class="review-row"><span class="label">Promoções:</span><span class="value value--neg">-R$ 200,00</span>
+      </div>
+      <div class="review-row"><span class="label">Subtotal:</span><span class="value value--muted">R$ 213,67</span>
+      </div>
+      <div class="review-row"><span class="label">Taxa de envio:</span><span class="value value--free">GRÁTIS</span>
+      </div>
       <div class="review-row"><span class="label">Cupons:</span><span class="value value--neg">-R$ 21,36 ></span></div>
-      <div class="review-row"><span class="label">Pontos Bulbe:</span><span class="value value--link">178 pontos disponíveis ></span></div>
+      <div class="review-row"><span class="label">Pontos Bulbe:</span><span class="value value--link">178 pontos
+          disponíveis ></span></div>
 
       <div class="review-total"><span>Total do pedido:</span><strong>R$ 192,31</strong></div>
     </section>
@@ -144,4 +189,5 @@
 
   <script src="/altafidelidade/pagamento1/script-checkout.js"></script>
 </body>
+
 </html>

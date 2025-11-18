@@ -158,3 +158,115 @@ body{
   cursor:not-allowed;
   filter:grayscale(25%);
 }
+
+/* ===== ETAPAS DE PAGAMENTO ===== */
+.steps{
+  margin-top:10px;
+  margin-bottom:8px;
+}
+
+.steps__title{
+  margin:0 0 8px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--gray-700);
+}
+
+.steps__bar{
+  background:#E8F7EC;          /* faixinha verde clara ao fundo */
+  border-radius:999px;
+  padding:14px 14px 16px;
+}
+
+.steps__list{
+  list-style:none;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:8px;
+  margin:0;
+  padding:0;
+}
+
+.step{
+  position:relative;
+  flex:1;
+  text-align:center;
+  font-size:10px;
+}
+
+/* linha que liga os círculos */
+.step::before{
+  content:"";
+  position:absolute;
+  top:16px;                  /* alinhado ao centro do círculo */
+  left:-50%;
+  width:100%;
+  height:4px;
+  background:#CBE5D4;        /* verdinho claro */
+  z-index:0;
+}
+
+/* o primeiro não precisa de linha para trás */
+.step:first-child::before{
+  content:none;
+}
+
+.step__circle{
+  position:relative;
+  z-index:1;
+  width:32px;
+  height:32px;
+  margin:0 auto 6px;
+  border-radius:50%;
+  border:3px solid #CBE5D4;
+  background:#FFFFFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 4px rgba(15,23,42,.10);
+}
+
+.step__icon,
+.step__number{
+  font-size:14px;
+  font-weight:800;
+  color:var(--green);
+}
+
+.step__text{
+  display:block;
+  font-size:10px;
+  font-weight:600;
+  color:var(--gray-700);
+}
+
+/* etapas concluídas (check verde cheio) */
+.step.is-done::before{
+  background:var(--green);
+}
+
+.step.is-done .step__circle{
+  background:var(--green);
+  border-color:var(--green);
+}
+
+.step.is-done .step__icon{
+  color:#FFFFFF;
+}
+
+/* etapa atual (número em verde, círculo com borda verde) */
+.step.is-current::before{
+  background:var(--green);
+}
+
+.step.is-current .step__circle{
+  border-color:var(--green);
+  background:#FFFFFF;
+}
+
+.step.is-current .step__number{
+  color:var(--green);
+}
+
+/* etapas futuras (padrão já é cinzinha/verde claro) */
