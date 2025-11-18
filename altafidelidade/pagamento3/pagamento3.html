@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pagamento • Cartão de Crédito</title>
 
   <!-- Fonte -->
@@ -10,17 +11,59 @@
   <!-- CSS (caminho solicitado) -->
   <link rel="stylesheet" href="/altafidelidade/pagamento3/style3.css" />
 </head>
+
 <body>
 
   <!-- HEADER -->
   <header class="appbar">
-      <button class="appbar__back" aria-label="Voltar" onclick="history.back()">
-  <img src="/altafidelidade/pagamento3/.assets/img/corner-up-left.svg" alt="">
-</button>
+    <button class="appbar__back" aria-label="Voltar" onclick="history.back()">
+      <img src="/altafidelidade/pagamento3/.assets/img/corner-up-left.svg" alt="">
+    </button>
     <img class="appbar__logo" src="/altafidelidade/pagamento3/.assets/img/logo-base.svg" alt="Bulbe">
   </header>
 
   <main class="wrap">
+    <!-- ETAPAS DE PAGAMENTO -->
+    <section class="steps">
+      <p class="steps__title">Etapas de pagamento</p>
+
+      <div class="steps__bar">
+        <ol class="steps__list">
+          <!-- 1: Checar (concluído) -->
+          <li class="step is-done">
+            <div class="step__circle">
+              <span class="step__icon">✓</span>
+            </div>
+            <span class="step__text">Checar</span>
+          </li>
+
+          <!-- 2: Cadastro (concluído) -->
+          <li class="step is-done">
+            <div class="step__circle">
+              <span class="step__icon">✓</span>
+            </div>
+            <span class="step__text">Cadastro</span>
+          </li>
+
+          <!-- 3: Pagamento (etapa atual) -->
+          <li class="step is-current">
+            <div class="step__circle">
+              <span class="step__number">3</span>
+            </div>
+            <span class="step__text">Pagamento</span>
+          </li>
+
+          <!-- 4: Confirmação (próxima) -->
+          <li class="step">
+            <div class="step__circle">
+              <span class="step__number">4</span>
+            </div>
+            <span class="step__text">Confirmação</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+    
     <!-- DADOS DO CARTÃO -->
     <section class="card cc-card">
       <header class="card__title">
@@ -39,10 +82,18 @@
           <div class="select-inline" data-inline>
             <select id="ccExpiry">
               <option selected>MM/AAAA</option>
-              <option>01/2026</option><option>02/2026</option><option>03/2026</option>
-              <option>04/2026</option><option>05/2026</option><option>06/2026</option>
-              <option>07/2026</option><option>08/2026</option><option>09/2026</option>
-              <option>10/2026</option><option>11/2026</option><option>12/2026</option>
+              <option>01/2026</option>
+              <option>02/2026</option>
+              <option>03/2026</option>
+              <option>04/2026</option>
+              <option>05/2026</option>
+              <option>06/2026</option>
+              <option>07/2026</option>
+              <option>08/2026</option>
+              <option>09/2026</option>
+              <option>10/2026</option>
+              <option>11/2026</option>
+              <option>12/2026</option>
             </select>
             <img src="/altafidelidade/pagamento3/.assets/img/chevron-right.svg" alt="">
           </div>
@@ -121,4 +172,5 @@
   <!-- JS (caminho solicitado) -->
   <script src="/altafidelidade/pagamento3/script/script3.js"></script>
 </body>
+
 </html>

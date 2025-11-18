@@ -19,6 +19,47 @@
   </header>
 
   <main class="wrap">
+    <!-- ETAPAS DE PAGAMENTO -->
+  <section class="steps">
+    <p class="steps__title">Etapas de pagamento</p>
+
+    <div class="steps__bar">
+      <ol class="steps__list">
+        <!-- 1: Checar (concluído) -->
+        <li class="step is-done">
+          <div class="step__circle">
+            <span class="step__icon">✓</span>
+          </div>
+          <span class="step__text">Checar</span>
+        </li>
+
+        <!-- 2: Cadastro (concluído) -->
+        <li class="step is-done">
+          <div class="step__circle">
+            <span class="step__icon">✓</span>
+          </div>
+          <span class="step__text">Cadastro</span>
+        </li>
+
+        <!-- 3: Pagamento (etapa atual) -->
+        <li class="step is-current">
+          <div class="step__circle">
+            <span class="step__number">3</span>
+          </div>
+          <span class="step__text">Pagamento</span>
+        </li>
+
+        <!-- 4: Confirmação (próxima) -->
+        <li class="step">
+          <div class="step__circle">
+            <span class="step__number">4</span>
+          </div>
+          <span class="step__text">Confirmação</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+  
     <!-- DADOS DO CARTÃO DE DÉBITO -->
     <section class="card">
       <header class="card__title">
