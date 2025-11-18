@@ -1,0 +1,420 @@
+/* ===== TOKENS ===== */
+:root {
+    --white: #FFFFFF;
+    --gray-25: #F6F9F9;
+    --gray-100: #D1D9E0;
+    --gray-200: #C2CCD6;
+    --gray-300: #A4B3C1;
+    --gray-400: #8699AC;
+    --gray-700: #3E4D5B;
+
+    --blue: #08068D;
+    --green: #12B76A;
+    --red: #F04438;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: #FAFBFC;
+    color: var(--gray-700);
+    font: 400 12px/1.35 "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===== APPBAR ===== */
+.appbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.appbar__back {
+    border: 0;
+    background: transparent;
+    padding: 6px;
+    cursor: pointer
+}
+
+.appbar__back img {
+    width: 22px;
+    height: 22px
+}
+
+.appbar__logo {
+    height: 26px;
+    width: auto
+}
+
+/* ===== ETAPAS DE PAGAMENTO ===== */
+.steps {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.steps__title {
+    margin: 0 10px 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-700);
+}
+
+.steps__bar {
+    background: #E8F7EC;
+    /* faixinha verde clara ao fundo */
+    border-radius: 999px;
+    padding: 14px 14px 16px;
+}
+
+.steps__list {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.step {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+}
+
+/* linha que liga os círculos */
+.step::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    /* alinhado ao centro do círculo */
+    left: -50%;
+    width: 100%;
+    height: 4px;
+    background: #CBE5D4;
+    /* verdinho claro */
+    z-index: 0;
+}
+
+/* o primeiro não precisa de linha para trás */
+.step:first-child::before {
+    content: none;
+}
+
+.step__circle {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    border: 3px solid #CBE5D4;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, .10);
+}
+
+.step__icon,
+.step__number {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.step__text {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+/* etapas concluídas (check verde cheio) */
+.step.is-done::before {
+    background: var(--green);
+}
+
+.step.is-done .step__circle {
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.step.is-done .step__icon {
+    color: #FFFFFF;
+}
+
+/* etapa atual (número em verde, círculo com borda verde) */
+.step.is-current::before {
+    background: var(--green);
+}
+
+.step.is-current .step__circle {
+    border-color: var(--green);
+    background: #FFFFFF;
+}
+
+.step.is-current .step__number {
+    color: var(--green);
+}
+
+/* etapas futuras (padrão já é cinzinha/verde claro) */
+
+.card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, .06);
+    padding: 18px 16px 20px;
+}
+
+.info-box {
+    border-radius: 14px;
+    padding: 12px 12px;
+}
+
+.boleto-box {
+    background: #E7F1FF;
+    margin-bottom: 12px;
+}
+
+.info-header {
+    display: flex;
+    gap: 10px;
+}
+
+.info-ico {
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+}
+
+.info-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #111827;
+}
+
+.info-header p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* Código escaneável */
+.code-box {
+    background: #F8FBFF;
+    margin-bottom: 12px;
+}
+
+.info-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.barcode-wrapper {
+    border-radius: 10px;
+    border: 2px solid #E6F1FE;
+    background: #fff;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.barcode-wrapper img {
+    width: 100%;
+    max-width: 260px;
+}
+
+/* FAQ */
+.faq-box {
+    background: rgb(204, 116, 0, .10);
+    border: 1px solid #CC7400;
+    margin-bottom: 18px;
+}
+
+.faq-header {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.faq-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    font-weight: 800;
+    margin-top: 3px;
+}
+
+.faq-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.faq-header p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* BOTÕES PRINCIPAIS */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #E5E7EB;
+    color: #111827;
+}
+
+.btn:hover {
+    filter: brightness(1.05);
+}
+
+/* ===== MODAL ===== */
+.modal[hidden] {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* modal mais embaixo, parecido com o layout */
+    padding: 20px 12px;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .35);
+}
+
+.modal-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 360px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, .25);
+    padding: 14px 14px 16px;
+}
+
+/* botão voltar (setinha) */
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--gray);
+}
+
+/* header vermelho */
+.modal-header {
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.warning {
+    background: var(--red);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.warning-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* corpo */
+.modal-body {
+    margin-top: 8px;
+    border-radius: 12px;
+    border: 1px solid #FCA5A5;
+    background: #FEF2F2;
+    padding: 10px 12px 12px;
+}
+
+.email-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #B91C1C;
+    margin-bottom: 4px;
+}
+
+.email-box {
+    font-size: 13px;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.email-help {
+    font-size: 12px;
+    color: var(--gray-soft);
+}
+
+/* footer */
+.modal-footer {
+    margin-top: 12px;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Boleto</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styleBoleto.css">
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+    <header class="appbar">
+        <button class="appbar__back" aria-label="Voltar" onclick="history.back()">
+            <img src="img\corner-up-left.svg" alt="">
+        </button>
+
+        <img class="appbar__logo" src="img\logo-base.svg" alt="Bulbe">
+    </header>
+
+    <main class="wrap">
+        <!-- ETAPAS DE PAGAMENTO -->
+        <section class="steps">
+            <p class="steps__title">Etapas de pagamento</p>
+
+            <div class="steps__bar">
+                <ol class="steps__list">
+                    <!-- 1: Checar (concluído) -->
+                    <li class="step is-done">
+                        <div class="step__circle">
+                            <span class="step__icon">✓</span>
+                        </div>
+                        <span class="step__text">Checar</span>
+                    </li>
+
+                    <!-- 2: Cadastro (concluído) -->
+                    <li class="step is-done">
+                        <div class="step__circle">
+                            <span class="step__icon">✓</span>
+                        </div>
+                        <span class="step__text">Cadastro</span>
+                    </li>
+
+                    <!-- 3: Pagamento (etapa atual) -->
+                    <li class="step is-current">
+                        <div class="step__circle">
+                            <span class="step__number">3</span>
+                        </div>
+                        <span class="step__text">Pagamento</span>
+                    </li>
+
+                    <!-- 4: Confirmação (próxima) -->
+                    <li class="step">
+                        <div class="step__circle">
+                            <span class="step__number">4</span>
+                        </div>
+                        <span class="step__text">Confirmação</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="card main-card">
+            <!-- bloco "Boleto" -->
+            <div class="info-box boleto-box">
+                <header class="info-header">
+                    <img src="img\Vector (1).png" alt="" class="info-ico">
+                    <div>
+                        <h2>Boleto</h2>
+                        <p>Seu boleto foi gerado! O boleto foi enviado no seu email utilizado na sua conta BulbeShop.
+                        </p>
+                    </div>
+                </header>
+            </div>
+
+            <!-- bloco código escaneável -->
+            <div class="info-box code-box">
+                <p class="info-title">Código escaneável:</p>
+                <div class="barcode-wrapper">
+                    <img src="img\codigo-de-barras 1.png" alt="Código de barras do boleto">
+                </div>
+            </div>
+
+            <!-- bloco dúvida frequente -->
+            <div class="info-box faq-box">
+                <header class="faq-header">
+                    <div>
+                        <h3>  ? Dúvida frequente</h3>
+                        <p>O pagamento via boleto pode levar até 24h para ser aprovado pelo banco. Enquanto isso, sua
+                            compra constará
+                            “Aguardando pagamento”.</p>
+                    </div>
+                </header>
+            </div>
+
+            <!-- botões -->
+            <div class="actions">
+                <button class="btn btn-danger" id="btnNaoRecebi">Não recebi o boleto</button>
+                <button class="btn btn-primary" id="btnConcluir">Concluir compra</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL "PROBLEMA COM ENVIO DE BOLETO?" -->
+    <div class="modal" id="modalBoleto" hidden>
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="btnFecharModal" aria-label="Fechar">
+            </button>
+
+            <header class="modal-header">
+                <div class="warning">
+                    <span class="warning-ico">!</span>
+                    <span>Problema com envio de boleto?</span>
+                </div>
+            </header>
+
+            <div class="modal-body">
+                <p class="email-label">Boleto enviado para:</p>
+                <p class="email-box">********ares@gmail.com</p>
+                <p class="email-help">Confira seu email ou tente novamente</p>
+            </div>
+
+            <footer class="modal-footer">
+                <button class="btn btn-secondary" id="btnTentarNovamente">Tentar Novamente</button>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+    <script src="Boletoscript.js"></script>
+</body>
+
+</html>
