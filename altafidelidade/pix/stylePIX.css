@@ -1,0 +1,343 @@
+/* ===== TOKENS ===== */
+:root {
+    --white: #FFFFFF;
+    --gray-25: #F6F9F9;
+    --gray-100: #D1D9E0;
+    --gray-200: #C2CCD6;
+    --gray-300: #A4B3C1;
+    --gray-400: #8699AC;
+    --gray-700: #3E4D5B;
+
+    --blue: #08068D;
+    --green: #12B76A;
+    --red: #F04438;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: #FAFBFC;
+    color: var(--gray-700);
+    font: 400 12px/1.35 "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===== APPBAR ===== */
+.appbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.appbar__back {
+    border: 0;
+    background: transparent;
+    padding: 6px;
+    cursor: pointer
+}
+
+.appbar__back img {
+    width: 22px;
+    height: 22px
+}
+
+.appbar__logo {
+    height: 26px;
+    width: auto
+}
+
+/* ===== ETAPAS DE PAGAMENTO ===== */
+.steps {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.steps__title {
+    margin: 0 10px 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-700);
+}
+
+.steps__bar {
+    background: #E8F7EC;
+    /* faixinha verde clara ao fundo */
+    border-radius: 999px;
+    padding: 14px 14px 16px;
+}
+
+.steps__list {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.step {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+}
+
+/* linha que liga os círculos */
+.step::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    /* alinhado ao centro do círculo */
+    left: -50%;
+    width: 100%;
+    height: 4px;
+    background: #CBE5D4;
+    /* verdinho claro */
+    z-index: 0;
+}
+
+/* o primeiro não precisa de linha para trás */
+.step:first-child::before {
+    content: none;
+}
+
+.step__circle {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    border: 3px solid #CBE5D4;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, .10);
+}
+
+.step__icon,
+.step__number {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.step__text {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+/* etapas concluídas (check verde cheio) */
+.step.is-done::before {
+    background: var(--green);
+}
+
+.step.is-done .step__circle {
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.step.is-done .step__icon {
+    color: #FFFFFF;
+}
+
+/* etapa atual (número em verde, círculo com borda verde) */
+.step.is-current::before {
+    background: var(--green);
+}
+
+.step.is-current .step__circle {
+    border-color: var(--green);
+    background: #FFFFFF;
+}
+
+.step.is-current .step__number {
+    color: var(--green);
+}
+
+/* etapas futuras (padrão já é cinzinha/verde claro) */
+
+:root {
+    --bg-page: #F6F9F9;
+    --card-bg: #F6F9FF;
+    --card-border: #D1D9E0;
+    --blue: #08068D;
+    --blue-soft: #E3EBFF;
+    --text: #111827;
+    --text-soft: #6B7280;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #ffffff;
+    color: var(--text);
+}
+
+.wrap {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 16px 12px 32px;
+}
+
+/* CARD PIX */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 14px 14px 18px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, .06);
+}
+
+.pix-card {
+    margin-bottom: 16px;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.card-title-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.pix-ico {
+    width: 18px;
+    height: 18px;
+}
+
+/* QR */
+.qr-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    display: grid;
+    place-items: center;
+    margin: 4px auto 12px;
+}
+
+.qr-box img {
+    width: 210px;
+    height: 210px;
+    max-width: 100%;
+}
+
+/* copia e cola */
+.copy-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+}
+
+.copy-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+.copy-input {
+    flex: 1;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--text-soft);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-btn img.copy-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    transition: 0.2s ease;
+}
+
+.copy-btn:hover img.copy-icon {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* BOTÕES */
+.btn-secondary,
+.btn-primary {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-secondary {
+    background: #E4ECF9;
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    filter: brightness(1.03);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.ico-inline {
+    width: 18px;
+    height: 18px;
+}
