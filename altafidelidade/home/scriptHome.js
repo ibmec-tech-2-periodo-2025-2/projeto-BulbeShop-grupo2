@@ -215,3 +215,27 @@ document.querySelectorAll(".icon-btn").forEach((btn) => {
     try { localStorage.setItem('bulbe:addToCart', JSON.stringify({ title, price, img, alt, qty: 1, id })); } catch {}
   }, { capture: true }); // capture para executar antes de event.stopPropagation() de outros handlers
 })();
+
+// === MENU CATEGORIAS (abrir e fechar) ===
+const menuCategorias = document.getElementById("menu-categorias");
+const fecharMenu = document.getElementById("fechar-menu");
+
+// Detecta qualquer item com a classe nav-item que abre categorias
+document.querySelectorAll(".nav-item").forEach(btn => {
+    btn.addEventListener("click", () => {
+        menuCategorias.classList.add("active");
+    });
+});
+
+// Botão de fechar (X)
+fecharMenu?.addEventListener("click", () => {
+    menuCategorias.classList.remove("active");
+});
+
+// Fechar clicando fora da caixa branca
+menuCategorias?.addEventListener("click", (e) => {
+    if (e.target.id === "menu-categorias") {
+        menuCategorias.classList.remove("active");
+    }
+});
+
