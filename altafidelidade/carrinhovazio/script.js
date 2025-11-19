@@ -680,3 +680,8 @@ window.addEventListener("pageshow", (ev) => {
     atualizarResumoSelecionados();
   }
 });
+const itens = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+if (itens.length > 0) {
+  window.location.href = "../carrinhos/carrinho.html";
+}

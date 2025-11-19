@@ -629,3 +629,47 @@ body {
   background: #fff;
   cursor: pointer;
 }
+/* TAG OFERTA — pequena, fina e sem empurrar nada */
+.cartao-mini {
+  position: relative; /* necessário para posicionamento absoluto */
+}
+
+.tag-oferta {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  background: #e0fbe5;
+  color: #0f7b3e;
+  font-weight: 700;
+  font-size: 10px;
+
+  padding: 3px 8px;
+  border-radius: 999px;
+
+  z-index: 10;
+
+  /* impede que aumente altura do card */
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}
+.tag-oferta {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  background: #e0fbe5;
+  color: #0f7b3e;
+  font-weight: 700;
+  font-size: 11px;      /* antes era 10px */
+  
+  padding: 4px 10px;    /* antes era 3px 8px */
+  border-radius: 999px;
+
+  z-index: 10;
+
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}
