@@ -201,11 +201,12 @@ function ativarContadores() {
       const span = contador.querySelector("[data-quantidade]") || contador.querySelector(".quantidade-atual");
       let n = parseInt(span?.textContent || "1", 10) || 1;
 
-      // Remoção quando iria a 0
-      if (acao === "diminuir" && n === 1) {
-        removerItemDoCarrinho(chave, produtoPai);
-        return;
-      }
+     // Remoção quando iria a 0
+if (acao === "diminuir" && n === 1) {
+  removerItemDoCarrinho(chave, produtoPai);
+  return;
+}
+
 
       if (acao === "aumentar") n++;
       if (acao === "diminuir") n = Math.max(1, n - 1);
@@ -239,27 +240,69 @@ function removerItemDoCarrinho(chave, card) {
   updateTriggerA11y(card, false);
 
   // 3) Persistência: remover do bulbe:cart (se existir)
-  let title = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
+  let title   = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
   let priceEl = card?.querySelector(".valor-produto, .price, [data-preco]");
-  let unit = 0;
-  if (priceEl?.dataset?.preco) unit = Number(priceEl.dataset.preco);
-  else unit = Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
+  let unit    = 0;
+
+  if (priceEl?.dataset?.preco) {
+    unit = Number(priceEl.dataset.preco);
+  } else {
+    unit = Number(
+      (priceEl?.textContent || "0")
+        .replace(/[^\d,.-]/g, "")
+        .replace(/\./g, "")
+        .replace(",", ".")
+    );
+  }
+
   const idGuess = `${String(title).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(unit || 0).toFixed(2)}`;
+
   const cartArr = loadCart();
-  const idx = cartArr.findIndex((it) => it.id === idGuess);
-  if (idx >= 0) { cartArr.splice(idx, 1); saveCart(cartArr); }
+  const idx     = cartArr.findIndex((it) => it.id === idGuess);
+
+  if (idx >= 0) {
+    cartArr.splice(idx, 1);
+    saveCart(cartArr);
+  }
+
   const last = getLastId();
-  if (last && last === idGuess) setLastId("");
+  if (last && last === idGuess) {
+    setLastId("");
+  }
 
   // 4) Remover o card do DOM
-  if (card && typeof card.remove === "function") card.remove();
-  else if (card && card.style) card.style.display = "none";
+  if (card && typeof card.remove === "function") {
+    card.remove();
+  } else if (card && card.style) {
+    card.style.display = "none";
+  }
 
-  // 5) Atualizar "selecionar tudo" + resumos
+  // 5) Verificar se ainda existe ALGUM PRODUTO DE CARRINHO
+  //    (ignora os cards do carrossel de recomendados)
+  const aindaTemCardsCarrinho =
+    document.querySelectorAll('article.cartao-produto[data-produto]').length > 0;
+
+  const carrinhoAtual = loadCart();
+  const aindaTemNoStorage =
+    Array.isArray(carrinhoAtual) && carrinhoAtual.length > 0;
+
+  // Se não sobrou NENHUM produto → carrinho vazio
+  if (!aindaTemCardsCarrinho || !aindaTemNoStorage) {
+    try { localStorage.removeItem("bulbe:cart"); } catch {}
+    try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
+
+    window.location.href = "../carrinhovazio/carrinhovazio.html";
+    return; // não precisa atualizar mais nada
+  }
+
+  // 6) Se ainda tiver produto, só atualiza estados
   atualizarSelecionarTudoEstado();
   atualizarResumo();
   atualizarResumoSelecionados();
 }
+
+
+
 
 /* ======================================================
    TOTAL GERAL (fora da barra dos selecionados)
@@ -280,42 +323,37 @@ function atualizarResumo() {
    RESUMO (BARRA INFERIOR) — APENAS SELECIONADOS
    ====================================================== */
 function atualizarResumoSelecionados() {
-  const chavesSel = Object.keys(produtos).filter((k) => selecionados[k]);
-
-  let qtdTotalSel = 0;
-  let subtotalSel = 0;
-  chavesSel.forEach((k) => {
-    const q = Number(produtos[k].quantidade || 0);
-    const p = Number(produtos[k].preco || 0);
-    qtdTotalSel += q;
-    subtotalSel += p * q;
-  });
-
-  const qtdResumo = document.getElementById("quantidadeResumo");
-  const precoResumo = document.getElementById("precoResumo");
-  const totalResumo = document.getElementById("totalResumo");
-  if (qtdResumo) qtdResumo.textContent = String(qtdTotalSel);
-  if (precoResumo) precoResumo.textContent = moedaBR(subtotalSel);
-  if (totalResumo) totalResumo.textContent = moedaBR(subtotalSel);
-
+  const resumo = document.getElementById("resumoCarrinho");
   const tituloResumo = document.getElementById("tituloResumo");
-  const miniImg = document.querySelector("#resumoCarrinho .item-resumo img");
+  const imagemResumo = resumo.querySelector(".item-resumo img");
+  const precoResumo = document.getElementById("totalResumo");
 
-  if (chavesSel.length) {
-    const first = chavesSel[0];
-    const card = document.querySelector(`article.cartao-produto[data-produto="${first}"]`);
-    const tituloCard = produtos[first]?.titulo || card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "Produto";
-    const imgCard = card?.querySelector(".imagem-produto img, .img img, picture img, img");
-    const src = imgCard?.getAttribute("src") || "./assets/img/lamp.svg";
-    if (tituloResumo) tituloResumo.textContent = String(tituloCard).trim();
-    if (miniImg) { miniImg.src = src; miniImg.alt = String(tituloCard).trim(); }
-    mostrarItensResumo(true);
-  } else {
-    if (tituloResumo) tituloResumo.textContent = "";
-    if (miniImg) { miniImg.src = ""; miniImg.alt = ""; }
+  // Sempre pega o item do localStorage
+  const cart = loadCart();
+  const lastId = getLastId();
+  const item = (lastId && cart.find(it => it.id === lastId)) || cart[0];
+
+  if (!item) {
+    // Se não tiver nada no storage → esconde
+    tituloResumo.textContent = "";
+    imagemResumo.src = "";
+    precoResumo.textContent = "R$0,00";
     mostrarItensResumo(false);
+    return;
   }
+
+  // MOSTRA O ITEM NO MINI-RESUMO MESMO SEM SELECIONAR
+  tituloResumo.textContent = item.title;
+  imagemResumo.src = resolverImgParaCarrinho(item.img);
+  imagemResumo.alt = item.title;
+
+  const subtotal = Number(item.price) * Number(item.qty);
+  precoResumo.textContent = moedaBR(subtotal);
+
+  // Exibe os itens do resumo
+  mostrarItensResumo(true);
 }
+
 
 /* ======================================================
    CARROSSEL E CONTINUAR (fade+redirect)
@@ -455,6 +493,20 @@ function ensureParafusadeiraNaoAutoCarrega() {
     cardPar.style.display = "none";
   }
 }
+/* ======================================================
+   REMOVE PARAFUSADEIRA DO RESUMO INFERIOR — DEFINITIVO
+   ====================================================== */
+function removerParafusadeiraResumo() {
+  const itensResumo = document.querySelectorAll(".item-resumo");
+
+  itensResumo.forEach(item => {
+    const titulo = item.querySelector("strong")?.textContent?.toLowerCase() || "";
+
+    if (titulo.includes("parafusadeira") || titulo.includes("ppf120")) {
+      item.remove();
+    }
+  });
+}
 
 /* ======================================================
    IMPORTA DO LOCALSTORAGE / PAYLOAD (deve usar APENAS card “lampada” como template)
@@ -524,8 +576,8 @@ function importarDoLocalStorage() {
 document.getElementById("botaoLimpar")?.addEventListener("click", limparCarrinho);
 function limparCarrinho() {
   // Zera o storage REAL
-  try { localStorage.removeItem("bulbe:cart"); } catch {}
-  try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
+  try { localStorage.removeItem("bulbe:cart"); } catch { }
+  try { localStorage.removeItem("bulbe:lastAddedId"); } catch { }
 
   // Redireciona para o carrinho vazio
   window.location.href = "../carrinhovazio/carrinhovazio.html";
@@ -618,6 +670,21 @@ function syncSelectionFromCheckboxes() {
   atualizarSelecionarTudoEstado();
   atualizarResumoSelecionados();
 }
+/* ======================================================
+   REMOVE PARA FUSADIERA DO RESUMO INFERIOR — DEFINITIVO
+   ====================================================== */
+
+function removerParafusadeiraResumo() {
+  const itensResumo = document.querySelectorAll(".item-resumo");
+
+  itensResumo.forEach(item => {
+    const titulo = item.querySelector("strong")?.textContent?.toLowerCase() || "";
+
+    if (titulo.includes("parafusadeira") || titulo.includes("ppf120")) {
+      item.remove();
+    }
+  });
+}
 
 /* ======================================================
    INICIALIZAÇÃO (com proteção contra listeners duplicados)
@@ -677,6 +744,6 @@ window.addEventListener("pageshow", (ev) => {
 // 
 const cart = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
 
-if (cart.length === 0) {
-  window.location.href = "../carrinhovazio/carrinhovazio.html";
-}
+// if (cart.length === 0) {
+//   window.location.href = "../carrinhovazio/carrinhovazio.html";
+// }
