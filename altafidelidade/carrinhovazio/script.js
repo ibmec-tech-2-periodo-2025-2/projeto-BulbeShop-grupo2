@@ -680,8 +680,9 @@ window.addEventListener("pageshow", (ev) => {
     atualizarResumoSelecionados();
   }
 });
-const itens = JSON.parse(localStorage.getItem("carrinho")) || [];
+// Corrigido: carrinho certo
+const cart = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
 
-if (itens.length > 0) {
+if (cart.length > 0) {
   window.location.href = "../carrinhos/carrinho.html";
 }

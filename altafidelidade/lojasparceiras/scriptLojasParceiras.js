@@ -98,19 +98,21 @@ document.querySelectorAll('.icon-btn').forEach(btn => {
     });
 });
 
-// Botão do carrinho (ícone no header)
+// === BOTÃO DO CARRINHO NO HEADER ===
 const botaoCarrinho = document.getElementById("btnCarrinho");
 
 if (botaoCarrinho) {
   botaoCarrinho.addEventListener("click", () => {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    if (carrinho.length > 0) {
-      // Carrinho cheio
-      window.location.href = "./carrinhos/carrinho.html";
-    } else {
+    // Agora busca no carrinho verdadeiro
+    const carrinho = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
+
+    if (carrinho.length === 0) {
       // Carrinho vazio
-      window.location.href = "./carrinhovazio/carrinhovazio.html";
+      window.location.href = "/altafidelidade/carrinhovazio/carrinhovazio.html";
+    } else {
+      // Carrinho cheio
+      window.location.href = "/altafidelidade/carrinhos/carrinho.html";
     }
   });
 }
