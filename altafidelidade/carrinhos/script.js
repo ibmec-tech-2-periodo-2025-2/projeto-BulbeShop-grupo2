@@ -523,31 +523,14 @@ function importarDoLocalStorage() {
    ====================================================== */
 document.getElementById("botaoLimpar")?.addEventListener("click", limparCarrinho);
 function limparCarrinho() {
-  // Mantém comportamento anterior (quantidade volta a 1 nos cards presentes)
-  produtos.lampada.quantidade = 1;
-  produtos.parafusadeira.quantidade = 1;
+  // Zera o storage REAL
+  try { localStorage.removeItem("bulbe:cart"); } catch {}
+  try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
 
-  document.querySelectorAll('[data-produto="lampada"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
-  document.querySelectorAll('[data-produto="parafusadeira"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
-  document.querySelectorAll('[data-produto="lampada"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
-  document.querySelectorAll('[data-produto="parafusadeira"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
-
-  try { localStorage.removeItem("bulbe:cart"); } catch { }
-  try { localStorage.removeItem("bulbe:lastAddedId"); } catch { }
-
-  document.querySelectorAll("article.cartao-produto").forEach(card => {
-    const cb = card.querySelector(".selecao-individual");
-    if (cb) cb.checked = false;
-    card.classList.remove("is-selecionado");
-    updateTriggerA11y(card, false); // volta rótulo para “Selecionar”
-  });
-  selecionados.lampada = false;
-  selecionados.parafusadeira = false;
-
-  atualizarSelecionarTudoEstado();
-  atualizarResumo();
-  atualizarResumoSelecionados(); // oculta bloco de itens do resumo
+  // Redireciona para o carrinho vazio
+  window.location.href = "../carrinhovazio/carrinhovazio.html";
 }
+
 
 /* ======================================================
    EVENTOS: “Selecionar/Selecionado” com TOGGLE
@@ -691,7 +674,7 @@ window.addEventListener("pageshow", (ev) => {
     atualizarResumoSelecionados();
   }
 });
-// Corrigido: agora olha o carrinho certo!
+// 
 const cart = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
 
 if (cart.length === 0) {
