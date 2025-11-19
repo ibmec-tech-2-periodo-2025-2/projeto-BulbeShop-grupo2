@@ -186,6 +186,16 @@
       window.location.href = '/altafidelidade/pagamento3/pagamento3.html';
       return;
     }
+        if (method.includes('pix')) {
+      window.location.href = '/altafidelidade/pix/pix.html';
+      return;
+    }
+        if (method.includes('boleto')) {
+      window.location.href = '/altafidelidade/boleto/boleto.html';
+      return;
+    }
+
+
     // fallback
     window.location.href = '/altafidelidade/pagamento1/pagamento.html';
   });
