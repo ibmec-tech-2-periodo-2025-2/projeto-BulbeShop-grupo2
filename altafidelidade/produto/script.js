@@ -239,3 +239,39 @@ if (botaoCarrinho) {
     }
   });
 }
+
+  //  ADICIONAR AO CARRINHO — sistema real
+
+
+
+/* SISTEMA DE CARRINHO — COMPATÍVEL COM O CARRINHO CHEIO */
+const PRODUTO_ID = "ventilador-bvt301";
+
+document.getElementById("btn-add")?.addEventListener("click", () => {
+
+  let carrinho = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
+
+  const novo = {
+    id: PRODUTO_ID,
+    title: "Ventilador Britânia BVT301",
+    price: 179.90,
+    qty: parseInt(document.getElementById("qty-select").value, 10),
+    cor: document.querySelector('[data-variation="color"] .chip.is-active')?.textContent.trim(),
+    voltagem: document.querySelector('[data-variation="voltage"] .chip.is-active')?.textContent.trim(),
+    img: "./assets/img/image 1.png",
+    alt: "Ventilador Britânia BVT301"
+  };
+
+  const existente = carrinho.find(p => p.id === PRODUTO_ID);
+  if (existente) existente.qty += novo.qty;
+  else carrinho.push(novo);
+
+  localStorage.setItem("bulbe:cart", JSON.stringify(carrinho));
+  localStorage.setItem("bulbe:lastAddedId", PRODUTO_ID);
+
+  showToast("Produto adicionado ao carrinho!");
+
+  setTimeout(() => {
+    location.href = "/altafidelidade/carrinhos/carrinho.html";
+  }, 600);
+});
