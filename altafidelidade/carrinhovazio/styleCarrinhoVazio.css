@@ -1,136 +1,810 @@
+/* ===== TOKENS ===== */
+:root {
+  --branco: #FFFFFF;
+  --cinza-25: #F6F9F9;
+  --cinza-100: #D1D9E0;
+  --cinza-200: #C2CCD6;
+  --cinza-300: #A4B3C1;
+  --cinza-400: #8699AC;
+  --cinza-700: #3E4D5B;
+
+  --azul: #08068D;
+  --verde: #12B76A;
+  --vermelho: #F04438;
+}
+
+/* REGRAS GERAIS */
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
+html, body {
+  height: 100%;
+}
 body {
-    background: #f5f7fa;
+  margin: 0;
+  background: #FAFBFC;
+  color: var(--cinza-700);
+  font: 400 12px/1.35 "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/* CABEÇALHO */
-.topo {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    gap: 16px;
+/* ======== CABEÇALHO ======== */
+.barra-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--cinza-100);
 }
 
-.btn-voltar img {
-    width: 22px;
-}
-
-.logo {
-    width: 90px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* BANNER */
-.banner {
-    padding: 10px;
-    text-align: center;
-}
-
-.banner-img {
-    width: 100%;
-    border-radius: 12px;
-}
-
-.msg-vazio {
-    margin-top: 8px;
-    color: #0d1e5b;
-    font-weight: 600;
-}
-
-/* RECOMENDAÇÕES */
-.recomendacoes {
-    padding: 16px;
-}
-
-h2 {
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-.grid-produtos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-}
-
-/* CARD PRODUTO */
-.card {
-    background: #ffffff;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    position: relative;
-}
-
-.badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background: #00c853;
-    color: white;
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 6px;
-}
-
-.produto-img {
-    width: 100%;
-    margin-top: 14px;
-}
-
-.produto-nome {
-    font-size: 13px;
-    margin-top: 6px;
-}
-
-.produto-preco {
-    font-size: 15px;
-    font-weight: bold;
-    color: #1b3fa8;
-}
-
-/* ÍCONES DE AÇÃO */
-.acoes {
-    display: flex;
-    gap: 12px;
-    margin-top: 6px;
-}
-
-.icone {
-    width: 20px;
-    cursor: pointer;
-}
-
-/* RODAPÉ */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-}
-
-.logo-footer {
-    width: 110px;
-}
-
-.slogan {
-    font-size: 12px;
-    color: #1b3fa8;
-}
-.btn-voltar {
+.botao-voltar {
   border: 0;
   background: transparent;
   padding: 6px;
   cursor: pointer;
 }
 
-.btn-voltar img {
+.botao-voltar img {
   width: 22px;
   height: 22px;
+}
+
+.logo-bulbe {
+  height: 26px;
+  width: auto;
+}
+
+/* ======== CONTEÚDO PRINCIPAL ======== */
+.conteudo-principal {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 12px 12px 220px;
+}
+
+/* CABEÇALHO DO CARRINHO */
+.cabecalho-carrinho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 10px;
+}
+
+.lado-esquerdo-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icone-carrinho {
+  width: 22px;
+  height: 22px;
+  opacity: .9;
+}
+
+.cabecalho-carrinho h1 {
+  margin: 0;
+  font: 800 18px/1.2 Poppins;
+  color: var(--cinza-700);
+}
+
+.selecao-geral {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.selecao-geral input {
+  appearance: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.caixa-selecao-falsa {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--cinza-300);
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.selecao-geral input:checked + .caixa-selecao-falsa {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.selecao-geral input:checked + .caixa-selecao-falsa::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.selecao-geral span {
+  font-weight: 700;
+  color: var(--cinza-400);
+}
+
+/* ======== CARTÕES DOS PRODUTOS ======== */
+.cartao-produto {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 88px 1fr;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(230, 241, 254, 0.4); /* 💙 azul-bebê translúcido */
+  border: 1px solid rgba(230, 241, 254, 0.6);
+  border-radius: 12px;
+  margin-top: 10px;
+  box-shadow: 0 0 0 3px rgba(230, 241, 254, 0.4);
+}
+
+.checkbox-produto {
+  grid-column: 1 / 4;
+}
+
+.checkbox-produto input {
+  display: none;
+}
+
+.texto-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--cinza-100);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--cinza-700);
+  font-weight: 700;
+}
+
+.imagem-produto img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  border: 1px solid var(--cinza-100);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.informacoes-produto {
+  display: grid;
+  gap: 6px;
+}
+
+.titulo-produto {
+  margin: 0;
+  font-weight: 700;
+  color: var(--cinza-700);
+}
+
+.preco-antigo {
+  color: var(--cinza-400);
+}
+
+.simbolo-reais {
+  color: var(--azul);
+  font-weight: 800;
+}
+
+.valor-produto {
+  color: var(--azul);
+  font: 800 28px/1 Poppins;
+}
+
+.controle-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.texto-unidades {
+  color: var(--cinza-400);
+}
+
+.contador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.botao-quantidade {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid var(--cinza-100);
+  background: #fff;
+  cursor: pointer;
+}
+
+.quantidade-atual {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--cinza-700);
+}
+
+/* ======== FAIXA “Na Bulbe sai” ======== */
+.faixa-desconto {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--azul);
+  color: #fff;
+  border: 1px solid var(--azul);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.faixa-desconto strong {
+  font-weight: 800;
+}
+
+.icone-faixa img {
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+  filter: brightness(0) invert(1);
+}
+
+/* ======== SEÇÃO DE ITENS ADICIONAIS ======== */
+.secao-adicionar-itens {
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.conteudo-adicional h2 {
+  font: 800 18px/1.2 Poppins, sans-serif;
+  margin: 16px 0 8px;
+  color: #1b1b1b;
+}
+
+.grupo-adicional {
+  background: #fff;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 0 0 4px rgba(230, 241, 254, 0.4);
+}
+
+
+/* ======== CARROSSEL ======== */
+.carrossel {
+  position: relative;
+}
+
+.trilha-carrossel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 70%;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px;
+  background: rgba(230, 241, 254, 0.4);
+  border-radius: 10px;
+}
+
+.trilha-carrossel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.trilha-carrossel::-webkit-scrollbar-thumb {
+  background: rgba(230, 241, 254, 0.8);
+  border-radius: 999px;
+}
+
+.cartao-mini {
+  scroll-snap-align: start;
+  border: 1px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 10px;
+  background: #fff;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cartao-mini:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(230, 241, 254, 0.7);
+}
+
+.miniatura-produto {
+  display: grid;
+  place-items: center;
+  height: 120px;
+}
+
+.titulo-mini {
+  margin: 0;
+  color: #2d3a4a;
+  font-weight: 700;
+}
+
+.preco-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preco-mini s {
+  color: #a4b3c1;
+  font-size: 14px;
+}
+
+.acoes-mini {
+  display: flex;
+  gap: 10px;
+}
+
+.botao-icone {
+  border: 1px solid #e0e6ed;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.botao-icone:hover {
+  background: rgba(230, 241, 254, 0.4);
+}
+
+/* Setas do carrossel */
+.seta-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #cfd8e3;
+  background: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 20px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 3px rgba(230, 241, 254, 0.4);
+}
+
+.seta-carrossel.esquerda {
+  left: -10px;
+}
+
+.seta-carrossel.direita {
+  right: -10px;
+}
+
+/* ======== RESUMO (BOTTOM SHEET) ======== */
+
+.resumo-carrinho{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #E5E7EB;
+  padding: 16px;
+  /* espaço seguro p/ iPhone com notch */
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 9999;
+  border: 1px solid rgba(230, 241, 254, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 0 3px rgba(230, 241, 254, 0.4);
+}
+
+/* Evitar que o conteúdo fique escondido atrás da barra */
+.conteudo-principal{
+  /* ajuste conforme a altura real da barra (16 + conteúdo) */
+  padding-bottom: 140px;
+}
+.barra-arrastar {
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  background: #E6F1FE;
+  margin: 6px auto 12px;
+}
+
+.item-resumo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.item-resumo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border: 1px solid var(--cinza-100);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.texto-resumo {
+  flex: 1;
+}
+
+.texto-resumo strong {
+  display: block;
+  color: var(--cinza-700);
+}
+
+.linha-resumo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.preco-resumo {
+  color: var(--azul);
+}
+
+.total-resumo {
+  margin: 10px 2px;
+  color: var(--cinza-700);
+  font-weight: 700;
+}
+
+.acoes-resumo {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao-cinza,
+.botao-azul {
+  flex: 1;
+  height: 38px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.botao-cinza {
+  background: #e3e8ef;
+  color: #2d3748;
+  width: 7px;
+}
+
+.botao-azul {
+  background: var(--azul);
+  color: #fff;
+}
+
+
+
+/* ======== AJUSTE DA UNIDADE DA PARAFUSADEIRA ======== */
+.cartao-produto[data-produto="parafusadeira"] .informacoes-produto {
+  position: relative;
+  padding-bottom: 32px; /* cria espaço pra unidade não sumir */
+}
+
+.cartao-produto[data-produto="parafusadeira"] .controle-quantidade {
+  position: absolute;
+  bottom: 8px; /* posiciona o bloco logo acima da faixa azul */
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.cartao-produto[data-produto="parafusadeira"] .texto-unidades {
+  display: inline-block;
+  color: var(--cinza-400);
+  font-weight: 600;
+  position: relative;
+  top: -2px; /* leve subida pra alinhar com o contador */
+}
+/* === Alinhamento lateral do contador e texto da PARAFUSADEIRA === */
+.cartao-produto[data-produto="parafusadeira"] .controle-quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+.cartao-produto[data-produto="parafusadeira"] .contador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cartao-produto[data-produto="parafusadeira"] .texto-unidades {
+  color: var(--cinza-400);
+  font-weight: 600;
+  margin-left: 4px;
+  white-space: nowrap; /* evita quebra de linha */
+  position: relative;
+  top: 1px; /* alinha verticalmente com o número */
+}
+
+.cartao-produto[data-produto="parafusadeira"] .informacoes-produto {
+  padding-bottom: 48px; /* espaço suficiente pra faixa azul */
+}
+
+.cartao-produto[data-produto="parafusadeira"] .faixa-desconto {
+  bottom: 0;
+}
+.item-resumo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-resumo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border: 1px solid var(--cinza-100);
+  border-radius: 10px;
+  background: #fff;
+}
+/* === MELHOR PROPORÇÃO DO MINI-CARD === */
+.item-resumo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  background: #f9fbff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.item-resumo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-100);
+  object-fit: contain;
+  background: white;
+}
+
+.item-resumo .texto-resumo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-resumo strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza-700);
+}
+
+.linha-resumo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linha-resumo .contador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linha-resumo .botao-quantidade {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 1px solid var(--cinza-100);
+  background: #fff;
+  cursor: pointer;
+}
+/* ===========================
+   CARRINHO VAZIO (Bulbe)
+   =========================== */
+
+.carrinho-vazio {
+  width: 100%;
+  background: #0B3FAE; /* azul do banner */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 4px rgba(230,241,254,0.4);
+  margin-bottom: 20px;
+}
+
+.carrinho-vazio .img-vazio {
+  width: 100%;
+  display: block;
+  border-bottom: 4px solid #002B84; /* azul mais escuro */
+}
+
+.texto-vazio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  background: #002B84;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.texto-vazio .icone-user {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+.icone-user{
+  border: 0;
+  background: transparent;
+  
+  ;}
+
+
+  /* REMOVE qualquer interferência da caixa de seleção dentro do banner vazio */
+.carrinho-vazio * {
+  all: unset;
+  display: revert;
+  box-sizing: border-box;
+}
+
+/* Reaplica estilos apenas do container */
+.carrinho-vazio {
+  background: #003A99;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 4px rgba(230,241,254,0.4);
+}
+
+.carrinho-vazio .img-vazio {
+  width: 100%;
+  display: block;
+}
+
+.texto-vazio {
+  background: #002B84;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.texto-vazio .icone-vazio {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  margin-top: 20px;
+}
+
+.logo-final img {
+  width: 180px; /* ajuste como quiser */
+  height: auto;
+  opacity: 0.9;
+}
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 80px; /* empurra bem para baixo */
+  margin-top: 20px;
+}
+
+.logo-final img {
+  width: 120px;  /* ficou menor */
+  height: auto;
+  opacity: 0.9;
+}
+/* Container principal vira uma coluna flexível */
+.conteudo-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px); /* ocupa quase a tela toda */
+  padding-bottom: 160px; /* cria muito espaço branco */
+}
+
+
+/* Remove o buraco gigante do fundo */
+.conteudo-principal {
+  display: block !important;
+  padding-bottom: 40px !important; /* ajuste pequeno e controlado */
+  min-height: unset !important;
+}
+
+/* Logo FINAL — versão única */
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;       /* espaço logo após o carrossel */
+  padding: 16px 0 24px;   /* espaço até a bordinha inferior */
+}
+
+.logo-final img {
+  width: 150px;  /* tamanho ideal */
+  height: auto;
+  opacity: 0.95;
+}
+.selecao-geral {
+  display: none !important;
+}
+
+
+
+/* TAG OFERTA — pequena, fina e sem empurrar nada */
+.cartao-mini {
+  position: relative; /* necessário para posicionamento absoluto */
+}
+
+.tag-oferta {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  background: #e0fbe5;
+  color: #0f7b3e;
+  font-weight: 700;
+  font-size: 10px;
+
+  padding: 3px 8px;
+  border-radius: 999px;
+
+  z-index: 10;
+
+  /* impede que aumente altura do card */
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}
+.tag-oferta {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+  background: #e0fbe5;
+  color: #0f7b3e;
+  font-weight: 700;
+  font-size: 11px;      /* antes era 10px */
+  
+  padding: 4px 10px;    /* antes era 3px 8px */
+  border-radius: 999px;
+
+  z-index: 10;
+
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
 }
