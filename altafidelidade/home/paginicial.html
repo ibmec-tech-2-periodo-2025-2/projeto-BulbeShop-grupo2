@@ -16,9 +16,9 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-    <!--ICONE Menu-->
+        <!--ICONE Menu-->
         <a class="home-btn" id="home-btn" href="/altafidelidade/home/paginicial.html" aria-label="Ir para Home">
-            <img src="./img/home-05.png" alt="Home"> 
+            <img src="./img/home-05.png" alt="Home">
         </a>
 
         <div class="logo">
@@ -127,31 +127,26 @@
         </a>
     </section>
     <!--BANNER-->
-    <section class="cashback-banner" id="topo" aria-label="Banner de cashback 2%">
-        <img src="./img/boniquenhaBenner.png" alt="" class="bonequinha">
-        <div class="banner-inner">
-            <!-- coluna esquerda (conteúdo) -->
-            <div class="banner-left">
-                <img class="brand-mark" src="./img/logoe.png" alt="Marca" />
+    <!-- CARROSSEL DE BANNERS -->
+    <section class="banner-carousel">
 
-                <h2 class="headline">
-                    <span class="percent">2%</span> de<br>
-                    <span class="strong">cashback!</span>
-                </h2>
+        <div class="carousel-track">
+            <img src="./img/Banner1.png" class="slide active" alt="banner 1">
+            <img src="./img/bannerLIVELO.png" class="slide" alt="banner 2">
+            <img src="./img/bannerINTER.png" class="slide" alt="banner 3">
+        </div>
 
-                <p class="subtitle">
-                    Na sua fatura de energia em<br>
-                    compras finalizadas!
-                </p>
+        <!-- Botões -->
+        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn next">&#10095;</button>
 
-                <button id="saibaMaisBtn" class="cta" aria-haspopup="dialog" aria-controls="modalCashback">
-                    Saiba Mais
-                </button>
-
-            </div>
+        <!-- Bolinhas -->
+        <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
         </div>
     </section>
-
     <!-- MODAL -->
     <div id="modalCashback" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
         aria-describedby="modalDesc" hidden>
