@@ -731,7 +731,7 @@ body {
   /* evita “pulo” ao carregar */
   height: auto;
   border-radius: 12px;
-  background: #fff;
+  background-image: url("./img/image\ 22.png");
   border: 2px solid var(--gray-300);
 }
 
@@ -796,7 +796,7 @@ body {
 .review-photos .ph {
   height: 96px;
   border-radius: 12px;
-  background: #fff;
+  background-image: url("./img/image\ 22.png") contain;
   border: 2px solid var(--gray-300);
 }
 
@@ -971,4 +971,7 @@ body {
 .shelf .tile:focus {
   text-decoration: none;
   color: inherit;  
+}
+.ph{
+  background-image: url("altafidelidade/produto/img/image 22.png");
 }
