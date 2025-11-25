@@ -187,75 +187,75 @@ if (btnCarrinhoHeader) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // === CARROSSEL DE IMAGENS === //
-    const slides = document.querySelectorAll(".banner-carousel .slide");
-    const dots = document.querySelectorAll(".banner-carousel .dot");
-    const prev = document.querySelector(".banner-carousel .carousel-btn.prev");
-    const next = document.querySelector(".banner-carousel .carousel-btn.next");
+  // === CARROSSEL DE IMAGENS === //
+  const slides = document.querySelectorAll(".banner-carousel .slide");
+  const dots = document.querySelectorAll(".banner-carousel .dot");
+  const prev = document.querySelector(".banner-carousel .carousel-btn.prev");
+  const next = document.querySelector(".banner-carousel .carousel-btn.next");
 
-    if (!slides.length) return; // se não achar slides, não faz nada
+  if (!slides.length) return; // se não achar slides, não faz nada
 
-    let index = 0;
-    let intervalId = null;
+  let index = 0;
+  let intervalId = null;
 
-    function showSlide(i) {
-        index = i;
+  function showSlide(i) {
+    index = i;
 
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
 
-        slides.forEach((s, n) => {
-            s.classList.toggle("active", n === index);
-        });
-
-        dots.forEach((d, n) => {
-            d.classList.toggle("active", n === index);
-        });
-    }
-
-    function nextSlide() {
-        showSlide(index + 1);
-    }
-
-    function prevSlideFunc() {
-        showSlide(index - 1);
-    }
-
-    function startAutoPlay() {
-        stopAutoPlay();
-        intervalId = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoPlay() {
-        if (intervalId) {
-            clearInterval(intervalId);
-            intervalId = null;
-        }
-    }
-
-    if (next) {
-        next.addEventListener("click", () => {
-            nextSlide();
-            startAutoPlay(); // reinicia o timer
-        });
-    }
-
-    if (prev) {
-        prev.addEventListener("click", () => {
-            prevSlideFunc();
-            startAutoPlay();
-        });
-    }
-
-    dots.forEach(dot => {
-        dot.addEventListener("click", () => {
-            const slideIndex = Number(dot.dataset.slide);
-            showSlide(slideIndex);
-            startAutoPlay();
-        });
+    slides.forEach((s, n) => {
+      s.classList.toggle("active", n === index);
     });
 
-    // inicia no primeiro slide
-    showSlide(0);
-    startAutoPlay();
+    dots.forEach((d, n) => {
+      d.classList.toggle("active", n === index);
+    });
+  }
+
+  function nextSlide() {
+    showSlide(index + 1);
+  }
+
+  function prevSlideFunc() {
+    showSlide(index - 1);
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    intervalId = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+
+  if (next) {
+    next.addEventListener("click", () => {
+      nextSlide();
+      startAutoPlay(); // reinicia o timer
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener("click", () => {
+      prevSlideFunc();
+      startAutoPlay();
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const slideIndex = Number(dot.dataset.slide);
+      showSlide(slideIndex);
+      startAutoPlay();
+    });
+  });
+
+  // inicia no primeiro slide
+  showSlide(0);
+  startAutoPlay();
 });
