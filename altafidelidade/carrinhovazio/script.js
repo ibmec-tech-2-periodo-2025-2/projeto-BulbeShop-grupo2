@@ -15,12 +15,12 @@ document.getElementById("botaoVoltar")?.addEventListener("click", () => history.
 
 /* ==== FORMATADORES ==== */
 const formatoBR = (n) => (Number(n) || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const moedaBR = (n) => `R$${formatoBR(n)}`;
+const moedaBR   = (n) => `R$${formatoBR(n)}`;
 
 /* ==== ESTADO (títulos/preços base; quantidades serão ajustadas na inicialização) ==== */
 const produtos = {
-  lampada: { titulo: "Lâmpada de LED E27 Bulbo 9W 803lm Luz Branca Bivolt Black + Decker", preco: 4.59, quantidade: 5 },
-  parafusadeira: { titulo: "Parafusadeira Philco Force PPF120 3 em 1 1500RPM", preco: 199.9, quantidade: 1 },
+  lampada:       { titulo: "Lâmpada de LED E27 Bulbo 9W 803lm Luz Branca Bivolt Black + Decker", preco: 4.59,  quantidade: 5 },
+  parafusadeira: { titulo: "Parafusadeira Philco Force PPF120 3 em 1 1500RPM",                    preco: 199.9, quantidade: 1 },
 };
 
 /* ==== SELEÇÃO (entram no RESUMO) ==== */
@@ -28,9 +28,9 @@ const selecionados = { lampada: false, parafusadeira: false };
 
 /* ==== PERSISTÊNCIA ==== */
 function loadCart() { try { return JSON.parse(localStorage.getItem("bulbe:cart")) || []; } catch { return []; } }
-function saveCart(arr) { try { localStorage.setItem("bulbe:cart", JSON.stringify(arr)); } catch { } }
+function saveCart(arr) { try { localStorage.setItem("bulbe:cart", JSON.stringify(arr)); } catch {} }
 function getLastId() { try { return localStorage.getItem("bulbe:lastAddedId") || ""; } catch { return ""; } }
-function setLastId(id) { try { localStorage.setItem("bulbe:lastAddedId", id || ""); } catch { } }
+function setLastId(id) { try { localStorage.setItem("bulbe:lastAddedId", id || ""); } catch {} }
 function resolverImgParaCarrinho(p) { if (!p) return "./assets/img/lamp.svg"; if (p.startsWith("./img/")) return "../home/" + p.slice(2); return p; }
 
 /* ======================================================
@@ -123,34 +123,34 @@ function enhanceSelecionarUI() {
     const selected = !!card?.classList.contains("is-selecionado");
     el.setAttribute("aria-pressed", selected ? "true" : "false");
     el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
-    try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch { }
+    try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch {}
   });
 }
 
 function updateTriggerLabel(card, selected) {
   card.querySelectorAll('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao')
-    .forEach(el => { try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch { } });
+    .forEach(el => { try { el.textContent = selected ? "Selecionado" : "Selecionar"; } catch {} });
 }
 
 function updateTriggerA11y(card, selected) {
   card.querySelectorAll('[data-action="selecionar"], .selecionar, .texto-selecionar, .btn-selecionar, .btn-selecao')
-    .forEach(el => {
-      el.setAttribute("aria-pressed", selected ? "true" : "false");
-      el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
-    });
+      .forEach(el=>{
+        el.setAttribute("aria-pressed", selected ? "true" : "false");
+        el.setAttribute("aria-label", selected ? "Selecionado" : "Selecionar produto");
+      });
   updateTriggerLabel(card, selected);
 }
 
 /* ======================================================
    HELPERS DE VISIBILIDADE (para “Selecionar tudo” e contagens)
    ====================================================== */
-function isVisibleCard(card) {
+function isVisibleCard(card){
   if (!card) return false;
   const cs = getComputedStyle(card);
   return card.offsetParent !== null && cs.display !== "none" && cs.visibility !== "hidden" && cs.opacity !== "0";
 }
-function getVisibleCards() { return Array.from(document.querySelectorAll('article.cartao-produto')).filter(isVisibleCard); }
-function getVisibleCheckboxes() { return getVisibleCards().map(c => c.querySelector('.selecao-individual')).filter(Boolean); }
+function getVisibleCards(){ return Array.from(document.querySelectorAll('article.cartao-produto')).filter(isVisibleCard); }
+function getVisibleCheckboxes(){ return getVisibleCards().map(c=>c.querySelector('.selecao-individual')).filter(Boolean); }
 
 /* ======================================================
    BLOCO DE ITENS NA BARRA DE RESUMO — mostrar/ocultar
@@ -188,25 +188,24 @@ function atualizarSelecionarTudoEstado() {
 function ativarContadores() {
   document.querySelectorAll(".contador").forEach((contador) => {
     const produtoPai = contador.closest(".cartao-produto");
-    const chaveBase = produtoPai?.dataset.produto || null;
+    const chaveBase  = produtoPai?.dataset.produto || null;
 
     contador.addEventListener("click", (evento) => {
       const botao = evento.target.closest(".botao-quantidade");
       if (!botao) return;
 
-      const acao = botao.dataset.acao; // "aumentar" | "diminuir"
+      const acao  = botao.dataset.acao; // "aumentar" | "diminuir"
       const chave = contador.dataset.produto === "resumo" ? "lampada" : chaveBase;
       if (!chave || !produtos[chave]) return;
 
       const span = contador.querySelector("[data-quantidade]") || contador.querySelector(".quantidade-atual");
       let n = parseInt(span?.textContent || "1", 10) || 1;
 
-     // Remoção quando iria a 0
-if (acao === "diminuir" && n === 1) {
-  removerItemDoCarrinho(chave, produtoPai);
-  return;
-}
-
+      // Remoção quando iria a 0
+      if (acao === "diminuir" && n === 1) {
+        removerItemDoCarrinho(chave, produtoPai);
+        return;
+      }
 
       if (acao === "aumentar") n++;
       if (acao === "diminuir") n = Math.max(1, n - 1);
@@ -240,80 +239,38 @@ function removerItemDoCarrinho(chave, card) {
   updateTriggerA11y(card, false);
 
   // 3) Persistência: remover do bulbe:cart (se existir)
-  let title   = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
+  let title = (card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
   let priceEl = card?.querySelector(".valor-produto, .price, [data-preco]");
-  let unit    = 0;
-
-  if (priceEl?.dataset?.preco) {
-    unit = Number(priceEl.dataset.preco);
-  } else {
-    unit = Number(
-      (priceEl?.textContent || "0")
-        .replace(/[^\d,.-]/g, "")
-        .replace(/\./g, "")
-        .replace(",", ".")
-    );
-  }
-
+  let unit = 0;
+  if (priceEl?.dataset?.preco) unit = Number(priceEl.dataset.preco);
+  else unit = Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
   const idGuess = `${String(title).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(unit || 0).toFixed(2)}`;
-
   const cartArr = loadCart();
-  const idx     = cartArr.findIndex((it) => it.id === idGuess);
-
-  if (idx >= 0) {
-    cartArr.splice(idx, 1);
-    saveCart(cartArr);
-  }
-
+  const idx = cartArr.findIndex((it) => it.id === idGuess);
+  if (idx >= 0) { cartArr.splice(idx, 1); saveCart(cartArr); }
   const last = getLastId();
-  if (last && last === idGuess) {
-    setLastId("");
-  }
+  if (last && last === idGuess) setLastId("");
 
   // 4) Remover o card do DOM
-  if (card && typeof card.remove === "function") {
-    card.remove();
-  } else if (card && card.style) {
-    card.style.display = "none";
-  }
+  if (card && typeof card.remove === "function") card.remove();
+  else if (card && card.style) card.style.display = "none";
 
-  // 5) Verificar se ainda existe ALGUM PRODUTO DE CARRINHO
-  //    (ignora os cards do carrossel de recomendados)
-  const aindaTemCardsCarrinho =
-    document.querySelectorAll('article.cartao-produto[data-produto]').length > 0;
-
-  const carrinhoAtual = loadCart();
-  const aindaTemNoStorage =
-    Array.isArray(carrinhoAtual) && carrinhoAtual.length > 0;
-
-  // Se não sobrou NENHUM produto → carrinho vazio
-  if (!aindaTemCardsCarrinho || !aindaTemNoStorage) {
-    try { localStorage.removeItem("bulbe:cart"); } catch {}
-    try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
-
-    window.location.href = "../carrinhovazio/carrinhovazio.html";
-    return; // não precisa atualizar mais nada
-  }
-
-  // 6) Se ainda tiver produto, só atualiza estados
+  // 5) Atualizar "selecionar tudo" + resumos
   atualizarSelecionarTudoEstado();
   atualizarResumo();
   atualizarResumoSelecionados();
 }
 
-
-
-
 /* ======================================================
    TOTAL GERAL (fora da barra dos selecionados)
    ====================================================== */
 function atualizarResumo() {
-  const qtdLamp = produtos.lampada.quantidade;
+  const qtdLamp   = produtos.lampada.quantidade;
   const valorLamp = produtos.lampada.preco * qtdLamp;
   document.querySelectorAll("#quantidadeResumoLampada").forEach((el) => (el.textContent = String(qtdLamp)));
   document.querySelectorAll("#precoResumoLampada").forEach((el) => (el.textContent = moedaBR(valorLamp)));
 
-  const qtdParaf = produtos.parafusadeira.quantidade;
+  const qtdParaf   = produtos.parafusadeira.quantidade;
   const valorParaf = produtos.parafusadeira.preco * qtdParaf;
   document.querySelectorAll("#quantidadeResumoParafusadeira").forEach((el) => (el.textContent = String(qtdParaf)));
   document.querySelectorAll("#precoResumoParafusadeira").forEach((el) => (el.textContent = moedaBR(valorParaf)));
@@ -323,37 +280,42 @@ function atualizarResumo() {
    RESUMO (BARRA INFERIOR) — APENAS SELECIONADOS
    ====================================================== */
 function atualizarResumoSelecionados() {
-  const resumo = document.getElementById("resumoCarrinho");
+  const chavesSel = Object.keys(produtos).filter((k) => selecionados[k]);
+
+  let qtdTotalSel = 0;
+  let subtotalSel = 0;
+  chavesSel.forEach((k) => {
+    const q = Number(produtos[k].quantidade || 0);
+    const p = Number(produtos[k].preco || 0);
+    qtdTotalSel += q;
+    subtotalSel += p * q;
+  });
+
+  const qtdResumo   = document.getElementById("quantidadeResumo");
+  const precoResumo = document.getElementById("precoResumo");
+  const totalResumo = document.getElementById("totalResumo");
+  if (qtdResumo)   qtdResumo.textContent   = String(qtdTotalSel);
+  if (precoResumo) precoResumo.textContent = moedaBR(subtotalSel);
+  if (totalResumo) totalResumo.textContent = moedaBR(subtotalSel);
+
   const tituloResumo = document.getElementById("tituloResumo");
-  const imagemResumo = resumo.querySelector(".item-resumo img");
-  const precoResumo = document.getElementById("totalResumo");
+  const miniImg      = document.querySelector("#resumoCarrinho .item-resumo img");
 
-  // Sempre pega o item do localStorage
-  const cart = loadCart();
-  const lastId = getLastId();
-  const item = (lastId && cart.find(it => it.id === lastId)) || cart[0];
-
-  if (!item) {
-    // Se não tiver nada no storage → esconde
-    tituloResumo.textContent = "";
-    imagemResumo.src = "";
-    precoResumo.textContent = "R$0,00";
+  if (chavesSel.length) {
+    const first = chavesSel[0];
+    const card  = document.querySelector(`article.cartao-produto[data-produto="${first}"]`);
+    const tituloCard = produtos[first]?.titulo || card?.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "Produto";
+    const imgCard    = card?.querySelector(".imagem-produto img, .img img, picture img, img");
+    const src        = imgCard?.getAttribute("src") || "./assets/img/lamp.svg";
+    if (tituloResumo) tituloResumo.textContent = String(tituloCard).trim();
+    if (miniImg) { miniImg.src = src; miniImg.alt = String(tituloCard).trim(); }
+    mostrarItensResumo(true);
+  } else {
+    if (tituloResumo) tituloResumo.textContent = "";
+    if (miniImg) { miniImg.src = ""; miniImg.alt = ""; }
     mostrarItensResumo(false);
-    return;
   }
-
-  // MOSTRA O ITEM NO MINI-RESUMO MESMO SEM SELECIONAR
-  tituloResumo.textContent = item.title;
-  imagemResumo.src = resolverImgParaCarrinho(item.img);
-  imagemResumo.alt = item.title;
-
-  const subtotal = Number(item.price) * Number(item.qty);
-  precoResumo.textContent = moedaBR(subtotal);
-
-  // Exibe os itens do resumo
-  mostrarItensResumo(true);
 }
-
 
 /* ======================================================
    CARROSSEL E CONTINUAR (fade+redirect)
@@ -381,9 +343,9 @@ document.addEventListener("DOMContentLoaded", function () {
    IMPORTAÇÃO E PERSISTÊNCIA (lâmpada como template)
    ====================================================== */
 function aplicarLampadaDoCarrinho() {
-  const cart = loadCart();
+  const cart   = loadCart();
   const lastId = getLastId();
-  const item = (lastId && cart.find((it) => it.id === lastId)) || cart[0];
+  const item   = (lastId && cart.find((it) => it.id === lastId)) || cart[0];
   if (!item) return false;
 
   const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
@@ -392,13 +354,13 @@ function aplicarLampadaDoCarrinho() {
   // Garante que o card apareça se estava oculto pelo "carrinho vazio"
   lamp.style.display = "";
 
-  const imgEl = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
-  const titleEl = lamp.querySelector(".titulo-produto, .title, h3, h2");
-  const priceEl = lamp.querySelector(".valor-produto, .price, [data-preco]");
-  const qtdEl = lamp.querySelector("[data-quantidade], .qtd, .quantidade");
+  const imgEl      = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
+  const titleEl    = lamp.querySelector(".titulo-produto, .title, h3, h2");
+  const priceEl    = lamp.querySelector(".valor-produto, .price, [data-preco]");
+  const qtdEl      = lamp.querySelector("[data-quantidade], .qtd, .quantidade");
   const unidadesEl = lamp.querySelector(".texto-unidades, .units, .info-qtd");
 
-  if (imgEl) { imgEl.src = resolverImgParaCarrinho(item.img); imgEl.alt = item.alt || item.title || "Produto"; }
+  if (imgEl)   { imgEl.src = resolverImgParaCarrinho(item.img); imgEl.alt = item.alt || item.title || "Produto"; }
   if (titleEl) { titleEl.innerHTML = (item.title || "Produto").replace(/\s{2,}/g, " "); }
   if (priceEl) {
     const unit = Number(item.price || 0);
@@ -406,12 +368,12 @@ function aplicarLampadaDoCarrinho() {
     priceEl.textContent = moedaBR(unit);
   }
   const q = Number(item.qty || 1);
-  if (qtdEl) qtdEl.textContent = String(q);
+  if (qtdEl)  qtdEl.textContent = String(q);
   if (unidadesEl) unidadesEl.textContent = `(${q} unidade${q > 1 ? "s" : ""})`;
 
   if (produtos.lampada) {
-    produtos.lampada.titulo = item.title || produtos.lampada.titulo;
-    produtos.lampada.preco = Number(item.price || produtos.lampada.preco);
+    produtos.lampada.titulo     = item.title || produtos.lampada.titulo;
+    produtos.lampada.preco      = Number(item.price || produtos.lampada.preco);
     produtos.lampada.quantidade = q;
   }
 
@@ -423,23 +385,23 @@ function syncLampadaToStorageFromUI() {
   const card = document.querySelector('article.cartao-produto[data-produto="lampada"]');
   if (!card) return;
 
-  const title = (card.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
+  const title   = (card.querySelector(".titulo-produto, .title, h3, h2")?.textContent || "").trim();
   const priceEl = card.querySelector(".valor-produto, .price, [data-preco]");
-  const qtyEl = card.querySelector("[data-quantidade], .qtd, .quantidade");
+  const qtyEl   = card.querySelector("[data-quantidade], .qtd, .quantidade");
 
   const unit = priceEl?.dataset?.preco
     ? Number(priceEl.dataset.preco)
     : Number((priceEl?.textContent || "0").replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", "."));
-  const qty = Math.max(1, parseInt(qtyEl?.textContent || "1", 10) || 1);
+  const qty  = Math.max(1, parseInt(qtyEl?.textContent || "1", 10) || 1);
 
   const id = `${String(title).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(unit || 0).toFixed(2)}`;
 
   const cart = loadCart();
-  const ix = cart.findIndex((it) => it.id === id);
+  const ix   = cart.findIndex((it) => it.id === id);
 
   const imgEl = card.querySelector(".imagem-produto img, .img img, picture img, img");
-  const img = imgEl?.getAttribute("src") || "";
-  const alt = imgEl?.getAttribute("alt") || title;
+  const img   = imgEl?.getAttribute("src") || "";
+  const alt   = imgEl?.getAttribute("alt") || title;
 
   if (ix >= 0) {
     cart[ix].qty = qty;
@@ -462,13 +424,13 @@ function inicializarCarrinhoVazioSeNecessario() {
 
   // Zera quantidades internas e oculta cards padrão
   const cLamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
-  const cPar = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
+  const cPar  = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
 
   produtos.lampada.quantidade = 0;
   produtos.parafusadeira.quantidade = 0;
 
-  if (cLamp) { cLamp.style.display = "none"; cLamp.classList.remove("is-selecionado"); const cb = cLamp.querySelector(".selecao-individual"); if (cb) cb.checked = false; updateTriggerA11y(cLamp, false); }
-  if (cPar) { cPar.style.display = "none"; cPar.classList.remove("is-selecionado"); const cb = cPar.querySelector(".selecao-individual"); if (cb) cb.checked = false; updateTriggerA11y(cPar, false); }
+  if (cLamp) { cLamp.style.display = "none"; cLamp.classList.remove("is-selecionado"); const cb = cLamp.querySelector(".selecao-individual"); if (cb) cb.checked=false; updateTriggerA11y(cLamp, false); }
+  if (cPar)  { cPar.style.display  = "none"; cPar.classList.remove("is-selecionado");  const cb = cPar.querySelector(".selecao-individual");  if (cb) cb.checked=false;  updateTriggerA11y(cPar,  false); }
 
   selecionados.lampada = false;
   selecionados.parafusadeira = false;
@@ -484,7 +446,7 @@ function ensureParafusadeiraNaoAutoCarrega() {
   const cardPar = document.querySelector('article.cartao-produto[data-produto="parafusadeira"]');
   if (!cardPar) return;
   const cart = loadCart();
-  const existsInCart = cart.some(it => (it.title || "").toLowerCase().includes("parafusadeira"));
+  const existsInCart = cart.some(it => (it.title||"").toLowerCase().includes("parafusadeira"));
   if (!existsInCart) {
     produtos.parafusadeira.quantidade = 0;
     const cb = cardPar.querySelector(".selecao-individual"); if (cb) cb.checked = false;
@@ -492,20 +454,6 @@ function ensureParafusadeiraNaoAutoCarrega() {
     updateTriggerA11y(cardPar, false);
     cardPar.style.display = "none";
   }
-}
-/* ======================================================
-   REMOVE PARAFUSADEIRA DO RESUMO INFERIOR — DEFINITIVO
-   ====================================================== */
-function removerParafusadeiraResumo() {
-  const itensResumo = document.querySelectorAll(".item-resumo");
-
-  itensResumo.forEach(item => {
-    const titulo = item.querySelector("strong")?.textContent?.toLowerCase() || "";
-
-    if (titulo.includes("parafusadeira") || titulo.includes("ppf120")) {
-      item.remove();
-    }
-  });
 }
 
 /* ======================================================
@@ -523,13 +471,13 @@ function importarDoLocalStorage() {
         const lamp = document.querySelector('article.cartao-produto[data-produto="lampada"]');
         if (lamp) {
           lamp.style.display = ""; // garantir visibilidade SÓ do lampada
-          const imgEl = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
-          const titleEl = lamp.querySelector(".titulo-produto, .title, h3, h2");
-          const priceEl = lamp.querySelector(".valor-produto, .price, [data-preco]");
-          const qtdEl = lamp.querySelector("[data-quantidade], .qtd, .quantidade");
+          const imgEl      = lamp.querySelector(".imagem-produto img, .img img, picture img, img");
+          const titleEl    = lamp.querySelector(".titulo-produto, .title, h3, h2");
+          const priceEl    = lamp.querySelector(".valor-produto, .price, [data-preco]");
+          const qtdEl      = lamp.querySelector("[data-quantidade], .qtd, .quantidade");
           const unidadesEl = lamp.querySelector(".texto-unidades, .units, .info-qtd");
 
-          if (imgEl) { imgEl.src = resolverImgParaCarrinho(incoming.img); imgEl.alt = incoming.alt || incoming.title || "Produto"; }
+          if (imgEl)   { imgEl.src = resolverImgParaCarrinho(incoming.img); imgEl.alt = incoming.alt || incoming.title || "Produto"; }
           if (titleEl) { titleEl.innerHTML = (incoming.title || "Produto").replace(/\s{2,}/g, " "); }
           if (priceEl) {
             const unit = Number(incoming.price || 0);
@@ -537,25 +485,19 @@ function importarDoLocalStorage() {
             priceEl.textContent = moedaBR(unit);
           }
           const q = Number(incoming.qty || 1);
-          if (qtdEl) qtdEl.textContent = String(q);
+          if (qtdEl)  qtdEl.textContent = String(q);
           if (unidadesEl) unidadesEl.textContent = `(${q} unidade${q > 1 ? "s" : ""})`;
 
-          produtos.lampada.titulo = incoming.title || produtos.lampada.titulo;
-          produtos.lampada.preco = Number(incoming.price || produtos.lampada.preco);
+          produtos.lampada.titulo     = incoming.title || produtos.lampada.titulo;
+          produtos.lampada.preco      = Number(incoming.price || produtos.lampada.preco);
           produtos.lampada.quantidade = Number(incoming.qty || 1);
-          // --- ATUALIZA TODAS AS IMAGENS DO RESUMO INFERIOR ---
-          document.querySelectorAll(".item-resumo img").forEach(img => {
-            img.src = resolverImgParaCarrinho(incoming.img);
-            img.alt = incoming.title || "Produto";
-          });
 
-
-          const id = `${String(produtos.lampada.titulo).toLowerCase().replace(/\s+/g, " ").slice(0, 200)}|${Number(produtos.lampada.preco || 0).toFixed(2)}`;
+          const id  = `${String(produtos.lampada.titulo).toLowerCase().replace(/\s+/g, " ").slice(0,200)}|${Number(produtos.lampada.preco||0).toFixed(2)}`;
           const img = resolverImgParaCarrinho(incoming.img || "");
           const alt = incoming.alt || incoming.title || produtos.lampada.titulo;
 
           const cart = loadCart();
-          const ix = cart.findIndex((it) => it.id === id);
+          const ix   = cart.findIndex((it) => it.id === id);
           if (ix >= 0) cart[ix].qty = Number(incoming.qty || 1);
           else cart.push({ id, title: produtos.lampada.titulo, price: produtos.lampada.preco, img, alt, qty: Number(incoming.qty || 1) });
 
@@ -563,7 +505,7 @@ function importarDoLocalStorage() {
           setLastId(id);
         }
       }
-    } catch { }
+    } catch {}
   }
 
   atualizarResumo();
@@ -575,14 +517,31 @@ function importarDoLocalStorage() {
    ====================================================== */
 document.getElementById("botaoLimpar")?.addEventListener("click", limparCarrinho);
 function limparCarrinho() {
-  // Zera o storage REAL
-  try { localStorage.removeItem("bulbe:cart"); } catch { }
-  try { localStorage.removeItem("bulbe:lastAddedId"); } catch { }
+  // Mantém comportamento anterior (quantidade volta a 1 nos cards presentes)
+  produtos.lampada.quantidade       = 1;
+  produtos.parafusadeira.quantidade = 1;
 
-  // Redireciona para o carrinho vazio
-  window.location.href = "../carrinhovazio/carrinhovazio.html";
+  document.querySelectorAll('[data-produto="lampada"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
+  document.querySelectorAll('[data-produto="parafusadeira"] [data-quantidade]').forEach((el) => (el.textContent = "1"));
+  document.querySelectorAll('[data-produto="lampada"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
+  document.querySelectorAll('[data-produto="parafusadeira"] .texto-unidades').forEach((el) => (el.textContent = "(1 unidade)"));
+
+  try { localStorage.removeItem("bulbe:cart"); } catch {}
+  try { localStorage.removeItem("bulbe:lastAddedId"); } catch {}
+
+  document.querySelectorAll("article.cartao-produto").forEach(card => {
+    const cb = card.querySelector(".selecao-individual");
+    if (cb) cb.checked = false;
+    card.classList.remove("is-selecionado");
+    updateTriggerA11y(card, false); // volta rótulo para “Selecionar”
+  });
+  selecionados.lampada = false;
+  selecionados.parafusadeira = false;
+
+  atualizarSelecionarTudoEstado();
+  atualizarResumo();
+  atualizarResumoSelecionados(); // oculta bloco de itens do resumo
 }
-
 
 /* ======================================================
    EVENTOS: “Selecionar/Selecionado” com TOGGLE
@@ -596,7 +555,7 @@ function onClickSelecionar(e) {
 
   e.preventDefault();
 
-  const card = trigger.closest("article.cartao-produto");
+  const card  = trigger.closest("article.cartao-produto");
   const chave = card?.dataset.produto;
   if (!chave || !(chave in produtos)) return;
 
@@ -659,7 +618,7 @@ function bindCheckboxesSelecao() {
 function syncSelectionFromCheckboxes() {
   // Sincroniza somente visíveis para o estado do "selecionar tudo"
   getVisibleCards().forEach((card) => {
-    const k = card.dataset.produto;
+    const k  = card.dataset.produto;
     if (!k || !(k in produtos)) return;
     const cb = card.querySelector(".selecao-individual");
     const isOn = cb ? !!cb.checked : false;
@@ -669,21 +628,6 @@ function syncSelectionFromCheckboxes() {
   });
   atualizarSelecionarTudoEstado();
   atualizarResumoSelecionados();
-}
-/* ======================================================
-   REMOVE PARA FUSADIERA DO RESUMO INFERIOR — DEFINITIVO
-   ====================================================== */
-
-function removerParafusadeiraResumo() {
-  const itensResumo = document.querySelectorAll(".item-resumo");
-
-  itensResumo.forEach(item => {
-    const titulo = item.querySelector("strong")?.textContent?.toLowerCase() || "";
-
-    if (titulo.includes("parafusadeira") || titulo.includes("ppf120")) {
-      item.remove();
-    }
-  });
 }
 
 /* ======================================================
@@ -704,19 +648,14 @@ function init() {
   if (selecionarTudo) { selecionarTudo.checked = false; selecionarTudo.indeterminate = false; }
 
   // Carrinho vazio por padrão (se não houver storage/payload)
-
+  inicializarCarrinhoVazioSeNecessario();
 
   // Garante que parafusadeira não apareça indevidamente
-
-  // Carrinho vazio por padrão (se não houver storage/payload)
-  importarDoLocalStorage();
-  inicializarCarrinhoVazioSeNecessario();
-  importarDoLocalStorage();
-  // Garante que parafusadeira não apareça indevidamente       
   ensureParafusadeiraNaoAutoCarrega();
+
   bindCheckboxesSelecao();
   ativarContadores();
-
+  importarDoLocalStorage();
 
   // Delegação única
   document.addEventListener("click", onClickSelecionar);
@@ -741,9 +680,9 @@ window.addEventListener("pageshow", (ev) => {
     atualizarResumoSelecionados();
   }
 });
-// 
+// Corrigido: carrinho certo
 const cart = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
 
-// if (cart.length === 0) {
-//   window.location.href = "../carrinhovazio/carrinhovazio.html";
-// }
+if (cart.length > 0) {
+  window.location.href = "../carrinhos/carrinho.html";
+}

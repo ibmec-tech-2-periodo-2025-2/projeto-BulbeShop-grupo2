@@ -5,7 +5,7 @@
 /* --------- Caminhos de imagens --------- */
 const IMG_BASE           = "/altafidelidade/produto/img/";
 const IMG_HEART_OUTLINE  = IMG_BASE + "heart-outline.png";
-const IMG_HEART_FILLED   = IMG_BASE + "Exclude.png"; // coração cheio // coração cheio (laranja)
+const IMG_HEART_FILLED   = IMG_BASE + "Exclude.png";
 
 /* =========================================================
    Header condensado no scroll
@@ -52,24 +52,24 @@ wireSearch(document.querySelector(".search"));
 wireSearch(document.querySelector(".search--condensed"));
 
 /* =========================================================
-   Galeria
+   Galeria de imagens
    ========================================================= */
 (() => {
   const img  = document.getElementById("gallery-img");
   const dots = document.querySelectorAll(".dots .dot");
   if (!img || !dots.length) return;
+
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
       dots.forEach((d) => d.classList.remove("is-active"));
       dot.classList.add("is-active");
-      const src = dot.getAttribute("data-src");
-      if (src) img.src = src;
+      img.src = dot.getAttribute("data-src");
     });
   });
 })();
 
 /* =========================================================
-   Chips (cor/voltagem)
+   Chips (cor / voltagem)
    ========================================================= */
 document.querySelectorAll(".variations .choices").forEach((group) => {
   const chips = group.querySelectorAll(".chip");
@@ -88,30 +88,12 @@ document.querySelectorAll(".variations .choices").forEach((group) => {
   const sel = document.getElementById("qty-select");
   const lab = document.getElementById("qty-label");
   if (!sel || !lab) return;
+
   sel.addEventListener("change", () => (lab.textContent = sel.value));
 })();
 
 /* =========================================================
-   Comprar / Adicionar (demo)
-   ========================================================= */
-const getSelection = () => ({
-  color:   document.querySelector('[data-variation="color"] .chip.is-active')?.textContent?.trim(),
-  voltage: document.querySelector('[data-variation="voltage"] .chip.is-active')?.textContent?.trim(),
-  qty:     document.getElementById("qty-select")?.value || 1
-});
-
-document.getElementById("btn-buy")?.addEventListener("click", () => {
-  const s = getSelection();
-  alert(`Comprar agora:\nCor: ${s.color}\nVoltagem: ${s.voltage}\nQtd: ${s.qty}`);
-});
-
-document.getElementById("btn-add")?.addEventListener("click", () => {
-  const s = getSelection();
-  alert(`Adicionado ao carrinho:\nCor: ${s.color}\nVoltagem: ${s.voltage}\nQtd: ${s.qty}`);
-});
-
-/* =========================================================
-   Snackbar (toast)
+   Toast (snackbar)
    ========================================================= */
 function showToast(msg) {
   const el = document.getElementById("snackbar");
@@ -123,89 +105,50 @@ function showToast(msg) {
 }
 
 /* =========================================================
-   Likes (Curtidos) com persistência localStorage
+   Likes (favoritos)
    ========================================================= */
 const LS_KEY_LIKES = "bulbe_likes_v1";
 
-/* Lê o conjunto de curtidos */
 function getLikes() {
   try {
-    const raw = localStorage.getItem(LS_KEY_LIKES);
-    return raw ? new Set(JSON.parse(raw)) : new Set();
+    return new Set(JSON.parse(localStorage.getItem(LS_KEY_LIKES)) || []);
   } catch {
     return new Set();
   }
 }
-
-/* Salva o conjunto de curtidos */
 function setLikes(set) {
-  try {
-    localStorage.setItem(LS_KEY_LIKES, JSON.stringify(Array.from(set)));
-  } catch {}
+  localStorage.setItem(LS_KEY_LIKES, JSON.stringify(Array.from(set)));
 }
-
-/* Verifica se id está curtido */
 function isLiked(id) {
   return getLikes().has(id);
 }
-
-/* Define estado de curtido para um id */
-function setLike(id, liked) {
-  const set = getLikes();
-  if (liked) set.add(id);
-  else set.delete(id);
-  setLikes(set);
-}
-
-/* Pinta o coração e ajusta acessibilidade */
 function paintHeart(btn, liked) {
   btn.src = liked ? IMG_HEART_FILLED : IMG_HEART_OUTLINE;
-  btn.dataset.on = liked ? "1" : "0";
-  btn.setAttribute("aria-pressed", liked ? "true" : "false");
 }
+function toggleLike(btn) {
+  const id = btn.dataset.likeId || btn.id;
+  const set = getLikes();
+  const liked = !set.has(id);
+  if (liked) set.add(id);
+  else set.delete(id);
 
-/* Alterna curtido de um botão específico */
-function toggleLike(btn, announce = true) {
-  const id = btn.getAttribute("data-like-id") || btn.id || Math.random().toString(36).slice(2);
-  const liked = !isLiked(id);
-  setLike(id, liked);
+  setLikes(set);
   paintHeart(btn, liked);
-  if (announce) {
-    showToast(liked ? 'Adicionado aos Curtidos' : 'Removido dos Curtidos');
-  }
+  showToast(liked ? "Adicionado aos Curtidos" : "Removido dos Curtidos");
 }
-
-/* Inicializa todos os botões de curtir */
 function initLikes() {
-  const allHearts = document.querySelectorAll('.btn-fav, #btn-fav');
-  allHearts.forEach((btn) => {
-    // Estado inicial conforme localStorage
-    const id = btn.getAttribute("data-like-id") || btn.id || "";
-    const liked = id ? isLiked(id) : false;
-    paintHeart(btn, liked);
-
-    // Clique
-    btn.style.cursor = "pointer";
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      toggleLike(btn, true);
-    });
-
-    // Teclado (Enter/Espaço)
-    btn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleLike(btn, true);
-      }
-    });
+  const all = document.querySelectorAll(".btn-fav");
+  all.forEach((btn) => {
+    paintHeart(btn, isLiked(btn.dataset.likeId || btn.id));
+    btn.addEventListener("click", () => toggleLike(btn));
   });
 }
 initLikes();
 
 /* =========================================================
-   Rating inline (estrelas parcialmente preenchidas)
+   Rating (estrelas)
    ========================================================= */
-(function applyInlineRating() {
+(() => {
   document.querySelectorAll(".rating-inline").forEach((b) => {
     const rating = Math.max(0, Math.min(5, parseFloat(b.dataset.rating || "0")));
     const count  = parseInt(b.dataset.count || "0", 10);
@@ -214,10 +157,59 @@ initLikes();
     const cnt    = b.querySelector(".rating-count");
 
     if (stars) {
-      const pct = Math.min(99.4, (rating / 5) * 100); // >99% vira 100% visual, então limito um pouco
-      stars.style.setProperty("--percent", pct.toFixed(2));
+      stars.style.setProperty("--percent", ((rating / 5) * 100).toFixed(1));
     }
     if (num) num.textContent = rating.toFixed(1).replace(".", ",");
     if (cnt) cnt.textContent = `(${count})`;
   });
 })();
+
+/* =========================================================
+   Ícone do carrinho no header
+   ========================================================= */
+const botaoCarrinho = document.getElementById("btnCarrinho");
+
+if (botaoCarrinho) {
+  botaoCarrinho.addEventListener("click", () => {
+    const carrinho = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
+
+    if (carrinho.length === 0) {
+      window.location.href = "/altafidelidade/carrinhovazio/carrinhovazio.html";
+    } else {
+      window.location.href = "/altafidelidade/carrinhos/carrinho.html";
+    }
+  });
+}
+
+/* =========================================================
+   ADICIONAR AO CARRINHO — SISTEMA REAL
+   ========================================================= */
+const PRODUTO_ID = "ventilador-bvt301";
+
+document.getElementById("btn-add")?.addEventListener("click", () => {
+  let carrinho = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
+
+  const novo = {
+    id: PRODUTO_ID,
+    title: "Ventilador Britânia BVT301",
+    price: 179.90,
+    qty: parseInt(document.getElementById("qty-select").value, 10),
+    cor: document.querySelector('[data-variation="color"] .chip.is-active')?.textContent.trim(),
+    voltagem: document.querySelector('[data-variation="voltage"] .chip.is-active')?.textContent.trim(),
+    img: "./assets/img/image 1.png",
+    alt: "Ventilador Britânia BVT301"
+  };
+
+  const existente = carrinho.find(p => p.id === PRODUTO_ID);
+  if (existente) existente.qty += novo.qty;
+  else carrinho.push(novo);
+
+  localStorage.setItem("bulbe:cart", JSON.stringify(carrinho));
+  localStorage.setItem("bulbe:lastAddedId", PRODUTO_ID);
+
+  showToast("Produto adicionado ao carrinho!");
+
+  setTimeout(() => {
+    location.href = "/altafidelidade/carrinhos/carrinho.html";
+  }, 600);
+});

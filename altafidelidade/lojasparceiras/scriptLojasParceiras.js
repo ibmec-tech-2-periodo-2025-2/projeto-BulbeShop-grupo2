@@ -97,3 +97,22 @@ document.querySelectorAll('.icon-btn').forEach(btn => {
         btn.classList.toggle('active');
     });
 });
+
+// === BOTÃO DO CARRINHO NO HEADER ===
+const botaoCarrinho = document.getElementById("btnCarrinho");
+
+if (botaoCarrinho) {
+  botaoCarrinho.addEventListener("click", () => {
+
+    // Agora busca no carrinho verdadeiro
+    const carrinho = JSON.parse(localStorage.getItem("bulbe:cart")) || [];
+
+    if (carrinho.length === 0) {
+      // Carrinho vazio
+      window.location.href = "/altafidelidade/carrinhovazio/carrinhovazio.html";
+    } else {
+      // Carrinho cheio
+      window.location.href = "/altafidelidade/carrinhos/carrinho.html";
+    }
+  });
+}

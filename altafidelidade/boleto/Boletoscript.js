@@ -1,9 +1,4 @@
-// Botão "Concluir compra" -> ir para outra página
-const btnConcluir = document.getElementById("btnConcluir");
-btnConcluir?.addEventListener("click", () => {
-    // Troque o caminho abaixo pelo HTML que você quiser
-    window.location.href = "altafidelidade/processando compra/html/index.html";
-});
+
 
 // Abrir modal ao clicar em "Não recebi o boleto"
 const btnNaoRecebi = document.getElementById("btnNaoRecebi");
@@ -37,4 +32,13 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !modal.hidden) {
         fecharModal();
     }
+});
+
+// Botão "Concluir compra" -> ir para página final
+const btnConcluir = document.getElementById("btnConcluir");
+
+btnConcluir?.addEventListener("click", () => {
+
+    window.location.href = "/altafidelidade/pagamento e recusado/status-recusada.html"
+    ;
 });

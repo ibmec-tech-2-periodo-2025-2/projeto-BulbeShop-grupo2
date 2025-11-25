@@ -278,15 +278,6 @@ body {
   box-shadow: 0 0 0 4px rgba(230, 241, 254, 0.4);
 }
 
-.etiqueta-oferta {
-  display: inline-block;
-  background: #e0fbe5;
-  color: #0f7b3e;
-  font-weight: 800;
-  padding: 6px 12px;
-  border-radius: 999px;
-  margin-bottom: 8px;
-}
 
 /* ======== CARROSSEL ======== */
 .carrossel {
@@ -629,6 +620,150 @@ body {
   background: #fff;
   cursor: pointer;
 }
+/* ===========================
+   CARRINHO VAZIO (Bulbe)
+   =========================== */
+
+.carrinho-vazio {
+  width: 100%;
+  background: #0B3FAE; /* azul do banner */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 4px rgba(230,241,254,0.4);
+  margin-bottom: 20px;
+}
+
+.carrinho-vazio .img-vazio {
+  width: 100%;
+  display: block;
+  border-bottom: 4px solid #002B84; /* azul mais escuro */
+}
+
+.texto-vazio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  background: #002B84;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.texto-vazio .icone-user {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+.icone-user{
+  border: 0;
+  background: transparent;
+  
+  ;}
+
+
+  /* REMOVE qualquer interferência da caixa de seleção dentro do banner vazio */
+.carrinho-vazio * {
+  all: unset;
+  display: revert;
+  box-sizing: border-box;
+}
+
+/* Reaplica estilos apenas do container */
+.carrinho-vazio {
+  background: #003A99;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 4px rgba(230,241,254,0.4);
+}
+
+.carrinho-vazio .img-vazio {
+  width: 100%;
+  display: block;
+}
+
+.texto-vazio {
+  background: #002B84;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.texto-vazio .icone-vazio {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  margin-top: 20px;
+}
+
+.logo-final img {
+  width: 180px; /* ajuste como quiser */
+  height: auto;
+  opacity: 0.9;
+}
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 80px; /* empurra bem para baixo */
+  margin-top: 20px;
+}
+
+.logo-final img {
+  width: 120px;  /* ficou menor */
+  height: auto;
+  opacity: 0.9;
+}
+/* Container principal vira uma coluna flexível */
+.conteudo-principal {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px); /* ocupa quase a tela toda */
+  padding-bottom: 160px; /* cria muito espaço branco */
+}
+
+
+/* Remove o buraco gigante do fundo */
+.conteudo-principal {
+  display: block !important;
+  padding-bottom: 40px !important; /* ajuste pequeno e controlado */
+  min-height: unset !important;
+}
+
+/* Logo FINAL — versão única */
+.logo-final {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;       /* espaço logo após o carrossel */
+  padding: 16px 0 24px;   /* espaço até a bordinha inferior */
+}
+
+.logo-final img {
+  width: 150px;  /* tamanho ideal */
+  height: auto;
+  opacity: 0.95;
+}
+.selecao-geral {
+  display: none !important;
+}
+
+
+
 /* TAG OFERTA — pequena, fina e sem empurrar nada */
 .cartao-mini {
   position: relative; /* necessário para posicionamento absoluto */
@@ -672,21 +807,4 @@ body {
   display: inline-block;
   line-height: 1;
   white-space: nowrap;
-}
-  .imagem-produto {
-    width: 120px;
-    height: 120px;
-    background: #fff;
-    border: 1px solid var(--cinza-100);
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.imagem-produto img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* mantém proporção */
-    padding: 6px;        /* evita encostar nas bordas */
 }
