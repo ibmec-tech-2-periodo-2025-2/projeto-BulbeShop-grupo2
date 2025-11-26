@@ -938,12 +938,12 @@ body {
 
 .banner-carousel {
     position: relative;
-    width: 100%;
-    height: 200px;
-    /* Ajuste conforme seu banner */
+    width: 95%;          /* segue o padrão de outros containers (search, nav, etc.) */
+    max-width: 980px;    /* limite semelhante ao banner antigo/produtos */
+    height: 200px;       /* mantém a altura que você já definiu */
     overflow: hidden;
     border-radius: 20px;
-    margin: 16px auto;
+    margin: 16px auto 24px; /* centralizado e com respiro embaixo */
 }
 
 .carousel-track {
