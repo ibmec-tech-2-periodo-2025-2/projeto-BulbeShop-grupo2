@@ -932,3 +932,45 @@ body {
 .card[style*="block"] {
     transform: scale(1.02);
 }
+
+/* FUNDO ESCURO */
+.menu-categorias {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* QUANDO ABERTO */
+.menu-categorias.aberto {
+    display: flex !important;
+}
+
+/* CONTEÚDO CENTRAL */
+.menu-content {
+    background: white;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    animation: fadeIn .3s ease;
+}
+
+/* BOTÃO FECHAR */
+#fechar-menu {
+    background: none;
+    border: none;
+    font-size: 22px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}

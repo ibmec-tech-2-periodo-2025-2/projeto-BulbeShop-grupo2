@@ -196,3 +196,31 @@ document.querySelectorAll(".categoria").forEach((item) => {
         if (url) window.location.href = url;
     });
 });
+
+/* =========================================================
+   MENU OCULTO - CATEGORIAS
+   ========================================================= */
+const btnCategorias = document.getElementById("btn-categorias");
+const menuCategorias = document.getElementById("menu-categorias");
+const fecharMenu = document.getElementById("fechar-menu");
+const overlay = document.getElementById("overlay");
+
+function abrirMenuCategorias() {
+    if (!menuCategorias) return;
+    menuCategorias.classList.add("aberto");
+    overlay?.classList.add("ativo");
+}
+
+function fecharMenuCategorias() {
+    if (!menuCategorias) return;
+    menuCategorias.classList.remove("aberto");
+    overlay?.classList.remove("ativo");
+}
+
+btnCategorias?.addEventListener("click", (e) => {
+    e.preventDefault(); // evita scroll pro topo por causa do href="#"
+    abrirMenuCategorias();
+});
+
+fecharMenu?.addEventListener("click", fecharMenuCategorias);
+overlay?.addEventListener("click", fecharMenuCategorias);

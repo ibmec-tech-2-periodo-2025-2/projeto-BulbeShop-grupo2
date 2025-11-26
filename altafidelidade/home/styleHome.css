@@ -933,12 +933,14 @@ body {
 .card[style*="block"] {
     transform: scale(1.02);
 }
+
 /* ===== CARROSSEL DE IMAGENS ===== */
 
 .banner-carousel {
     position: relative;
     width: 100%;
-    height: 200px;         /* Ajuste conforme seu banner */
+    height: 200px;
+    /* Ajuste conforme seu banner */
     overflow: hidden;
     border-radius: 20px;
     margin: 16px auto;
@@ -953,9 +955,15 @@ body {
 .banner-carousel .slide:nth-child(3) {
     height: auto !important;
     object-fit: contain !important;
-    background: #fff; /* ou a cor do seu layout */
+    background: #fff;
+    /* ou a cor do seu layout */
 }
-
+.banner-carousel .slide:nth-child(2) {
+    height: auto !important;
+    object-fit: contain !important;
+    background: #fff;
+    /* ou a cor do seu layout */
+}
 .banner-carousel .slide {
     position: absolute;
     inset: 0;
@@ -978,7 +986,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     border: none;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     color: #fff;
     width: 25px;
     height: 25px;
@@ -1010,7 +1018,7 @@ body {
 .carousel-dots .dot {
     width: 8px;
     height: 8px;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -1019,4 +1027,47 @@ body {
     background: #FFA726;
     width: 14px;
     border-radius: 10px;
+}
+
+
+/* FUNDO ESCURO */
+.menu-categorias {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* QUANDO ABERTO */
+.menu-categorias.aberto {
+    display: flex !important;
+}
+
+/* CONTEÚDO CENTRAL */
+.menu-content {
+    background: white;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    animation: fadeIn .3s ease;
+}
+
+/* BOTÃO FECHAR */
+#fechar-menu {
+    background: none;
+    border: none;
+    font-size: 22px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    font-weight: bold;
 }
