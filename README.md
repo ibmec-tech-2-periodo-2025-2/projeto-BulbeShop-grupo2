@@ -19,6 +19,7 @@ A BulbeShop é um projeto focado em reunir e divulgar produtos em promoção, pe
     Sprint 3: https://www.canva.com/design/DAG3ypPdUBM/jHxBlquvr5xOQCSFf8tD7g/edit?utm_content=DAG3ypPdUBM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton <br>
         - slide de comprovação de daily sprint 3: https://www.canva.com/design/DAG3-EcAliQ/SqCa7380XI0aJ-rJNAwNPw/edit?utm_content=DAG3-EcAliQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton <br>
     Conclusão: https://www.canva.com/design/DAG4zVkg72Q/3EQ_1L7HIGs2SK9_Zb-fOQ/edit?utm_content=DAG4zVkg72Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+    Apresentação final: https://www.canva.com/design/DAG5vC9DmR0/elwWLOSFTnRgEHjAy4cvEQ/edit?utm_content=DAG5vC9DmR0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 
 -Modelo HTMl e CSS:
